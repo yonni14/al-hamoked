@@ -16,8 +16,6 @@
     <meta property="og:url" content="https://alhamoked.co.il/">
     <meta property="og:type" content="website">
 
-
-
     <link rel="canonical" href="https://alhamoked.co.il/">
 
     <link rel="icon" type="image/png" href="images/al-hamoked-logo.png">
@@ -259,7 +257,6 @@
             object-fit: cover;
             border: 2px solid rgba(255, 255, 255, 0.1);
             background-color: rgba(255, 255, 255, 0.05);
-            /* רקע למקרה שהתמונה חסרה */
         }
 
         .speaker-info p {
@@ -462,7 +459,6 @@
             margin: 10px 0 !important;
         }
 
-        /* עיצוב השדות - זה החלק שסידרנו עכשיו */
         .form-group {
             display: flex;
             flex-direction: column;
@@ -481,7 +477,6 @@
             width: 100%;
             padding: 12px 15px;
             background: rgba(0, 0, 0, 0.4);
-            /* כהה במקום לבן */
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 6px;
             color: var(--light-text);
@@ -564,7 +559,6 @@
             font-weight: 700;
         }
 
-        /* מונע מהטופס לקבל רקע כפול כשהוא בתוך ה-Card */
         .motion-box .contact-form {
             background: transparent;
             border: none;
@@ -712,8 +706,6 @@
             <div class="reveal">
 
                 <div class="partners-banner">
-                    <!-- הלוגו של על המוקד והאוניברסיטה, מיושרים לשמאל, בפורמט וקטורי נקי -->
-
                     <img src="images/huji-logo.svg" alt="האוניברסיטה העברית">
                     <img src="images/al-hamoked-logo.png" alt="על המוקד">
                 </div>
@@ -753,10 +745,9 @@
                         <span class="motion-label">הנושא המרכזי</span>
                         <h3 style="font-size: 2.8rem; font-weight: 900;">עתיד ישראל במזרח התיכון</h3>
                         <p style="opacity: 0.8; margin-top: 10px; font-size: 1.2rem; color: var(--accent-red);">+ לחצו
-                            לפרטים על נושא הדיון וארבעת הדוברים</p>
+                            לפרטים על נושא הדיון<span class="draft"> וארבעת הדוברים</span></p>
                     </div>
                     <div style="text-align: left; white-space: nowrap;">
-                        <p><strong></strong></p>
                         <p> מוזיאון הכנסת, ירושלים</p>
                     </div>
                 </div>
@@ -765,8 +756,10 @@
                     <span class="motion-label">נושא הדיון</span>
                     <p class="motion-text">"בית זה יעדיף ישראל עצמאית ביטחונית על פני ישראל המוגנת על ידי בריתות
                         בינלאומיות"</p>
+                        
+                    <p style="font-size: 1.4rem; font-weight: 700; color: var(--accent-red); margin-bottom: 30px;">הדוברים יפורסמו בהמשך.</p>
 
-                    <div class="sides-grid">
+                    <div class="sides-grid draft">
                         <div class="side">
                             <h4>צד הממשלה (בעד)</h4>
                             <div class="speaker">
@@ -845,7 +838,9 @@
                             <p>דיון מעמיק החוקר את מרקם היחסים האסטרטגיים בין המדינות. האם הברית ההיסטורית עומדת בפני
                                 שינוי כיוון דרמטי?</p>
 
-                            <div
+                            <p style="font-weight: 700; color: var(--accent-red); margin: 15px 0;">הדוברים יפורסמו בהמשך.</p>
+
+                            <div class="draft"
                                 style="margin: 20px 0; padding: 20px; background: rgba(0,0,0,0.03); border-radius: 8px;">
                                 <strong style="display:block; margin-bottom: 10px; color: var(--accent-red);"> keynote
                                     speaker:</strong>
@@ -876,8 +871,10 @@
                         <div class="event-details-content">
                             <span class="motion-label">נושא הדיון</span>
                             <p>״ב״ז מאמין כי דמוקרטיה ללא מערכת משפט עצמאית היא ריקה מתוכן״</p>
+                            
+                            <p style="font-weight: 700; color: var(--accent-red); margin: 15px 0;">הדוברים יפורסמו בהמשך.</p>
 
-                            <div style="margin: 20px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="draft" style="margin: 20px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                                 <div style="padding: 15px; background: rgba(0,0,0,0.03); border-radius: 8px;">
                                     <strong style="color: var(--accent-red); display:block; margin-bottom:10px;">צד
                                         א'</strong>
@@ -930,8 +927,6 @@
             </div>
         </div>
     </section>
-
-   </section>
 
     <section id="contact" class="section-dark">
         <div class="container reveal">
@@ -999,4 +994,4 @@
     </script>
 </body>
 
-</html> 
+</html>
