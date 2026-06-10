@@ -610,9 +610,9 @@
             }
 
             #hero {
-                padding-top: 15vh;
+                padding-top: 120px; /* מייצר רווח נקי מראש הדף כדי שהטקסט לא יעלה על הלוגואים */
                 text-align: center;
-                align-items: center;
+                align-items: flex-start; /* מבטל את המרכוז האנכי ומושך את הכל למעלה */
             }
 
             .btn {
@@ -620,25 +620,26 @@
                 padding: 18px 20px;
             }
 
-            .hero-sub {
+           .hero-sub {
                 font-size: 1.3rem;
-                margin-bottom: 30px;
+                margin-bottom: 120px; /* הגדלנו מ-30 כדי לדחוף את הכפתור והטקסט שלו חזק למטה */
                 text-align: center;
             }
 
             .partners-banner {
-                position: relative;
-                top: 0;
+                position: absolute; /* מדביק את הלוגואים לקצה העליון בנפרד מהטקסט */
+                top: 25px; /* המרחק המדויק מראש המסך */
                 left: 0;
+                right: 0;
                 display: flex;
-                flex-direction: row;        /* משנה את הסידור לרוחב (שורה) במקום טור */
-                flex-wrap: wrap;            /* מאפשר ללוגואים לרדת שורה אם המסך צר מדי */
-                justify-content: center;    /* ממרכז את הלוגואים */
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
                 align-items: center;
-                gap: 20px;                  /* רווח קבוע בין הלוגואים */
-                margin: 20px auto 40px auto; /* מרחקים נקיים מהקצוות ומהטקסט שמתחת */
+                gap: 15px; /* צמצום קל של הרווח כדי שיכנסו טוב יותר */
+                margin: 0 auto;
                 width: 100%;
-                padding: 0 10px;
+                padding: 0 15px;
             }
 
             .partners-banner img {
@@ -668,8 +669,9 @@
                 font-size: 2.5rem;
             }
 
-            .vision-block p {
+           .vision-block p {
                 font-size: 1.3rem !important;
+                padding: 0 25px; /* מוסיף 25 פיקסלים של אוויר מימין ומשמאל */
             }
 
             .featured-card {
@@ -783,12 +785,13 @@
                 <h2 class="vision-title">האמת נחשפת בקונפליקט.</h2>
                 <p
                     style="font-size: 1.8rem; text-align: justify; line-height: 1.5; max-width: 900px; font-weight: 400;">
-                    מפורום דיבייט זה הוקם כדי לחבר מחשבה עמוקה לשיח הציבורי בישראל ולשמש במה לחילופי דעות פתוחים
-                    וחופשיים.
-                    כזירה אינטלקטואלית המובילה התמודדות ישירה עם שאלות היסוד של החברה, אנו מנהלים דיונים מובנים המבטיחים
-                    שכל
-                    עמדה תיבחן באורח ביקורתי ונוקב. אנו מאמינים כי תרבות הדיון הרטורית היא המפתח לבירור האמת,
-                    ומזמינים את הקהל לקחת חלק פעיל במפגש ובלמידה.
+                    על המוקד הוא פורום דיבייט סטודנטיאלי צעיר, המהווה זירה עצמאית לניהול דיון ענייני 
+                    וביקורתי בסוגיות הליבה הציבוריות. 
+                    הפורום שואף לחדש את פניו של השיח הדמוקרטי בישראל, ומשיק את פעילותו במקום שבו הכל התחיל – 
+                    מליאת הכנסת ההיסטורית בירושלים (מוזיאון הכנסת).
+                     בהשראת מועדוני הדיבייט המובילים והוותיקים של Oxford ו-Cambridge 
+                     , אנו מציגים על הבמה זירה המבוססת על טיעונים מנומקים ותרבות נאום מובנית, 
+                     ומזמינים את הקהל לקחת חלק ישיר בעימות הרעיוני ובהכרעת הדיון.
                 </p>
             </div>
         </div>
@@ -796,7 +799,7 @@
 
     <section id="launch" class="section-dark">
         <div class="container">
-            <h2 style="font-size: 3rem; margin-bottom: 40px;" class="reveal">אירוע הפתיחה • 30/06/2026</h2>
+            <h2 style="font-size: 3rem; margin-bottom: 40px;" class="reveal">אירוע הפתיחה • 29/06/2026</h2>
             <div class="featured-card reveal" onclick="this.classList.toggle('active')">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                     <div>
@@ -822,8 +825,12 @@
                     <span class="motion-label">נושא הדיון</span>
                     <p class="motion-text">"בית זה מאמין כי עצמאות צבאית צריכה להיות בראש סדר העדיפויות הבטחוני של
                         ישראל, על פני הסכמים בינ״ל"</p>
+                        
+                    <p style="font-weight: 700; color: var(--accent-red); margin: 15px 0;">הדוברים יפורסמו
+                                בהמשך.</p>
 
-                    <div class="sides-grid">
+
+                    <div class="sides-grid draft">
                         <div class="side">
                             <h4>צד ממשלה (בעד)</h4>
                             <div class="speaker">
@@ -838,7 +845,7 @@
                                 <img src="images/dani-orbach.png" alt="דני אורבך" class="speaker-img">
                                 <div class="speaker-info">
                                     <p>דני אורבך</p>
-                                    <span>פרופ' להיסטוריה ולימודי אסיה באוני׳ העברית, מומחה להיסטוריה צבאית ומודיעין</span>
+                                    <span>פרופ' להיסטוריה באוני׳ העברית, מומחה להיסטוריה צבאית ומודיעין</span>
                                 </div>
                             </div>
                         </div>
@@ -877,8 +884,7 @@
                     החדר שבו דברים קורים.</h2>
                 <p
                     style="font-size: 1.4rem; opacity: 0.9; margin-bottom: 0; line-height: 1.6; max-width: 750px; margin-left: auto; margin-right: auto;">
-                    העימות על הבמה הוא רק יריית הפתיחה. בתום הדיון, הקהל יקיים שיח עם הדוברים ועם מומחים נוספים מעולמות
-                    הדיפלומטיה, האקדמיה והתקשורת במעגלים קטנים ומעמיקים. זמן לנטוורקינג, סיעור מוחות וכיבוד קל
+                    העימות על הבמה הוא רק יריית הפתיחה. בתום הדיון יתקיים עם הדוברים שיח פתוח, חופשי ובלתי פורמלי. זמן לנטוורקינג, סיעור מוחות, בירה וכיבוד קל
                 </p>
             </div>
         </div>
@@ -1037,14 +1043,8 @@
     </section>
 <footer>
     <div class="container">
-        <h3 class="social-title">עקבו אחרינו</h3>
+        <h3 class="social-title">עקבו אחרינו:</h3>
             <div class="social-links">
-                <a href="mailto:AL.HAMOKED.JLM@GMAIL.COM" title="Email">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                    </svg>
-                </a>
 
                 <a href="https://instagram.com/al.hamoked" target="_blank" title="Instagram">
                     <svg viewBox="0 0 24 24" fill="currentColor">
