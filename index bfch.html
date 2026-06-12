@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="מועדון הדיבייט 'על המוקד' מביא לירושלים עימותים פומביים ושיח אינטלקטואלי על סוגיות הליבה של החברה הישראלית. הצטרפו לזירת דיבייט ביקורתית, אמיצה ומרתקת.">
+    <title>על המוקד | מועדון דיבייט ועימותים פומביים בירושלים</title>
+
+    <meta property="og:title" content="על המוקד | מועדון דיבייט ועימותים פומביים">
+    <meta property="og:description"
+        content="זירה אינטלקטואלית להתמודדות ישירה עם הסוגיות המורכבות ביותר בחברה הישראלית.">
+    <meta property="og:image" content="https://alhamoked.co.il/images/al-hamoked-logo.png">
+    <meta property="og:url" content="https://alhamoked.co.il/">
+    <meta property="og:type" content="website">
+
+    <link rel="canonical" href="https://alhamoked.co.il/">
+
+    <link rel="icon" type="image/png" href="images/al-hamoked-logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-bg: #020617;
+            --pearl: #f8fafc;
+            --accent-red: #e11d48;
+            --accent-glow: rgba(225, 29, 72, 0.25);
+            --dark-text: #0f172a;
+            --light-text: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: var(--deep-bg);
+            color: var(--light-text);
+            overflow-x: hidden;
+        }
+
+        /* הגדרות בסיס לכל האזורים באתר */
+        section {
+            display: flex;
+            align-items: center;
+            padding: 80px 20px;
+            /* מרווח שפוי לכל האתר */
+            position: relative;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            z-index: 5;
+        }
+
+        /* --- צבעים קבועים --- */
+        .section-dark {
+            background-color: var(--deep-bg);
+            color: var(--light-text);
+            background-image:
+                radial-gradient(circle at 50% -20%, var(--accent-glow) 0%, transparent 60%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+        }
+
+        .section-light {
+            background-color: var(--pearl);
+            color: var(--dark-text);
+            background-image: radial-gradient(circle at 100% 0%, #ffffff 0%, var(--pearl) 100%);
+        }
+
+        /* --- Hero --- */
+        #hero {
+            min-height: 100vh;
+            /* מסך מלא רק למסך הראשון! */
+            background: linear-gradient(rgba(2, 6, 23, 0.4), rgba(2, 6, 23, 0.95)),
+                url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=2000&q=80') center/cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            align-items: flex-start;
+            /* מבטל את המרכוז האוטומטי כדי שנוכל לדחוף למטה */
+            padding-top: 25vh;
+            /* הדחיפה של הטקסט כלפי מטה */
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 10vw, 9rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-sub {
+            font-size: 1.8rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 50px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            text-align: right;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-red);
+            color: white;
+            padding: 22px 55px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 30px var(--accent-glow), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(225, 29, 72, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+            background-color: #f43f5e;
+        }
+
+        .price-note {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* --- לוגואים נותני חסות --- */
+        .partners-banner {
+            position: absolute;
+            top: 20px;
+            left: 50px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            z-index: 10;
+        }
+
+        .partners-banner img {
+            height: 65px;
+            max-width: 200px;
+            width: auto;
+            background: transparent;
+            filter: brightness(0) invert(1);
+            transition: transform 0.3s ease;
+        }
+
+        .partners-banner img:hover {
+            transform: scale(1.05);
+        }
+
+        .partners-banner img.resize-logo {
+            height: 40px;
+        }
+
+        .partners-banner img.brand-logo {
+            height: 150px;
+        }
+
+        .partners-banner img.musiom-logo {
+            height: 40px;
+        }
+
+        /* --- עקרונות --- */
+        #vision {
+            min-height: 100vh;
+        }
+
+        .vision-block {
+            border-right: 8px solid var(--accent-red);
+            padding-right: 40px;
+        }
+
+        .vision-title {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            font-weight: 900;
+        }
+
+        /* --- אירוע השקה --- */
+        #launch {
+            min-height: 100vh;
+        }
+
+        .featured-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 60px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .featured-card:hover {
+            border-color: rgba(225, 29, 72, 0.5);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px var(--accent-glow);
+        }
+
+        .motion-box {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.6s ease;
+            margin-top: 0;
+            padding-top: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .featured-card.active .motion-box {
+            max-height: 1200px;
+            opacity: 1;
+            margin-top: 40px;
+            padding-top: 40px;
+        }
+
+        .motion-label {
+            color: var(--accent-red);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .motion-text {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 40px;
+        }
+
+        .sides-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .side {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .side h4 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--accent-red);
+            text-align: center;
+            font-weight: 900;
+        }
+
+        /* --- עיצוב דוברים --- */
+        .speaker,
+        .future-speaker {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .speaker:last-child {
+            margin-bottom: 0;
+        }
+
+        .speaker-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .future-speaker-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .speaker-info p {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .speaker-info span {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            display: block;
+            line-height: 1.3;
+        }
+
+        /* --- מיקום --- */
+        .location-wrapper {
+            text-align: left;
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .location-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 1.15rem;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .location-icon {
+            width: 22px;
+            height: 22px;
+            color: var(--accent-red);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .location-link:hover {
+            color: var(--accent-red);
+        }
+
+        .location-link:hover .location-icon {
+            transform: translateY(-2px);
+        }
+
+        /* --- שולחנות עגולים --- */
+        .networking-section {
+            background: linear-gradient(rgba(10, 5, 15, 0.7), rgba(10, 5, 15, 0.85)),
+                url('images/networking-section.png') center/cover;
+            background-attachment: fixed;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 150px 20px;
+        }
+
+        .networking-glass-card {
+            background: rgba(2, 6, 23, 0.65);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 80px 60px;
+            border-radius: 24px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+        }
+
+        /* --- במורד הדרך --- */
+        #future {
+            min-height: 100vh;
+        }
+
+        .event-list {
+            border-top: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .event-row {
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .event-row:hover {
+            padding-right: 20px;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.02) 0%, transparent 100%);
+        }
+
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .event-header-titles h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        .event-row:hover .event-header-titles h3 {
+            color: var(--accent-red);
+        }
+
+        .event-date {
+            font-size: 1.2rem;
+            opacity: 0.6;
+            font-weight: 700;
+            display: block;
+        }
+
+        .toggle-icon {
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--accent-red);
+            transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+            line-height: 1;
+        }
+
+        .event-row.open .toggle-icon {
+            transform: rotate(45deg);
+        }
+
+        .event-details {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .event-row.open .event-details {
+            max-height: 800px;
+            opacity: 1;
+            margin-top: 30px;
+        }
+
+        .event-details-content {
+            padding-right: 20px;
+            border-right: 4px solid var(--accent-red);
+        }
+
+        .event-details-content p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .event-details-content .status {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.05);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* --- הופעה חלקה (אנימציות) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* <--- הנה הסוגריים שהיו חסרים ושיגעו את כל האתר! */
+
+        /* --- יצירת קשר --- */
+        #contact {
+            padding: 60px 20px;
+            /* מרווח שפוי ללא 100VH */
+            height: auto;
+        }
+
+        #contact .featured-card {
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        #contact h3 {
+            font-size: 1.8rem !important;
+            margin: 10px 0 !important;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: 700;
+            color: var(--accent-red);
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--light-text);
+            font-family: 'Heebo', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-red);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* --- Footer משופר ומוגן ממעיכות --- */
+        footer {
+            background: #000000;
+            padding: 50px 20px 30px 20px;
+            /* הוספת נפח פנימי כדי להרחיק את האייקונים מהקופסה שלמעלה */
+            text-align: center;
+            color: var(--light-text);
+            width: 100%;
+        }
+
+        /* עיצוב כותרת "עקבו אחרינו" */
+        .social-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--light-text);
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            /* רווח אחיד וטוב בין האייקונים המוגדלים */
+            margin-bottom: 25px;
+        }
+
+        .social-links a {
+            color: white;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            /* הגדלת אזור הלחיצה בהתאם לאייקון החדש */
+            height: 40px;
+        }
+
+        /* הגדלת האייקונים ומניעת מעיכה */
+        .social-links a svg {
+            width: 34px !important;
+            /* הגדלה מ-26px ל-34px */
+            height: 34px !important;
+            flex-shrink: 0;
+            /* מגן על האייקון מפני התכווצות לגובה 0 */
+            display: block;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            color: var(--accent-red);
+            transform: translateY(-3px);
+        }
+
+        /* --- הסתרת תוכן בעריכה --- */
+        .draft {
+            display: none !important;
+        }
+
+        /* --- הזזת הטקסט ב-Hero ימינה (למסכים רגילים בלבד) --- */
+        @media (min-width: 769px) {
+            #hero .container {
+                max-width: 1120px;
+                /* נותן לקופסה להתרחב יותר לכיוון הקצוות של המסך */
+            }
+
+            #hero .reveal {
+                position: relative;
+                right: -40px;
+                /* זה ה"ג'ויסטיק" שלך: מינוס דוחף ימינה. הגדל ל- -80px או -120px כדי לדחוף עוד יותר לקצה */
+            }
+        }
+
+        /* ========================================= */
+        /* התאמה לטלפונים (MOBILE) */
+        /* ========================================= */
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 15px;
+            }
+
+            #hero {
+                padding-top: 140px;
+                /* מייצר רווח נקי מראש הדף כדי שהטקסט לא יעלה על הלוגואים */
+                text-align: center;
+                align-items: flex-start;
+                /* מבטל את המרכוז האנכי ומושך את הכל למעלה */
+            }
+
+            .btn {
+                width: 100%;
+                padding: 18px 20px;
+            }
+
+            .hero-sub {
+                font-size: 1.3rem;
+                margin-bottom: 120px;
+                /* הגדלנו מ-30 כדי לדחוף את הכפתור והטקסט שלו חזק למטה */
+                text-align: center;
+            }
+
+            .partners-banner {
+                position: absolute;
+                /* מדביק את הלוגואים לקצה העליון בנפרד מהטקסט */
+                top: 25px;
+                /* המרחק המדויק מראש המסך */
+                left: 0;
+                right: 0;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                /* צמצום קל של הרווח כדי שיכנסו טוב יותר */
+                margin: 0 auto;
+                width: 100%;
+                padding: 0 15px;
+            }
+
+            .partners-banner img {
+                height: 35px;
+                /* מקטין מעט את הגובה במובייל כדי שיכנסו יפה בשורה */
+                max-width: 120px;
+                /* מגביל את הרוחב למניעת עיוותים */
+                width: auto;
+            }
+
+            /* התאמות ספציפיות ללוגואים החריגים שלך, כדי שישמרו על פרופורציה במובייל */
+            .partners-banner img.brand-logo {
+                height: 50px;
+                /* הלוגו הגדול שלכם (במקור 150px) מוקטן לפרופורציה הנכונה */
+            }
+
+            .partners-banner img.resize-logo,
+            .partners-banner img.musiom-logo {
+                height: 25px;
+            }
+
+            .vision-block {
+                border-right: none;
+                border-top: 6px solid var(--accent-red);
+                padding-right: 0;
+                padding-top: 30px;
+            }
+
+            .vision-title {
+                font-size: 2.5rem;
+            }
+
+            .vision-block p {
+                font-size: 1.3rem !important;
+                padding: 0 25px;
+                /* מוסיף 25 פיקסלים של אוויר מימין ומשמאל */
+            }
+
+            .featured-card {
+                padding: 30px 20px;
+            }
+
+            .featured-card>div {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 20px;
+            }
+
+            .featured-card h3 {
+                font-size: 2rem !important;
+            }
+
+            .motion-text {
+                font-size: 1.5rem;
+            }
+
+            .sides-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .side {
+                padding: 20px;
+            }
+
+            .networking-section {
+                padding: 80px 15px;
+            }
+
+            .networking-glass-card {
+                padding: 40px 20px;
+                border-radius: 16px;
+            }
+
+            .networking-glass-card h2 {
+                font-size: 2.2rem !important;
+            }
+
+            .networking-glass-card p {
+                font-size: 1.1rem !important;
+            }
+
+            #future h2 {
+                font-size: 2.5rem !important;
+                margin-bottom: 30px !important;
+            }
+
+            .event-row {
+                padding: 25px 0;
+            }
+
+            .event-header {
+                align-items: flex-start;
+            }
+
+            .event-header-titles h3 {
+                font-size: 1.6rem;
+            }
+
+            .toggle-icon {
+                margin-top: -5px;
+            }
+
+            .event-details-content p {
+                font-size: 1.2rem;
+            }
+
+            .speaker {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            /* הדבק את זה בתוך ה-Media Query הקיים למטה */
+            .networking-section {
+                background-attachment: scroll !important;
+                /* מבטל את העיוות במובייל */
+                background-size: cover !important;
+                /* שומר על פרופורציות התמונה */
+                background-position: center center !important;
+                /* ממרכז את האלמנטים החשובים בתמונה */
+                padding: 40px 15px !important;
+                /* מקטין את הגובה הכללי כדי שהרקע יתכווץ בהתאם */
+            }
+
+            .networking-glass-card {
+                padding: 30px 20px !important;
+                /* נותן פרופורציה נכונה לקובייה הכהה במובייל */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="hero">
+        <div class="container">
+
+            <div class="partners-banner">
+                <img src="images/al-hamoked-logo.png" alt="על המוקד" class="brand-logo">
+                <img src="images/museumLogo.svg" alt="מוזיאון הכנסת" class="musiom-logo">
+                <img src="images/huji-logo.svg" alt="האוניברסיטה העברית">
+                <img src="images/aguda.svg" alt="אגודה" class="resize-logo">
+            </div>
+
+            <div class="reveal">
+
+                <h1>על המוקד.</h1>
+                <p class="hero-sub"> פורום הדיבייט הציבורי בישראל.<br>
+                    זירה אינטלקטואלית להתמודדות ישירה עם הסוגיות
+                    המורכבות ביותר.
+                </p>
+                <div style="text-align: right;">
+                    <a href="#launch" class="btn">הזמנת מקום לאירוע הפתיחה</a>
+                    <span class="price-note">כרטיס כניסה כולל מקום שמור בכניסה לאירוע, למעגלי השיח, וכיבוד
+                        קל</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision" class="section-light">
+        <div class="container">
+            <div class="vision-block reveal">
+                <h2 class="vision-title">האמת נחשפת בקונפליקט.</h2>
+                <p
+                    style="font-size: 1.8rem; text-align: justify; line-height: 1.5; max-width: 900px; font-weight: 400;">
+                    על המוקד הוא פורום דיבייט סטודנטיאלי צעיר, המהווה זירה עצמאית לניהול דיון ענייני
+                    וביקורתי בסוגיות הליבה הציבוריות.
+                    הפורום שואף לחדש את פניו של השיח הדמוקרטי בישראל, ומשיק את פעילותו במקום שבו הכל התחיל –
+                    מליאת הכנסת ההיסטורית בירושלים (מוזיאון הכנסת).
+                    בהשראת מועדוני הדיבייט המובילים והוותיקים של Oxford ו-Cambridge
+                    , אנו מציגים על הבמה זירה המבוססת על טיעונים מנומקים ותרבות נאום מובנית,
+                    ומזמינים את הקהל לקחת חלק ישיר בעימות הרעיוני ובהכרעת הדיון.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="launch" class="section-dark">
+        <div class="container">
+            <h2 style="font-size: 3rem; margin-bottom: 40px;" class="reveal">אירוע הפתיחה • 29/06/2026</h2>
+            <div class="featured-card reveal" onclick="this.classList.toggle('active')">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <span class="motion-label">הנושא המרכזי</span>
+                        <h3 style="font-size: 2.8rem; font-weight: 900;">עתיד ישראל במזרח התיכון</h3>
+                        <p style="opacity: 0.8; margin-top: 10px; font-size: 1.2rem; color: var(--accent-red);">+ לחצו
+                            לפרטים על נושא הדיון<span class="draft"> וארבעת הדוברים</span></p>
+                    </div>
+                    <div class="location-wrapper">
+                        <a href="https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים" target="_blank"
+                            class="location-link">
+                            <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            <span>מוזיאון הכנסת, ירושלים</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="motion-box">
+                    <span class="motion-label">נושא הדיון</span>
+                    <p class="motion-text">"בית זה מאמין כי עצמאות צבאית צריכה להיות בראש סדר העדיפויות הבטחוני של
+                        ישראל, על פני הסכמים בינ״ל"</p>
+
+                    <p style="font-weight: 700; color: var(--accent-red); margin: 15px 0;">הדוברים יפורסמו
+                        בהמשך.</p>
+
+
+                    <div class="sides-grid draft">
+                        <div class="side">
+                            <h4>צד ממשלה (בעד)</h4>
+                            <div class="speaker">
+                                <img src="images/uzi-dayan.jpg" alt="עוזי דיין" class="speaker-img">
+                                <div class="speaker-info">
+                                    <p>עוזי דיין</p>
+                                    <span>אלוף (מיל׳), סגן הרמטכ״ל, ראש המל״ל וח״כ לשעבר</span>
+                                </div>
+                            </div>
+                            <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin: 15px 0;">
+                            <div class="speaker">
+                                <img src="images/dani-orbach.png" alt="דני אורבך" class="speaker-img">
+                                <div class="speaker-info">
+                                    <p>דני אורבך</p>
+                                    <span>פרופ' להיסטוריה באוני׳ העברית, מומחה להיסטוריה צבאית ומודיעין</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side">
+                            <h4>צד אופוזיציה (נגד)</h4>
+                            <div class="speaker">
+                                <img src="images/bogi-yelon.jpg" alt="תמיר היימן" class="speaker-img">
+                                <div class="speaker-info">
+                                    <p>משה (בוגי) יעלון</p>
+                                    <span>רא״ל (מיל׳) ושר הביטחון לשעבר</span>
+                                </div>
+                            </div>
+                            <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin: 15px 0;">
+                            <div class="speaker">
+                                <img src="images/Ksenia-Svetlova.jpg" alt="קסניה סבטלובה" class="speaker-img">
+                                <div class="speaker-info">
+                                    <p>קסניה סבטלובה</p>
+                                    <span>ח"כ לשעבר, עיתונאית ומומחית למזרח התיכון ולעולם הערבי </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 40px; text-align: center;">
+                        <a href="https://knesset-museum.smarticket.co.il/event/13483" class="btn"
+                            style="width: 100%; max-width: 400px;">הבטחת מקום בקהל (20 ₪)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="aftermath" class="networking-section">
+        <div class="container">
+            <div class="networking-glass-card reveal">
+                <h2
+                    style="font-size: 3.8rem; margin-bottom: 25px; font-weight: 900; text-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    החדר שבו דברים קורים.</h2>
+                <p
+                    style="font-size: 1.4rem; opacity: 0.9; margin-bottom: 0; line-height: 1.6; max-width: 750px; margin-left: auto; margin-right: auto;">
+                    העימות על הבמה הוא רק יריית הפתיחה. בתום הדיון יתקיים עם הדוברים שיח פתוח, חופשי ובלתי פורמלי. זמן
+                    לנטוורקינג, סיעור מוחות, בירה וכיבוד קל
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="future" class="section-light">
+        <div class="container reveal">
+            <h2 style="font-size: 3.5rem; margin-bottom: 50px; font-weight: 900;">המוקד: עימותים קרובים</h2>
+            <div class="event-list">
+
+                <div class="event-row" onclick="this.classList.toggle('open')">
+                    <div class="event-header">
+                        <div class="event-header-titles">
+                            <span class="event-date"></span>
+                            <h3>יחסי ישראל - ארה"ב בעת הנוכחית</h3>
+                        </div>
+                        <div class="toggle-icon">+</div>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-details-content">
+                            <p>דיון מעמיק החוקר את מרקם היחסים האסטרטגיים בין המדינות. האם הברית ההיסטורית עומדת בפני
+                                שינוי כיוון דרמטי?</p>
+
+                            <p style="font-weight: 700; color: var(--accent-red); margin: 15px 0;">הדוברים יפורסמו
+                                בהמשך.</p>
+
+                            <div class="draft"
+                                style="margin: 20px 0; padding: 20px; background: rgba(0,0,0,0.03); border-radius: 8px;">
+                                <strong style="display:block; margin-bottom: 10px; color: var(--accent-red);"> keynote
+                                    speaker:</strong>
+                                <div class="future-speaker">
+                                    <img src="images/mike-huckabee.png" alt="מייק האקבי" class="future-speaker-img">
+                                    <div>
+                                        <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0;">מייק האקבי
+                                        </p>
+                                        <span style="font-size: 1.1rem; color: #475569;">שגריר ארה"ב בישראל</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <span class="status">הרשמה תפתח בקרוב</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-row" onclick="this.classList.toggle('open')">
+                    <div class="event-header">
+                        <div class="event-header-titles">
+                            <span class="event-date"></span>
+                            <h3>איזון רשויות במערכת המשפט</h3>
+                        </div>
+                        <div class="toggle-icon">+</div>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-details-content">
+                            <span class="motion-label">נושא הדיון</span>
+                            <p>״בית זה מאמין כי דמוקרטיה ללא מערכת משפט עצמאית היא ריקה מתוכן״</p>
+
+                            <p style="font-weight: 700; color: var(--accent-red); margin: 15px 0;">הדוברים יפורסמו
+                                בהמשך.</p>
+
+                            <div class="draft"
+                                style="margin: 20px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                <div style="padding: 15px; background: rgba(0,0,0,0.03); border-radius: 8px;">
+                                    <strong style="color: var(--accent-red); display:block; margin-bottom:10px;">צד
+                                        א'</strong>
+                                    <div class="future-speaker">
+                                        <img src="images/aviad-bakshi.png" alt="אביעד בן ציון בקשי"
+                                            class="future-speaker-img">
+                                        <div>
+                                            <p style="font-weight: bold; margin-bottom:0;">אביעד בן ציון בקשי</p>
+                                            <span style="font-size: 0.9rem; color: #475569;">דוקטור למשפטים, פורום
+                                                קהלת</span>
+                                        </div>
+                                    </div>
+                                    <div class="future-speaker">
+                                        <img src="images/talia-einhorn.jpg" alt="טליה איינהורן"
+                                            class="future-speaker-img">
+                                        <div>
+                                            <p style="font-weight: bold; margin-bottom:0;">טליה איינהורן</p>
+                                            <span style="font-size: 0.9rem; color: #475569;">משפטנית, חברה בוועדה למינוי
+                                                בכירים</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="padding: 15px; background: rgba(0,0,0,0.03); border-radius: 8px;">
+                                    <strong style="color: var(--accent-red); display:block; margin-bottom:10px;">צד
+                                        ב'</strong>
+                                    <div class="future-speaker">
+                                        <img src="images/esther-hayut.jpg" alt="אסתר חיות" class="future-speaker-img">
+                                        <div>
+                                            <p style="font-weight: bold; margin-bottom:0;">אסתר חיות</p>
+                                            <span style="font-size: 0.9rem; color: #475569;">נשיאת בית המשפט העליון
+                                                לשעבר</span>
+                                        </div>
+                                    </div>
+                                    <div class="future-speaker">
+                                        <img src="images/eliad-shraga.jpg" alt="אליעד שרגא" class="future-speaker-img">
+                                        <div>
+                                            <p style="font-weight: bold; margin-bottom:0;">אליעד שרגא</p>
+                                            <span style="font-size: 0.9rem; color: #475569;">יו"ר התנועה למען איכות
+                                                השלטון</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <span class="status">טרם נפתח</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-dark">
+        <div class="container reveal">
+            <div class="featured-card" onclick="this.classList.toggle('active')" style="text-align: center;">
+                <span class="motion-label">צרו קשר</span>
+                <h3 style="font-weight: 900; margin: 10px 0;">רוצים להציע נושא/דובר או להצטרף לצוות?</h3>
+                <p style="opacity: 0.8; font-size: 1.1rem; color: var(--accent-red); cursor: pointer;">
+                    + לחצו כאן לפתיחת טופס הפנייה
+                </p>
+
+                <div class="motion-box">
+                    <form class="contact-form" action="https://formspree.io/f/mjgzjgkk" method="POST"
+                        onclick="event.stopPropagation()">
+
+                        <div class="form-group">
+                            <label for="name">שם מלא</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="הכנס שם מלא"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">נושא הפנייה</label>
+                            <select name="subject" id="subject" class="form-control">
+                                <option value="idea">הצעת נושא/דובר</option>
+                                <option value="join">הצטרפות לצוות</option>
+                                <option value="other">אחר</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">הודעה</label>
+                            <textarea name="message" id="message" rows="4" class="form-control"
+                                placeholder="איך נוכל לעזור?" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">שליחה</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <h3 class="social-title">יש עוד אירועים בקרוב!
+                <br>בואו נהיה בקשר:
+            </h3>
+            <div class="social-links">
+                <a href="https://chat.whatsapp.com/I3DnyLLLv55Es70sIE0f7J?s=cl&p=i&ilr=4" target="_blank"
+                    title="WhatsApp">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12.004 0c-6.621 0-11.996 5.377-11.996 11.997 0 2.112.549 4.161 1.591 5.965l-1.591 5.814 5.952-1.56c1.751.954 3.722 1.458 5.728 1.458 6.621 0 12.012-5.388 12.012-12.012.001-6.62-5.381-11.962-11.996-11.962zm5.782 16.632c-.244.686-1.213 1.252-1.854 1.341-.441.062-1.015.086-1.631-.11-.383-.122-.863-.294-1.467-.554-2.571-1.104-4.225-3.732-4.353-3.903-.128-.171-.941-1.252-.941-2.389 0-1.137.592-1.694.803-1.926.211-.232.459-.289.613-.289.155 0 .309 0 .443.007.143.007.337-.054.527.403.194.464.664 1.618.723 1.741.059.122.099.264.019.423-.08.158-.12.257-.239.396-.12.139-.253.309-.36.423-.121.121-.247.253-.102.502.146.249.645 1.065 1.385 1.723.954.851 1.755 1.114 2.004 1.238.249.124.394.104.542-.067.148-.171.632-.734.801-.984.168-.249.337-.208.567-.123.23.085 1.458.687 1.707.812.249.124.415.184.476.288.06.104.06.602-.184 1.288z" />
+                    </svg>
+                </a>
+
+                <a href="https://instagram.com/al.hamoked" target="_blank" title="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                    </svg>
+                </a>
+
+                <a href="https://www.facebook.com/people/%D7%A2%D7%9C-%D7%94%D7%9E%D7%95%D7%A7%D7%93/61590859794028/"
+                    target="_blank" title="Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                    </svg>
+                </a>
+
+                <a href="https://www.youtube.com/@al.hamoked" target="_blank" title="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93 0.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                </a>
+            </div>
+            <p style="opacity: 0.3; font-size: 0.9rem; margin-top: 10px;">על המוקד © 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
