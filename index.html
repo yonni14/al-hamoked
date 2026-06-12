@@ -22,12 +22,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --deep-bg: #020617;
-            --pearl: #f8fafc;
-            --accent-red: #e11d48;
-            --accent-glow: rgba(225, 29, 72, 0.25);
-            --dark-text: #0f172a;
-            --light-text: #f8fafc;
+            --deep-bg: #0c232b;
+            /* הרקע המרכזי - כחול ירקרק כהה */
+            --pearl: #f4f7f6;
+            /* לבן שבור/קרם רך */
+            --accent-red: #e63946;
+            /* אדום-אפרסק חם */
+            --accent-glow: rgba(230, 57, 70, 0.2);
+            --dark-text: #0b1a20;
+            --light-text: #edf2f4;
         }
 
         * {
@@ -80,7 +83,7 @@
         #hero {
             min-height: 100vh;
             /* מסך מלא רק למסך הראשון! */
-            background: linear-gradient(rgba(2, 6, 23, 0.4), rgba(2, 6, 23, 0.95)),
+            background: linear-gradient(rgba(12, 35, 43, 0.6), rgba(12, 35, 43, 0.95)),
                 url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=2000&q=80') center/cover;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             align-items: flex-start;
@@ -193,8 +196,10 @@
         }
 
         .featured-card {
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(11, 26, 32, 0.6);
+            /* המספרים הם קוד הצבע (RGB) וה-0.6 זו השקיפות. שנה אותם כדי לקבל גוון אחר */
             backdrop-filter: blur(12px);
+
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-top: 1px solid rgba(255, 255, 255, 0.15);
             padding: 60px;
@@ -344,7 +349,7 @@
 
         /* --- שולחנות עגולים --- */
         .networking-section {
-            background: linear-gradient(rgba(10, 5, 15, 0.7), rgba(10, 5, 15, 0.85)),
+            background: linear-gradient(rgba(12, 5, 15, 0.7), rgba(10, 5, 15, 0.95)),
                 url('images/networking-section.png') center/cover;
             background-attachment: fixed;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -353,7 +358,7 @@
         }
 
         .networking-glass-card {
-            background: rgba(2, 6, 23, 0.65);
+            background: rgba(12, 35, 43, 0.8); 
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -531,9 +536,9 @@
 
         /* --- Footer משופר ומוגן ממעיכות --- */
         footer {
-            background: #000000;
+            background: #0c232b;
+            /* שנה את הצבע כאן. למשל: #0c232b כדי שיהיה כמו הרקע הכללי, או כל קוד צבע אחר */
             padding: 50px 20px 30px 20px;
-            /* הוספת נפח פנימי כדי להרחיק את האייקונים מהקופסה שלמעלה */
             text-align: center;
             color: var(--light-text);
             width: 100%;
@@ -819,8 +824,8 @@
                     וביקורתי בסוגיות הליבה הציבוריות.
                     הפורום שואף לחדש את פניו של השיח הדמוקרטי בישראל, ומשיק את פעילותו במקום שבו הכל התחיל –
                     מליאת הכנסת ההיסטורית בירושלים (מוזיאון הכנסת).
-                    בהשראת מועדוני הדיבייט המובילים והוותיקים של Oxford ו-Cambridge
-                    , אנו מציגים על הבמה זירה המבוססת על טיעונים מנומקים ותרבות נאום מובנית,
+                    בהשראת מועדוני הדיבייט המובילים והוותיקים של Oxford ו-Cambridge,
+                    אנו מציגים על הבמה זירה המבוססת על טיעונים מנומקים ותרבות נאום מובנית
                     ומזמינים את הקהל לקחת חלק ישיר בעימות הרעיוני ובהכרעת הדיון.
                 </p>
             </div>
@@ -853,12 +858,8 @@
 
                 <div class="motion-box">
                     <span class="motion-label">נושא הדיון</span>
-                    <p class="motion-text">"בית זה מאמין כי עצמאות צבאית צריכה להיות בראש סדר העדיפויות הבטחוני של
-                        ישראל, על פני הסכמים בינ״ל"</p>
-
-                    <p style="font-weight: 700; color: var(--accent-red); margin: 15px 0;">הדוברים יפורסמו
-                        בהמשך.</p>
-
+                    <p class="motion-text">עצמאות צבאית או הסכמים בין לאומיים - מה צריך להיות בראש סדר העדיפויות של
+                        ישראל?</p>
 
                     <div class="sides-grid draft">
                         <div class="side">
@@ -866,16 +867,16 @@
                             <div class="speaker">
                                 <img src="images/uzi-dayan.jpg" alt="עוזי דיין" class="speaker-img">
                                 <div class="speaker-info">
-                                    <p>עוזי דיין</p>
-                                    <span>אלוף (מיל׳), סגן הרמטכ״ל, ראש המל״ל וח״כ לשעבר</span>
+                                    <p>אלוף (מיל׳) עוזי דיין</p>
+                                    <span>לשעבר סגן הרמטכ״ל וראש המל״ל, יו״ר מבטחי - פורום מפקדים לאומי</span>
                                 </div>
                             </div>
                             <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin: 15px 0;">
                             <div class="speaker">
                                 <img src="images/dani-orbach.png" alt="דני אורבך" class="speaker-img">
                                 <div class="speaker-info">
-                                    <p>דני אורבך</p>
-                                    <span>פרופ' להיסטוריה באוני׳ העברית, מומחה להיסטוריה צבאית ומודיעין</span>
+                                    <p>פרופ׳ דני אורבך</p>
+                                    <span>היסטוריון צבאי (האוני׳ העברית), מומחה למודיעין ואסטרטגיה</span>
                                 </div>
                             </div>
                         </div>
@@ -884,16 +885,16 @@
                             <div class="speaker">
                                 <img src="images/bogi-yelon.jpg" alt="תמיר היימן" class="speaker-img">
                                 <div class="speaker-info">
-                                    <p>משה (בוגי) יעלון</p>
-                                    <span>רא״ל (מיל׳) ושר הביטחון לשעבר</span>
+                                    <p>רא״ל (דימ.) משה (בוגי) יעלון</p>
+                                    <span>שר הביטחון והרמטכ״ל לשעבר</span>
                                 </div>
                             </div>
                             <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin: 15px 0;">
                             <div class="speaker">
-                                <img src="images/Ksenia-Svetlova.jpg" alt="קסניה סבטלובה" class="speaker-img">
+                                <img src="images/Ksenia-Svetlova.jpeg" alt="קסניה סבטלובה" class="speaker-img">
                                 <div class="speaker-info">
                                     <p>קסניה סבטלובה</p>
-                                    <span>ח"כ לשעבר, עיתונאית ומומחית למזרח התיכון ולעולם הערבי </span>
+                                    <span>עיתונאית, ח"כ לשעבר, ומומחית לענייני המזרח התיכון </span>
                                 </div>
                             </div>
                         </div>
@@ -973,7 +974,7 @@
                     <div class="event-details">
                         <div class="event-details-content">
                             <span class="motion-label">נושא הדיון</span>
-                            <p>״בית זה מאמין כי דמוקרטיה ללא מערכת משפט עצמאית היא ריקה מתוכן״</p>
+                            <p>עצמאות מערכת המשפט או עליונות המחוקק - מהו איזון הרשויות המיטבי במדינת ישראל?</p>
 
                             <p style="font-weight: 700; color: var(--accent-red); margin: 15px 0;">הדוברים יפורסמו
                                 בהמשך.</p>
