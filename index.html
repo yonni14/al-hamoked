@@ -18,9 +18,10 @@
 
     <link rel="canonical" href="https://alhamoked.co.il/">
 
-    <link rel="icon" type="image/png" href="images/al-hamoked-logo.png">
+    <link rel="icon" type="image/png" href="images/color icon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;700;900&display=swap');
         :root {
             --deep-bg: #0c232b;
             /* הרקע המרכזי - כחול ירקרק כהה */
@@ -40,7 +41,7 @@
         }
 
         body {
-            font-family: 'Heebo', sans-serif;
+            font-family: 'Noto Sans Hebrew', sans-serif;
             background-color: var(--deep-bg);
             color: var(--light-text);
             overflow-x: hidden;
@@ -64,13 +65,17 @@
 
         /* --- צבעים קבועים --- */
         .section-dark {
-            background-color: var(--deep-bg);
+            background-color: var(--deep-bg); /* צבע גיבוי למקרה שהתמונה לא עולה */
             color: var(--light-text);
+            
+            /* הזוהר האדום למעלה + תמונת הטקסטורה שלך */
             background-image:
                 radial-gradient(circle at 50% -20%, var(--accent-glow) 0%, transparent 60%),
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 100% 100%, 40px 40px, 40px 40px;
+                url('images/texture-bg.jpg'); /* <--- חובה לשנות את המילה texture.jpg לשם האמיתי של הקובץ ששמרת במחשב/בשרת! */
+                
+            background-size: 100% 100%, cover;
+            background-position: center top, center center;
+            background-repeat: no-repeat;
         }
 
         .section-light {
@@ -167,7 +172,8 @@
         }
 
         .partners-banner img.brand-logo {
-            height: 150px;
+            height: 50px;
+            filter: none;
         }
 
         .partners-banner img.musiom-logo {
@@ -515,7 +521,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 6px;
             color: var(--light-text);
-            font-family: 'Heebo', sans-serif;
+            font-family: 'Noto Sans Hebrew', sans-serif;
             font-size: 1rem;
             outline: none;
             transition: all 0.3s ease;
@@ -536,8 +542,12 @@
 
         /* --- Footer משופר ומוגן ממעיכות --- */
         footer {
-            background: #0c232b;
-            /* שנה את הצבע כאן. למשל: #0c232b כדי שיהיה כמו הרקע הכללי, או כל קוד צבע אחר */
+            background-color: #0c232b; /* צבע גיבוי */
+            background-image: url('images/texture-bg.jpg'); /* ודא שזה בדיוק אותו נתיב וקובץ שעבדו לך למעלה */
+            background-size: cover;
+            background-position: center bottom; /* ממקם את הטקסטורה יפה לתחתית */
+            background-repeat: no-repeat;
+            
             padding: 50px 20px 30px 20px;
             text-align: center;
             color: var(--light-text);
@@ -666,7 +676,8 @@
 
             /* התאמות ספציפיות ללוגואים החריגים שלך, כדי שישמרו על פרופורציה במובייל */
             .partners-banner img.brand-logo {
-                height: 50px;
+                height: 35px;
+                filter: none;
                 /* הלוגו הגדול שלכם (במקור 150px) מוקטן לפרופורציה הנכונה */
             }
 
@@ -792,7 +803,7 @@
         <div class="container">
 
             <div class="partners-banner">
-                <img src="images/al-hamoked-logo.png" alt="על המוקד" class="brand-logo">
+                <img src="images/al-hamoked-logo.svg" alt="על המוקד" class="brand-logo">
                 <img src="images/museumLogo.svg" alt="מוזיאון הכנסת" class="musiom-logo">
                 <img src="images/huji-logo.svg" alt="האוניברסיטה העברית">
                 <img src="images/aguda.svg" alt="אגודה" class="resize-logo">
