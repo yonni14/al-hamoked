@@ -9,10 +9,10 @@
         content="מועדון הדיבייט 'על המוקד' מביא לירושלים עימותים פומביים ושיח אינטלקטואלי על סוגיות הליבה של החברה הישראלית. הצטרפו לזירת דיבייט ביקורתית, אמיצה ומרתקת.">
     <title>על המוקד | מועדון דיבייט ועימותים פומביים בירושלים</title>
 
-    <meta property="og:title" content="על המוקד | מועדון דיבייט ועימותים פומביים">
+    <meta property="og:title" content="על המוקד | פורום לדיבייט ציבורי">
     <meta property="og:description"
         content="זירה אינטלקטואלית להתמודדות ישירה עם הסוגיות המורכבות ביותר בחברה הישראלית.">
-    <meta property="og:image" content="https://alhamoked.co.il/images/al-hamoked-logo.png">
+    <meta property="og:image" content="https://alhamoked.co.il/images/al-hamoked-logo-bg.jpg">
     <meta property="og:url" content="https://alhamoked.co.il/">
     <meta property="og:type" content="website">
 
@@ -22,6 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;700;900&display=swap');
+
         :root {
             --deep-bg: #0c232b;
             /* הרקע המרכזי - כחול ירקרק כהה */
@@ -65,14 +66,16 @@
 
         /* --- צבעים קבועים --- */
         .section-dark {
-            background-color: var(--deep-bg); /* צבע גיבוי למקרה שהתמונה לא עולה */
+            background-color: var(--deep-bg);
+            /* צבע גיבוי למקרה שהתמונה לא עולה */
             color: var(--light-text);
-            
+
             /* הזוהר האדום למעלה + תמונת הטקסטורה שלך */
             background-image:
                 radial-gradient(circle at 50% -20%, var(--accent-glow) 0%, transparent 60%),
-                url('images/texture-bg.jpg'); /* <--- חובה לשנות את המילה texture.jpg לשם האמיתי של הקובץ ששמרת במחשב/בשרת! */
-                
+                url('images/texture-bg.jpg');
+            /* <--- חובה לשנות את המילה texture.jpg לשם האמיתי של הקובץ ששמרת במחשב/בשרת! */
+
             background-size: 100% 100%, cover;
             background-position: center top, center center;
             background-repeat: no-repeat;
@@ -88,7 +91,7 @@
         #hero {
             min-height: 100vh;
             /* מסך מלא רק למסך הראשון! */
-            background: linear-gradient(rgba(2, 6, 23, 0.4), rgba(2, 6, 23, 0.95)), 
+            background: linear-gradient(rgba(2, 6, 23, 0.4), rgba(2, 6, 23, 0.95)),
                 url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=2000&q=80') center/cover;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             align-items: flex-start;
@@ -146,38 +149,69 @@
         /* --- לוגואים נותני חסות --- */
         .partners-banner {
             position: absolute;
-            top: 20px;
+            top: 30px;
             left: 50px;
             display: flex;
             align-items: center;
-            gap: 25px;
+            /* חזרנו למרכוז יציב */
+            gap: 40px;
             z-index: 10;
         }
 
         .partners-banner img {
-            height: 65px;
-            max-width: 200px;
             width: auto;
             background: transparent;
             filter: brightness(0) invert(1);
+            opacity: 0.75;
             transition: transform 0.3s ease;
         }
 
-        .partners-banner img:hover {
-            transform: scale(1.05);
-        }
-
-        .partners-banner img.resize-logo {
-            height: 40px;
-        }
-
+        /* 1. הלוגו שלכם ("על המוקד") */
         .partners-banner img.brand-logo {
-            height: 50px;
-            filter: none;
+            height: 60px;
+            filter: none !important;
+            opacity: 0.85 !important;
+            margin-right: 15px;
+            transform: translateY(0px);
+            /* ג'ויסטיק: שנה את המספר כדי להזיז למעלה/למטה */
         }
 
+        .partners-banner img.brand-logo:hover {
+            opacity: 1 !important;
+            transform: scale(1.05) translateY(0px);
+        }
+
+        /* 2. מוזיאון הכנסת */
         .partners-banner img.musiom-logo {
-            height: 40px;
+            height: 48px;
+            transform: translateY(4px);
+            /* דחפנו קצת למטה כדי שהטקסט יתיישר עם השאר */
+        }
+
+        /* 3. אגודת הסטודנטים */
+        .partners-banner img.resize-logo {
+            height: 42px;
+            transform: translateY(2px);
+        }
+
+        /* 4. האוניברסיטה העברית */
+        /* בגלל הלפיד והשטח הריק למטה, נגדיל אותו ונדחף חזק למעלה */
+        .partners-banner img:not(.brand-logo):not(.musiom-logo):not(.resize-logo) {
+            height: 80px;
+            transform: translateY(-8px);
+            /* מינוס דוחף למעלה. תשחק עם זה עד שזה יושב בול */
+        }
+
+        /* התיקון לאפקט הריחוף של האוניברסיטה העברית */
+        .partners-banner img:not(.brand-logo):not(.musiom-logo):not(.resize-logo):hover {
+            transform: translateY(-12px) scale(1.05);
+            /* חובה להעתיק לפה בדיוק את אותו מספר ששמת לו למעלה! */
+            opacity: 1;
+        }
+
+        .partners-banner img:not(.brand-logo):hover {
+            transform: scale(1.05);
+            opacity: 1;
         }
 
         /* --- עקרונות --- */
@@ -364,7 +398,7 @@
         }
 
         .networking-glass-card {
-            background: rgba(12, 35, 43, 0.8); 
+            background: rgba(12, 35, 43, 0.8);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -542,12 +576,15 @@
 
         /* --- Footer משופר ומוגן ממעיכות --- */
         footer {
-            background-color: #0c232b; /* צבע גיבוי */
-            background-image: url('images/texture-bg.jpg'); /* ודא שזה בדיוק אותו נתיב וקובץ שעבדו לך למעלה */
+            background-color: #0c232b;
+            /* צבע גיבוי */
+            background-image: url('images/texture-bg.jpg');
+            /* ודא שזה בדיוק אותו נתיב וקובץ שעבדו לך למעלה */
             background-size: cover;
-            background-position: center bottom; /* ממקם את הטקסטורה יפה לתחתית */
+            background-position: center bottom;
+            /* ממקם את הטקסטורה יפה לתחתית */
             background-repeat: no-repeat;
-            
+
             padding: 50px 20px 30px 20px;
             text-align: center;
             color: var(--light-text);
@@ -605,34 +642,20 @@
             display: none !important;
         }
 
-        /* --- הזזת הטקסט ב-Hero ימינה (למסכים רגילים בלבד) --- */
-        @media (min-width: 769px) {
-            #hero .container {
-                max-width: 1120px;
-                /* נותן לקופסה להתרחב יותר לכיוון הקצוות של המסך */
-            }
-
-            #hero .reveal {
-                position: relative;
-                right: -40px;
-                /* זה ה"ג'ויסטיק" שלך: מינוס דוחף ימינה. הגדל ל- -80px או -120px כדי לדחוף עוד יותר לקצה */
-            }
-        }
-
         /* ========================================= */
         /* התאמה לטלפונים (MOBILE) */
         /* ========================================= */
         @media (max-width: 768px) {
+
             section {
                 padding: 60px 15px;
             }
 
             #hero {
-                padding-top: 140px;
-                /* מייצר רווח נקי מראש הדף כדי שהטקסט לא יעלה על הלוגואים */
+                padding-top: 170px;
+                /* מרחיק את הטקסט מהלוגואים */
                 text-align: center;
                 align-items: flex-start;
-                /* מבטל את המרכוז האנכי ומושך את הכל למעלה */
             }
 
             .btn {
@@ -643,49 +666,62 @@
             .hero-sub {
                 font-size: 1.3rem;
                 margin-bottom: 120px;
-                /* הגדלנו מ-30 כדי לדחוף את הכפתור והטקסט שלו חזק למטה */
                 text-align: center;
             }
 
+            /* --- אזור הלוגואים במובייל --- */
             .partners-banner {
                 position: absolute;
-                /* מדביק את הלוגואים לקצה העליון בנפרד מהטקסט */
                 top: 25px;
-                /* המרחק המדויק מראש המסך */
                 left: 0;
                 right: 0;
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
+                /* חשוב מאוד: מאפשר גלישה לשורה נוספת */
                 justify-content: center;
-                align-items: center;
+                align-items: center !important;
                 gap: 15px;
-                /* צמצום קל של הרווח כדי שיכנסו טוב יותר */
                 margin: 0 auto;
                 width: 100%;
                 padding: 0 15px;
             }
 
+            /* איפוס כללי למובייל: מבטל את הג'ויסטיקים של המחשב */
             .partners-banner img {
                 height: 35px;
-                /* מקטין מעט את הגובה במובייל כדי שיכנסו יפה בשורה */
                 max-width: 120px;
-                /* מגביל את הרוחב למניעת עיוותים */
                 width: auto;
+                transform: translateY(0) !important;
             }
 
-            /* התאמות ספציפיות ללוגואים החריגים שלך, כדי שישמרו על פרופורציה במובייל */
+            /* 1. הלוגו שלכם */
             .partners-banner img.brand-logo {
-                height: 35px;
-                filter: none;
-                /* הלוגו הגדול שלכם (במקור 150px) מוקטן לפרופורציה הנכונה */
+                height: 38px !important;
+                transform: translateY(0px) !important;
+                margin-right: 0 !important;
+                margin-bottom: 0 !important;
             }
 
-            .partners-banner img.resize-logo,
+            /* 2. מוזיאון הכנסת */
             .partners-banner img.musiom-logo {
-                height: 25px;
+                height: 28px !important;
+                transform: translateY(-2px) !important;
             }
 
+            /* 3. אגודת הסטודנטים */
+            .partners-banner img.resize-logo {
+                height: 25px !important;
+                transform: translateY(-2px) !important;
+            }
+
+            /* 4. האוניברסיטה העברית */
+            .partners-banner img:not(.brand-logo):not(.musiom-logo):not(.resize-logo) {
+                height: 50px !important;
+                transform: translateY(-10px) !important;
+            }
+
+            /* --- המשך העיצוב שלך --- */
             .vision-block {
                 border-right: none;
                 border-top: 6px solid var(--accent-red);
@@ -700,7 +736,6 @@
             .vision-block p {
                 font-size: 1.3rem !important;
                 padding: 0 25px;
-                /* מוסיף 25 פיקסלים של אוויר מימין ומשמאל */
             }
 
             .featured-card {
@@ -731,11 +766,14 @@
             }
 
             .networking-section {
-                padding: 80px 15px;
+                padding: 40px 15px !important;
+                background-attachment: scroll !important;
+                background-size: cover !important;
+                background-position: center center !important;
             }
 
             .networking-glass-card {
-                padding: 40px 20px;
+                padding: 30px 20px !important;
                 border-radius: 16px;
             }
 
@@ -776,29 +814,11 @@
                 flex-direction: column;
                 text-align: center;
             }
-
-            /* הדבק את זה בתוך ה-Media Query הקיים למטה */
-            .networking-section {
-                background-attachment: scroll !important;
-                /* מבטל את העיוות במובייל */
-                background-size: cover !important;
-                /* שומר על פרופורציות התמונה */
-                background-position: center center !important;
-                /* ממרכז את האלמנטים החשובים בתמונה */
-                padding: 40px 15px !important;
-                /* מקטין את הגובה הכללי כדי שהרקע יתכווץ בהתאם */
-            }
-
-            .networking-glass-card {
-                padding: 30px 20px !important;
-                /* נותן פרופורציה נכונה לקובייה הכהה במובייל */
-            }
         }
     </style>
 </head>
 
 <body>
-
     <section id="hero">
         <div class="container">
 
@@ -874,7 +894,7 @@
 
                     <div class="sides-grid">
                         <div class="side">
-                            <h4>צד ממשלה (בעד)</h4>
+                            <h4>צד עדיפות צבאית</h4>
                             <div class="speaker">
                                 <img src="images/uzi-dayan.jpg" alt="עוזי דיין" class="speaker-img">
                                 <div class="speaker-info">
@@ -892,7 +912,7 @@
                             </div>
                         </div>
                         <div class="side">
-                            <h4>צד אופוזיציה (נגד)</h4>
+                            <h4>צד הסכמים בין לאומיים</h4>
                             <div class="speaker">
                                 <img src="images/bogi-yelon.jpg" alt="תמיר היימן" class="speaker-img">
                                 <div class="speaker-info">
@@ -936,7 +956,7 @@
 
     <section id="future" class="section-light">
         <div class="container reveal">
-            <h2 style="font-size: 3.5rem; margin-bottom: 50px; font-weight: 900;">המוקד: עימותים קרובים</h2>
+            <h2 style="font-size: 3.5rem; margin-bottom: 50px; font-weight: 900;">במוקד: עימותים קרובים</h2>
             <div class="event-list">
 
                 <div class="event-row" onclick="this.classList.toggle('open')">
