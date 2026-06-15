@@ -138,6 +138,28 @@
             box-shadow: 0 20px 45px rgba(225, 29, 72, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
             background-color: #f43f5e;
         }
+        /* קופסת הכפתורים ב-Hero */
+        .hero-buttons {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 15px; /* מרחיק קצת את הטקסט הקטן שלמטה */
+        }
+
+        /* עיצוב הכפתור המשני (שקוף עם מסגרת) */
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            box-shadow: none;
+            color: var(--light-text);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
+        }
 
         .price-note {
             display: block;
@@ -836,8 +858,11 @@
                     זירה אינטלקטואלית להתמודדות ישירה עם הסוגיות
                     המורכבות ביותר.
                 </p>
-                <div style="text-align: right;">
-                    <a href="https://knesset-museum.smarticket.co.il/%D7%A1%D7%93%D7%A8%D7%AA_%D7%9E%D7%A4%D7%92%D7%A9%D7%99_%D7%93%D7%99%D7%91%D7%99%D7%99%D7%98?id=13483" class="btn" target="_blank">הזמנת מקום לאירוע הפתיחה</a>
+               <div style="text-align: right;">
+                    <div class="hero-buttons">
+                        <a href="https://knesset-museum.smarticket.co.il/%D7%A1%D7%93%D7%A8%D7%AA_%D7%9E%D7%A4%D7%92%D7%A9%D7%99_%D7%93%D7%99%D7%91%D7%99%D7%99%D7%98?id=13483" class="btn" target="_blank">הזמנת מקום לאירוע הפתיחה</a>
+                        <a href="#launch" class="btn btn-secondary">לפרטים על האירוע</a>
+                    </div>
                     <span class="price-note">כרטיס כניסה כולל מקום שמור בכניסה לאירוע, למעגלי השיח, וכיבוד
                         קל</span>
                 </div>
