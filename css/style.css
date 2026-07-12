@@ -1285,41 +1285,29 @@ footer {
     filter: none !important;
 }
 
-/* ========================================= */
-/* איחוד רקע: שיטת ה"גלישה" (Spillover)      */
-/* ========================================= */
-
-/* 1. מנקים את הרקעים הכהים הקיימים כדי שהם לא יסתירו את התמונה */
-#contact, footer {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    position: relative;
-}
-
-/* 2. מציירים את הרקע מאחורי סקשן צור קשר ונותנים לו לגלוש למטה */
-#contact::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    
-    /* הקסם: לוקח את גובה הסקשן ומוסיף לו עוד 250 פיקסלים שיכסו את הפוטר שמתחתיו */
-    height: calc(100% + 300px); 
-    
-    /* תמונת הרקע המקורית שלך שעובדת */
-    background-image: url('../assets/backgrounds/texture-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-color: #0c232b; /* צבע גיבוי */
-    
-    z-index: -1; /* דוחף את הרקע לגמרי אחורה כדי לא להפריע ללחיצות */
-}
 
 /* 3. מוודאים שהלוגואים והכפתורים בפוטר צפים מעל הרקע ונשארים לחיצים */
 footer {
     z-index: 1;
+}
+/* ========================================= */
+/* רקע אחיד רציף ללא תפרים                   */
+/* ========================================= */
+.bottom-unified-wrapper {
+    background-color: var(--deep-bg);
+    background-image: 
+        radial-gradient(circle at 50% -20%, var(--accent-glow) 0%, transparent 60%), 
+        url('../assets/backgrounds/texture-bg.jpg');
+    background-size: 100% 100%, cover;
+    background-position: center top, center center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+/* מעלים את הרקעים הכפולים מהילדים כדי לחשוף את הקנבס המשותף */
+#contact.section-dark, footer {
+    background: transparent !important;
+    border: none !important;
 }
 /* ========================================= */
 /* מירכוז מושלם של התפריט בדסקטופ            */
@@ -1580,27 +1568,11 @@ footer {
         flex-wrap: wrap;
     }
 }
-/* ========================================= */
-/* מתיחת רקע דינאמית (Spillover)             */
-/* ========================================= */
-
-/* ברירת מחדל למסכים גדולים (דסקטופ) - תוספת קטנה והגיונית */
-#contact::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: calc(150% + 150px) !important; /* אורך מדויק לדסקטופ */
-    background-image: url('../assets/backgrounds/texture-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-color: #0c232b;
-    z-index: -1;
-}
 
 /* התאמה ספציפית למסכים קטנים (מובייל) - תוספת גדולה יותר */
 @media (max-width: 400px) {
     #contact::before {
-        height: calc(100% + 500px) !important; /* מכסה בדיוק את הערימה במובייל */
+        height: calc(100% + 800px) !important; /* מכסה בדיוק את הערימה במובייל */
     }
     
     /* תוספת קטנה כדי לוודא שגם לפוטר אין רקע במובייל */
@@ -1645,7 +1617,7 @@ footer {
 }
 
 /* ========================================= */
-/* תפריט מובייל נפתח (קוד נקי ללא important) */
+/* תפריט מובייל נפתח  */
 /* ========================================= */
 
 @media (max-width: 768px) {
@@ -1700,5 +1672,25 @@ footer {
         margin: 0 24px;
         text-align: center;
         box-sizing: border-box;
+    }
+}
+/* ========================================= */
+/* תיקון מרכוז כפתורים - מובייל בלבד!        */
+/* ========================================= */
+@media (max-width: 768px) {
+    #hero .hero-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 30px !important;
+        justify-content: center !important;
+    }
+
+    #hero .hero-buttons .btn {
+        width: 85% !important;
+        max-width: 320px !important;
+        margin: 0 auto !important;
+        text-align: center !important;
     }
 }
