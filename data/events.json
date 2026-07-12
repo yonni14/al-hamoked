@@ -1,0 +1,32 @@
+[
+    {
+        "id": "launch-event-past",
+        "status": "past",
+        "date": "29/06/2026",
+        "title": "עצמאות צבאית vs הסכמים אזוריים",
+        "coverImage": "assets/archive/event-01.jpeg",
+        "youtubeLink": "https://www.youtube.com/embed/WHk-KHOnkJU?si=aQMtEa1x4AZGlLxp",
+        "motion": "עצמאות צבאית או הסכמים אזוריים - מה צריך להיות בראש סדר העדיפויות הבטחוני בישראל?",
+        "results": {
+            "svgImage": "assets/archive/29.06.2026.svg", 
+            "sideA": { "votes": 31, "color": "#90ED7D" }, 
+            "sideB": { "votes": 62, "color": "#7CB5EC" }  
+        },
+        "sides": {
+            "sideA": {
+                "name": "צד עדיפות צבאית",
+                "speakers": [
+                    { "name": "אלוף (מיל׳) עוזי דיין", "role": "לשעבר סגן הרמטכ״ל וראש המל״ל, יו״ר מבטחי - פורום מפקדים לאומי", "img": "assets/speakers/uzi-dayan.jpg" },
+                    { "name": "פרופ׳ דני אורבך", "role": "היסטוריון צבאי (האוני׳ העברית), מומחה למודיעין ואסטרטגיה", "img": "assets/speakers/dani-orbach.png" }
+                ]
+            },
+            "sideB": {
+                "name": "צד הסכמים בין לאומיים",
+                "speakers": [
+                    { "name": "רא״ל (דימ.) משה (בוגי) יעלון", "role": "שר הביטחון והרמטכ״ל לשעבר", "img": "assets/speakers/bogi-yelon.jpg" },
+                    { "name": "קסניה סבטלובה", "role": "עיתונאית, ח״כ לשעבר, ומומחית לענייני המזרח התיכון", "img": "assets/speakers/Ksenia-Svetlova.jpeg" }
+                ]
+            }
+        }
+    }
+]
