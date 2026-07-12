@@ -24,6 +24,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;700;900&display=swap">
     <link rel="stylesheet"
@@ -44,15 +45,38 @@
 
 <body>
     <section id="hero">
+
+        <header id="main-header">
+            <div class="container header-container">
+
+                <a href="#" class="header-logo">
+                    <img src="assets/logos/al-hamoked-logo.svg" alt="על המוקד">
+                </a>
+
+                <div class="header-nav-wrapper">
+                    <nav class="main-nav">
+                        <a href="#vision" class="nav-link">חזון</a>
+                        <a href="#archive" class="nav-link">ארכיון</a>
+                        <a href="#launch" id="navLaunchLink" class="nav-link" style="display: none;">האירוע הקרוב</a>
+                        <a href="#future" class="nav-link">במורד הדרך</a>
+                        <a href="#contact" class="nav-link">צרו קשר</a>
+                    </nav>
+                    <a href="#" id="headerRegisterBtn" class="btn header-cta" target="_blank">להרשמה</a>
+                </div>
+
+                <button class="hamburger" aria-label="תפריט ניווט">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+
+
+            </div>
+        </header>
+
+        </header>
         <div class="container">
 
-            <div class="partners-banner">
-                <img src="assets/logos/al-hamoked-logo.svg" alt="על המוקד" class="brand-logo">
-                <img src="assets/logos/museumLogo.svg" alt="מוזיאון הכנסת" class="musiom-logo">
-                <img src="assets/logos/huji-logo.svg" alt="האוניברסיטה העברית">
-                <img src="assets/logos/aguda.svg" alt="אגודה" class="resize-logo">
-            </div>
-             
             <div class="reveal">
 
                 <h1>על המוקד.</h1>
@@ -62,11 +86,17 @@
                 </p>
                 <div style="text-align: right;">
                     <div class="hero-buttons">
-                        <a href="#launch" class="btn btn-secondary">אירועי עבר</a>
-                        <a href="#future" class="btn btn-secondary">אירועים עתידיים</a>
+                        <!-- כפתור ההרשמה הראשי (יהפוך אוטומטית להרשמה לאירוע או לרשימת תפוצה) -->
+                        <a href="#" id="heroMainBtn" class="btn" target="_blank">להרשמה לאירוע הקרוב</a>
+
+                        <!-- כפתור הניווט למטה (ה-JS יסתיר אותו אוטומטית כשאין אירוע) -->
+                        <a href="#launch" id="heroLaunchBtn" class="btn btn-secondary">לפרטים על האירוע הקרוב</a>
                     </div>
                 </div>
+                <span id="heroPriceNote" class="price-note" style="display: none;">כרטיס כניסה כולל מקום שמור בכניסה
+                    לאירוע, למעגלי השיח, וכיבוד קל</span>
             </div>
+        </div>
         </div>
     </section>
 
@@ -88,95 +118,133 @@
         </div>
     </section>
 
-    <section id="launch" class="section-dark">
-        <div class="container">
-            <h2 style="font-size: 3rem; margin-bottom: 40px;" class="reveal">אירוע הבכורה • 29/06/2026</h2>
-            <div class="featured-card reveal" onclick="this.classList.toggle('active')">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <div>
-                        <span class="motion-label">הנושא המרכזי</span>
-                        <h3 style="font-size: 2.8rem; font-weight: 900;">עתיד ישראל במזרח התיכון</h3>
-                        <p style="opacity: 0.8; margin-top: 10px; font-size: 1.2rem; color: var(--accent-red);">+ לחצו
-                            לפרטים על נושא הדיון<span class="draft"> וארבעת הדוברים</span></p>
-                    </div>
-                    <div class="location-wrapper">
-                        <a href="https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים" target="_blank"
-                            class="location-link">
-                            <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                            </svg>
-                            <span>מוזיאון הכנסת, ירושלים</span>
-                        </a>
-                    </div>
-                </div>
+    <section id="archive" class="archive-section">
 
-                <div class="motion-box">
-                    <span class="motion-label">נושא הדיון</span>
-                    <p class="motion-text">עצמאות צבאית או הסכמים בין לאומיים - מה צריך להיות בראש סדר העדיפויות הבטחוני
-                        בישראל?</p>
+        <!-- כותרת הצד הקבועה -->
+        <div class="archive-sidebar">
+            <h2>ארכיון האירועים</h2>
+        </div>
 
-                    <div class="sides-grid">
-                        <div class="side">
-                            <h4>צד עדיפות צבאית</h4>
-                            <div class="speaker">
-                                <img src="assets/speakers/uzi-dayan.jpg" alt="עוזי דיין" class="speaker-img" loading="lazy">
-                                <div class="speaker-info">
-                                    <p>אלוף (מיל׳) עוזי דיין</p>
-                                    <span>לשעבר סגן הרמטכ״ל וראש המל״ל, יו״ר מבטחי - פורום מפקדים לאומי</span>
-                                </div>
-                            </div>
-                            <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin: 15px 0;">
-                            <div class="speaker">
-                                <img src="assets/speakers/dani-orbach.png" alt="דני אורבך" class="speaker-img" loading="lazy">
-                                <div class="speaker-info">
-                                    <p>פרופ׳ דני אורבך</p>
-                                    <span>היסטוריון צבאי (האוני׳ העברית), מומחה למודיעין ואסטרטגיה</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="side">
-                            <h4>צד הסכמים בין לאומיים</h4>
-                            <div class="speaker">
-                                <img src="assets/speakers/bogi-yelon.jpg" alt="תמיר היימן" class="speaker-img" loading="lazy">
-                                <div class="speaker-info">
-                                    <p>רא״ל (דימ.) משה (בוגי) יעלון</p>
-                                    <span>שר הביטחון והרמטכ״ל לשעבר</span>
-                                </div>
-                            </div>
-                            <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin: 15px 0;">
-                            <div class="speaker">
-                                <img src="assets/speakers/Ksenia-Svetlova.jpeg" alt="קסניה סבטלובה" class="speaker-img" loading="lazy">
-                                <div class="speaker-info">
-                                    <p>קסניה סבטלובה</p>
-                                    <span>עיתונאית, ח"כ לשעבר, ומומחית לענייני המזרח התיכון </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="margin-top: 40px; text-align: center;">
-                       <iframe class="video-embed" src="https://www.youtube.com/embed/WHk-KHOnkJU?si=aQMtEa1x4AZGlLxp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                </div>
+        <!-- אזור הגלילה האופקית -->
+        <div class="archive-scroll" id="archiveScroll">
+            <div class="archive-track-flex" id="archiveTrack">
+                <!-- הכרטיסיות מהג'ייסון יוזרקו לכאן אוטומטית על ידי ה-JS -->
+
+                <!-- כאן אתה שם את כל התמונות הסטטיות שאתה רוצה -->
+                <img src="assets/archive/730703763_18092832350096565_79495857836698295_n.webp" alt="תמונת אווירה" class="flex-img">
+                <img src="assets/archive/732610773_18092832368096565_1071673198414799114_n.webp" alt="תמונת אווירה" class="flex-img">
+                <img src="assets/archive/photo-01.webp" alt="תמונת אווירה" class="flex-img">
+                <img src="assets/archive/731335965_18092832377096565_7592075476505963204_n.webp" alt="תמונת אווירה" class="flex-img">
+                <img src="assets/archive/731068116_18092832398096565_5347207243813597346_n.webp" alt="תמונת אווירה" class="flex-img">
+                <img src="assets/archive/730786551_18092832380096565_2765289788235460997_n.webp" alt="תמונת אווירה" class="flex-img">
             </div>
         </div>
     </section>
 
-    <section id="aftermath" class="networking-section">
-        <div class="container">
-            <div class="networking-glass-card reveal">
-                <h2
-                    style="font-size: 3.8rem; margin-bottom: 25px; font-weight: 900; text-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-                    החדר שבו דברים קורים.</h2>
-                <p
-                    style="font-size: 1.4rem; opacity: 0.9; margin-bottom: 0; line-height: 1.6; max-width: 750px; margin-left: auto; margin-right: auto;">
-                    העימות על הבמה הוא רק יריית הפתיחה. בתום הדיון יתקיים עם הדוברים שיח פתוח, חופשי ובלתי פורמלי. זמן
-                    לנטוורקינג, סיעור מוחות, בירה וכיבוד קל
-                </p>
+    <!-- שבלונת הכרטיסייה - מוסתרת -->
+    <template id="archive-card-template">
+        <a href="#" class="event-card-img">
+            <span class="motion-label event-date" style="margin-bottom: 8px;"></span>
+            <span class="event-card-title"></span>
+        </a>
+    </template>
+
+    <!-- מודל תצוגת אירוע עבר (משופץ) -->
+    <div class="event-modal" id="eventModal">
+        <div class="event-modal-backdrop" id="eventModalBackdrop"></div>
+        <div class="event-modal-content">
+            <button class="event-modal-close" id="eventModalClose" aria-label="סגירה">&times;</button>
+
+            <div class="modal-body">
+                <!-- כותרת ונושא הדיבייט -->
+                <h3 id="modalTitle" style="font-size: 2.8rem; font-weight: 900; margin-bottom: 20px;"></h3>
+                <span class="motion-label">נושא הדיון</span>
+                <p id="modalMotion" class="motion-text" style="font-size: 1.8rem; margin-bottom: 50px;"></p>
+
+                <!-- 1. רשימת הדוברים (ראשונה, מיד אחרי הנושא) -->
+                <div id="modalSides" class="sides-grid"></div>
+
+                <!-- 2. דשבורד תוצאות (שני, עם ריווח מלמעלה ולמטה) -->
+                <div id="modalResultsDashboard"
+                    style="display: none; background: rgba(0,0,0,0.25); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 60px; margin-bottom: 60px; align-items: center; justify-content: space-between;">
+
+                    <!-- נתוני צד א' (ימין) -->
+                    <div style="flex: 1; text-align: right;">
+                        <h4 id="resNameA" style="font-size: 1.1rem; margin-bottom: 5px; opacity: 0.9;"></h4>
+                        <span id="resVotesA"
+                            style="font-size: 2.5rem; font-weight: 900; line-height: 1.1; display: block;"></span>
+                        <span style="font-size: 1rem; opacity: 0.6;">קולות</span>
+                    </div>
+
+                    <!-- גרף ה-SVG באמצע -->
+                    <div style="flex: 1.5; text-align: center; padding: 0 20px;">
+                        <img id="resChartImg" src="" alt="גרף הצבעות"
+                            style="width: 100%; max-width: 250px; height: auto;">
+                    </div>
+
+                    <!-- נתוני צד ב' (שמאל) -->
+                    <div
+                        style="flex: 1; text-align: left; display: flex; flex-direction: column; align-items: flex-end;">
+                        <h4 id="resNameB" style="font-size: 1.1rem; margin-bottom: 5px; opacity: 0.9;"></h4>
+                        <div>
+                            <span id="resVotesB"
+                                style="font-size: 2.5rem; font-weight: 900; line-height: 1.1; display: block; text-align: left;"></span>
+                            <span style="font-size: 1rem; opacity: 0.6; display: block; text-align: left;">קולות</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. סרטון היוטיוב (שלישי בתחתית עם ריווח גדול) -->
+                <div
+                    style="margin-top: 80px; padding-top: 50px; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center;">
+                    <span class="motion-label" style="margin-bottom: 20px; display: block;">הדיבייט המלא</span>
+                    <iframe id="modalVideo" class="video-embed" src="" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- סקשן הבמה המרכזית (מוסתר כברירת מחדל, יופעל רק אם יש אירוע קרוב בג'ייסון) -->
+    <section id="launch" class="section-dark" style="display: none;">
+        <div class="container">
+
+            <div id="launchEventContainer">
+                <h2 id="launchDate" style="font-size: 3rem; margin-bottom: 40px;" class="reveal"></h2>
+                <div class="featured-card reveal" onclick="this.classList.toggle('active')">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <span class="motion-label">הנושא המרכזי</span>
+                            <h3 id="launchTitle" style="font-size: 2.8rem; font-weight: 900;"></h3>
+                            <p style="opacity: 0.8; margin-top: 10px; font-size: 1.2rem; color: var(--accent-red);">+
+                                לחצו לפרטים על נושא הדיון</p>
+                        </div>
+                        <div class="location-wrapper">
+                            <a id="launchLocationLink" href="#" target="_blank" class="location-link">
+                                <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                </svg>
+                                <span id="launchLocationText"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="motion-box">
+                        <span class="motion-label">נושא הדיון</span>
+                        <p id="launchMotion" class="motion-text"></p>
+
+                        <!-- לכאן ה-JS ישפוך את הדוברים בצורה אוטומטית -->
+                        <div id="launchSides" class="sides-grid"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section>
+
 
     <section id="future" class="section-light">
         <div class="container reveal">
@@ -291,7 +359,7 @@
             </div>
         </div>
     </section>
-
+    <div class="bottom-unified-wrapper"></div>
     <section id="contact" class="section-dark">
         <div class="container reveal">
             <div class="featured-card" onclick="this.classList.toggle('active')" style="text-align: center;">
@@ -334,44 +402,66 @@
     </section>
     <footer>
         <div class="container">
-            <h3 class="social-title">יש עוד אירועים בקרוב!
-                <br>בואו נהיה בקשר:
-            </h3>
-            <div class="social-links">
-                <a href="https://chat.whatsapp.com/I3DnyLLLv55Es70sIE0f7J?s=cl&p=i&ilr=4" target="_blank"
-                    title="WhatsApp">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12.004 0c-6.621 0-11.996 5.377-11.996 11.997 0 2.112.549 4.161 1.591 5.965l-1.591 5.814 5.952-1.56c1.751.954 3.722 1.458 5.728 1.458 6.621 0 12.012-5.388 12.012-12.012.001-6.62-5.381-11.962-11.996-11.962zm5.782 16.632c-.244.686-1.213 1.252-1.854 1.341-.441.062-1.015.086-1.631-.11-.383-.122-.863-.294-1.467-.554-2.571-1.104-4.225-3.732-4.353-3.903-.128-.171-.941-1.252-.941-2.389 0-1.137.592-1.694.803-1.926.211-.232.459-.289.613-.289.155 0 .309 0 .443.007.143.007.337-.054.527.403.194.464.664 1.618.723 1.741.059.122.099.264.019.423-.08.158-.12.257-.239.396-.12.139-.253.309-.36.423-.121.121-.247.253-.102.502.146.249.645 1.065 1.385 1.723.954.851 1.755 1.114 2.004 1.238.249.124.394.104.542-.067.148-.171.632-.734.801-.984.168-.249.337-.208.567-.123.23.085 1.458.687 1.707.812.249.124.415.184.476.288.06.104.06.602-.184 1.288z" />
-                    </svg>
-                </a>
+            <div class="footer-split">
 
-                <a href="https://instagram.com/al.hamoked" target="_blank" title="Instagram">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-                    </svg>
-                </a>
+                <div class="footer-community">
+                    <h3 class="social-title">יש עוד אירועים בקרוב!
+                        <br>בואו נהיה בקשר:
+                    </h3>
+                    <div class="social-links">
+                        <a href="https://chat.whatsapp.com/I3DnyLLLv55Es70sIE0f7J?s=cl&p=i&ilr=4" target="_blank"
+                            title="WhatsApp">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12.004 0c-6.621 0-11.996 5.377-11.996 11.997 0 2.112.549 4.161 1.591 5.965l-1.591 5.814 5.952-1.56c1.751.954 3.722 1.458 5.728 1.458 6.621 0 12.012-5.388 12.012-12.012.001-6.62-5.381-11.962-11.996-11.962zm5.782 16.632c-.244.686-1.213 1.252-1.854 1.341-.441.062-1.015.086-1.631-.11-.383-.122-.863-.294-1.467-.554-2.571-1.104-4.225-3.732-4.353-3.903-.128-.171-.941-1.252-.941-2.389 0-1.137.592-1.694.803-1.926.211-.232.459-.289.613-.289.155 0 .309 0 .443.007.143.007.337-.054.527.403.194.464.664 1.618.723 1.741.059.122.099.264.019.423-.08.158-.12.257-.239.396-.12.139-.253.309-.36.423-.121.121-.247.253-.102.502.146.249.645 1.065 1.385 1.723.954.851 1.755 1.114 2.004 1.238.249.124.394.104.542-.067.148-.171.632-.734.801-.984.168-.249.337-.208.567-.123.23.085 1.458.687 1.707.812.249.124.415.184.476.288.06.104.06.602-.184 1.288z" />
+                            </svg>
+                        </a>
+                        <a href="https://x.com/@alhamoked" target="_blank" title="Twitter / X">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
 
-                <a href="https://www.facebook.com/people/%D7%A2%D7%9C-%D7%94%D7%9E%D7%95%D7%A7%D7%93/61590859794028/"
-                    target="_blank" title="Facebook">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
-                    </svg>
-                </a>
+                        <a href="https://instagram.com/al.hamoked" target="_blank" title="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/people/%D7%A2%D7%9C-%D7%94%D7%9E%D7%95%D7%A7%D7%93/61590859794028/"
+                            target="_blank" title="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@al.hamoked" target="_blank" title="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93 0.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
-                <a href="https://www.youtube.com/@al.hamoked" target="_blank" title="YouTube">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93 0.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                    </svg>
-                </a>
+                <div class="footer-partners">
+                    <div class="partners-banner">
+                        <img src="assets/logos/white-logo.svg" alt="על המוקד" class="brand-logo">
+                        <img src="assets/logos/museumLogo.svg" alt="מוזיאון הכנסת" class="musiom-logo">
+                        <img src="assets/logos/huji-logo.svg" alt="האוניברסיטה העברית">
+                        <img src="assets/logos/aguda.svg" alt="אגודה" class="resize-logo">
+                    </div>
+                </div>
+
             </div>
-            <p style="opacity: 0.3; font-size: 0.9rem; margin-top: 10px;">על המוקד © 2026</p>
+
+            <p style="opacity: 0.3; font-size: 0.9rem; margin-top: 40px; text-align: center;">על המוקד © 2026</p>
         </div>
-   </footer>
-    
+    </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
