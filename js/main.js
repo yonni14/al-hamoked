@@ -37,7 +37,7 @@ document.addEventListener('keydown', (e) => {
 // הפעלת תפריט המבורגר (פתיחה אלגנטית)
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    const hamburgerBtn = document.querySelector('.hamburger'); 
+    const hamburgerBtn = document.querySelector('.hamburger');
     const navWrapper = document.querySelector('.header-nav-wrapper');
 
     if (hamburgerBtn && navWrapper) {
@@ -85,18 +85,18 @@ async function loadEventsData() {
 
         // --- א. טיפול בבמה המרכזית (האירוע הקרוב) ---
         const nextEvent = debatesData.find(event => event.status === 'next');
-        const launchSection = document.getElementById('launch'); 
+        const launchSection = document.getElementById('launch');
         const navLaunchLink = document.getElementById('navLaunchLink');
         const heroLaunchBtn = document.getElementById('heroLaunchBtn');
         const heroPriceNote = document.getElementById('heroPriceNote');
-        
+
         const headerRegisterBtn = document.getElementById('headerRegisterBtn');
         const heroMainBtn = document.getElementById('heroMainBtn');
-        
+
         const MAILING_LIST_URL = "https://forms.gle/25DoXLvgbrUuQG6TA"; // שים פה את הלינק שלך
 
         if (nextEvent) {
-            if (launchSection) launchSection.style.display = 'flex'; 
+            if (launchSection) launchSection.style.display = 'flex';
             if (navLaunchLink) navLaunchLink.style.display = 'inline-block';
             if (heroLaunchBtn) heroLaunchBtn.style.display = 'inline-block';
             if (heroPriceNote) heroPriceNote.style.display = 'block';
@@ -118,33 +118,36 @@ async function loadEventsData() {
             if (launchDateEl) launchDateEl.textContent = `האירוע הקרוב • ${nextEvent.date}`;
             if (launchTitleEl) launchTitleEl.textContent = nextEvent.title;
             if (launchMotionEl) launchMotionEl.textContent = nextEvent.motion;
-            
+
             const locationTextEl = document.getElementById('launchLocationText');
             const locationLinkEl = document.getElementById('launchLocationLink');
-            if(locationTextEl) locationTextEl.textContent = nextEvent.locationName || "מוזיאון הכנסת, ירושלים";
-            if(locationLinkEl) locationLinkEl.href = nextEvent.locationLink || "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים";
-            
+            if (locationTextEl) locationTextEl.textContent = nextEvent.locationName || "מוזיאון הכנסת, ירושלים";
+            if (locationLinkEl) locationLinkEl.href = nextEvent.locationLink || "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים";
+
             const launchSides = document.getElementById('launchSides');
             if (launchSides && nextEvent.sides) {
                 launchSides.innerHTML = buildSideHTML(nextEvent.sides.sideA) + buildSideHTML(nextEvent.sides.sideB);
             }
         } else {
+            // מסתיר את כפתור "לפרטים" ואת אזור האירוע
             if (launchSection) launchSection.style.display = 'none';
             if (navLaunchLink) navLaunchLink.style.display = 'none';
             if (heroLaunchBtn) heroLaunchBtn.style.display = 'none';
             if (heroPriceNote) heroPriceNote.style.display = 'none';
 
+            // הופך את הכפתור המרכזי לכפתור רשימת תפוצה
             if (heroMainBtn) {
                 heroMainBtn.classList.add('btn-secondary');
                 heroMainBtn.textContent = "הצטרפו לרשימת התפוצה";
                 heroMainBtn.href = MAILING_LIST_URL;
             }
+
+            // מעלים לחלוטין את כפתור ההרשמה מההדר העליון (מה שביקשת)
             if (headerRegisterBtn) {
-                headerRegisterBtn.textContent = "רשימת תפוצה";
-                headerRegisterBtn.href = MAILING_LIST_URL;
+                headerRegisterBtn.style.display = 'none';
             }
         }
-        
+
 
         // --- ב. טיפול בארכיון אירועי עבר והמודל ---
         const track = document.getElementById('archiveTrack');
@@ -188,8 +191,8 @@ async function loadEventsData() {
                         const dashboard = document.getElementById('modalResultsDashboard');
                         if (dashboard) {
                             if (event.results) {
-                                dashboard.style.display = 'flex'; 
-                                
+                                dashboard.style.display = 'flex';
+
                                 const chartImg = document.getElementById('resChartImg');
                                 const nameA = document.getElementById('resNameA');
                                 const votesA = document.getElementById('resVotesA');
@@ -208,7 +211,7 @@ async function loadEventsData() {
                                     votesB.style.color = event.results.sideB.color;
                                 }
                             } else {
-                                dashboard.style.display = 'none'; 
+                                dashboard.style.display = 'none';
                             }
                         }
 
@@ -226,14 +229,14 @@ async function loadEventsData() {
 
                 track.prepend(clone);
             });
-            
+
         }
-    
+
 
     } catch (error) {
         console.error("בעיה במשיכת הנתונים:", error);
     }
-    
+
 }
 
 document.addEventListener('DOMContentLoaded', loadEventsData);
