@@ -105,6 +105,8 @@ section {
     opacity: 1;
     transform: translateY(0);
 }
+.hero-alignment { text-align: right; }
+html[dir="ltr"] .hero-alignment { text-align: left; }
 
 /* ========================================= */
 /* 3. HEADER & NAVIGATION                    */
@@ -417,7 +419,7 @@ h1 {
 .event-card-img {
     height: 100% !important;
     width: 300px !important;
-    /* רוחב כרטיסייה פרופורציונלי לגובה */
+    /* רוחב כרטיסייה פרופורציונלי לגובה */ 
     flex-shrink: 0;
     display: flex !important;
     flex-direction: column;
@@ -606,6 +608,7 @@ h1 {
     line-height: 1.2;
     color: var(--light-text);
 }
+
 
 /* התאמה למובייל */
 @media (max-width: 768px) {
@@ -1290,6 +1293,7 @@ footer {
 footer {
     z-index: 1;
 }
+
 /* ========================================= */
 /* רקע אחיד רציף ללא תפרים                   */
 /* ========================================= */
@@ -1614,7 +1618,49 @@ footer {
         height: 420px !important; /* גובה הכרטיסיות במובייל */
         padding: 20px !important;
     }
+
 }
+    /* --- מצב דסקטופ (מסכים גדולים) --- */
+/* מסתירים את הכפתור שמיועד להמבורגר */
+.mobile-lang-item,
+.mobile-only {
+    display: none !important; 
+}
+
+/* מוודאים שהכפתור של ההדר מופיע */
+.desktop-only {
+    display: inline-block !important; 
+}
+
+/* --- מצב מובייל (מסכים קטנים) --- */
+@media (max-width: 768px) {
+    /* רוצחים את הכפתור העליון (הדסקטופ) לחלוטין שלא ייתקע לנו מול הפנים! */
+    .desktop-only {
+        display: none !important;
+    }
+
+    /* מציגים את הפריט של מחליף השפה שבתוך ההמבורגר */
+    .mobile-lang-item {
+        display: block !important;
+        width: 100%;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    /* מעצבים את הכפתור עצמו שיראה טוב בתוך התפריט הנפתח */
+    .mobile-only {
+        display: inline-block !important;
+        padding: 10px;
+        background-color: var(--deep-bg);
+        color: var(--light-text);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+        font-size: 0.6rem;
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
 
 /* ========================================= */
 /* תפריט מובייל נפתח  */
@@ -1693,4 +1739,114 @@ footer {
         margin: 0 auto !important;
         text-align: center !important;
     }
+}
+/* ========================================= */
+/* תמיכה חכמה בכיוון מסמך (LTR - אנגלית)     */
+/* ========================================= */
+
+html[dir="ltr"] .footer-split {
+    text-align: left;
+}
+
+html[dir="ltr"] .footer-partners {
+    margin-left: 0;
+    margin-right: -120px; /* הופך את המרווח השלילי לצד השני */
+}
+
+html[dir="ltr"] .footer-partners .partners-banner {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+html[dir="ltr"] .social-title {
+    margin-left: 0;
+    margin-right: -20px;
+}
+
+html[dir="ltr"] .social-links {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* איפוס מוחלט של מרווחים שליליים בפוטר לדסקטופ ולמובייל */
+.footer-partners {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+html[dir="ltr"] .footer-partners {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* הבטחה שהאלמנטים לא יידחסו אחד על השני במסכים בינוניים */
+.footer-split {
+    display: flex;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    gap: 30px !important;
+}
+
+/* יישור הלוגואים לפי כיוון השפה בדסקטופ */
+@media (min-width: 769px) {
+    .partners-banner {
+        justify-content: flex-end;
+    }
+
+    html[dir="ltr"] .partners-banner {
+        justify-content: flex-start;
+    }
+}
+/* העלמה אגרסיבית של לחצן השפה של המובייל במסכי דסקטופ */
+@media (min-width: 769px) {
+    .mobile-lang-item,
+    .mobile-selector,
+    .main-nav .mobile-selector,
+    .main-nav .mobile-lang-item {
+        display: none !important;
+    }
+}
+/* עיצוב נקי ואלגנטי למחליף השפה במובייל */
+.mobile-lang-item .mobile-selector {
+    background-color: transparent !important;
+    color: var(--light-text) !important;
+    border: none !important;
+    outline: none !important;
+    font-size: 1.0rem !important; /* תואם לגודל של שאר הקישורים בהמבורגר */
+    font-family: inherit;
+    padding: 12px 24px !important;
+    cursor: pointer;
+    text-align: center;
+    text-align-last: center; /* עוזר למרכז את הטקסט בתוך ה-select */
+}
+
+/* צביעת הרקע של התפריט הנפתח עצמו כדי שלא יהיה לבן וצורם */
+.mobile-lang-item .mobile-selector option {
+    background-color: var(--deep-bg);
+    color: var(--light-text);
+    font-size: 0.5rem;
+}
+/* כרטיסייה שמתאימה את עצמה לרוחב התמונה */
+.event-card-img.auto-width {
+    width: auto !important; /* מבטל את ה-300px הקבוע */
+    padding: 0 !important;   /* מעביר את ה-padding לתוכן הפנימי */
+    position: relative;
+}
+
+.event-card-img .card-bg-img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.card-text-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(0deg, rgba(12, 35, 43, 0.95) 0%, rgba(12, 35, 43, 0.3) 70%, transparent 100%);
+    z-index: 2;
 }
