@@ -1,0 +1,71 @@
+[
+    {
+        "id": "launch-event-past",
+        "status": "past",
+        "eventType": "مناظرة كاملة:",
+        "date": "29/06/2026",
+        "locationName": "متحف الكنيست، القدس",
+        "title": "الاستقلال العسكري مقابل الاتفاقيات الإقليمية",
+        "coverImage": "assets/archive/event-01.webp",
+        "youtubeLink": "https://www.youtube.com/embed/WHk-KHOnkJU?si=aQMtEa1x4AZGlLxp",
+        "motion": "الاستقلال العسكري أم الاتفاقيات الإقليمية - ما الذي يجب أن يكون على رأس الأولويات الأمنية في إسرائيل؟",
+        "results": {
+            "svgImage": "assets/archive/29.06.2026.svg", 
+            "sideA": { "votes": 31, "color": "#90ED7D" }, 
+            "sideB": { "votes": 62, "color": "#7CB5EC" }  
+        },
+        "sides": {
+            "sideA": {
+                "name": "جانب الاستقلال العسكري",
+                "speakers": [
+                    { "name": "اللواء (احتياط) عوزي ديان", "role": "النائب السابق لرئيس الأركان ورئيس مجلس الأمن القومي، رئيس منتدى القادة الوطنيين", "img": "assets/speakers/uzi-dayan.jpg" },
+                    { "name": "البروفيسور داني أورباخ", "role": "مؤرخ عسكري (الجامعة العبرية)، خبير في الاستخبارات والاستراتيجية", "img": "assets/speakers/dani-orbach.png" }
+                ]
+            },
+            "sideB": {
+                "name": "جانب الاتفاقيات الدولية",
+                "speakers": [
+                    { "name": "الفريق (متقاعد) موشيه (بوغي) يعلون", "role": "وزير الدفاع ورئيس الأركان الأسبق", "img": "assets/speakers/bogi-yelon.jpg" },
+                    { "name": "كسينيا سفيتلوفا", "role": "صحفية، عضو كنيست سابقة، وخبيرة في شؤون الشرق الأوسط", "img": "assets/speakers/Ksenia-Svetlova.jpeg" }
+                ]
+            }
+        }
+    },
+    {
+        "id": "future-us-israel",
+        "status": "future",
+        "title": "العلاقات الإسرائيلية الأمريكية في الوقت الراهن",
+        "motion": "نقاش متعمق يستكشف نسيج العلاقات الاستراتيجية بين البلدين. هل يواجه التحالف التاريخي تحولاً جذرياً؟",
+        "registrationStatus": "يفتح التسجيل قريباً",
+        "speakersStatus": "سيتم الإعلان عن المتحدثين لاحقاً.",
+        "keynote": {
+            "name": "مايك هاكابي",
+            "role": "السفير الأمريكي في إسرائيل",
+            "img": "images/mike-huckabee.png"
+        }
+    },
+    {
+        "id": "future-judicial",
+        "status": "future",
+        "title": "توازن السلطات في النظام القضائي",
+        "motion": "استقلال القضاء أم تفوق المشرع - ما هو التوازن الأمثل للسلطات في دولة إسرائيل؟",
+        "registrationStatus": "لم يفتح بعد",
+        "speakersStatus": "سيتم الإعلان عن المتحدثين لاحقاً.",
+        "sides": {
+            "sideA": {
+                "name": "الجانب أ",
+                "speakers": [
+                    { "name": "د. أفيعاد بن تسيون باكشي", "role": "دكتور في القانون، منتدى كوهيليت", "img": "images/aviad-bakshi.png" },
+                    { "name": "البروفيسور طاليا أينهورن", "role": "خبيرة قانونية، عضو في اللجنة الاستشارية للتعيينات العليا", "img": "images/talia-einhorn.jpg" }
+                ]
+            },
+            "sideB": {
+                "name": "الجانب ب",
+                "speakers": [
+                    { "name": "إستر حايوت", "role": "الرئيسة السابقة للمحكمة العليا", "img": "images/esther-hayut.jpg" },
+                    { "name": "إليعاد شراغا", "role": "رئيس الحركة من أجل جودة الحكم", "img": "images/eliad-shraga.jpg" }
+                ]
+            }
+        }
+    }
+]
