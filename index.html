@@ -55,13 +55,32 @@
 
                 <div class="header-nav-wrapper">
                     <nav class="main-nav">
-                        <a href="#vision" class="nav-link">חזון</a>
-                        <a href="#archive" class="nav-link">ארכיון</a>
-                        <a href="#launch" id="navLaunchLink" class="nav-link" style="display: none;">האירוע הקרוב</a>
-                        <a href="#future" class="nav-link">במורד הדרך</a>
-                        <a href="#contact" class="nav-link">צרו קשר</a>
+                        <a href="#vision" class="nav-link" data-i18n="nav_vision">חזון</a>
+                        <a href="#archive" class="nav-link" data-i18n="nav_archive">ארכיון</a>
+                        <a href="#launch" id="navLaunchLink" class="nav-link" style="display: none;"
+                            data-i18n="nav_launch">האירוע הקרוב</a>
+                        <a href="#future" class="nav-link" data-i18n="nav_future">במורד הדרך</a>
+                        <a href="#contact" class="nav-link" data-i18n="nav_contact">צרו קשר</a>
+
+                        <div class="mobile-lang-item">
+                            <select class="lang-selector mobile-selector">
+                                <option value="he">עברית</option>
+                                <option value="en">English</option>
+                                <option value="ar">العربية</option>
+                            </select>
+                        </div>
                     </nav>
-                    <a href="#" id="headerRegisterBtn" class="btn header-cta" target="_blank">להרשמה</a>
+                    <a href="#" id="headerRegisterBtn" class="btn header-cta" target="_blank"
+                        data-i18n="nav_register">להרשמה</a>
+                </div>
+
+                <div class="lang-switcher desktop-only" style="margin-right: 15px;">
+                    <select class="lang-selector desktop-selector" onchange="switchLanguage(this.value)"
+                        style="padding: 6px 0; background: transparent; color: inherit; border: none; outline: none; font-family: inherit; cursor: pointer; font-size: 1.1rem; font-weight: 700;">
+                        <option value="he" style="color: #000;">עברית</option>
+                        <option value="en" style="color: #000;">English</option>
+                        <option value="ar" style="color: #000;">العربية</option>
+                    </select>
                 </div>
 
                 <button class="hamburger" aria-label="תפריט ניווט">
@@ -69,8 +88,6 @@
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </button>
-
-
             </div>
         </header>
 
@@ -79,33 +96,32 @@
 
             <div class="reveal">
 
-                <h1>על המוקד.</h1>
-                <p class="hero-sub"> פורום הדיבייט הציבורי בישראל.<br>
+                <h1 data-i18n="hero_title">על המוקד.</h1>
+                <p class="hero-sub" data-i18n="hero_sub"> פורום הדיבייט הציבורי בישראל.<br>
                     זירה אינטלקטואלית להתמודדות ישירה עם הסוגיות
                     המורכבות ביותר.
                 </p>
-                <div style="text-align: right;">
-                    <div class="hero-buttons">
-                        <!-- כפתור ההרשמה הראשי (יהפוך אוטומטית להרשמה לאירוע או לרשימת תפוצה) -->
-                        <a href="#" id="heroMainBtn" class="btn" target="_blank">להרשמה לאירוע הקרוב</a>
 
-                        <!-- כפתור הניווט למטה (ה-JS יסתיר אותו אוטומטית כשאין אירוע) -->
-                        <a href="#launch" id="heroLaunchBtn" class="btn btn-secondary">לפרטים על האירוע הקרוב</a>
+                <div class="hero-alignment">
+                    <div class="hero-buttons">
+                        <a href="#" id="heroMainBtn" class="btn" target="_blank" data-i18n="hero_main_btn">להרשמה לאירוע
+                            הקרוב</a>
+                        <a href="#launch" id="heroLaunchBtn" class="btn btn-secondary"
+                            data-i18n="hero_launch_btn">לפרטים על האירוע הקרוב</a>
                     </div>
                 </div>
-                <span id="heroPriceNote" class="price-note" style="display: none;">כרטיס כניסה כולל מקום שמור בכניסה
-                    לאירוע, למעגלי השיח, וכיבוד קל</span>
+                <span id="heroPriceNote" class="price-note" style="display: none;" data-i18n="hero_price_note">כרטיס
+                    כניסה כולל מקום שמור בכניסה לאירוע, למעגלי השיח, וכיבוד קל</span>
             </div>
-        </div>
         </div>
     </section>
 
     <section id="vision" class="section-light">
         <div class="container">
             <div class="vision-block reveal">
-                <h2 class="vision-title">האמת נחשפת בקונפליקט.</h2>
-                <p
-                    style="font-size: 1.8rem; text-align: justify; line-height: 1.5; max-width: 900px; font-weight: 400;">
+                <h2 class="vision-title" data-i18n="vision_title">האמת נחשפת בקונפליקט.</h2>
+                <p style="font-size: 1.8rem; text-align: justify; line-height: 1.5; max-width: 900px; font-weight: 400;"
+                    data-i18n="vision_text">
                     על המוקד הוא פורום דיבייט סטודנטיאלי צעיר, המהווה זירה עצמאית לניהול דיון ענייני
                     וביקורתי בסוגיות הליבה הציבוריות.
                     הפורום שואף לחדש את פניו של השיח הדמוקרטי בישראל, ומשיק את פעילותו במקום שבו הכל התחיל –
@@ -122,7 +138,7 @@
 
         <!-- כותרת הצד הקבועה -->
         <div class="archive-sidebar">
-            <h2>ארכיון האירועים</h2>
+            <h2 data-i18n="archive_sidebar_title">ארכיון האירועים</h2>
         </div>
 
         <!-- אזור הגלילה האופקית -->
@@ -130,17 +146,28 @@
             <div class="archive-track-flex" id="archiveTrack">
                 <!-- הכרטיסיות מהג'ייסון יוזרקו לכאן אוטומטית על ידי ה-JS -->
 
-                <!-- כאן אתה שם את כל התמונות הסטטיות שאתה רוצה -->
-                <img src="assets/archive/730703763_18092832350096565_79495857836698295_n.webp" alt="תמונת אווירה"
-                    class="flex-img" loading="lazy">
+                <a href="https://www.timesofisrael.com/debate-returns-to-old-knesset-building-for-first-time-in-60-years/"
+                    target="_blank" class="event-card-img auto-width static-card">
+                    <!-- התמונה המקורית שקובעת את הרוחב והגובה של הכרטיסייה -->
+                    <img src="assets/archive/730703763_18092832350096565_79495857836698295_n.webp"
+                        alt="Times of Israel Article" loading="lazy" class="card-bg-img">
+                    <div class="card-text-overlay">
+                        <span class="event-date">Times of Israel</span>
+                        <span class="event-card-title">Debate returns to Old Knesset building for first time in 60 years</span>
+                    </div>
+                </a>
                 <img src="assets/archive/732610773_18092832368096565_1071673198414799114_n.webp" alt="תמונת אווירה"
                     class="flex-img" loading="lazy">
                 <img src="assets/archive/photo-01.webp" alt="תמונת אווירה" class="flex-img">
                 <img src="assets/archive/731335965_18092832377096565_7592075476505963204_n.webp" alt="תמונת אווירה"
                     class="flex-img" loading="lazy">
+                <img src="assets/archive/730713371_18092832341096565_2025634589810185414_n.webp" alt="תמונת אווירה"
+                    class="flex-img" loading="lazy">
                 <img src="assets/archive/731068116_18092832398096565_5347207243813597346_n.webp" alt="תמונת אווירה"
                     class="flex-img" loading="lazy">
                 <img src="assets/archive/730786551_18092832380096565_2765289788235460997_n.webp" alt="תמונת אווירה"
+                    class="flex-img" loading="lazy">
+                    <img src="assets/archive/730774671_18092832389096565_7998700426880721513_n.webp" alt="תמונת אווירה"
                     class="flex-img" loading="lazy">
             </div>
         </div>
@@ -163,7 +190,7 @@
             <div class="modal-body">
                 <!-- כותרת ונושא הדיבייט -->
                 <h3 id="modalTitle" style="font-size: 2.8rem; font-weight: 900; margin-bottom: 20px;"></h3>
-                <span class="motion-label">נושא הדיון</span>
+                <span class="motion-label" data-i18n="modal_motion">נושא הדיון</span>
                 <p id="modalMotion" class="motion-text" style="font-size: 1.8rem; margin-bottom: 50px;"></p>
 
                 <!-- 1. רשימת הדוברים (ראשונה, מיד אחרי הנושא) -->
@@ -178,7 +205,8 @@
                         <h4 id="resNameA" style="font-size: 1.1rem; margin-bottom: 5px; opacity: 0.9;"></h4>
                         <span id="resVotesA"
                             style="font-size: 2.5rem; font-weight: 900; line-height: 1.1; display: block;"></span>
-                        <span style="font-size: 1rem; opacity: 0.6;">קולות</span>
+                        <span style="font-size: 1rem; opacity: 0.6;" data-i18n="modal_votes">קולות</span>
+                        <!-- מופיע פעמיים במודל, הוסף לשניהם -->
                     </div>
 
                     <!-- גרף ה-SVG באמצע -->
@@ -194,7 +222,8 @@
                         <div>
                             <span id="resVotesB"
                                 style="font-size: 2.5rem; font-weight: 900; line-height: 1.1; display: block; text-align: left;"></span>
-                            <span style="font-size: 1rem; opacity: 0.6; display: block; text-align: left;">קולות</span>
+                            <span style="font-size: 1rem; opacity: 0.6;" data-i18n="modal_votes">קולות</span>
+                            <!-- מופיע פעמיים במודל, הוסף לשניהם -->
                         </div>
                     </div>
                 </div>
@@ -202,7 +231,8 @@
                 <!-- 3. סרטון היוטיוב (שלישי בתחתית עם ריווח גדול) -->
                 <div
                     style="margin-top: 80px; padding-top: 50px; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center;">
-                    <span class="motion-label" style="margin-bottom: 20px; display: block;">הדיבייט המלא</span>
+                    <span class="motion-label" style="margin-bottom: 20px; display: block;"
+                        data-i18n="modal_full_debate">הדיבייט המלא</span>
                     <iframe id="modalVideo" class="video-embed" src="" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
@@ -220,10 +250,10 @@
                 <div class="featured-card reveal" onclick="this.classList.toggle('active')">
                     <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                         <div>
-                            <span class="motion-label">הנושא המרכזי</span>
+                            <span class="motion-label" data-i18n="launch_motion_label">הנושא המרכזי</span>
                             <h3 id="launchTitle" style="font-size: 2.8rem; font-weight: 900;"></h3>
-                            <p style="opacity: 0.8; margin-top: 10px; font-size: 1.2rem; color: var(--accent-red);">+
-                                לחצו לפרטים על נושא הדיון</p>
+                            <p style="opacity: 0.8; margin-top: 10px; font-size: 1.2rem; color: var(--accent-red);"
+                                data-i18n="launch_details_hint">+ לחצו לפרטים על נושא הדיון</p>
                         </div>
                         <div class="location-wrapper">
                             <a id="launchLocationLink" href="#" target="_blank" class="location-link">
@@ -238,7 +268,7 @@
                     </div>
 
                     <div class="motion-box">
-                        <span class="motion-label">נושא הדיון</span>
+                        <span class="motion-label" data-i18n="launch_motion_label">הנושא המרכזי</span>
                         <p id="launchMotion" class="motion-text"></p>
 
                         <!-- לכאן ה-JS ישפוך את הדוברים בצורה אוטומטית -->
@@ -253,124 +283,25 @@
 
     <section id="future" class="section-light">
         <div class="container reveal">
-            <h2 style="font-size: 3.5rem; margin-bottom: 50px; font-weight: 900;">במוקד: עימותים קרובים</h2>
-            <div class="event-list">
+            <h2 style="font-size: 3.5rem; margin-bottom: 50px; font-weight: 900;" data-i18n="future_title">במוקד:
+                עימותים קרובים</h2>
 
-                <div class="event-row" onclick="this.classList.toggle('open')">
-                    <div class="event-header">
-                        <div class="event-header-titles">
-                            <span class="event-date"></span>
-                            <h3>יחסי ישראל - ארה"ב בעת הנוכחית</h3>
-                        </div>
-                        <div class="toggle-icon">+</div>
-                    </div>
-                    <div class="event-details">
-                        <div class="event-details-content">
-                            <p>דיון מעמיק החוקר את מרקם היחסים האסטרטגיים בין המדינות. האם הברית ההיסטורית עומדת בפני
-                                שינוי כיוון דרמטי?</p>
-
-                            <p style="font-weight: 700; color: var(--accent-red); margin: 15px 0;">הדוברים יפורסמו
-                                בהמשך.</p>
-
-                            <div class="draft"
-                                style="margin: 20px 0; padding: 20px; background: rgba(0,0,0,0.03); border-radius: 8px;">
-                                <strong style="display:block; margin-bottom: 10px; color: var(--accent-red);"> keynote
-                                    speaker:</strong>
-                                <div class="future-speaker">
-                                    <img src="images/mike-huckabee.png" alt="מייק האקבי" class="future-speaker-img"
-                                        loading="lazy">
-                                    <div>
-                                        <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0;">מייק האקבי
-                                        </p>
-                                        <span style="font-size: 1.1rem; color: #475569;">שגריר ארה"ב בישראל</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <span class="status">הרשמה תפתח בקרוב</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="event-row" onclick="this.classList.toggle('open')">
-                    <div class="event-header">
-                        <div class="event-header-titles">
-                            <span class="event-date"></span>
-                            <h3>איזון רשויות במערכת המשפט</h3>
-                        </div>
-                        <div class="toggle-icon">+</div>
-                    </div>
-                    <div class="event-details">
-                        <div class="event-details-content">
-                            <span class="motion-label">נושא הדיון</span>
-                            <p>עצמאות מערכת המשפט או עליונות המחוקק - מהו איזון הרשויות המיטבי במדינת ישראל?</p>
-
-                            <p style="font-weight: 700; color: var(--accent-red); margin: 15px 0;">הדוברים יפורסמו
-                                בהמשך.</p>
-
-                            <div class="draft"
-                                style="margin: 20px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                                <div style="padding: 15px; background: rgba(0,0,0,0.03); border-radius: 8px;">
-                                    <strong style="color: var(--accent-red); display:block; margin-bottom:10px;">צד
-                                        א'</strong>
-                                    <div class="future-speaker">
-                                        <img src="images/aviad-bakshi.png" alt="אביעד בן ציון בקשי"
-                                            class="future-speaker-img" loading="lazy">
-                                        <div>
-                                            <p style="font-weight: bold; margin-bottom:0;">אביעד בן ציון בקשי</p>
-                                            <span style="font-size: 0.9rem; color: #475569;">דוקטור למשפטים, פורום
-                                                קהלת</span>
-                                        </div>
-                                    </div>
-                                    <div class="future-speaker">
-                                        <img src="images/talia-einhorn.jpg" alt="טליה איינהורן"
-                                            class="future-speaker-img" loading="lazy">
-                                        <div>
-                                            <p style="font-weight: bold; margin-bottom:0;">טליה איינהורן</p>
-                                            <span style="font-size: 0.9rem; color: #475569;">משפטנית, חברה בוועדה למינוי
-                                                בכירים</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="padding: 15px; background: rgba(0,0,0,0.03); border-radius: 8px;">
-                                    <strong style="color: var(--accent-red); display:block; margin-bottom:10px;">צד
-                                        ב'</strong>
-                                    <div class="future-speaker">
-                                        <img src="images/esther-hayut.jpg" alt="אסתר חיות" class="future-speaker-img"
-                                            loading="lazy">
-                                        <div>
-                                            <p style="font-weight: bold; margin-bottom:0;">אסתר חיות</p>
-                                            <span style="font-size: 0.9rem; color: #475569;">נשיאת בית המשפט העליון
-                                                לשעבר</span>
-                                        </div>
-                                    </div>
-                                    <div class="future-speaker">
-                                        <img src="images/eliad-shraga.jpg" alt="אליעד שרגא" class="future-speaker-img"
-                                            loading="lazy">
-                                        <div>
-                                            <p style="font-weight: bold; margin-bottom:0;">אליעד שרגא</p>
-                                            <span style="font-size: 0.9rem; color: #475569;">יו"ר התנועה למען איכות
-                                                השלטון</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <span class="status">טרם נפתח</span>
-                        </div>
-                    </div>
-                </div>
+            <!-- לכאן ה-JS ישפוך את האירועים העתידיים מהג'ייסון -->
+            <div class="event-list" id="futureEventsContainer">
 
             </div>
         </div>
     </section>
+
     <div class="bottom-unified-wrapper">
         <section id="contact" class="section-dark">
             <div class="container reveal">
                 <div class="featured-card" onclick="this.classList.toggle('active')" style="text-align: center;">
-                    <span class="motion-label">צרו קשר</span>
-                    <h3 style="font-weight: 900; margin: 10px 0;">רוצים להציע נושא/דובר או להצטרף לצוות?</h3>
-                    <p style="opacity: 0.8; font-size: 1.1rem; color: var(--accent-red); cursor: pointer;">
+                    <span class="motion-label" data-i18n="contact_label">צרו קשר</span>
+                    <h3 style="font-weight: 900; margin: 10px 0;" data-i18n="contact_title">רוצים להציע נושא/דובר או
+                        להצטרף לצוות?</h3>
+                    <p style="opacity: 0.8; font-size: 1.1rem; color: var(--accent-red); cursor: pointer;"
+                        data-i18n="contact_subtitle">
                         + לחצו כאן לפתיחת טופס הפנייה
                     </p>
 
@@ -379,27 +310,29 @@
                             onclick="event.stopPropagation()">
 
                             <div class="form-group">
-                                <label for="name">שם מלא</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="הכנס שם מלא"
-                                    required>
+                                <label for="name" data-i18n="form_name">שם מלא</label>
+                                <input type="text" name="name" id="name" class="form-control"
+                                    data-i18n-placeholder="form_name_placeholder" placeholder="הכנס שם מלא" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="subject">נושא הפנייה</label>
+                                <label for="subject" data-i18n="form_subject">נושא הפנייה</label>
+                                <!-- שימו לב לאפשרויות בתוך התפריט הנפתח -->
                                 <select name="subject" id="subject" class="form-control">
-                                    <option value="idea">הצעת נושא/דובר</option>
-                                    <option value="join">הצטרפות לצוות</option>
-                                    <option value="other">אחר</option>
+                                    <option value="idea" data-i18n="form_subject_opt1">הצעת נושא/דובר</option>
+                                    <option value="join" data-i18n="form_subject_opt2">הצטרפות לצוות</option>
+                                    <option value="other" data-i18n="form_subject_opt3">אחר</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="message">הודעה</label>
+                                <label for="message" data-i18n="form_message">הודעה</label>
                                 <textarea name="message" id="message" rows="4" class="form-control"
-                                    placeholder="איך נוכל לעזור?" required></textarea>
+                                    data-i18n-placeholder="form_message_placeholder" placeholder="איך נוכל לעזור?"
+                                    required></textarea>
                             </div>
 
-                            <button type="submit" class="btn">שליחה</button>
+                            <button type="submit" class="btn" data-i18n="form_submit">שליחה</button>
                         </form>
                     </div>
                 </div>
@@ -409,10 +342,9 @@
             <div class="container">
                 <div class="footer-split">
 
+                    <!-- הקונטיינר שעוטף את הכותרת ואת הרשתות החברתיות ושומר עליהם יחד -->
                     <div class="footer-community">
-                        <h3 class="social-title">יש עוד אירועים בקרוב!
-                            <br>בואו נהיה בקשר:
-                        </h3>
+                        <h3 class="social-title" data-i18n="footer_title">יש עוד אירועים בקרוב!<br>בואו נהיה בקשר:</h3>
                         <div class="social-links">
                             <a href="https://chat.whatsapp.com/I3DnyLLLv55Es70sIE0f7J?s=cl&p=i&ilr=4" target="_blank"
                                 title="WhatsApp">
@@ -427,7 +359,6 @@
                                         d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                                 </svg>
                             </a>
-
                             <a href="https://instagram.com/al.hamoked" target="_blank" title="Instagram">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path
@@ -450,6 +381,7 @@
                         </div>
                     </div>
 
+                    <!-- הקונטיינר של הלוגואים השותפים -->
                     <div class="footer-partners">
                         <div class="partners-banner">
                             <img src="assets/logos/white-logo.svg" alt="על המוקד" class="brand-logo">
@@ -461,7 +393,8 @@
 
                 </div>
 
-                <p style="opacity: 0.3; font-size: 0.9rem; margin-top: 40px; text-align: center;">על המוקד © 2026</p>
+                <p style="opacity: 0.3; font-size: 0.9rem; margin-top: 40px; text-align: center;"
+                    data-i18n="footer_copyright">על המוקד © 2026</p>
             </div>
         </footer>
     </div>
