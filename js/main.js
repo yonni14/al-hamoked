@@ -53,7 +53,7 @@ const staticTranslations = {
         hero_launch_btn: "Event Details",
         hero_price_note: "Ticket includes reserved seating, discussion circles, and light refreshments",
         vision_title: "Truth Emerges in Conflict.",
-        vision_text: "THE SPOTLIGHT is a vibrant student debate forum, providing an independent arena for substantive and critical discussion on core public issues. The forum aims to revitalize democratic discourse in Israel, launching its activity right where it all began – the historical Knesset plenum in Jerusalem (The Knesset Museum). Inspired by the premier debate societies of Oxford and Cambridge, we present an arena grounded in reasoned arguments and structured speech, inviting the audience to take a direct part in the ideological conflict and in deciding the debate.",
+        vision_text: "THE SPOTLIGHT is a vibrant student debate forum, providing an independent arena for substantive and critical discussion on core public issues. The forum aims to revitalize democratic discourse in Israel, launching its activity right where it all began – the historical Knesset Chamber in Jerusalem (The Knesset Museum). Inspired by the premier debate societies of Oxford and Cambridge, we present an arena grounded in reasoned arguments and structured speech, inviting the audience to take a direct part in the ideological conflict and in settling the debate.",
         archive_sidebar_title: "Event Archive",
         launch_motion_label: "Main Topic",
         modal_motion: "Motion",
