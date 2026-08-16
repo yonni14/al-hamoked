@@ -31,41 +31,57 @@
             }
         }
     },
-    {
-        "id": "future-us-israel",
-        "status": "future",
-        "title": "Current Israel-US Relations",
-        "motion": "An in-depth discussion exploring the fabric of strategic relations between the countries. Is the historic alliance facing a dramatic shift?",
-        "registrationStatus": "Registration opening soon",
-        "speakersStatus": "Speakers will be announced soon.",
-        "keynote": {
-            "name": "Mike Huckabee",
-            "role": "US Ambassador to Israel",
-            "img": "images/mike-huckabee.png"
+   {
+      "id": "future_superate_gorenment",
+      "status": "future",
+      "title": "Professional Civil Service vs. Elected Officials",
+      "motion": "Should the power of the professional civil service be reduced in relation to elected officials?",
+      "registrationStatus": "Registration opening soon",
+      "speakersStatus": "Speakers will be announced soon.",
+      "sides": {
+        "sideA": {
+          "name": "Side A",
+          "speakers": [
+            {
+              "name": "Aviad Ben-Zion Bakshi",
+              "role": "Doctor of Law, Kohelet Policy Forum",
+              "img": "images/aviad-bakshi.png"
+            },
+            {
+              "name": "Talia Einhorn",
+              "role": "Jurist, Member of the Advisory Committee on Senior Civil Service Appointments",
+              "img": "images/talia-einhorn.jpg"
+            }
+          ]
+        },
+        "sideB": {
+          "name": "Side B",
+          "speakers": [
+            {
+              "name": "Esther Hayut",
+              "role": "Former President of the Supreme Court",
+              "img": "images/esther-hayut.jpg"
+            },
+            {
+              "name": "Eliad Shraga",
+              "role": "Chairman of the Movement for Quality Government in Israel",
+              "img": "images/eliad-shraga.jpg"
+            }
+          ]
         }
+      }
     },
     {
-        "id": "future-judicial",
-        "status": "future",
-        "title": "Balance of Powers in the Justice System",
-        "motion": "Judicial independence or legislative supremacy - what is the optimal balance of powers in the State of Israel?",
-        "registrationStatus": "Not yet open",
-        "speakersStatus": "Speakers will be announced soon.",
-        "sides": {
-            "sideA": {
-                "name": "Side A",
-                "speakers": [
-                    { "name": "Dr. Aviad Bakshi", "role": "Doctor of Law, Kohelet Policy Forum", "img": "images/aviad-bakshi.png" },
-                    { "name": "Prof. Talia Einhorn", "role": "Legal Expert, Member of the Senior Appointments Advisory Committee", "img": "images/talia-einhorn.jpg" }
-                ]
-            },
-            "sideB": {
-                "name": "Side B",
-                "speakers": [
-                    { "name": "Esther Hayut", "role": "Former President of the Supreme Court", "img": "images/esther-hayut.jpg" },
-                    { "name": "Eliad Shraga", "role": "Chairman of the Movement for Quality Government", "img": "images/eliad-shraga.jpg" }
-                ]
-            }
-        }
+      "id": "future_AI",
+      "status": "future",
+      "title": "The Impact of Artificial Intelligence on Humanity",
+      "motion": "Will AI cause more harm or benefit to humanity in the future?",
+      "registrationStatus": "Not yet open",
+      "speakersStatus": "Speakers will be announced soon.",
+      "keynote": {
+        "name": "Mike Huckabee",
+        "role": "U.S. Ambassador to Israel",
+        "img": "images/mike-huckabee.png"
+      }
     }
 ]

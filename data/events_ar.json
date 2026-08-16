@@ -31,41 +31,57 @@
             }
         }
     },
-    {
-        "id": "future-us-israel",
-        "status": "future",
-        "title": "العلاقات الإسرائيلية الأمريكية في الوقت الراهن",
-        "motion": "نقاش متعمق يستكشف نسيج العلاقات الاستراتيجية بين البلدين. هل يواجه التحالف التاريخي تحولاً جذرياً؟",
-        "registrationStatus": "يفتح التسجيل قريباً",
-        "speakersStatus": "سيتم الإعلان عن المتحدثين لاحقاً.",
-        "keynote": {
-            "name": "مايك هاكابي",
-            "role": "السفير الأمريكي في إسرائيل",
-            "img": "images/mike-huckabee.png"
+   {
+      "id": "future_superate_gorenment",
+      "status": "future",
+      "title": "المستوى المهني مقابل المستوى المنتخب",
+      "motion": "هل ينبغي تقليص صلاحيات المستوى المهني لصالح المستوى المنتخب؟",
+      "registrationStatus": "لم يفتح بعد",
+      "speakersStatus": "سيتم الإعلان عن المتحدثين لاحقًا.",
+      "sides": {
+        "sideA": {
+          "name": "الطرف أ",
+          "speakers": [
+            {
+              "name": "أفياد بن تسيون باكشي",
+              "role": "دكتور في القانون، منتدى كوهيليت",
+              "img": "images/aviad-bakshi.png"
+            },
+            {
+              "name": "تاليا أينهورن",
+              "role": "حقوقية، عضوة في لجنة تعيين كبار المسؤولين",
+              "img": "images/talia-einhorn.jpg"
+            }
+          ]
+        },
+        "sideB": {
+          "name": "الطرف ب",
+          "speakers": [
+            {
+              "name": "إستر حيوت",
+              "role": "رئيسة المحكمة العليا سابقًا",
+              "img": "images/esther-hayut.jpg"
+            },
+            {
+              "name": "إليعاد شراغا",
+              "role": "رئيس الحركة من أجل جودة الحكم",
+              "img": "images/eliad-shraga.jpg"
+            }
+          ]
         }
+      }
     },
     {
-        "id": "future-judicial",
-        "status": "future",
-        "title": "توازن السلطات في النظام القضائي",
-        "motion": "استقلال القضاء أم تفوق المشرع - ما هو التوازن الأمثل للسلطات في دولة إسرائيل؟",
-        "registrationStatus": "لم يفتح بعد",
-        "speakersStatus": "سيتم الإعلان عن المتحدثين لاحقاً.",
-        "sides": {
-            "sideA": {
-                "name": "الجانب أ",
-                "speakers": [
-                    { "name": "د. أفيعاد بن تسيون باكشي", "role": "دكتور في القانون، منتدى كوهيليت", "img": "images/aviad-bakshi.png" },
-                    { "name": "البروفيسور طاليا أينهورن", "role": "خبيرة قانونية، عضو في اللجنة الاستشارية للتعيينات العليا", "img": "images/talia-einhorn.jpg" }
-                ]
-            },
-            "sideB": {
-                "name": "الجانب ب",
-                "speakers": [
-                    { "name": "إستر حايوت", "role": "الرئيسة السابقة للمحكمة العليا", "img": "images/esther-hayut.jpg" },
-                    { "name": "إليعاد شراغا", "role": "رئيس الحركة من أجل جودة الحكم", "img": "images/eliad-shraga.jpg" }
-                ]
-            }
-        }
+      "id": "future_AI",
+      "status": "future",
+      "title": "تأثير الذكاء الاصطناعي على الإنسانية",
+      "motion": "هل سيجلب الذكاء الاصطناعي للبشرية ضررًا أكثر أم نفعًا في المستقبل؟",
+      "registrationStatus": "سيفتح التسجيل قريبًا",
+      "speakersStatus": "سيتم الإعلان عن المتحدثين لاحقًا.",
+      "keynote": {
+        "name": "مايك هاكابي",
+        "role": "سفير الولايات المتحدة لدى إسرائيل",
+        "img": "images/mike-huckabee.png"
+      }
     }
 ]

@@ -30,26 +30,13 @@
                 ]
             }
         }
-    },
+    }, 
      {
-      "id": "future-us-israel",
+      "id": "future_superate_gorenment",
       "status": "future",
-      "title": "יחסי ישראל - ארה\"ב בעת הנוכחית",
-      "motion": "דיון מעמיק החוקר את מרקם היחסים האסטרטגיים בין המדינות. האם הברית ההיסטורית עומדת בפני שינוי כיוון דרמטי?",
+      "title": "דרג מקצועי vs דרג נבחר",
+      "motion":"האם צריך לצמצם את כוחו של הדרג המקצועי אל מול הדרג הנבחר?",
       "registrationStatus": "הרשמה תפתח בקרוב",
-      "speakersStatus": "הדוברים יפורסמו בהמשך.",
-      "keynote": {
-          "name": "מייק האקבי",
-          "role": "שגריר ארה\"ב בישראל",
-          "img": "images/mike-huckabee.png"
-      }
-  },
-  {
-      "id": "future-judicial",
-      "status": "future",
-      "title": "איזון רשויות במערכת המשפט",
-      "motion": "עצמאות מערכת המשפט או עליונות המחוקק - מהו איזון הרשויות המיטבי במדינת ישראל?",
-      "registrationStatus": "טרם נפתח",
       "speakersStatus": "הדוברים יפורסמו בהמשך.",
       "sides": {
           "sideA": {
@@ -66,6 +53,19 @@
                   { "name": "אליעד שרגא", "role": "יו\"ר התנועה למען איכות השלטון", "img": "images/eliad-shraga.jpg" }
               ]
           }
+      }
+  },
+     {
+      "id": "future_AI",
+      "status": "future",
+      "title": "השפעת הבינה המלאכותית על האנושות",
+      "motion": "האם ה-AI עתיד לגרום לאנושות יותר נזק או תועלת?",
+      "registrationStatus": "טרם נפתח",
+      "speakersStatus": "הדוברים יפורסמו בהמשך.",
+      "keynote": {
+          "name": "מייק האקבי",
+          "role": "שגריר ארה\"ב בישראל",
+          "img": "images/mike-huckabee.png"
       }
   }
 ]
