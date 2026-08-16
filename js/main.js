@@ -84,7 +84,7 @@ const staticTranslations = {
         nav_contact: "اتصل بنا",
         nav_register: "تسجيل",
         hero_mailing_btn: "انضموا إلى القائمة البريدية",
-        hero_title: "في البؤرة",
+        hero_title: "في البؤرة.",
         hero_sub: "منتدى النقاش العام في إسرائيل.\nساحة فكرية للتعامل المباشر مع أكثر القضايا تعقيداً.",
         hero_main_btn: "التسجيل للحدث القادم",
         hero_launch_btn: "تفاصيل الحدث",
