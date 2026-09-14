@@ -18,6 +18,8 @@ const staticTranslations = {
         vision_title: "האמת נחשפת בקונפליקט.",
         vision_text: "על המוקד הוא פורום דיבייט סטודנטיאלי צעיר, המהווה זירה עצמאית לניהול דיון ענייני וביקורתי בסוגיות הליבה הציבוריות. הפורום שואף לחדש את פניו של השיח הדמוקרטי בישראל, ומשיק את פעילותו במקום שבו הכל התחיל – מליאת הכנסת ההיסטורית בירושלים (מוזיאון הכנסת). בהשראת מועדוני הדיבייט המובילים והוותיקים של Oxford ו-Cambridge, אנו מציגים על הבמה זירה המבוססת על טיעונים מנומקים ותרבות נאום מובנית ומזמינים את הקהל לקחת חלק ישיר בעימות הרעיוני ובהכרעת הדיון.",
         archive_sidebar_title: "ארכיון האירועים",
+        tab_past_events: "אירועי עבר",
+        tab_gallery: "גלריה",
         launch_motion_label: "הנושא המרכזי",
         modal_motion: "נושא הדיון",
         modal_votes: "קולות",
@@ -25,16 +27,19 @@ const staticTranslations = {
         launch_details_hint: "+ לחצו לפרטים על נושא הדיון",
         future_title: "במוקד: עימותים קרובים",
         contact_label: "צרו קשר",
-        form_name_placeholder: "הכנס שם מלא",
-        form_message_placeholder: "איך נוכל לעזור?",
-        contact_title: "רוצים להציע נושא/דובר או להצטרף לצוות?",
+        contact_title: "יש לכם דיבייט שהייתם רוצים לראות?",
         contact_subtitle: "+ לחצו כאן לפתיחת טופס הפנייה",
-        form_name: "שם מלא",
-        form_subject: "נושא הפנייה",
-        form_subject_opt1: "הצעת נושא/דובר",
-        form_subject_opt2: "הצטרפות לצוות",
-        form_subject_opt3: "אחר",
-        form_message: "הודעה",
+        form_name: "שם מלא *",
+        form_name_placeholder: "הכנס שם מלא",
+        form_debate_title: "כותרת הדיון המוצע",
+        form_debate_title_placeholder: "איזה נושא הייתם רוצים לראות?",
+        form_speakers: "דוברים אפשריים",
+        form_speakers_placeholder: "מי מתאים לייצג את הצדדים?",
+        form_message: "פרטים נוספים *",
+        form_message_placeholder: "למה זה נושא מעניין? למה עם הדוברים האלה?",
+        form_contact_info: "איך ניתן ליצור איתך קשר",
+        form_contact_info_placeholder: "אימייל או מספר טלפון",
+        form_error_missing_field: "יש למלא לפחות כותרת דיון או דוברים אפשריים.",
         form_submit: "שליחה",
         footer_title: "יש עוד אירועים בקרוב!<br>בואו נהיה בקשר:",
         footer_copyright: "על המוקד © 2026"
@@ -48,13 +53,15 @@ const staticTranslations = {
         nav_register: "Register",
         hero_mailing_btn: "Join our Mailing List",
         hero_title: "THE SPOTLIGHT.",
-        hero_sub: "Israel's Public Debate Forum.\nAn intellectual arena for tackling the most complex issues.",
+        hero_sub: "Israel's Public Debate Forum.<br>An intellectual arena for tackling the most complex issues.",
         hero_main_btn: "Register for Next Event",
         hero_launch_btn: "Event Details",
         hero_price_note: "Ticket includes reserved seating, discussion circles, and light refreshments",
         vision_title: "Truth Emerges in Conflict.",
         vision_text: "THE SPOTLIGHT is a vibrant student debate forum, providing an independent arena for substantive and critical discussion on core public issues. The forum aims to revitalize democratic discourse in Israel, launching its activity right where it all began – the historical Knesset Chamber in Jerusalem (The Knesset Museum). Inspired by the premier debate societies of Oxford and Cambridge, we present an arena grounded in reasoned arguments and structured speech, inviting the audience to take a direct part in the ideological conflict and in settling the debate.",
         archive_sidebar_title: "Event Archive",
+        tab_past_events: "Past Events",
+        tab_gallery: "Gallery",
         launch_motion_label: "Main Topic",
         modal_motion: "Motion",
         modal_votes: "Votes",
@@ -62,18 +69,21 @@ const staticTranslations = {
         launch_details_hint: "+ Click for motion details",
         future_title: "In Focus: Upcoming Debates",
         contact_label: "Contact Us",
-        contact_title: "Want to suggest a topic/speaker or join the team?",
+        contact_title: "Is there a debate you'd like to see?",
         contact_subtitle: "+ Click here to open the contact form",
-        form_name: "Full Name",
+        form_name: "Full Name *",
         form_name_placeholder: "Enter full name",
-        form_message_placeholder: "How can we help?",
-        form_subject: "Subject",
-        form_subject_opt1: "Suggest Topic/Speaker",
-        form_subject_opt2: "Join the Team",
-        form_subject_opt3: "Other",
-        form_message: "Message",
+        form_debate_title: "Proposed Debate Title",
+        form_debate_title_placeholder: "What topic would you like to see?",
+        form_speakers: "Potential Speakers",
+        form_speakers_placeholder: "Who should represent the sides?",
+        form_message: "Additional Details *",
+        form_message_placeholder: "Why is this interesting? Why these speakers?",
+        form_contact_info: "How can we contact you?",
+        form_contact_info_placeholder: "Email or phone number",
+        form_error_missing_field: "Please fill in either a debate title or potential speakers.",
         form_submit: "Send",
-        footer_title: "More events coming soon!\nLet's stay in touch:",
+        footer_title: "More events coming soon!<br>Let's stay in touch:",
         footer_copyright: "THE SPOTLIGHT © 2026"
     },
     ar: {
@@ -85,13 +95,15 @@ const staticTranslations = {
         nav_register: "تسجيل",
         hero_mailing_btn: "انضموا إلى القائمة البريدية",
         hero_title: "في البؤرة.",
-        hero_sub: "منتدى النقاش العام في إسرائيل.\nساحة فكرية للتعامل المباشر مع أكثر القضايا تعقيداً.",
+        hero_sub: "منتدى النقاش العام في إسرائيل.<br>ساحة فكرية للتعامل المباشر مع أكثر القضايا تعقيداً.",
         hero_main_btn: "التسجيل للحدث القادم",
         hero_launch_btn: "تفاصيل الحدث",
         hero_price_note: "تذكرة الدخول تشمل مقعداً محجوزاً، دوائر النقاش، ومرطبات",
         vision_title: "الحقيقة تظهر في الصراع.",
         vision_text: "في البؤرة هو منتدى نقاش طلابي شاب، يشكل ساحة مستقلة لإدارة نقاش موضوعي ونقدي حول القضايا العامة الجوهرية. يطمح المنتدى إلى تجديد وجه الحوار الديمقراطي في إسرائيل، ويطلق نشاطه من المكان الذي بدأ فيه كل شيء – قاعة الكنيست التاريخية في القدس (متحف الكنيست). بإلهام من أندية المناظرة الرائدة والعريقة في أوكسفورد وكامبريدج، نقدم على المسرح ساحة قائمة على الحجج المعللة وثقافة الخطابة المنظمة، وندعو الجمهور للمشاركة المباشرة في الصراع الفكري وفض النقاش.",
         archive_sidebar_title: "أرشيف الأحداث",
+        tab_past_events: "أحداث سابقة",
+        tab_gallery: "معرض الصور",
         launch_motion_label: "الموضوع الرئيسي",
         modal_motion: "موضوع النقاش",
         modal_votes: "أصوات",
@@ -99,18 +111,21 @@ const staticTranslations = {
         launch_details_hint: "+ اضغط لمعرفة تفاصيل النقاش",
         future_title: "في التركيز: مناظرات قادمة",
         contact_label: "اتصل بنا",
-        contact_title: "هل تريد اقتراح موضوع/متحدث أو الانضمام للفريق؟",
+        contact_title: "هل هناك مناظرة تود رؤيتها؟",
         contact_subtitle: "+ اضغط هنا لفتح نموذج الاتصال",
-        form_name: "الاسم الكامل",
-        form_subject: "الموضوع",
+        form_name: "الاسم الكامل *",
         form_name_placeholder: "أدخل الاسم الكامل",
-        form_message_placeholder: "كيف يمكننا المساعدة؟",
-        form_subject_opt1: "اقتراح موضوع/متحدث",
-        form_subject_opt2: "الانضمام للفريق",
-        form_subject_opt3: "آخر",
-        form_message: "الرسالة",
+        form_debate_title: "عنوان المناظرة المقترح",
+        form_debate_title_placeholder: "ما هو الموضوع الذي تود رؤيته؟",
+        form_speakers: "متحدثون محتملون",
+        form_speakers_placeholder: "من يجب أن يمثل الأطراف؟",
+        form_message: "تفاصيل إضافية *",
+        form_message_placeholder: "لماذا هذا الموضوع مثير للاهتمام؟",
+        form_contact_info: "كيف يمكننا التواصل معك؟",
+        form_contact_info_placeholder: "البريد الإلكتروني أو رقم الهاتف",
+        form_error_missing_field: "يرجى ملء عنوان المناظرة أو المتحدثين المحتملين على الأقل.",
         form_submit: "إرسال",
-        footer_title: "المزيد من الأحداث قريباً!\nدعونا نبقى على تواصل:",
+        footer_title: "المزيد من الأحداث قريباً!<br>دعونا نبقى على تواصل:",
         footer_copyright: "في البؤرة © 2026"
     }
 };
@@ -182,7 +197,8 @@ async function loadEventsData(lang = 'he') {
             heroBtn: document.getElementById('heroLaunchBtn'),
             priceNote: document.getElementById('heroPriceNote'),
             mainBtn: document.getElementById('heroMainBtn'),
-            headerBtn: document.getElementById('headerRegisterBtn')
+            headerBtn: document.getElementById('headerRegisterBtn'),
+            cardRegisterBtn: document.getElementById('launchCardRegisterBtn')
         };
 
         const MAILING_LIST_URL = "https://forms.gle/25DoXLvgbrUuQG6TA";
@@ -202,6 +218,9 @@ async function loadEventsData(lang = 'he') {
                 elements.headerBtn.style.display = 'inline-block';
                 elements.headerBtn.textContent = staticTranslations[lang]?.nav_register || "להרשמה";
                 elements.headerBtn.href = nextEvent.registerLink || "#";
+            }
+            if (elements.cardRegisterBtn) {
+                elements.cardRegisterBtn.href = nextEvent.registerLink || "#";
             }
 
             // עדכון פרטי האירוע
@@ -403,6 +422,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // ב. מאזינים למחליף שפה
     document.querySelectorAll('.lang-selector').forEach(selector => {
         selector.addEventListener('change', (e) => switchLanguage(e.target.value));
+    // ד. מנגנון טאבים לארכיון
+    const tabBtns = document.querySelectorAll('.archive-tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // מסיר 'active' מכל הכפתורים והמסילות
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+
+            // מוסיף 'active' לכפתור שנלחץ ולמסילה המתאימה לו
+            btn.classList.add('active');
+            const targetId = btn.getAttribute('data-target');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+
+    // ה. ואלידציה לטופס יצירת קשר (מוודא שלפחות כותרת או דובר מולאו)
+    const suggestForm = document.getElementById('suggestForm');
+    if (suggestForm) {
+        suggestForm.addEventListener('submit', function (e) {
+            const titleVal = document.getElementById('debate_title').value.trim();
+            const speakersVal = document.getElementById('speakers').value.trim();
+            const errorMsg = document.getElementById('formErrorMsg');
+
+            if (!titleVal && !speakersVal) {
+                e.preventDefault(); // עוצר את שליחת הטופס
+                errorMsg.style.display = 'block'; // מציג את השגיאה
+            } else {
+                errorMsg.style.display = 'none'; // מעלים את השגיאה אם הכל תקין
+            }
+        });
+    }
     });
 
     // ג. הפעלת תפריט המבורגר במובייל
