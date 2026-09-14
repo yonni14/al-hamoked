@@ -110,8 +110,6 @@
                             data-i18n="hero_launch_btn">לפרטים על האירוע הקרוב</a>
                     </div>
                 </div>
-                <span id="heroPriceNote" class="price-note" style="display: none;" data-i18n="hero_price_note">כרטיס
-                    כניסה כולל מקום שמור בכניסה לאירוע, למעגלי השיח, וכיבוד קל</span>
             </div>
         </div>
     </section>
@@ -139,16 +137,26 @@
         <!-- כותרת הצד הקבועה -->
         <div class="archive-sidebar">
             <h2 data-i18n="archive_sidebar_title">ארכיון האירועים</h2>
+            
+            <!-- אזור הטאבים החדש (יתמקם אוטומטית מתחת לכותרת בגלל ה-flex column הקיים) -->
+            <div class="archive-tabs">
+                <button class="archive-tab-btn active" data-target="archiveTrack" data-i18n="tab_past_events">אירועי עבר</button>
+                <button class="archive-tab-btn" data-target="galleryTrack" data-i18n="tab_gallery">גלריה</button>
+            </div>
         </div>
 
         <!-- אזור הגלילה האופקית -->
         <div class="archive-scroll" id="archiveScroll">
-            <div class="archive-track-flex" id="archiveTrack">
+            
+            <!-- מסילה 1: אירועי עבר (דינמי) - שומרת על המחלקה המקורית שלך -->
+            <div class="archive-track-flex tab-content active" id="archiveTrack">
                 <!-- הכרטיסיות מהג'ייסון יוזרקו לכאן אוטומטית על ידי ה-JS -->
+            </div>
 
+            <!-- מסילה 2: גלריה (סטטי) - משתמשת באותה מחלקה כדי לקבל בדיוק את אותו עיצוב -->
+            <div class="archive-track-flex tab-content" id="galleryTrack">
                 <a href="https://www.timesofisrael.com/debate-returns-to-old-knesset-building-for-first-time-in-60-years/"
                     target="_blank" class="event-card-img auto-width static-card">
-                    <!-- התמונה המקורית שקובעת את הרוחב והגובה של הכרטיסייה -->
                     <img src="assets/archive/730703763_18092832350096565_79495857836698295_n.webp"
                         alt="Times of Israel Article" loading="lazy" class="card-bg-img">
                     <div class="card-text-overlay">
@@ -156,23 +164,17 @@
                         <span class="event-card-title">Debate returns to Old Knesset building for first time in 60 years</span>
                     </div>
                 </a>
-                <img src="assets/archive/732610773_18092832368096565_1071673198414799114_n.webp" alt="תמונת אווירה"
-                    class="flex-img" loading="lazy">
+                <img src="assets/archive/732610773_18092832368096565_1071673198414799114_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
                 <img src="assets/archive/photo-01.webp" alt="תמונת אווירה" class="flex-img">
-                <img src="assets/archive/731335965_18092832377096565_7592075476505963204_n.webp" alt="תמונת אווירה"
-                    class="flex-img" loading="lazy">
-                <img src="assets/archive/730713371_18092832341096565_2025634589810185414_n.webp" alt="תמונת אווירה"
-                    class="flex-img" loading="lazy">
-                <img src="assets/archive/731068116_18092832398096565_5347207243813597346_n.webp" alt="תמונת אווירה"
-                    class="flex-img" loading="lazy">
-                <img src="assets/archive/730786551_18092832380096565_2765289788235460997_n.webp" alt="תמונת אווירה"
-                    class="flex-img" loading="lazy">
-                    <img src="assets/archive/730774671_18092832389096565_7998700426880721513_n.webp" alt="תמונת אווירה"
-                    class="flex-img" loading="lazy">
+                <img src="assets/archive/731335965_18092832377096565_7592075476505963204_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
+                <img src="assets/archive/730713371_18092832341096565_2025634589810185414_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
+                <img src="assets/archive/731068116_18092832398096565_5347207243813597346_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
+                <img src="assets/archive/730786551_18092832380096565_2765289788235460997_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
+                <img src="assets/archive/730774671_18092832389096565_7998700426880721513_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
             </div>
+
         </div>
     </section>
-
     <!-- שבלונת הכרטיסייה - מוסתרת -->
     <template id="archive-card-template">
         <a href="#" class="event-card-img">
@@ -241,39 +243,49 @@
         </div>
     </div>
 
-    <!-- סקשן הבמה המרכזית (מוסתר כברירת מחדל, יופעל רק אם יש אירוע קרוב בג'ייסון) -->
+   <!-- סקשן הבמה המרכזית (מוסתר כברירת מחדל, יופעל רק אם יש אירוע קרוב בג'ייסון) -->
     <section id="launch" class="section-dark" style="display: none;">
         <div class="container">
 
             <div id="launchEventContainer">
                 <h2 id="launchDate" style="font-size: 3rem; margin-bottom: 40px;" class="reveal"></h2>
                 <div class="featured-card reveal" onclick="this.classList.toggle('active')">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <span class="motion-label" data-i18n="launch_motion_label">הנושא המרכזי</span>
-                            <h3 id="launchTitle" style="font-size: 2.8rem; font-weight: 900;"></h3>
-                            <p style="opacity: 0.8; margin-top: 10px; font-size: 1.2rem; color: var(--accent-red);"
-                                data-i18n="launch_details_hint">+ לחצו לפרטים על נושא הדיון</p>
+                    
+                    <div class="launch-head-container">
+                        <!-- שורת מידע: נושא מרכזי ומיקום -->
+                        <div class="launch-top-row">
+                            <span class="motion-label" data-i18n="launch_motion_label" style="margin: 0;">הנושא המרכזי</span>
+                            <div class="location-wrapper" style="margin: 0;">
+                                <a id="launchLocationLink" href="#" target="_blank" class="location-link">
+                                    <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                    </svg>
+                                    <span id="launchLocationText"></span>
+                                </a>
+                            </div>
                         </div>
-                        <div class="location-wrapper">
-                            <a id="launchLocationLink" href="#" target="_blank" class="location-link">
-                                <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                    fill="currentColor">
-                                    <path
-                                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                                </svg>
-                                <span id="launchLocationText"></span>
-                            </a>
+
+                        <!-- שורת כותרת ופלוס -->
+                        <div class="launch-title-row">
+                            <h3 id="launchTitle" style="margin: 0; font-weight: 900;"></h3>
+                            <span class="card-toggle-icon">+</span>
                         </div>
                     </div>
-
                     <div class="motion-box">
                         <span class="motion-label" data-i18n="launch_motion_label">הנושא המרכזי</span>
                         <p id="launchMotion" class="motion-text"></p>
 
                         <!-- לכאן ה-JS ישפוך את הדוברים בצורה אוטומטית -->
                         <div id="launchSides" class="sides-grid"></div>
+
+                        <!-- אזור הרשמה והערת כרטיס בתוך הכרטיסייה עצמה -->
+                        <div style="margin-top: 50px; padding-top: 20px; text-align: center;">
+                            <a href="#" id="launchCardRegisterBtn" class="btn-card-register" target="_blank" data-i18n="hero_main_btn" onclick="event.stopPropagation()">להרשמה לאירוע הקרוב</a>
+                            <span id="heroPriceNote" class="price-note" style="margin-top: 15px; display: block;" data-i18n="hero_price_note">כרטיס הכניסה כולל מקום שמור באירוע, השתתפות במעגלי השיח וכיבוד קל</span>
+                        </div>
+
                     </div>
+                    
                 </div>
             </div>
 
@@ -293,48 +305,66 @@
         </div>
     </section>
 
-    <div class="bottom-unified-wrapper">
-        <section id="contact" class="section-dark">
+   <div class="bottom-unified-wrapper">
+      <section id="contact" class="section-dark">
             <div class="container reveal">
-                <div class="featured-card" onclick="this.classList.toggle('active')" style="text-align: center;">
-                    <span class="motion-label" data-i18n="contact_label">צרו קשר</span>
-                    <h3 style="font-weight: 900; margin: 10px 0;" data-i18n="contact_title">רוצים להציע נושא/דובר או
-                        להצטרף לצוות?</h3>
-                    <p style="opacity: 0.8; font-size: 1.1rem; color: var(--accent-red); cursor: pointer;"
-                        data-i18n="contact_subtitle">
-                        + לחצו כאן לפתיחת טופס הפנייה
-                    </p>
+                
+                <!-- מעטפת חדשה שמאחדת את הטופס ואת כפתור התפוצה -->
+                <div class="contact-wrapper">
+                    
+                    <div class="featured-card contact-card-compact" onclick="this.classList.toggle('active')" style="text-align: center;">
+                        <span class="motion-label" data-i18n="contact_label">צרו קשר</span>
+                        <h3 style="font-weight: 900; margin: 8px 0 0 0;" data-i18n="contact_title">יש לכם דיבייט שהייתם רוצים לראות?</h3>
+                        <span class="card-toggle-icon contact-toggle-bottom">+</span>
 
-                    <div class="motion-box">
-                        <form class="contact-form" action="https://formspree.io/f/mjgzjgkk" method="POST"
-                            onclick="event.stopPropagation()">
+                        <div class="motion-box">
+                            <form id="suggestForm" class="contact-form" action="https://formspree.io/f/mjgzjgkk" method="POST"
+                                onclick="event.stopPropagation()">
 
-                            <div class="form-group">
-                                <label for="name" data-i18n="form_name">שם מלא</label>
-                                <input type="text" name="name" id="name" class="form-control"
-                                    data-i18n-placeholder="form_name_placeholder" placeholder="הכנס שם מלא" required>
-                            </div>
+                                <div class="form-group">
+                                    <label for="debate_title" data-i18n="form_debate_title">כותרת הדיון המוצע</label>
+                                    <input type="text" name="debate_title" id="debate_title" class="form-control"
+                                        data-i18n-placeholder="form_debate_title_placeholder" placeholder="איזה נושא הייתם רוצים לראות?">
+                                </div>
 
-                            <div class="form-group">
-                                <label for="subject" data-i18n="form_subject">נושא הפנייה</label>
-                                <!-- שימו לב לאפשרויות בתוך התפריט הנפתח -->
-                                <select name="subject" id="subject" class="form-control">
-                                    <option value="idea" data-i18n="form_subject_opt1">הצעת נושא/דובר</option>
-                                    <option value="join" data-i18n="form_subject_opt2">הצטרפות לצוות</option>
-                                    <option value="other" data-i18n="form_subject_opt3">אחר</option>
-                                </select>
-                            </div>
+                                <div class="form-group">
+                                    <label for="speakers" data-i18n="form_speakers">דוברים אפשריים</label>
+                                    <input type="text" name="speakers" id="speakers" class="form-control"
+                                        data-i18n-placeholder="form_speakers_placeholder" placeholder="מי מתאים לייצג את הצדדים?">
+                                </div>
 
-                            <div class="form-group">
-                                <label for="message" data-i18n="form_message">הודעה</label>
-                                <textarea name="message" id="message" rows="4" class="form-control"
-                                    data-i18n-placeholder="form_message_placeholder" placeholder="איך נוכל לעזור?"
-                                    required></textarea>
-                            </div>
+                                <div class="form-group">
+                                    <label for="message" data-i18n="form_message">פרטים נוספים *</label>
+                                    <textarea name="message" id="message" rows="4" class="form-control"
+                                        data-i18n-placeholder="form_message_placeholder" placeholder="למה זה נושא מעניין? למה עם הדוברים האלה?"
+                                        required></textarea>
+                                </div>
 
-                            <button type="submit" class="btn" data-i18n="form_submit">שליחה</button>
-                        </form>
+                                <div class="form-group">
+                                    <label for="name" data-i18n="form_name">שם מלא *</label>
+                                    <input type="text" name="name" id="name" class="form-control"
+                                        data-i18n-placeholder="form_name_placeholder" placeholder="הכנס שם מלא" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contact_info" data-i18n="form_contact_info">איך ניתן ליצור איתך קשר</label>
+                                    <input type="text" name="contact_info" id="contact_info" class="form-control"
+                                        data-i18n-placeholder="form_contact_info_placeholder" placeholder="אימייל או מספר טלפון">
+                                </div>
+
+                                <!-- הודעת שגיאה נסתרת לואלידציה -->
+                                <p id="formErrorMsg" style="color: var(--accent-red); display: none; font-size: 0.9rem; text-align: right; margin-top: -10px; margin-bottom: 10px;" data-i18n="form_error_missing_field">יש למלא לפחות כותרת דיון או דוברים אפשריים.</p>
+
+                                <button type="submit" class="btn" data-i18n="form_submit">שליחה</button>
+                            </form>
+                        </div>
                     </div>
+
+                    <!-- באנר רשימת תפוצה צמוד -->
+                    <div class="mailing-list-banner">
+                        <a href="https://forms.gle/25DoXLvgbrUuQG6TA" target="_blank" class="btn btn-secondary" data-i18n="hero_mailing_btn">הצטרפו לרשימת התפוצה</a>
+                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -398,6 +428,7 @@
             </div>
         </footer>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
