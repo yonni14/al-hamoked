@@ -57,38 +57,89 @@ section {
     background-image: radial-gradient(circle at 100% 0%, #ffffff 0%, var(--pearl) 100%);
 }
 
+/* כפתור ברירת מחדל / להרשמה לאירוע הקרוב - שקיפות ואפקט זכוכית כמו ההדר */
 .btn {
     display: inline-block;
-    background: var(--accent-red);
-    color: white;
-    padding: 22px 55px;
+    /* הערכים המדויקים של ה-Header העליון */
+    background: rgba(12, 35, 43, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: var(--accent-red);
+    padding: 21px 54px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 800;
     font-size: 1.2rem;
-    box-shadow: 0 10px 30px var(--accent-glow), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-    transition: all 0.3s;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
     text-align: center;
 }
 
 .btn:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 45px rgba(225, 29, 72, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
-    background-color: #f43f5e;
+    /* התכהות עדינה בריחוף בדומה למצב scrolled של ה-Header */
+    background: rgba(12, 35, 43, 0.85);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    color: var(--accent-red);
 }
 
+/* כפתור משני (לפרטים על האירוע הקרוב) */
 .btn-secondary {
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    box-shadow: none;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     color: var(--light-text);
 }
 
 .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-color: #ffffff;
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: var(--light-text);
     transform: translateY(-5px);
+}
+
+/* כפתור הרשמה בתוך כרטיסיית האירוע (עיצוב זהה לכפתור 'לפרטים') */
+.btn-card-register {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    color: var(--accent-red);
+    padding: 21px 54px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-card-register:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: var(--accent-red);
+    transform: translateY(-5px);
+}
+
+/* כפתור ההרשמה העליון בהדר - נשאר כמות שהוא במקור */
+.header-cta {
+    padding: 10px 25px;
+    font-size: 1.05rem;
+    box-shadow: none;
+    background: transparent !important;
+    border: 2px solid var(--accent-red) !important;
+    color: var(--accent-red) !important;
+    backdrop-filter: none !important;
+}
+
+.header-cta:hover {
+    transform: translateY(-2px);
+    background: rgba(230, 57, 70, 0.1) !important;
 }
 
 .draft {
@@ -105,8 +156,14 @@ section {
     opacity: 1;
     transform: translateY(0);
 }
-.hero-alignment { text-align: right; }
-html[dir="ltr"] .hero-alignment { text-align: left; }
+
+.hero-alignment {
+    text-align: right;
+}
+
+html[dir="ltr"] .hero-alignment {
+    text-align: left;
+}
 
 /* ========================================= */
 /* 3. HEADER & NAVIGATION                    */
@@ -117,12 +174,15 @@ html[dir="ltr"] .hero-alignment { text-align: left; }
     right: 0;
     left: 0;
     z-index: 1000;
-    
+
     /* הקסם של אפקט הזכוכית */
-    background: rgba(12, 35, 43, 0.65); /* הצבע המקורי שלך עם 65% אטימות */
-    backdrop-filter: blur(12px); /* טשטוש אלגנטי של מה שעובר מאחורי ההדר */
-    -webkit-backdrop-filter: blur(12px); /* תמיכה הכרחית למכשירי אפל (אייפון/מק) */
-    
+    background: rgba(12, 35, 43, 0.65);
+    /* הצבע המקורי שלך עם 65% אטימות */
+    backdrop-filter: blur(12px);
+    /* טשטוש אלגנטי של מה שעובר מאחורי ההדר */
+    -webkit-backdrop-filter: blur(12px);
+    /* תמיכה הכרחית למכשירי אפל (אייפון/מק) */
+
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
 }
@@ -237,7 +297,7 @@ html[dir="ltr"] .hero-alignment { text-align: left; }
 }
 
 h1 {
-    font-size: clamp(3.5rem, 10vw, 9rem);
+    font-size: clamp(2.5rem, 8vw, 7rem);
     font-weight: 900;
     line-height: 0.9;
     margin-bottom: 20px;
@@ -343,25 +403,21 @@ h1 {
     font-weight: 900;
 }
 
-//* ========================================= */
-/* 6. ARCHIVE SECTION (Pure Film-Strip)      */
 /* ========================================= */
-
+/* 6. ARCHIVE SECTION                        */
+/* ========================================= */
 .archive-section {
     display: flex !important;
     align-items: stretch !important;
-    /* מונע מהסעיף הכללי למעוך את הגובה למרכז */
     background-color: #0c232b;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    height: 500px !important;
-    /* הגובה המושלם לכרטיסיות פילם עומדות */
+    height: 480px !important;
     overflow: hidden;
     padding: 0 !important;
 }
 
 .archive-sidebar {
     flex: 0 0 260px;
-    /* צומצם מ-350px כדי לתת לתמונות יותר מקום */
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -373,7 +429,6 @@ h1 {
 
 .archive-sidebar h2 {
     font-size: 2.2rem;
-    /* הוקטן מ-3.5rem כדי שלא יתפוס חצי מסך */
     font-weight: 900;
     line-height: 1.2;
     margin-bottom: 12px;
@@ -382,7 +437,6 @@ h1 {
 
 .archive-sidebar p {
     font-size: 1.05rem;
-    /* הוקטן מעט להתאמה פרופורציונלית */
     opacity: 0.7;
     margin: 0;
     line-height: 1.4;
@@ -392,7 +446,6 @@ h1 {
 .archive-scroll {
     flex: 1;
     height: 100% !important;
-    /* מכריח את אזור הגלילה לקחת את כל הגובה */
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: none;
@@ -408,18 +461,32 @@ h1 {
     display: flex;
     gap: 25px;
     height: 100% !important;
-    /* מותח את המסילה לגובה המלא */
     padding: 40px 20px !important;
-    /* מייצר את הריווח הנושם מלמעלה ומלמטה */
     width: max-content;
     align-items: stretch !important;
 }
 
-/* כרטיסיית האירוע הדינמית מהג'ייסון - מראה פילם עומד */
+/* התמונות הרגילות בארכיון */
+.flex-img {
+    height: 100% !important;
+    width: auto !important;
+    max-width: none !important;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.4s ease;
+}
+
+.flex-img:hover {
+    transform: scale(1.02);
+}
+
+/* קופסת האב: ללא מסגרת בכלל כדי לחתוך את התמונה באופן מושלם ללא דליפות */
+/* קופסת האב: ללא מסגרת בכלל כדי לחתוך את התמונה באופן מושלם ללא דליפות */
 .event-card-img {
     height: 100% !important;
-    width: 300px !important;
-    /* רוחב כרטיסייה פרופורציונלי לגובה */ 
+    width: 320px !important;
     flex-shrink: 0;
     display: flex !important;
     flex-direction: column;
@@ -427,34 +494,50 @@ h1 {
     padding: 25px;
     text-decoration: none;
     border-radius: 8px;
+    background-color: #1a3a44;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.4s ease, border-color 0.4s ease;
+    border: none; 
     overflow: hidden;
+    transition: transform 0.4s ease; /* השורה שחזרה הביתה ומתקנת את הקפיצה */
 }
 
-/* שכבת האפלה הדרגתית קבועה על גבי תמונת הרקע */
-.event-card-img::before {
+/* שכבה 1 (מאחור): גרדיאנט האפלה מתוח, חל רק על הכרטיסיות הדינמיות */
+.event-card-img:not(.static-card)::before {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: -2px; right: -2px; bottom: -2px; left: -2px; 
     background: linear-gradient(0deg, rgba(12, 35, 43, 0.95) 0%, rgba(12, 35, 43, 0.3) 70%, transparent 100%) !important;
     z-index: 1;
+    border-radius: inherit;
 }
 
+/* שכבה 2 (באמצע): התוכן והטקסטים */
 .event-card-img * {
     position: relative;
     z-index: 2;
 }
 
+/* שכבה 3 (הכי למעלה): המסגרת. חלה על כל הכרטיסיות ולא יכולה להיות מוסתרת */
+.event-card-img::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    pointer-events: none; /* מבטיח שהמסגרת לא תחסום לחיצות על הכרטיסייה */
+    transition: border-color 0.4s ease;
+}
+
+/* אפקטים בריחוף */
 .event-card-img:hover {
     transform: scale(1.02);
+}
+
+.event-card-img:hover::after {
     border-color: var(--accent-red);
 }
 
@@ -476,285 +559,64 @@ h1 {
     text-align: right;
 }
 
-/* התמונות הרגילות בארכיון */
-.flex-img {
-    height: 100% !important;
-    width: auto !important;
-    max-width: none !important; /* זה מה שישחרר את התמונה לרוחב הטבעי שלה */
-    object-fit: cover;
-    border-radius: 8px;
-    flex-shrink: 0;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.4s ease;
-}
-.flex-img:hover {
-    transform: scale(1.02);
-}
+/* ========================================= */
+/* תוספת: כפתורי טאבים לארכיון ומנגנון החלפה */
+/* ========================================= */
 
-.archive-sidebar {
-    flex: 0 0 350px;
-    padding: 40px;
+.archive-tabs {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    background-color: #0c232b;
-    border-left: 1px solid rgba(255, 255, 255, 0.05);
-    z-index: 10;
+    gap: 12px;
+    margin-top: 20px;
 }
 
-.archive-sidebar h2 {
-    font-size: 3.5rem;
-    font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 20px;
+.archive-tab-btn {
+    background: transparent;
+    border: none;
     color: var(--light-text);
-}
-
-.archive-sidebar p {
+    opacity: 0.5;
     font-size: 1.2rem;
-    opacity: 0.8;
-    margin: 0;
-    line-height: 1.5;
-    color: var(--light-text);
-}
-
-.archive-scroll {
-    flex: 1;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    direction: rtl;
-}
-
-.archive-scroll::-webkit-scrollbar {
-    display: none;
-}
-
-.archive-track-flex {
-    display: flex;
-    gap: 20px;
-    /* רווח קבוע ואחיד בין האלמנטים */
-    height: 100%;
-    padding: 40px;
-    /* שומר על אוויר מלמעלה ומלמטה */
-    width: max-content;
-    /* נמתח אופקית לאינסוף */
-}
-
-/* התמונות הרגילות */
-.flex-img {
-    height: 100%;
-    width: auto;
-    /* רוחב אוטומטי לפי הפרופורציה המקורית */
-    object-fit: cover;
-    border-radius: 6px;
-    flex-shrink: 0;
-    /* מונע מהדפדפן למעוך את התמונה */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.4s ease;
-}
-
-.flex-img:hover {
-    transform: scale(1.02);
-}
-
-/* כרטיסיית האירוע - מתנהגת בדיוק כמו תמונה, אך עם טקסט פנימי */
-.event-card-img {
-    height: 100%;
-    width: 320px;
-    /* רוחב קבוע לכרטיסיית הטקסט כדי לשמור על קריאות, כמו צילום פורטרט */
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 30px;
-    text-decoration: none;
-    border-radius: 6px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.4s ease, border-color 0.4s ease;
-    overflow: hidden;
-}
-
-/* שכבת האפלה הדרגתית קבועה על גבי תמונת הרקע של האירוע */
-.event-card-img::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(0deg, rgba(12, 35, 43, 0.95) 0%, rgba(12, 35, 43, 0.3) 70%, transparent 100%);
-    z-index: 1;
-}
-
-/* דואג שהטקסטים של האירוע יופיעו מעל שכבת ההאפלה */
-.event-card-img * {
-    position: relative;
-    z-index: 2;
-}
-
-.event-card-img:hover {
-    transform: scale(1.02);
-    border-color: var(--accent-red);
-}
-
-.event-card-title {
-    font-size: 1.6rem;
-    font-weight: 900;
-    line-height: 1.2;
-    color: var(--light-text);
-}
-
-
-/* התאמה למובייל */
-@media (max-width: 768px) {
-    .archive-section {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .archive-sidebar {
-        width: 100%;
-        border-left: none;
-        padding: 30px 20px;
-        text-align: right;
-        flex: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .archive-sidebar h2 {
-        font-size: 2.5rem;
-    }
-
-    .archive-scroll {
-        height: 380px;
-    }
-
-    .archive-track-flex {
-        padding: 20px;
-        gap: 15px;
-    }
-
-    .event-card-img {
-        width: 260px;
-        padding: 20px;
-    }
-
-    .event-card-title {
-        font-size: 1.3rem;
-    }
-}
-
-/* תיקון ארכיון התמונות וכרטיסיות האירועים   */
-.archive-section {
-    display: flex;
-    background-color: #0c232b;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    height: 480px;
-    /* הגובה שקובע את גודל התמונות */
-    overflow: hidden;
-    padding: 0;
-}
-
-.archive-scroll {
-    flex: 1;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    direction: rtl;
-}
-
-.archive-scroll::-webkit-scrollbar {
-    display: none;
-}
-
-.archive-track-flex {
-    display: flex;
-    gap: 20px;
-    height: 100%;
-    padding: 40px;
-    width: max-content;
-}
-
-/* עיצוב התמונות הרגילות */
-.flex-img {
-    height: 100%;
-    /* מותח את התמונה לגובה הכללי של הרצועה */
-    width: auto;
-    object-fit: cover;
-    border-radius: 6px;
-    flex-shrink: 0;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.4s ease;
-}
-
-.flex-img:hover {
-    transform: scale(1.02);
-}
-
-/* עיצוב כרטיסיות האירוע מהג'ייסון */
-.event-card-img {
-    height: 100%;
-    /* מותח את הכרטיסייה לגובה הכללי */
-    width: 320px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    /* מוריד את הטקסט לתחתית */
-    padding: 30px;
-    text-decoration: none;
-    border-radius: 6px;
-    background-color: #1a3a44;
-    /* צבע רקע חלופי למקרה שהתמונה חסרה */
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.4s ease, border-color 0.4s ease;
-    overflow: hidden;
-}
-
-/* שכבת ההאפלה ההדרגתית (כדי שהטקסט הלבן יהיה קריא) */
-.event-card-img::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(0deg, rgba(12, 35, 43, 0.95) 0%, rgba(12, 35, 43, 0.3) 70%, transparent 100%);
-    z-index: 1;
-}
-
-/* דואג שהטקסטים יופיעו מעל שכבת ההאפלה */
-.event-card-img * {
-    position: relative;
-    z-index: 2;
+    font-weight: 700;
     text-align: right;
-    /* יישור הטקסט לימין */
+    cursor: pointer;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+    position: relative;
+    width: fit-content;
+    font-family: inherit;
 }
 
-.event-card-img:hover {
-    transform: scale(1.02);
-    border-color: var(--accent-red);
+.archive-tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-red);
+    transition: width 0.3s ease;
 }
 
-.event-card-title {
-    font-size: 1.6rem;
-    font-weight: 900;
-    line-height: 1.2;
-    color: var(--light-text);
+.archive-tab-btn:hover {
+    opacity: 0.8;
 }
 
-.event-date {
-    font-size: 1rem;
+.archive-tab-btn.active {
+    opacity: 1;
     color: var(--accent-red);
+}
+
+.archive-tab-btn.active::after {
+    width: 100%;
+}
+
+/* מנגנון הסתרה חכם מבוסס ID - מנצח את הכללים המקוריים בצורה תקנית ונקייה */
+#archiveScroll .tab-content {
+    display: none;
+}
+
+#archiveScroll .tab-content.active {
+    display: flex;
 }
 
 /* ========================================= */
@@ -1009,6 +871,152 @@ h1 {
     line-height: 1.6;
 }
 
+/* אייקון פלוס/איקס מסתובב לכרטיסיות נפתחות */
+.card-toggle-icon {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--accent-red);
+    transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+    line-height: 1;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* סיבוב ל-איקס כשהכרטיסייה פתוחה */
+.featured-card.active .card-toggle-icon {
+    transform: rotate(45deg);
+}
+
+/* מיקום מדויק של האייקון בפינה העליונה בכרטיסיית צור קשר */
+.contact-header-relative {
+    position: relative;
+    padding-top: 5px;
+}
+
+.contact-header-relative .card-toggle-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.contact-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* שמירה על כרטיסיית צור קשר קומפקטית */
+#contact .featured-card.contact-card-compact {
+    padding: 28px 40px;
+}
+
+/* פלוס מתחת לכותרת בלי לדחוף גובה מיותר */
+.contact-toggle-bottom {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6px;
+    height: 32px;
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.featured-card.active .contact-toggle-bottom {
+    transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+    #contact .featured-card.contact-card-compact {
+        padding: 24px 20px;
+    }
+}
+
+#launch .card-toggle-icon {
+    font-size: 3.5rem;
+    line-height: 0.8;
+}
+
+/* תמיכה בכיווניות LTR (אנגלית) */
+html[dir="ltr"] .contact-header-relative .card-toggle-icon {
+    left: auto;
+    right: 0;
+}
+
+/* גודל הכותרת של האירוע */
+#launchTitle {
+    font-size: 2.8rem;
+}
+
+#launch .card-toggle-icon {
+    font-size: 3.2rem;
+    line-height: 1;
+}
+
+/* התאמה חלקה למובייל */
+@media (max-width: 768px) {
+    #launchTitle {
+        font-size: 1.65rem;
+    }
+    #launch .card-toggle-icon {
+        font-size: 2.4rem;
+    }
+    .location-wrapper .location-link {
+        font-size: 0.85rem;
+    }
+}
+
+/* דסקטופ */
+.launch-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.launch-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+#launchTitle {
+    font-size: 2.8rem;
+    line-height: 1.15;
+}
+
+#launch .card-toggle-icon {
+    font-size: 3.2rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+/* מובייל: כותרת ברוחב מלא, פלוס ממורכז מתחתיה */
+@media (max-width: 768px) {
+    .launch-title-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+    }
+
+    #launchTitle {
+        font-size: 1.75rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    #launch .card-toggle-icon {
+        font-size: 2.4rem;
+        margin-top: 4px;
+    }
+
+    .location-wrapper .location-link {
+        font-size: 0.85rem;
+    }
+}
+
 /* ========================================= */
 /* 8. NETWORKING & FUTURE SECTION            */
 /* ========================================= */
@@ -1128,20 +1136,44 @@ h1 {
 /* 9. CONTACT SECTION                        */
 /* ========================================= */
 #contact {
-    padding: 30px 20px;
+    padding: 60px 20px 15px 20px;
     height: auto;
+    align-items: flex-start;
+}
+
+/* העטיפה שמאחדת את הטופס וכפתור הניוזלטר */
+.contact-wrapper {
+    max-width: 550px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* המרווח המדויק בין כרטיסיית הטופס לכפתור התפוצה */
 }
 
 #contact .featured-card {
-    max-width: 550px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
     padding: 40px;
     border-radius: 12px;
 }
 
-#contact h3 {
-    font-size: 1.8rem !important;
-    margin: 10px 0 !important;
+/* עיצוב משלים לכפתור התפוצה מתחת לטופס */
+.mailing-list-banner {
+    width: 100%;
+}
+
+.mailing-list-banner .btn {
+    width: 100%;
+    /* מותח את הכפתור שיהיה באותו רוחב בדיוק כמו הטופס */
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.mailing-list-banner .btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .form-group {
@@ -1182,6 +1214,14 @@ h1 {
     padding: 15px;
     border: none;
     cursor: pointer;
+}
+
+#contact .featured-card {
+    max-width: 100%;
+    margin: 0;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important; /* צל קטן ומרומז */
 }
 
 /* ========================================= */
@@ -1299,8 +1339,8 @@ footer {
 /* ========================================= */
 .bottom-unified-wrapper {
     background-color: var(--deep-bg);
-    background-image: 
-        radial-gradient(circle at 50% -20%, var(--accent-glow) 0%, transparent 60%), 
+    background-image:
+        radial-gradient(circle at 50% -20%, var(--accent-glow) 0%, transparent 60%),
         url('../assets/backgrounds/texture-bg.jpg');
     background-size: 100% 100%, cover;
     background-position: center top, center center;
@@ -1309,22 +1349,26 @@ footer {
 }
 
 /* מעלים את הרקעים הכפולים מהילדים כדי לחשוף את הקנבס המשותף */
-#contact.section-dark, footer {
+#contact.section-dark,
+footer {
     background: transparent !important;
     border: none !important;
 }
+
 /* ========================================= */
 /* מירכוז מושלם של התפריט בדסקטופ            */
 /* ========================================= */
 @media (min-width: 769px) {
     #main-header .header-container {
-        position: relative; /* מגדיר את גבולות הגזרה למיקום האבסולוטי */
+        position: relative;
+        /* מגדיר את גבולות הגזרה למיקום האבסולוטי */
     }
-    
+
     .header-nav-wrapper {
         position: absolute;
         left: 50%;
-        transform: translateX(-50%); /* ממקם את מרכז התפריט בול באמצע המסך */
+        transform: translateX(-50%);
+        /* ממקם את מרכז התפריט בול באמצע המסך */
     }
 }
 
@@ -1576,64 +1620,83 @@ footer {
 /* התאמה ספציפית למסכים קטנים (מובייל) - תוספת גדולה יותר */
 @media (max-width: 400px) {
     #contact::before {
-        height: calc(100% + 800px) !important; /* מכסה בדיוק את הערימה במובייל */
+        height: calc(100% + 800px) !important;
+        /* מכסה בדיוק את הערימה במובייל */
     }
-    
+
     /* תוספת קטנה כדי לוודא שגם לפוטר אין רקע במובייל */
     footer {
         background: transparent !important;
     }
 }
+
 /* ========================================= */
 /* תיקוני מובייל ספציפיים                    */
 /* ========================================= */
 
 @media (max-width: 768px) {
+
     /* 1. הקטנת טקסטים במודל למובייל (דורס את העיצוב הפנימי) */
-    #modalTitle { font-size: 1.8rem !important; margin-bottom: 15px !important; }
-    #modalMotion { font-size: 1.3rem !important; margin-bottom: 30px !important; }
-    #resVotesA, #resVotesB { font-size: 2rem !important; }
-    
+    #modalTitle {
+        font-size: 1.8rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    #modalMotion {
+        font-size: 1.3rem !important;
+        margin-bottom: 30px !important;
+    }
+
+    #resVotesA,
+    #resVotesB {
+        font-size: 2rem !important;
+    }
+
     /* 2. סידור הארכיון: כותרת למעלה, גלילה אופקית למטה */
     .archive-section {
         flex-direction: column !important;
-        height: auto !important; /* נותן לאזור לגדול לפי הצורך */
+        height: auto !important;
+        /* נותן לאזור לגדול לפי הצורך */
     }
-    
+
     .archive-sidebar {
         flex: none !important;
         width: 100% !important;
         padding: 30px 20px !important;
         border-left: none !important;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         text-align: right;
     }
-    
+
     .archive-scroll {
         width: 100% !important;
-        -webkit-overflow-scrolling: touch !important; /* מאפשר גלילה חלקה עם האצבע באייפון/אנדרואיד */
+        -webkit-overflow-scrolling: touch !important;
+        /* מאפשר גלילה חלקה עם האצבע באייפון/אנדרואיד */
     }
-    
+
     .archive-track-flex {
-        height: 420px !important; /* גובה הכרטיסיות במובייל */
+        height: 420px !important;
+        /* גובה הכרטיסיות במובייל */
         padding: 20px !important;
     }
 
 }
-    /* --- מצב דסקטופ (מסכים גדולים) --- */
+
+/* --- מצב דסקטופ (מסכים גדולים) --- */
 /* מסתירים את הכפתור שמיועד להמבורגר */
 .mobile-lang-item,
 .mobile-only {
-    display: none !important; 
+    display: none !important;
 }
 
 /* מוודאים שהכפתור של ההדר מופיע */
 .desktop-only {
-    display: inline-block !important; 
+    display: inline-block !important;
 }
 
 /* --- מצב מובייל (מסכים קטנים) --- */
 @media (max-width: 768px) {
+
     /* רוצחים את הכפתור העליון (הדסקטופ) לחלוטין שלא ייתקע לנו מול הפנים! */
     .desktop-only {
         display: none !important;
@@ -1667,6 +1730,7 @@ footer {
 /* ========================================= */
 
 @media (max-width: 768px) {
+
     /* סידור ההדר עצמו */
     #main-header .header-container {
         display: flex;
@@ -1678,12 +1742,12 @@ footer {
 
     /* התפריט הנפתח - מוסתר בשגרה */
     #main-header .header-nav-wrapper {
-        display: none; 
+        display: none;
         position: absolute;
-        top: 100%; 
+        top: 100%;
         left: 0;
         right: 0;
-        background-color: #0c232b; 
+        background-color: #0c232b;
         flex-direction: column;
         padding: 20px 0;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -1720,6 +1784,7 @@ footer {
         box-sizing: border-box;
     }
 }
+
 /* ========================================= */
 /* תיקון מרכוז כפתורים - מובייל בלבד!        */
 /* ========================================= */
@@ -1740,6 +1805,7 @@ footer {
         text-align: center !important;
     }
 }
+
 /* ========================================= */
 /* תמיכה חכמה בכיוון מסמך (LTR - אנגלית)     */
 /* ========================================= */
@@ -1750,7 +1816,8 @@ html[dir="ltr"] .footer-split {
 
 html[dir="ltr"] .footer-partners {
     margin-left: 0;
-    margin-right: -120px; /* הופך את המרווח השלילי לצד השני */
+    margin-right: -120px;
+    /* הופך את המרווח השלילי לצד השני */
 }
 
 html[dir="ltr"] .footer-partners .partners-banner {
@@ -1797,8 +1864,10 @@ html[dir="ltr"] .footer-partners {
         justify-content: flex-start;
     }
 }
+
 /* העלמה אגרסיבית של לחצן השפה של המובייל במסכי דסקטופ */
 @media (min-width: 769px) {
+
     .mobile-lang-item,
     .mobile-selector,
     .main-nav .mobile-selector,
@@ -1806,18 +1875,21 @@ html[dir="ltr"] .footer-partners {
         display: none !important;
     }
 }
+
 /* עיצוב נקי ואלגנטי למחליף השפה במובייל */
 .mobile-lang-item .mobile-selector {
     background-color: transparent !important;
     color: var(--light-text) !important;
     border: none !important;
     outline: none !important;
-    font-size: 1.0rem !important; /* תואם לגודל של שאר הקישורים בהמבורגר */
+    font-size: 1.0rem !important;
+    /* תואם לגודל של שאר הקישורים בהמבורגר */
     font-family: inherit;
     padding: 12px 24px !important;
     cursor: pointer;
     text-align: center;
-    text-align-last: center; /* עוזר למרכז את הטקסט בתוך ה-select */
+    text-align-last: center;
+    /* עוזר למרכז את הטקסט בתוך ה-select */
 }
 
 /* צביעת הרקע של התפריט הנפתח עצמו כדי שלא יהיה לבן וצורם */
@@ -1826,10 +1898,13 @@ html[dir="ltr"] .footer-partners {
     color: var(--light-text);
     font-size: 0.5rem;
 }
+
 /* כרטיסייה שמתאימה את עצמה לרוחב התמונה */
 .event-card-img.auto-width {
-    width: auto !important; /* מבטל את ה-300px הקבוע */
-    padding: 0 !important;   /* מעביר את ה-padding לתוכן הפנימי */
+    width: auto !important;
+    /* מבטל את ה-300px הקבוע */
+    padding: 0 !important;
+    /* מעביר את ה-padding לתוכן הפנימי */
     position: relative;
 }
 
@@ -1842,7 +1917,11 @@ html[dir="ltr"] .footer-partners {
 
 .card-text-overlay {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    /* מותח את ההצללה פיקסל אחד למטה כדי למנוע זליגת אור בתחתית */
     padding: 25px;
     display: flex;
     flex-direction: column;
