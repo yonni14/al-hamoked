@@ -10,6 +10,12 @@ const staticTranslations = {
         nav_contact: "צרו קשר",
         nav_register: "להרשמה",
         hero_mailing_btn: "הצטרפו לרשימת התפוצה",
+        newsletter_badge: "עדכונים שוטפים",
+        newsletter_title: "רשימת התפוצה",
+        newsletter_desc: "היו הראשונים להתעדכן בנושאי הדיבייט הבאים, פתיחת מכירת כרטיסים ואירועים מיוחדים.",
+        newsletter_email_label: "כתובת אימייל *",
+        newsletter_email_placeholder: "your@email.com",
+        newsletter_submit: "אישור והרשמה",
         hero_title: "על המוקד.",
         hero_sub: "פורום הדיבייט הציבורי בישראל.<br>זירה אינטלקטואלית להתמודדות ישירה עם הסוגיות המורכבות ביותר.",
         hero_main_btn: "להרשמה לאירוע הקרוב",
@@ -52,6 +58,12 @@ const staticTranslations = {
         nav_contact: "Contact Us",
         nav_register: "Register",
         hero_mailing_btn: "Join our Mailing List",
+        newsletter_badge: "Stay Updated",
+        newsletter_title: "Mailing List",
+        newsletter_desc: "Be the first to know about upcoming debate topics, ticket sales, and special announcements.",
+        newsletter_email_label: "Email Address *",
+        newsletter_email_placeholder: "your@email.com",
+        newsletter_submit: "Subscribe",
         hero_title: "THE SPOTLIGHT.",
         hero_sub: "Israel's Public Debate Forum.<br>An intellectual arena for tackling the most complex issues.",
         hero_main_btn: "Register for Next Event",
@@ -94,6 +106,12 @@ const staticTranslations = {
         nav_contact: "اتصل بنا",
         nav_register: "تسجيل",
         hero_mailing_btn: "انضموا إلى القائمة البريدية",
+        newsletter_badge: "تحديثات مستمرة",
+        newsletter_title: "القائمة البريدية",
+        newsletter_desc: "كونوا أول من يعلم بمواضيع المناظرات القادمة، فتح حجز التذاكر، والإعلانات الخاصة.",
+        newsletter_email_label: "البريد الإلكتروني *",
+        newsletter_email_placeholder: "your@email.com",
+        newsletter_submit: "اشتراك",
         hero_title: "في البؤرة.",
         hero_sub: "منتدى النقاش العام في إسرائيل.<br>ساحة فكرية للتعامل المباشر مع أكثر القضايا تعقيداً.",
         hero_main_btn: "التسجيل للحدث القادم",
@@ -201,7 +219,6 @@ async function loadEventsData(lang = 'he') {
             cardRegisterBtn: document.getElementById('launchCardRegisterBtn')
         };
 
-        const MAILING_LIST_URL = "https://forms.gle/25DoXLvgbrUuQG6TA";
 
         if (nextEvent) {
             if (elements.section) elements.section.style.display = 'flex';
@@ -210,10 +227,12 @@ async function loadEventsData(lang = 'he') {
             if (elements.priceNote) elements.priceNote.style.display = 'block';
 
             if (elements.mainBtn) {
-                elements.mainBtn.classList.remove('btn-secondary');
+                // כשיש אירוע: כפתור ראשי רגיל שמפנה להרשמה לאירוע ומסיר את המודאל
+                elements.mainBtn.classList.remove('btn-secondary', 'open-newsletter-btn');
                 elements.mainBtn.textContent = staticTranslations[lang]?.hero_main_btn || "להרשמה לאירוע הקרוב";
                 elements.mainBtn.href = nextEvent.registerLink || "#";
             }
+
             if (elements.headerBtn) {
                 elements.headerBtn.style.display = 'inline-block';
                 elements.headerBtn.textContent = staticTranslations[lang]?.nav_register || "להרשמה";
@@ -236,16 +255,97 @@ async function loadEventsData(lang = 'he') {
             if (window.launchSides && nextEvent.sides) window.launchSides.innerHTML = buildSideHTML(nextEvent.sides.sideA) + buildSideHTML(nextEvent.sides.sideB);
 
         } else {
-            // מצב שאין אירוע קרוב
+            // מצב שאין אירוע קרוב: כאן ורק כאן הוא הופך לכפתור תפוצה שפותח את המודאל
             ['section', 'navLink', 'heroBtn', 'priceNote', 'headerBtn'].forEach(key => {
                 if (elements[key]) elements[key].style.display = 'none';
             });
 
             if (elements.mainBtn) {
-                elements.mainBtn.classList.add('btn-secondary');
+                elements.mainBtn.classList.add('btn-secondary', 'open-newsletter-btn');
                 elements.mainBtn.textContent = staticTranslations[lang]?.hero_mailing_btn || "הצטרפו לרשימת התפוצה";
-                elements.mainBtn.href = MAILING_LIST_URL;
+                elements.mainBtn.href = "#";
             }
+        }
+
+        // ניהול מודאל רשימת תפוצה
+        const newsletterModal = document.getElementById('newsletterModal');
+        const newsletterCloseBtn = document.getElementById('newsletterModalClose');
+        const newsletterBackdrop = document.getElementById('newsletterModalBackdrop');
+
+        function openNewsletterModal() {
+            if (newsletterModal) {
+                newsletterModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeNewsletterModal() {
+            if (newsletterModal) {
+                newsletterModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // האזנה לכל כפתור עם המחלקה open-newsletter-btn (עובד גם על כפתורים שמתעדכנים דינמית)
+        document.addEventListener('click', (e) => {
+            const trigger = e.target.closest('.open-newsletter-btn');
+            if (trigger) {
+                e.preventDefault();
+                openNewsletterModal();
+            }
+        });
+
+        if (newsletterCloseBtn) newsletterCloseBtn.addEventListener('click', closeNewsletterModal);
+        if (newsletterBackdrop) newsletterBackdrop.addEventListener('click', closeNewsletterModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && newsletterModal && newsletterModal.classList.contains('active')) {
+                closeNewsletterModal();
+            }
+        });
+
+        const newsletterForm = document.getElementById('newsletterForm');
+        const newsletterSuccessMsg = document.getElementById('newsletterSuccessMsg');
+        const newsletterErrorMsg = document.getElementById('newsletterErrorMsg');
+        const newsletterSubmitBtn = document.getElementById('newsletterSubmitBtn');
+
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(newsletterForm);
+                newsletterSubmitBtn.disabled = true;
+                newsletterSubmitBtn.style.opacity = '0.6';
+
+                try {
+                    const response = await fetch(newsletterForm.action, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        newsletterForm.style.display = 'none';
+                        newsletterSuccessMsg.style.display = 'block';
+                        if (newsletterErrorMsg) newsletterErrorMsg.style.display = 'none';
+
+                        setTimeout(() => {
+                            closeNewsletterModal();
+                            newsletterForm.reset();
+                            newsletterForm.style.display = 'block';
+                            newsletterSuccessMsg.style.display = 'none';
+                            newsletterSubmitBtn.disabled = false;
+                            newsletterSubmitBtn.style.opacity = '1';
+                        }, 2000);
+                    } else {
+                        throw new Error('Submission failed');
+                    }
+                } catch (err) {
+                    console.error(err);
+                    if (newsletterErrorMsg) newsletterErrorMsg.style.display = 'block';
+                    newsletterSubmitBtn.disabled = false;
+                    newsletterSubmitBtn.style.opacity = '1';
+                }
+            });
         }
 
         // --- ב. ארכיון אירועי עבר ---
@@ -422,39 +522,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // ב. מאזינים למחליף שפה
     document.querySelectorAll('.lang-selector').forEach(selector => {
         selector.addEventListener('change', (e) => switchLanguage(e.target.value));
-    // ד. מנגנון טאבים לארכיון
-    const tabBtns = document.querySelectorAll('.archive-tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
+        // ד. מנגנון טאבים לארכיון
+        const tabBtns = document.querySelectorAll('.archive-tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
 
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // מסיר 'active' מכל הכפתורים והמסילות
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // מסיר 'active' מכל הכפתורים והמסילות
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
 
-            // מוסיף 'active' לכפתור שנלחץ ולמסילה המתאימה לו
-            btn.classList.add('active');
-            const targetId = btn.getAttribute('data-target');
-            document.getElementById(targetId).classList.add('active');
+                // מוסיף 'active' לכפתור שנלחץ ולמסילה המתאימה לו
+                btn.classList.add('active');
+                const targetId = btn.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
         });
-    });
 
-    // ה. ואלידציה לטופס יצירת קשר (מוודא שלפחות כותרת או דובר מולאו)
-    const suggestForm = document.getElementById('suggestForm');
-    if (suggestForm) {
-        suggestForm.addEventListener('submit', function (e) {
-            const titleVal = document.getElementById('debate_title').value.trim();
-            const speakersVal = document.getElementById('speakers').value.trim();
-            const errorMsg = document.getElementById('formErrorMsg');
+        // ה. ואלידציה לטופס יצירת קשר (מוודא שלפחות כותרת או דובר מולאו)
+        const suggestForm = document.getElementById('suggestForm');
+        if (suggestForm) {
+            suggestForm.addEventListener('submit', function (e) {
+                const titleVal = document.getElementById('debate_title').value.trim();
+                const speakersVal = document.getElementById('speakers').value.trim();
+                const errorMsg = document.getElementById('formErrorMsg');
 
-            if (!titleVal && !speakersVal) {
-                e.preventDefault(); // עוצר את שליחת הטופס
-                errorMsg.style.display = 'block'; // מציג את השגיאה
-            } else {
-                errorMsg.style.display = 'none'; // מעלים את השגיאה אם הכל תקין
-            }
-        });
-    }
+                if (!titleVal && !speakersVal) {
+                    e.preventDefault(); // עוצר את שליחת הטופס
+                    errorMsg.style.display = 'block'; // מציג את השגיאה
+                } else {
+                    errorMsg.style.display = 'none'; // מעלים את השגיאה אם הכל תקין
+                }
+            });
+        }
     });
 
     // ג. הפעלת תפריט המבורגר במובייל
