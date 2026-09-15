@@ -21,6 +21,10 @@ body {
     background-color: var(--deep-bg);
     color: var(--light-text);
     overflow-x: hidden;
+    font-weight: 400; /* מבטיח טקסט רץ קריא ונקי */
+}
+h1, h2, h3, h4 {
+    font-weight: 700; /* במקום 900 */
 }
 
 section {
@@ -70,13 +74,16 @@ section {
     padding: 21px 54px;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: 800;
+    font-weight: 500;
     font-size: 1.2rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     text-align: center;
 }
 
+button, input, select, textarea {
+    font-family: inherit;
+}
 .btn:hover {
     transform: translateY(-5px);
     /* התכהות עדינה בריחוף בדומה למצב scrolled של ה-Header */
@@ -1928,4 +1935,97 @@ html[dir="ltr"] .footer-partners {
     justify-content: flex-end;
     background: linear-gradient(0deg, rgba(12, 35, 43, 0.95) 0%, rgba(12, 35, 43, 0.3) 70%, transparent 100%);
     z-index: 2;
+}
+/* ========================================= */
+/* 12. NEWSLETTER MODAL                      */
+/* ========================================= */
+.newsletter-modal-box {
+    max-width: 480px !important;
+    padding: 50px 40px !important;
+    text-align: center !important;
+    background: rgba(12, 35, 43, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* כפתור סגירה עדין */
+.newsletter-modal-box .event-modal-close {
+    top: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    font-weight: 300;
+    opacity: 0.4;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.newsletter-modal-box .event-modal-close:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+/* תגית עליונה */
+.newsletter-modal-box .motion-label {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+/* כותרת מעודנת (בלי עובי 900) */
+.newsletter-modal-title {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 12px !important;
+    color: var(--light-text);
+    letter-spacing: -0.5px;
+}
+
+/* פסקת תיאור */
+.newsletter-modal-desc {
+    font-size: 1.05rem !important;
+    font-weight: 300 !important;
+    line-height: 1.5 !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    margin-bottom: 28px !important;
+}
+
+/* שדות קלט אווריריים */
+.newsletter-modal-box .form-control {
+    background: rgba(0, 0, 0, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 8px !important;
+    padding: 14px 16px !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    font-family: inherit !important;
+}
+
+.newsletter-modal-box .form-control:focus {
+    border-color: var(--accent-red) !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 0 15px var(--accent-glow) !important;
+}
+
+/* כפתור אישור */
+.newsletter-modal-box .btn {
+    font-family: inherit !important;
+    font-weight: 600 !important;
+    font-size: 1.05rem !important;
+    padding: 14px 20px !important;
+    border-radius: 8px !important;
+}
+
+/* הודעת הצלחה מינימליסטית */
+#newsletterSuccessMsg {
+    color: var(--light-text) !important;
+    font-size: 1.15rem !important;
+    font-weight: 500 !important;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px 0 0 0 !important;
 }
