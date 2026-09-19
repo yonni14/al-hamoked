@@ -2,12 +2,20 @@
 /* 1. CSS VARIABLES & BASE SETUP             */
 /* ========================================= */
 :root {
+    /* הצבעים המקוריים הכהים */
     --deep-bg: #0c232b;
     --pearl: #f4f7f6;
     --accent-red: #e63946;
     --accent-glow: rgba(230, 57, 70, 0.2);
     --dark-text: #0b1a20;
     --light-text: #edf2f4;
+
+    /* המשתנים שחסרים וגרמו לשקיפות (מותאמים לצבע המקורי) */
+    --card-bg: rgba(11, 26, 32, 0.95);
+    /* צבע אטום כמעט לגמרי לכרטיסיות */
+    --card-surface: #1a3a44;
+    /* צבע לכרטיסיות ארכיון */
+    --border-soft: rgba(255, 255, 255, 0.12);
 }
 
 * {
@@ -21,10 +29,16 @@ body {
     background-color: var(--deep-bg);
     color: var(--light-text);
     overflow-x: hidden;
-    font-weight: 400; /* מבטיח טקסט רץ קריא ונקי */
+    font-weight: 400;
+    /* מבטיח טקסט רץ קריא ונקי */
 }
-h1, h2, h3, h4 {
-    font-weight: 700; /* במקום 900 */
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 700;
+    /* במקום 900 */
 }
 
 section {
@@ -58,7 +72,7 @@ section {
 .section-light {
     background-color: var(--pearl);
     color: var(--dark-text);
-    background-image: radial-gradient(circle at 100% 0%, #ffffff 0%, var(--pearl) 100%);
+    background-image: none;
 }
 
 /* כפתור ברירת מחדל / להרשמה לאירוע הקרוב - שקיפות ואפקט זכוכית כמו ההדר */
@@ -75,15 +89,19 @@ section {
     border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     text-align: center;
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
     font-family: inherit;
 }
+
 .btn:hover {
     transform: translateY(-5px);
     /* התכהות עדינה בריחוף בדומה למצב scrolled של ה-Header */
@@ -119,8 +137,8 @@ button, input, select, textarea {
     padding: 21px 54px;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: 800;
-    font-size: 1.2rem;
+    font-weight: 700;
+    font-size: 1.15rem;
     transition: all 0.3s ease;
     text-align: center;
 }
@@ -136,7 +154,8 @@ button, input, select, textarea {
 /* כפתור ההרשמה העליון בהדר - נשאר כמות שהוא במקור */
 .header-cta {
     padding: 10px 25px;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
+    font-weight: 700;
     box-shadow: none;
     background: transparent !important;
     border: 2px solid var(--accent-red) !important;
@@ -238,7 +257,7 @@ html[dir="ltr"] .hero-alignment {
 .nav-link {
     color: var(--light-text);
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 700;
     opacity: 0.8;
     transition: all 0.3s ease;
@@ -267,7 +286,8 @@ html[dir="ltr"] .hero-alignment {
 
 .header-cta {
     padding: 10px 25px;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
+    font-weight: 700;
     box-shadow: none;
     background: transparent !important;
     border: 2px solid var(--accent-red) !important;
@@ -303,8 +323,8 @@ html[dir="ltr"] .hero-alignment {
     padding-top: 25vh;
 }
 
-h1 {
-    font-size: clamp(2.5rem, 8vw, 7rem);
+#hero h1 {
+    font-size: clamp(2.5rem, 8vw, 6.5rem);
     font-weight: 900;
     line-height: 0.9;
     margin-bottom: 20px;
@@ -313,8 +333,9 @@ h1 {
 }
 
 .hero-sub {
-    font-size: 1.8rem;
-    font-weight: 300;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
     opacity: 0.9;
     margin-bottom: 50px;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -332,7 +353,8 @@ h1 {
 .price-note {
     display: block;
     margin-top: 10px;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    font-weight: 400;
     color: rgba(255, 255, 255, 0.6);
 }
 
@@ -396,60 +418,226 @@ h1 {
 /* 5. VISION SECTION                         */
 /* ========================================= */
 #vision {
-    min-height: 100vh;
+    min-height: auto;
+    padding: 90px 20px 20px 20px;
+    /* צומצם מ-90px בתחתית ל-20px בלבד */
 }
 
 .vision-block {
-    border-right: 8px solid rgba(255, 255, 255, 0.2);
-    padding-right: 40px;
+    border-right: none;
+    padding-right: 0;
 }
 
 .vision-title {
-    font-size: 3.5rem;
-    margin-bottom: 30px;
-    font-weight: 900;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* הגריד של שני הטורים עם קו מפריד עדין באמצע */
+.vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: start;
+    max-width: 1050px;
+    position: relative;
+}
+
+/* קו מפריד אנכי עדין מאוד בין החלקים */
+.vision-grid::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    background-color: rgba(11, 26, 32, 0.08);
+    /* שקיפות עדינה מאוד */
+}
+
+.vision-col {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    /* רווח אחיד בין הכותרת לפסקאות */
+}
+
+.vision-subtitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin: 0;
+}
+
+.vision-col p {
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--dark-text);
+    text-align: justify;
+    margin: 0;
+}
+
+/* התגית האדומה כחלק שזור ורציף בתחילת הפסקה */
+.vision-inline-tag {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-red);
+    margin-left: 6px;
+    display: inline;
+}
+
+.vision-badge {
+    font-size: 1rem;
+    font-weight: 700;
+    display: inline;
+    color: var(--accent-red);
+    margin-left: 6px;
+}
+
+@media (max-width: 768px) {
+    .vision-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .vision-grid::after {
+        display: none;
+        /* ביטול הקו המפריד במסכים קטנים */
+    }
+
+    .vision-title {
+        font-size: 1.85rem;
+        margin-bottom: 25px;
+    }
+
+    .vision-col p {
+        font-size: 1rem;
+        text-align: right;
+    }
 }
 
 /* ========================================= */
-/* 6. ARCHIVE SECTION                        */
+/* 6. ARCHIVE SECTION - APPLE SPOTLIGHT GLASS*/
 /* ========================================= */
-.archive-section {
+
+.container-wide {
+    width: 95%;
+    max-width: 1700px;
+    margin: 0 auto;
+}
+
+/* המשטח החיצוני: נקי ובהיר */
+.archive-section-outer {
+    padding: 10px 0 70px 0 !important;
+    /* 10px בלבד מלמעלה כדי להצמיד את הקפסולה לחזון */
+    background-color: var(--pearl) !important;
+    background-image: none !important;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* קפסולת הספוטלייט: זכוכית בהירה, טשטוש עמוק וצל ענק ורך */
+/* קפסולת הספוטלייט עם האפקט הקעור */
+.archive-capsule {
     display: flex !important;
     align-items: stretch !important;
-    background-color: #0c232b;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    height: 480px !important;
+    height: 520px !important;
+    width: 100%;
+    border-radius: 28px;
     overflow: hidden;
-    padding: 0 !important;
+    background: rgba(255, 255, 255, 0.55) !important;
+    backdrop-filter: blur(40px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(190%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.9) !important;
+    /* החלף את בלוק ה-box-shadow בלבד */
+    box-shadow:
+        0 16px 36px rgba(0, 0, 0, 0.08),
+        0 4px 12px rgba(0, 0, 0, 0.04),
+        inset 0 1px 1px rgba(255, 255, 255, 1),
+        inset 0 4px 18px rgba(0, 0, 0, 0.06),
+        inset 0 -2px 10px rgba(0, 0, 0, 0.03) !important;
 }
 
+/* סיידבר מהודק ומצומצם: רוחב מוקטן מ-280px ל-220px וריפודים הדוקים */
 .archive-sidebar {
-    flex: 0 0 260px;
-    padding: 30px;
+    flex: 0 0 180px;
+    padding: 30px 22px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #0c232b;
-    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    background: transparent !important;
+    border-left: 1px solid rgba(0, 0, 0, 0.07) !important;
     z-index: 10;
 }
 
 .archive-sidebar h2 {
-    font-size: 2.2rem;
-    font-weight: 900;
-    line-height: 1.2;
-    margin-bottom: 12px;
-    color: var(--light-text);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 8px;
+    color: var(--dark-text) !important;
+    letter-spacing: -0.5px;
 }
 
-.archive-sidebar p {
-    font-size: 1.05rem;
-    opacity: 0.7;
-    margin: 0;
-    line-height: 1.4;
-    color: var(--light-text);
+/* ========================================= */
+/* עיצוב מאוחד: כפתורי טאבים לארכיון         */
+/* ========================================= */
+
+.archive-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
 }
 
+.archive-tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--dark-text);
+    opacity: 0.6;
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-align: right;
+    cursor: pointer;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+    position: relative;
+    width: fit-content;
+    font-family: inherit;
+}
+
+.archive-tab-btn:hover {
+    opacity: 0.8;
+}
+
+.archive-tab-btn.active {
+    opacity: 1;
+    color: var(--accent-red) !important;
+}
+
+.archive-tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-red);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.archive-tab-btn.active::after {
+    width: 100%;
+}
+
+/* ========================================= */
+
+/* מסילת התמונות */
 .archive-scroll {
     flex: 1;
     height: 100% !important;
@@ -458,6 +646,7 @@ h1 {
     scrollbar-width: none;
     -ms-overflow-style: none;
     direction: rtl;
+    background: transparent !important;
 }
 
 .archive-scroll::-webkit-scrollbar {
@@ -466,56 +655,59 @@ h1 {
 
 .archive-track-flex {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     height: 100% !important;
-    padding: 40px 20px !important;
+    padding: 30px 25px !important;
     width: max-content;
     align-items: stretch !important;
 }
 
-/* התמונות הרגילות בארכיון */
+/* התמונות בתוך הספוטלייט */
 .flex-img {
     height: 100% !important;
     width: auto !important;
     max-width: none !important;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 16px;
     flex-shrink: 0;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .flex-img:hover {
     transform: scale(1.02);
 }
 
-/* קופסת האב: ללא מסגרת בכלל כדי לחתוך את התמונה באופן מושלם ללא דליפות */
-/* קופסת האב: ללא מסגרת בכלל כדי לחתוך את התמונה באופן מושלם ללא דליפות */
+/* כרטיסיות אירועי העבר */
 .event-card-img {
-    height: 100% !important;
-    width: 320px !important;
+    height: 100%;
+    width: 320px;
     flex-shrink: 0;
-    display: flex !important;
+    display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding: 25px;
     text-decoration: none;
-    border-radius: 8px;
-    background-color: #1a3a44;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
+    border-radius: 16px;
+    background-color: var(--card-surface);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
-    border: none; 
+    border: 1px solid var(--border-soft);
     overflow: hidden;
-    transition: transform 0.4s ease; /* השורה שחזרה הביתה ומתקנת את הקפיצה */
+    transition: transform 0.4s ease;
 }
 
 /* שכבה 1 (מאחור): גרדיאנט האפלה מתוח, חל רק על הכרטיסיות הדינמיות */
 .event-card-img:not(.static-card)::before {
     content: '';
     position: absolute;
-    top: -2px; right: -2px; bottom: -2px; left: -2px; 
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
     background: linear-gradient(0deg, rgba(12, 35, 43, 0.95) 0%, rgba(12, 35, 43, 0.3) 70%, transparent 100%) !important;
     z-index: 1;
     border-radius: inherit;
@@ -531,11 +723,15 @@ h1 {
 .event-card-img::after {
     content: '';
     position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     border-radius: inherit;
     border: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 10;
-    pointer-events: none; /* מבטיח שהמסגרת לא תחסום לחיצות על הכרטיסייה */
+    pointer-events: none;
+    /* מבטיח שהמסגרת לא תחסום לחיצות על הכרטיסייה */
     transition: border-color 0.4s ease;
 }
 
@@ -550,7 +746,7 @@ h1 {
 
 .event-card-title {
     font-size: 1.5rem;
-    font-weight: 900;
+    font-weight: 700;
     line-height: 1.3;
     color: var(--light-text);
     display: block;
@@ -559,62 +755,11 @@ h1 {
 }
 
 .event-date {
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: var(--accent-red);
     font-weight: 700;
     display: block;
     text-align: right;
-}
-
-/* ========================================= */
-/* תוספת: כפתורי טאבים לארכיון ומנגנון החלפה */
-/* ========================================= */
-
-.archive-tabs {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 20px;
-}
-
-.archive-tab-btn {
-    background: transparent;
-    border: none;
-    color: var(--light-text);
-    opacity: 0.5;
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-align: right;
-    cursor: pointer;
-    padding: 5px 0;
-    transition: all 0.3s ease;
-    position: relative;
-    width: fit-content;
-    font-family: inherit;
-}
-
-.archive-tab-btn::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    right: 0;
-    width: 0;
-    height: 2px;
-    background: var(--accent-red);
-    transition: width 0.3s ease;
-}
-
-.archive-tab-btn:hover {
-    opacity: 0.8;
-}
-
-.archive-tab-btn.active {
-    opacity: 1;
-    color: var(--accent-red);
-}
-
-.archive-tab-btn.active::after {
-    width: 100%;
 }
 
 /* מנגנון הסתרה חכם מבוסס ID - מנצח את הכללים המקוריים בצורה תקנית ונקייה */
@@ -627,131 +772,74 @@ h1 {
 }
 
 /* ========================================= */
-/* 7. LAUNCH / EVENT CARD & MODAL            */
+/* 7. LAUNCH / EVENT CARD & PROGRAM GRID     */
 /* ========================================= */
+
 #launch {
     min-height: 100vh;
 }
 
+/* מעטפת הכרטיסייה הראשית */
 .featured-card {
-    background: rgba(11, 26, 32, 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
-    padding: 60px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-soft);
+    border-radius: 16px;
+    padding: 50px;
     cursor: pointer;
-    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .featured-card:hover {
-    border-color: rgba(225, 29, 72, 0.5);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px var(--accent-glow);
+    border-color: var(--accent-red);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 30px var(--accent-glow);
 }
 
-.motion-box {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: all 0.6s ease;
-    margin-top: 0;
-    padding-top: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.featured-card.active .motion-box {
-    max-height: 1200px;
-    opacity: 1;
-    margin-top: 40px;
-    padding-top: 40px;
-}
-
-.motion-label {
-    color: var(--accent-red);
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    display: block;
-}
-
-.motion-text {
-    font-size: 2.2rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 40px;
-}
-
-.sides-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-}
-
-.side {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.side h4 {
-    font-size: 1.5rem;
-    margin-bottom: 25px;
-    color: var(--accent-red);
-    text-align: center;
-    font-weight: 900;
-}
-
-.speaker,
-.future-speaker {
+/* שורות עליונות בכותרת הכרטיס */
+.launch-top-row {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-    text-align: right;
+    margin-bottom: 12px;
 }
 
-.speaker:last-child {
-    margin-bottom: 0;
+.launch-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 }
 
-.speaker-img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-}
-
-.future-speaker-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-}
-
-.speaker-info p {
-    font-size: 1.3rem;
+#launchTitle {
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 2px;
+    line-height: 1.15;
+    color: var(--light-text);
 }
 
-.speaker-info span {
-    font-size: 0.95rem;
-    color: #94a3b8;
-    display: block;
-    line-height: 1.3;
+/* אייקון פלוס/איקס מסתובב */
+.card-toggle-icon {
+    font-size: 3.2rem;
+    font-weight: 300;
+    color: var(--accent-red);
+    line-height: 1;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+    transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
+.featured-card.active .card-toggle-icon {
+    transform: rotate(45deg);
+}
+
+/* מיקום */
 .location-wrapper {
     text-align: left;
     margin: 0;
-    padding: 0;
     line-height: 1;
 }
 
@@ -762,8 +850,8 @@ h1 {
     color: var(--light-text);
     text-decoration: none;
     font-size: 1.15rem;
-    transition: all 0.3s ease;
-    line-height: 1;
+    font-weight: 700;
+    transition: color 0.3s ease;
 }
 
 .location-icon {
@@ -782,33 +870,255 @@ h1 {
     transform: translateY(-2px);
 }
 
-.video-embed {
-    width: 100%;
-    max-width: 560px;
-    aspect-ratio: 16 / 9;
-    height: auto;
+/* תיבת התוכן הנפתחת */
+.motion-box {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.5s ease, margin 0.5s ease, padding 0.5s ease;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 1px solid var(--border-soft);
 }
 
-.event-card {
-    display: flex;
-    align-items: flex-end;
-    padding: 18px;
-    background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.55) 100%), #1a3a44;
-    border: 1px solid rgba(212, 60, 60, 0.5);
-    transition: border-color 0.3s ease, background 0.3s ease;
+.featured-card.active .motion-box {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: 35px;
+    padding-top: 35px;
 }
 
-.event-card-title {
-    color: var(--light-text);
-    font-size: 1.2rem;
+.section-main-title {
+    font-size: 3rem;
     font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: normal;
+    margin-bottom: 40px;
+    color: var(--dark-text);
 }
 
-.event-card:hover {
-    border-color: var(--accent-red);
-    background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.65) 100%), #234a56;
+@media (max-width: 768px) {
+    .section-main-title {
+        font-size: 1.85rem;
+        margin-bottom: 25px;
+    }
 }
 
+.section-dark .section-main-title {
+    color: var(--light-text);
+}
+
+/* ========================================= */
+/* תוכנייה מפוצלת (PROGRAM GRID)            */
+/* ========================================= */
+
+.program-grid {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 35px;
+}
+
+/* לוח תוכנייה מפוצל (PROGRAM GRID) */
+.program-row {
+    display: grid;
+    /* 85 פיקסלים לשעה, השאר לתוכן */
+    grid-template-columns: 85px 1fr;
+    gap: 25px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border-soft);
+    align-items: start;
+    text-align: right;
+}
+
+.program-row:first-child {
+    padding-top: 0;
+}
+
+.program-row.is-core {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 28px 20px;
+    margin: 12px 0;
+    border: 1px solid var(--border-soft);
+}
+
+.program-time-col {
+    padding-top: 2px;
+    /* יישור עדין מול הכותרת */
+}
+
+.program-time {
+    color: var(--accent-red);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.program-content-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* רווח בין הכותרת לתיאור */
+}
+
+.program-title {
+    color: var(--light-text);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.program-body {
+    color: var(--light-text);
+    opacity: 0.85;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 750px;
+}
+
+.program-body p {
+    margin: 0;
+}
+
+/* ליבת הדיבייט */
+.debate-core-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.motion-label {
+    color: var(--accent-red);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: block;
+}
+
+.motion-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+    color: var(--light-text);
+}
+
+/* דוברים */
+.sides-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+.side {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 22px;
+    border-radius: 10px;
+    border: 1px solid var(--border-soft);
+}
+
+.side h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: var(--accent-red);
+    text-align: center;
+}
+
+.speaker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.speaker:last-child {
+    margin-bottom: 0;
+}
+
+.speaker-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-soft);
+}
+
+.speaker-info p {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 2px 0;
+    color: var(--light-text);
+}
+
+.speaker-info span {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #94a3b8;
+    display: block;
+    line-height: 1.3;
+}
+
+/* פעולות הרשמה והערת מחיר */
+.launch-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+}
+
+/* ========================================= */
+/* כרטיסיית צור קשר והתאמות מודאל            */
+/* ========================================= */
+
+#contact .featured-card.contact-card-compact {
+    padding: 28px 40px;
+}
+
+.contact-header-relative {
+    position: relative;
+    padding-top: 5px;
+}
+
+.contact-header-relative .card-toggle-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+html[dir="ltr"] .contact-header-relative .card-toggle-icon {
+    left: auto;
+    right: 0;
+}
+
+.contact-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.contact-toggle-bottom {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6px;
+    height: 32px;
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.featured-card.active .contact-toggle-bottom {
+    transform: rotate(45deg);
+}
+
+/* מודאל אירועים */
 .event-modal {
     display: none;
     position: fixed;
@@ -830,12 +1140,13 @@ h1 {
 
 .event-modal-content {
     position: relative;
-    background: #0c232b;
+    background: var(--card-bg);
+    border: 1px solid var(--border-soft);
     max-width: 900px;
     width: 90%;
     max-height: 85vh;
     overflow-y: auto;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 40px;
     z-index: 2001;
     text-align: right;
@@ -864,7 +1175,7 @@ h1 {
     width: 100%;
     height: 220px;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 6px;
 }
 
 .event-modal-info h3 {
@@ -878,129 +1189,12 @@ h1 {
     line-height: 1.6;
 }
 
-/* אייקון פלוס/איקס מסתובב לכרטיסיות נפתחות */
-.card-toggle-icon {
-    font-size: 2.2rem;
-    font-weight: 300;
-    color: var(--accent-red);
-    transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-    line-height: 1;
-    display: inline-block;
-    cursor: pointer;
-    user-select: none;
-}
-
-/* סיבוב ל-איקס כשהכרטיסייה פתוחה */
-.featured-card.active .card-toggle-icon {
-    transform: rotate(45deg);
-}
-
-/* מיקום מדויק של האייקון בפינה העליונה בכרטיסיית צור קשר */
-.contact-header-relative {
-    position: relative;
-    padding-top: 5px;
-}
-
-.contact-header-relative .card-toggle-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-.contact-header-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-/* שמירה על כרטיסיית צור קשר קומפקטית */
-#contact .featured-card.contact-card-compact {
-    padding: 28px 40px;
-}
-
-/* פלוס מתחת לכותרת בלי לדחוף גובה מיותר */
-.contact-toggle-bottom {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 6px;
-    height: 32px;
-    font-size: 2.2rem;
-    line-height: 1;
-}
-
-.featured-card.active .contact-toggle-bottom {
-    transform: rotate(45deg);
-}
-
+/* התאמות מובייל */
 @media (max-width: 768px) {
-    #contact .featured-card.contact-card-compact {
-        padding: 24px 20px;
+    .featured-card {
+        padding: 30px 20px;
     }
-}
 
-#launch .card-toggle-icon {
-    font-size: 3.5rem;
-    line-height: 0.8;
-}
-
-/* תמיכה בכיווניות LTR (אנגלית) */
-html[dir="ltr"] .contact-header-relative .card-toggle-icon {
-    left: auto;
-    right: 0;
-}
-
-/* גודל הכותרת של האירוע */
-#launchTitle {
-    font-size: 2.8rem;
-}
-
-#launch .card-toggle-icon {
-    font-size: 3.2rem;
-    line-height: 1;
-}
-
-/* התאמה חלקה למובייל */
-@media (max-width: 768px) {
-    #launchTitle {
-        font-size: 1.65rem;
-    }
-    #launch .card-toggle-icon {
-        font-size: 2.4rem;
-    }
-    .location-wrapper .location-link {
-        font-size: 0.85rem;
-    }
-}
-
-/* דסקטופ */
-.launch-top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-}
-
-.launch-title-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-#launchTitle {
-    font-size: 2.8rem;
-    line-height: 1.15;
-}
-
-#launch .card-toggle-icon {
-    font-size: 3.2rem;
-    line-height: 1;
-    flex-shrink: 0;
-}
-
-/* מובייל: כותרת ברוחב מלא, פלוס ממורכז מתחתיה */
-@media (max-width: 768px) {
     .launch-title-row {
         flex-direction: column;
         align-items: center;
@@ -1009,18 +1203,42 @@ html[dir="ltr"] .contact-header-relative .card-toggle-icon {
     }
 
     #launchTitle {
-        font-size: 1.75rem;
+        font-size: 1.85rem;
         width: 100%;
         text-align: center;
     }
 
-    #launch .card-toggle-icon {
+    .card-toggle-icon {
         font-size: 2.4rem;
         margin-top: 4px;
     }
 
     .location-wrapper .location-link {
         font-size: 0.85rem;
+    }
+
+    .program-row {
+        grid-template-columns: 60px 1fr;
+        /* שומר את השעה בצד, אבל בקטן יותר */
+        gap: 15px;
+        padding: 16px 0;
+    }
+
+    .program-row.is-core {
+        padding: 18px 14px;
+    }
+
+    .motion-text {
+        font-size: 1.5rem;
+    }
+
+    .sides-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    #contact .featured-card.contact-card-compact {
+        padding: 24px 20px;
     }
 }
 
@@ -1077,21 +1295,14 @@ html[dir="ltr"] .contact-header-relative .card-toggle-icon {
 }
 
 .event-header-titles h3 {
-    font-size: 2.2rem;
-    font-weight: 800;
+    font-size: 1.5rem;
+    font-weight: 700;
     margin-bottom: 5px;
     transition: color 0.3s;
 }
 
 .event-row:hover .event-header-titles h3 {
     color: var(--accent-red);
-}
-
-.event-date {
-    font-size: 1.2rem;
-    opacity: 0.6;
-    font-weight: 700;
-    display: block;
 }
 
 .toggle-icon {
@@ -1125,7 +1336,8 @@ html[dir="ltr"] .contact-header-relative .card-toggle-icon {
 }
 
 .event-details-content p {
-    font-size: 1.4rem;
+    font-size: 1rem;
+    font-weight: 400;
     max-width: 800px;
     margin-bottom: 20px;
 }
@@ -1136,7 +1348,7 @@ html[dir="ltr"] .contact-header-relative .card-toggle-icon {
     padding: 8px 16px;
     border-radius: 4px;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
 }
 
 /* ========================================= */
@@ -1156,6 +1368,11 @@ html[dir="ltr"] .contact-header-relative .card-toggle-icon {
     flex-direction: column;
     gap: 15px;
     /* המרווח המדויק בין כרטיסיית הטופס לכפתור התפוצה */
+}
+
+#contact h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 #contact .featured-card {
@@ -1192,9 +1409,9 @@ html[dir="ltr"] .contact-header-relative .card-toggle-icon {
 }
 
 .form-group label {
+    font-size: 0.85rem;
     font-weight: 700;
     color: var(--accent-red);
-    font-size: 0.9rem;
 }
 
 .form-control {
@@ -1206,6 +1423,7 @@ html[dir="ltr"] .contact-header-relative .card-toggle-icon {
     color: var(--light-text);
     font-family: 'Noto Sans Hebrew', sans-serif;
     font-size: 1rem;
+    font-weight: 400;
     outline: none;
     transition: all 0.3s ease;
 }
@@ -1228,7 +1446,8 @@ html[dir="ltr"] .contact-header-relative .card-toggle-icon {
     margin: 0;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important; /* צל קטן ומרומז */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    /* צל קטן ומרומז */
 }
 
 /* ========================================= */
@@ -1246,11 +1465,16 @@ footer {
     width: 100%;
 }
 
+footer p {
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
 .social-title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    font-weight: 500;
     margin-bottom: 20px;
     color: var(--light-text);
-    font-weight: 500;
     opacity: 0.9;
     margin-left: -20px;
 }
@@ -1448,6 +1672,12 @@ footer {
         align-items: flex-start;
     }
 
+    #hero h1 {
+        letter-spacing: normal;
+        line-height: 1.15;
+        margin-bottom: 25px;
+    }
+
     .btn {
         width: 100%;
         padding: 18px 20px;
@@ -1503,13 +1733,19 @@ footer {
     }
 
     .vision-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        /* הוקטן מ-2.5rem הענק */
+        line-height: 1.2;
     }
 
     .vision-block p {
-        font-size: 1.3rem !important;
-        padding: 0 25px;
+        font-size: 1.1rem !important;
+        /* הוקטן מ-1.3rem כדי שייכנס נורמלי בשורה */
+        padding: 0 5px;
+        /* ביטול שולי ה-25px שמחצו את הטקסט */
+        line-height: 1.45 !important;
     }
+
 
     .archive-track {
         grid-template-columns: repeat(8, 130px) !important;
@@ -1578,7 +1814,7 @@ footer {
     }
 
     #future h2 {
-        font-size: 2.5rem !important;
+        font-size: 1.8rem !important;
         margin-bottom: 30px !important;
     }
 
@@ -1599,7 +1835,10 @@ footer {
     }
 
     .event-details-content p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        /* הוקטן מ-1.2rem */
+        padding: 0 5px;
+        /* מוסיף מרווח נשימה קל בצדדים */
     }
 
     .footer-split {
@@ -1635,59 +1874,63 @@ footer {
     footer {
         background: transparent !important;
     }
+
+    /* הידוק צור קשר והפוטר למסך מובייל יחיד */
+    #contact {
+        padding: 30px 15px 10px 15px;
+        /* צמצום משמעותי של הריפוד העליון והתחתון */
+    }
+
+    .contact-wrapper {
+        gap: 10px;
+        /* מרווח הדוק יותר בין כרטיסיית צור קשר לכפתור התפוצה */
+    }
+
+    footer {
+        padding: 15px 15px 20px 15px;
+        /* איפוס השטח המת שמעל הפוטר */
+    }
+
+    .footer-split {
+        gap: 20px;
+        /* צמצום המרווח בין הרשתות החברתיות ללוגואים מ-50px ל-20px */
+    }
+
+    .social-title {
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+    }
+
+    .social-links {
+        gap: 18px;
+        margin-bottom: 15px;
+    }
+
+    .social-links a {
+        width: 32px;
+        height: 32px;
+    }
+
+    .social-links a svg {
+        width: 26px !important;
+        height: 26px !important;
+    }
+
+    .footer-partners .partners-banner {
+        gap: 15px;
+        /* צמצום המרווחים בין הלוגואים של השותפים */
+    }
+
+    footer p[data-i18n="footer_copyright"] {
+        margin-top: 20px;
+        /* הקטנת הרווח שמעל שורת זכויות היוצרים */
+    }
 }
+
 
 /* ========================================= */
 /* תיקוני מובייל ספציפיים                    */
 /* ========================================= */
-
-@media (max-width: 768px) {
-
-    /* 1. הקטנת טקסטים במודל למובייל (דורס את העיצוב הפנימי) */
-    #modalTitle {
-        font-size: 1.8rem !important;
-        margin-bottom: 15px !important;
-    }
-
-    #modalMotion {
-        font-size: 1.3rem !important;
-        margin-bottom: 30px !important;
-    }
-
-    #resVotesA,
-    #resVotesB {
-        font-size: 2rem !important;
-    }
-
-    /* 2. סידור הארכיון: כותרת למעלה, גלילה אופקית למטה */
-    .archive-section {
-        flex-direction: column !important;
-        height: auto !important;
-        /* נותן לאזור לגדול לפי הצורך */
-    }
-
-    .archive-sidebar {
-        flex: none !important;
-        width: 100% !important;
-        padding: 30px 20px !important;
-        border-left: none !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        text-align: right;
-    }
-
-    .archive-scroll {
-        width: 100% !important;
-        -webkit-overflow-scrolling: touch !important;
-        /* מאפשר גלילה חלקה עם האצבע באייפון/אנדרואיד */
-    }
-
-    .archive-track-flex {
-        height: 420px !important;
-        /* גובה הכרטיסיות במובייל */
-        padding: 20px !important;
-    }
-
-}
 
 /* --- מצב דסקטופ (מסכים גדולים) --- */
 /* מסתירים את הכפתור שמיועד להמבורגר */
@@ -1703,6 +1946,196 @@ footer {
 
 /* --- מצב מובייל (מסכים קטנים) --- */
 @media (max-width: 768px) {
+
+    /* 1. הקטנת טקסטים במודל למובייל (דורס את העיצוב הפנימי) */
+    #modalTitle {
+        font-size: 1.85rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 15px !important;
+    }
+
+    #modalMotion {
+        font-size: 1.5rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 30px !important;
+    }
+
+    #resVotesA,
+    #resVotesB {
+        font-size: 1.85rem !important;
+        font-weight: 700 !important;
+    }
+
+    /* ===================================================
+       סידור מובייל ארכיון - הפרדה מוחלטת ותקינה 
+       =================================================== */
+
+    /* 1. כפתורים וטאבים */
+    .archive-section-outer .archive-sidebar {
+        display: block !important;
+        width: 100%;
+        padding: 22px 15px 12px !important;
+        /* הגדלת הריפוד העליון מ-8px ל-22px והוספת 12px בתחתית */
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        flex: 0 0 auto !important;
+    }
+
+    .archive-section-outer .archive-sidebar h2 {
+        font-size: 1.6rem !important;
+        margin-bottom: 6px !important;
+        /* רווח נעים בין הכותרת לטאבים */
+        line-height: 1.1 !important;
+    }
+
+    .archive-section-outer .archive-tabs {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 16px !important;
+        margin-top: 6px !important;
+        margin-bottom: 4px !important;
+    }
+
+    .archive-section-outer .archive-tab-btn {
+        display: inline-block !important;
+        padding: 4px 10px !important;
+        font-size: 0.95rem;
+    }
+
+    /* 2. הקפסולה ואזור הגלילה */
+    .archive-section-outer .archive-capsule {
+        display: flex;
+        flex-direction: column;
+        height: auto !important;
+        padding-bottom: 8px !important;
+        overflow: hidden;
+    }
+
+    .archive-section-outer .archive-scroll {
+        width: 100%;
+        height: 270px !important;
+        overflow-x: auto;
+        overflow-y: hidden !important;
+    }
+
+    .archive-section-outer .archive-track-flex {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100% !important;
+        padding: 4px 15px 8px !important;
+        gap: 15px;
+    }
+
+    .archive-section-outer .archive-track-flex>* {
+        height: 250px !important;
+        flex-shrink: 0;
+    }
+
+    .archive-section-outer img.flex-img {
+        width: auto !important;
+        max-width: none !important;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    /* 3. כרטיסיית הכתבה הסטטית - שחרור הרוחב שיתאים עצמו אוטומטית כמו התמונות */
+    .archive-section-outer .event-card-img.static-card {
+        width: auto !important;
+        min-width: auto !important;
+        max-width: none !important;
+        flex: 0 0 auto !important;
+        height: 250px !important;
+        padding: 0 !important;
+        border-radius: 10px !important;
+        overflow: hidden !important;
+        position: relative !important;
+        display: block !important;
+    }
+
+    .archive-section-outer .event-card-img.static-card .card-bg-img {
+        width: auto !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+        position: static !important;
+    }
+
+    .archive-section-outer .event-card-img.static-card .card-text-overlay {
+        position: absolute !important;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 15px !important;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: flex-end;
+        z-index: 2 !important;
+    }
+
+    /* 4. אירועי עבר (דינמי) - צרה וורטיקלית */
+    .archive-section-outer .event-card-img:not(.static-card) {
+        width: 175px !important;
+        min-width: 175px !important;
+        max-width: 175px !important;
+        flex: 0 0 175px !important;
+        height: 250px !important;
+        border-radius: 10px !important;
+        padding: 15px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-end !important;
+        background-size: cover !important;
+        background-position: center !important;
+        overflow: hidden !important;
+        position: relative !important;
+    }
+
+    /* 5. הצללה לכל הכרטיסיות */
+    .archive-section-outer .event-card-img::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(0deg, rgba(12, 35, 43, 0.95) 0%, rgba(12, 35, 43, 0.3) 70%, transparent 100%) !important;
+        z-index: 1 !important;
+        display: block !important;
+    }
+
+    /* 6. כיתובים */
+    .archive-section-outer .event-card-img * {
+        position: relative;
+        z-index: 2 !important;
+    }
+
+    .archive-section-outer .event-card-img h3,
+    .archive-section-outer .event-card-img .event-card-title {
+        display: block !important;
+        font-size: 1.05rem !important;
+        line-height: 1.25 !important;
+        color: var(--light-text) !important;
+        text-align: right !important;
+        margin-bottom: 5px !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+        white-space: normal !important;
+    }
+
+    .archive-section-outer .event-card-img span,
+    .archive-section-outer .event-card-img .event-date {
+        display: block !important;
+        font-size: 0.85rem !important;
+        color: var(--accent-red) !important;
+        font-weight: 700 !important;
+        text-align: right !important;
+    }
+
+    /* ========================================= */
+    /* תפריט מובייל נפתח והגדרות כפתורים         */
+    /* ========================================= */
 
     /* רוצחים את הכפתור העליון (הדסקטופ) לחלוטין שלא ייתקע לנו מול הפנים! */
     .desktop-only {
@@ -1725,18 +2158,11 @@ footer {
         color: var(--light-text);
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 5px;
-        font-size: 0.6rem;
+        font-size: 0.85rem;
+        font-weight: 700;
         width: 80%;
         margin: 0 auto;
     }
-}
-
-
-/* ========================================= */
-/* תפריט מובייל נפתח  */
-/* ========================================= */
-
-@media (max-width: 768px) {
 
     /* סידור ההדר עצמו */
     #main-header .header-container {
@@ -1778,6 +2204,7 @@ footer {
     #main-header .main-nav .nav-link {
         padding: 12px 24px;
         font-size: 1.15rem;
+        font-weight: 700;
         text-align: right;
         color: #ffffff;
         border-bottom: 1px solid rgba(255, 255, 255, 0.03);
@@ -1790,12 +2217,8 @@ footer {
         text-align: center;
         box-sizing: border-box;
     }
-}
 
-/* ========================================= */
-/* תיקון מרכוז כפתורים - מובייל בלבד!        */
-/* ========================================= */
-@media (max-width: 768px) {
+    /* תיקון מרכוז כפתורים (Hero) - מובייל בלבד! */
     #hero .hero-buttons {
         display: flex !important;
         flex-direction: column !important;
@@ -1816,6 +2239,9 @@ footer {
 /* ========================================= */
 /* תמיכה חכמה בכיוון מסמך (LTR - אנגלית)     */
 /* ========================================= */
+html[dir="ltr"] .archive-scroll {
+    direction: ltr !important;
+}
 
 html[dir="ltr"] .footer-split {
     text-align: left;
@@ -1889,7 +2315,8 @@ html[dir="ltr"] .footer-partners {
     color: var(--light-text) !important;
     border: none !important;
     outline: none !important;
-    font-size: 1.0rem !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
     /* תואם לגודל של שאר הקישורים בהמבורגר */
     font-family: inherit;
     padding: 12px 24px !important;
@@ -1936,6 +2363,7 @@ html[dir="ltr"] .footer-partners {
     background: linear-gradient(0deg, rgba(12, 35, 43, 0.95) 0%, rgba(12, 35, 43, 0.3) 70%, transparent 100%);
     z-index: 2;
 }
+
 /* ========================================= */
 /* 12. NEWSLETTER MODAL                      */
 /* ========================================= */
@@ -1947,7 +2375,7 @@ html[dir="ltr"] .footer-partners {
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 16px !important;
+    border-radius: 12px !important;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -1969,6 +2397,7 @@ html[dir="ltr"] .footer-partners {
 /* תגית עליונה */
 .newsletter-modal-box .motion-label {
     font-size: 0.85rem;
+    font-weight: 700;
     letter-spacing: 1.5px;
     margin-bottom: 8px;
     opacity: 0.9;
@@ -1976,7 +2405,7 @@ html[dir="ltr"] .footer-partners {
 
 /* כותרת מעודנת (בלי עובי 900) */
 .newsletter-modal-title {
-    font-size: 2rem !important;
+    font-size: 1.5rem !important;
     font-weight: 700 !important;
     margin-bottom: 12px !important;
     color: var(--light-text);
@@ -1985,9 +2414,9 @@ html[dir="ltr"] .footer-partners {
 
 /* פסקת תיאור */
 .newsletter-modal-desc {
-    font-size: 1.05rem !important;
-    font-weight: 300 !important;
-    line-height: 1.5 !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
     color: rgba(255, 255, 255, 0.7) !important;
     margin-bottom: 28px !important;
 }
@@ -1996,7 +2425,7 @@ html[dir="ltr"] .footer-partners {
 .newsletter-modal-box .form-control {
     background: rgba(0, 0, 0, 0.25) !important;
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     padding: 14px 16px !important;
     font-size: 1rem !important;
     font-weight: 400 !important;
@@ -2012,10 +2441,10 @@ html[dir="ltr"] .footer-partners {
 /* כפתור אישור */
 .newsletter-modal-box .btn {
     font-family: inherit !important;
-    font-weight: 600 !important;
-    font-size: 1.05rem !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
     padding: 14px 20px !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
 }
 
 /* הודעת הצלחה מינימליסטית */
@@ -2028,4 +2457,52 @@ html[dir="ltr"] .footer-partners {
     border-radius: 8px;
     padding: 16px;
     margin: 20px 0 0 0 !important;
+}
+
+.newsletter-box,
+.contact-card,
+.contact-form-container,
+.featured-card {
+    background: rgba(11, 26, 32, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ===================================================
+       תיקוני קוסמטיקה וטיפוגרפיה למובייל (לפי הערות)
+       =================================================== */
+
+/* 1. יישור טקסט החזון לשני הצדדים (Block) */
+.vision-block p,
+.vision-col p {
+    text-align: justify !important;
+    padding: 0 !important;
+    /* ביטול פדינג מיותר שדחס את הטקסט */
+}
+
+
+/* 3. שחיטת הכותרות הענקיות במובייל למידות הגיוניות */
+
+/* כותרת עליונה של האירוע הקרוב (שמוגדרת כרגע על 3rem) */
+#launchDate {
+    font-size: 2.5rem !important;
+    margin-bottom: 25px !important;
+}
+#launchDate {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* כותרת אירועים עתידיים במורד הדרך (הייתה 2.5rem) */
+#future h2 {
+    font-size: 2.5rem !important;
+    margin-bottom: 25px !important;
+}
+
+/* כותרת קריאה לפעולה באזור צור קשר ("יש לכם דיבייט...") */
+#contact .featured-card h3 {
+    font-size: 1.4rem !important;
+    line-height: 1.3 !important;
+    white-space: normal !important;
 }
