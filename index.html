@@ -32,7 +32,7 @@
         onload="this.media='all'">
     <noscript>
         <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;700;900&display=swap">
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;700;900&display=swap">
     </noscript>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-80YD1XNTTD"></script>
     <script>
@@ -70,8 +70,8 @@
                             </select>
                         </div>
                     </nav>
-                    <a href="#" id="headerRegisterBtn" class="btn header-cta" target="_blank"
-                        data-i18n="nav_register">להרשמה</a>
+                    <!--<a href="#" id="headerRegisterBtn" class="btn header-cta" target="_blank"
+                        data-i18n="nav_register">להרשמה</a>-->
                 </div>
 
                 <div class="lang-switcher desktop-only" style="margin-right: 15px;">
@@ -118,70 +118,78 @@
         <div class="container">
             <div class="vision-block reveal">
                 <h2 class="vision-title" data-i18n="vision_title">האמת נחשפת בקונפליקט.</h2>
-                <p style="font-size: 1.8rem; text-align: justify; line-height: 1.5; max-width: 900px; font-weight: 400;"
-                    data-i18n="vision_text">
-                    על המוקד הוא פורום דיבייט סטודנטיאלי צעיר, המהווה זירה עצמאית לניהול דיון ענייני
-                    וביקורתי בסוגיות הליבה הציבוריות.
-                    הפורום שואף לחדש את פניו של השיח הדמוקרטי בישראל, ומשיק את פעילותו במקום שבו הכל התחיל –
-                    מליאת הכנסת ההיסטורית בירושלים (מוזיאון הכנסת).
-                    בהשראת מועדוני הדיבייט המובילים והוותיקים של Oxford ו-Cambridge,
-                    אנו מציגים על הבמה זירה המבוססת על טיעונים מנומקים ותרבות נאום מובנית
-                    ומזמינים את הקהל לקחת חלק ישיר בעימות הרעיוני ובהכרעת הדיון.
-                </p>
+
+                <div class="vision-grid">
+                    <!-- טור ימין -->
+                    <div class="vision-col">
+                        <h3 class="vision-subtitle" data-i18n="vision_subtitle_main">החזון שלנו</h3>
+                        <p data-i18n="vision_p1"></p>
+                        <p data-i18n="vision_p2"></p>
+                    </div>
+
+                    <!-- טור שמאל -->
+                    <div class="vision-col">
+                        <h3 class="vision-subtitle" data-i18n="vision_subtitle_secondary">מהלך האירוע</h3>
+
+                        <p>
+                            <strong class="vision-badge" data-i18n="vision_badge_debate"></strong>
+                            <span data-i18n="vision_p_debate"></span>
+                        </p>
+
+                        <p>
+                            <strong class="vision-badge" data-i18n="vision_badge_rooftop"></strong>
+                            <span data-i18n="vision_p_rooftop"></span>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="archive" class="archive-section">
+    <section id="archive" class="archive-section-outer">
+        <div class="container-wide">
+            <div class="archive-capsule">
 
-        <!-- כותרת הצד הקבועה -->
-        <div class="archive-sidebar">
-            <h2 data-i18n="archive_sidebar_title">ארכיון האירועים</h2>
+                <!-- סרגל הצד הקבוע (חלק מובנה מהקפסולה) -->
+                <div class="archive-sidebar">
+                    <h2 data-i18n="archive_sidebar_title">ארכיון האירועים</h2>
 
-            <!-- אזור הטאבים החדש (יתמקם אוטומטית מתחת לכותרת בגלל ה-flex column הקיים) -->
-            <div class="archive-tabs">
-                <button class="archive-tab-btn active" data-target="archiveTrack" data-i18n="tab_past_events">אירועי
-                    עבר</button>
-                <button class="archive-tab-btn" data-target="galleryTrack" data-i18n="tab_gallery">גלריה</button>
-            </div>
-        </div>
-
-        <!-- אזור הגלילה האופקית -->
-        <div class="archive-scroll" id="archiveScroll">
-
-            <!-- מסילה 1: אירועי עבר (דינמי) - שומרת על המחלקה המקורית שלך -->
-            <div class="archive-track-flex tab-content active" id="archiveTrack">
-                <!-- הכרטיסיות מהג'ייסון יוזרקו לכאן אוטומטית על ידי ה-JS -->
-            </div>
-
-            <!-- מסילה 2: גלריה (סטטי) - משתמשת באותה מחלקה כדי לקבל בדיוק את אותו עיצוב -->
-            <div class="archive-track-flex tab-content" id="galleryTrack">
-                <a href="https://www.timesofisrael.com/debate-returns-to-old-knesset-building-for-first-time-in-60-years/"
-                    target="_blank" class="event-card-img auto-width static-card">
-                    <img src="assets/archive/730703763_18092832350096565_79495857836698295_n.webp"
-                        alt="Times of Israel Article" loading="lazy" class="card-bg-img">
-                    <div class="card-text-overlay">
-                        <span class="event-date">Times of Israel</span>
-                        <span class="event-card-title">Debate returns to Old Knesset building for first time in 60
-                            years</span>
+                    <div class="archive-tabs">
+                        <button class="archive-tab-btn active" data-target="galleryTrack" data-i18n="tab_gallery">גלריה</button>
+                        <button class="archive-tab-btn" data-target="archiveTrack" data-i18n="tab_past_events">אירועי עבר</button>
                     </div>
-                </a>
-                <img src="assets/archive/732610773_18092832368096565_1071673198414799114_n.webp" alt="תמונת אווירה"
-                    class="flex-img" loading="lazy">
-                <img src="assets/archive/photo-01.webp" alt="תמונת אווירה" class="flex-img">
-                <img src="assets/archive/731335965_18092832377096565_7592075476505963204_n.webp" alt="תמונת אווירה"
-                    class="flex-img" loading="lazy">
-                <img src="assets/archive/730713371_18092832341096565_2025634589810185414_n.webp" alt="תמונת אווירה"
-                    class="flex-img" loading="lazy">
-                <img src="assets/archive/731068116_18092832398096565_5347207243813597346_n.webp" alt="תמונת אווירה"
-                    class="flex-img" loading="lazy">
-                <img src="assets/archive/730786551_18092832380096565_2765289788235460997_n.webp" alt="תמונת אווירה"
-                    class="flex-img" loading="lazy">
-                <img src="assets/archive/730774671_18092832389096565_7998700426880721513_n.webp" alt="תמונת אווירה"
-                    class="flex-img" loading="lazy">
-            </div>
+                </div>
 
-        </div>
+                <!-- אזור הגלילה האופקית של התמונות -->
+                <div class="archive-scroll" id="archiveScroll">
+
+                    <div class="archive-track-flex tab-content active" id="galleryTrack">
+                        <a href="https://www.timesofisrael.com/debate-returns-to-old-knesset-building-for-first-time-in-60-years/"
+                            target="_blank" class="event-card-img auto-width static-card">
+                            <img src="assets/archive/730703763_18092832350096565_79495857836698295_n.webp"
+                                alt="Times of Israel Article" loading="lazy" class="card-bg-img">
+                            <div class="card-text-overlay">
+                                <span class="event-date">Times of Israel</span>
+                                <span class="event-card-title">Debate returns to Old Knesset building for first time in 60 years</span>
+                            </div>
+                        </a>
+                        <img src="assets/archive/732610773_18092832368096565_1071673198414799114_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
+                        <img src="assets/archive/photo-01.webp" alt="תמונת אווירה" class="flex-img">
+                        <img src="assets/archive/731335965_18092832377096565_7592075476505963204_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
+                        <img src="assets/archive/730713371_18092832341096565_2025634589810185414_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
+                        <img src="assets/archive/731068116_18092832398096565_5347207243813597346_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
+                        <img src="assets/archive/730786551_18092832380096565_2765289788235460997_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
+                        <img src="assets/archive/730774671_18092832389096565_7998700426880721513_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
+                    </div>
+
+                    <div class="archive-track-flex tab-content" id="archiveTrack">
+                        <!-- מוזרק דינמית מה-JS -->
+                    </div>
+
+                </div>
+
+            </div> <!-- סגירת archive-capsule -->
+        </div> <!-- סגירת container-wide -->
     </section>
     <!-- שבלונת הכרטיסייה - מוסתרת -->
     <template id="archive-card-template">
@@ -297,7 +305,7 @@
         <div class="container">
 
             <div id="launchEventContainer">
-                <h2 id="launchDate" style="font-size: 3rem; margin-bottom: 40px;" class="reveal"></h2>
+               <h2 id="launchDate" class="section-main-title reveal"></h2>
                 <div class="featured-card reveal" onclick="this.classList.toggle('active')">
 
                     <div class="launch-head-container">
@@ -324,21 +332,16 @@
                         </div>
                     </div>
                     <div class="motion-box">
-                        <span class="motion-label" data-i18n="launch_motion_label">הנושא המרכזי</span>
-                        <p id="launchMotion" class="motion-text"></p>
-
-                        <!-- לכאן ה-JS ישפוך את הדוברים בצורה אוטומטית -->
-                        <div id="launchSides" class="sides-grid"></div>
-
-                        <!-- אזור הרשמה והערת כרטיס בתוך הכרטיסייה עצמה -->
-                        <div style="margin-top: 50px; padding-top: 20px; text-align: center;">
-                            <a href="#" id="launchCardRegisterBtn" class="btn-card-register" target="_blank"
-                                data-i18n="hero_main_btn" onclick="event.stopPropagation()">להרשמה לאירוע הקרוב</a>
-                            <span id="heroPriceNote" class="price-note" style="margin-top: 15px; display: block;"
-                                data-i18n="hero_price_note">כרטיס הכניסה כולל מקום שמור באירוע, השתתפות במעגלי השיח
-                                וכיבוד קל</span>
+                        <!-- לוח תוכנייה מודרני מפוצל -->
+                        <div id="launchProgramGrid" class="program-grid">
+                            <!-- מוזרק דינמית מ-main.js -->
                         </div>
 
+                        <!-- כפתור הרשמה ממוקד -->
+                        <div class="launch-actions">
+                            <a href="#" id="launchCardRegisterBtn" class="btn-card-register" target="_blank" data-i18n="hero_main_btn" onclick="event.stopPropagation()">להרשמה לאירוע הקרוב</a>
+                            <span id="heroPriceNote" class="price-note" data-i18n="hero_price_note">כרטיס הכניסה כולל מקום שמור באירוע, השתתפות במעגלי השיח וכיבוד קל</span>
+                        </div>
                     </div>
 
                 </div>
@@ -350,9 +353,7 @@
 
     <section id="future" class="section-light">
         <div class="container reveal">
-            <h2 style="font-size: 3.5rem; margin-bottom: 50px; font-weight: 900;" data-i18n="future_title">במוקד:
-                עימותים קרובים</h2>
-
+            <h2 class="section-main-title" data-i18n="future_title">במוקד: עימותים קרובים</h2>
             <!-- לכאן ה-JS ישפוך את האירועים העתידיים מהג'ייסון -->
             <div class="event-list" id="futureEventsContainer">
 
