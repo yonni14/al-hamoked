@@ -22,7 +22,14 @@ const staticTranslations = {
         hero_launch_btn: "לפרטים על האירוע הקרוב",
         hero_price_note: "כרטיס כניסה כולל מקום שמור בכניסה לאירוע, למעגלי השיח, וכיבוד קל",
         vision_title: "האמת נחשפת בקונפליקט.",
-        vision_text: "על המוקד הוא פורום דיבייט סטודנטיאלי צעיר, המהווה זירה עצמאית לניהול דיון ענייני וביקורתי בסוגיות הליבה הציבוריות. הפורום שואף לחדש את פניו של השיח הדמוקרטי בישראל, ומשיק את פעילותו במקום שבו הכל התחיל – מליאת הכנסת ההיסטורית בירושלים (מוזיאון הכנסת). בהשראת מועדוני הדיבייט המובילים והוותיקים של Oxford ו-Cambridge, אנו מציגים על הבמה זירה המבוססת על טיעונים מנומקים ותרבות נאום מובנית ומזמינים את הקהל לקחת חלק ישיר בעימות הרעיוני ובהכרעת הדיון.",
+        vision_subtitle_main: "החזון שלנו",
+        vision_subtitle_secondary: "מהלך האירוע",
+        vision_p1: "דמוקרטיה נשענת על יכולתם של אזרחים לשקול ראיות, לאתגר הנחות יסוד ולנהל מחלוקת נוקבת מתוך כבוד. אף כי לאורך דורות, העולם היהודי והישראלי העמיד שורה ארוכה של אנשים שהקדישו את עצמם לחקירה, לוויכוח ולחיפוש אחר האמת, הבמות המזוהות ביותר עם מפגש בין רעיונות כאלה, עם ויכוח ציבורי ועם חקירה משותפת של האמת, נמצאות בעיקר מעבר לים: באוקספורד, קיימברידג' ובמוסדות ברחבי ארצות הברית.",
+        vision_p2: "מתוך שאיפה לחדש את פניו של השיח הציבורי בישראל, הקמנו את פורום 'על המוקד' - זירת דיבייט סטודנטיאלית עצמאית, שנועדה להשיב את תרבות הוויכוח הביתה. בחרנו להציב את הבמה שלנו במליאת הכנסת ההיסטורית (בית פרומין - מוזיאון הכנסת), במטרה להפוך את ירושלים ואת ערש הדמוקרטיה הישראלית לנקודת מפגש בה אנשים המחזיקים בעמדות מנוגדות יכולים לדבר ישירות זה עם זה.",
+        vision_badge_debate: "01 / הדיבייט במליאה:",
+        vision_p_debate: "הערב נפתח במליאה בדיבייט מובנה סביב סוגיות ליבה, בהשתתפות מעצבי מדיניות, חוקרים ואנשי ציבור. הדיון מתקיים תוך מעורבות פעילה של הקהל: הנוכחים מפנים שאלות לדוברים, מאתגרים את העמדות המוצגות על הבמה, ובסיום העימות מכריעים את התוצאה בהצבעה.",
+        vision_badge_rooftop: "02 / מעגלי השיח על הגג:",
+        vision_p_rooftop: "בתום הדיבייט, עוברים הסטודנטים והדוברים אל גג בניין הכנסת להמשך הערב. בחלק זה מתקיימות שיחות בלתי פורמליות בהן סטודנטים מכל חלקי החברה נפגשים לשיחה פנים אל פנים עם הדוברים, ומנהלים דיון ישיר האחד עם השני, לצד יין, בירות ואוכל ברמה הגבוהה ביותר.",
         archive_sidebar_title: "ארכיון האירועים",
         tab_past_events: "אירועי עבר",
         tab_gallery: "גלריה",
@@ -70,8 +77,14 @@ const staticTranslations = {
         hero_launch_btn: "Event Details",
         hero_price_note: "Ticket includes reserved seating, discussion circles, and light refreshments",
         vision_title: "Truth Emerges in Conflict.",
-        vision_text: "THE SPOTLIGHT is a vibrant student debate forum, providing an independent arena for substantive and critical discussion on core public issues. The forum aims to revitalize democratic discourse in Israel, launching its activity right where it all began – the historical Knesset Chamber in Jerusalem (The Knesset Museum). Inspired by the premier debate societies of Oxford and Cambridge, we present an arena grounded in reasoned arguments and structured speech, inviting the audience to take a direct part in the ideological conflict and in settling the debate.",
-        archive_sidebar_title: "Event Archive",
+        vision_subtitle_main: "Our Vision",
+        vision_subtitle_secondary: "Event Schedule",
+        vision_p1: "Democracy relies on the ability of citizens to weigh evidence, challenge assumptions, and engage in sharp yet respectful disagreement. Although throughout history the Jewish and Israeli worlds have produced generations of individuals dedicated to inquiry, debate, and the pursuit of truth, the stages most synonymous with such intellectual clashes, public discourse, and collective inquiry are predominantly overseas: in Oxford, Cambridge, and institutions across the United States.",
+        vision_p2: "Seeking to revitalize public discourse in Israel, we established 'Al HaMoked'—an independent student debate forum designed to bring the culture of debate back home. We chose to set our stage in the historic Knesset plenum (Beit Frumin – The Knesset Museum), aiming to make Jerusalem and the birthplace of Israeli democracy a meeting place where people with opposing views can engage in direct dialogue.",
+        vision_badge_debate: "01 / The Plenum Debate:",
+        vision_p_debate: "The evening begins in the plenum with a structured debate on core issues, featuring policymakers, researchers, and public figures. The debate involves active audience participation: attendees pose questions, challenge positions presented on stage, and ultimately decide the outcome by vote.",
+        vision_badge_rooftop: "02 / Rooftop Discussion Circles:",
+        vision_p_rooftop: "Following the debate, students and speakers head to the rooftop of the Knesset building for the second part of the evening. Here, informal discussions take place as students from all corners of society interact face-to-face with the speakers and engage in direct dialogue with one another, accompanied by quality wine, beer, and top-tier refreshments.", archive_sidebar_title: "Event Archive",
         tab_past_events: "Past Events",
         tab_gallery: "Gallery",
         launch_motion_label: "Main Topic",
@@ -118,8 +131,14 @@ const staticTranslations = {
         hero_launch_btn: "تفاصيل الحدث",
         hero_price_note: "تذكرة الدخول تشمل مقعداً محجوزاً، دوائر النقاش، ومرطبات",
         vision_title: "الحقيقة تظهر في الصراع.",
-        vision_text: "في البؤرة هو منتدى نقاش طلابي شاب، يشكل ساحة مستقلة لإدارة نقاش موضوعي ونقدي حول القضايا العامة الجوهرية. يطمح المنتدى إلى تجديد وجه الحوار الديمقراطي في إسرائيل، ويطلق نشاطه من المكان الذي بدأ فيه كل شيء – قاعة الكنيست التاريخية في القدس (متحف الكنيست). بإلهام من أندية المناظرة الرائدة والعريقة في أوكسفورد وكامبريدج، نقدم على المسرح ساحة قائمة على الحجج المعللة وثقافة الخطابة المنظمة، وندعو الجمهور للمشاركة المباشرة في الصراع الفكري وفض النقاش.",
-        archive_sidebar_title: "أرشيف الأحداث",
+        vision_subtitle_main: "رؤيتنا",
+        vision_subtitle_secondary: "برنامج الحدث",
+        vision_p1: "ترتكز الديمقراطية على قدرة المواطنين على فحص الأدلة، وتحدي الافتراضات، وإدارة الاختلافات الحادة بروح من الاحترام المتبادل. ورغم أن العالمين اليهودي والإسرائيلي أنتجا عبر الأجيال رواداً كرّسوا أنفسهم للبحث والمناظرة والسعي وراء الحقيقة، إلا أن المنصات الأكثر ارتباطاً بتلاقي الأفكار، والنقاش العام، والبحث المشترك عن الحقيقة، تقع في المقام الأول خارج البلاد: في أكسفورد، وكامبريدג'، ومؤسسات مختلفة في جميع أنحاء الولايات المتحدة.",
+        vision_p2: "وسعياً منا لتجديد ملامح الخطاب العام في إسرائيل، أنشأنا منتدى 'על המוקד' (في بؤرة الضوء) - ساحة مناظرات طلابية مستقلة تهدف إلى إعادة ثقافة الحوار والمناظرة إلى موطنها. اخترنا إقامة منصتنا في القاعة العامة للكنيست التاريخي (بيت فرومين - متحف الكنيست)، بهدف تحويل القدس ومهد الديمقراطية الإسرائيلية إلى نقطة التقاء يتحدث فيها أصحاب الآراء المتعارضة مباشرة مع بعضهم البعض.",
+        vision_badge_debate: "01 / المناظرة في القاعة العامة:",
+        vision_p_debate: "تبدأ الأمسية في القاعة بمناظرة منظمة حول القضايا الجوهرية، بمشاركة صُنّاع القرار، والباحثين، وشخصيات عامة. يجري النقاش بمشاركة فعالة من الجمهور، حيث يوجّه الحاضرون الأسئلة للمتحدثين، ويتحدون المواقف المطروحة على المنصة، وفي ختام المواجهة يحسمون النتيجة عبر التصويت.",
+        vision_badge_rooftop: "02 / حلقات النقاش على السطح:",
+        vision_p_rooftop: "في ختام المناظرة، يصعد الطلاب والمتحدثون إلى سطح مبنى الكنيست لمواصلة الأمسية. يتضمن هذا الجزء حوارات غير رسمية يلتقي فيها الطلاب من كافة أطياف المجتمع وجهاً لوجه مع المتحدثين، ويخوضون نقاشاً مباشراً مع بعضهم البعض، إلى جانب المشروبات والضيافة الراقية.", archive_sidebar_title: "أرشيف الأحداث",
         tab_past_events: "أحداث سابقة",
         tab_gallery: "معرض الصور",
         launch_motion_label: "الموضوع الرئيسي",
@@ -242,18 +261,104 @@ async function loadEventsData(lang = 'he') {
                 elements.cardRegisterBtn.href = nextEvent.registerLink || "#";
             }
 
-            // עדכון פרטי האירוע
-            const els = ['launchDate', 'launchTitle', 'launchMotion', 'launchLocationText', 'launchLocationLink', 'launchSides'];
-            els.forEach(id => window[id] = document.getElementById(id));
+            // עדכון כותרות בסיס
+            if (document.getElementById('launchDate')) document.getElementById('launchDate').textContent = `${staticTranslations[lang]?.nav_launch || 'האירוע הקרוב'} • ${nextEvent.date}`;
+            if (document.getElementById('launchTitle')) document.getElementById('launchTitle').textContent = nextEvent.title;
+            if (document.getElementById('launchLocationText')) document.getElementById('launchLocationText').textContent = nextEvent.locationName || staticTranslations[lang]?.default_location || "מוזיאון הכנסת, ירושלים";
+            if (document.getElementById('launchLocationLink')) document.getElementById('launchLocationLink').href = nextEvent.locationLink || "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים";
 
-            if (window.launchDate) window.launchDate.textContent = `${staticTranslations[lang]?.nav_launch || 'האירוע הקרוב'} • ${nextEvent.date}`;
-            if (window.launchTitle) window.launchTitle.textContent = nextEvent.title;
-            if (window.launchMotion) window.launchMotion.textContent = nextEvent.motion;
+            // פונקציית עזר לבניית ליבת האירוע (הנושא והדוברים)
+            const renderEventCore = (event) => {
+                let coreHTML = `<div class="t-inner-debate">`;
+                if (event.motion) {
+                    coreHTML += `
+            <span class="motion-label" data-i18n="launch_motion_label">${staticTranslations[lang]?.launch_motion_label || "הנושא המרכזי"}</span>
+            <p class="motion-text" style="font-size: 1.8rem; margin-bottom: 25px;">${event.motion}</p>`;
+                }
+                if (event.sides) {
+                    coreHTML += `
+            <div class="sides-grid">
+                ${buildSideHTML(event.sides.sideA)}
+                ${buildSideHTML(event.sides.sideB)}
+            </div>`;
+                }
+                coreHTML += `</div>`;
+                return coreHTML;
+            };
 
-            if (window.launchLocationText) window.launchLocationText.textContent = nextEvent.locationName || staticTranslations[lang]?.default_location || "מוזיאון הכנסת, ירושלים";
-            if (window.launchLocationLink) window.launchLocationLink.href = nextEvent.locationLink || "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים";
-            if (window.launchSides && nextEvent.sides) window.launchSides.innerHTML = buildSideHTML(nextEvent.sides.sideA) + buildSideHTML(nextEvent.sides.sideB);
+            // רינדור ה-Timeline הדינמי
+            const programGrid = document.getElementById('launchProgramGrid') || document.getElementById('launchTimeline');
 
+            if (programGrid && nextEvent && nextEvent.timeline) {
+                programGrid.innerHTML = '';
+
+                // פונקציית עזר מובנית לבניית כרטיסיות הדוברים
+                const renderSideHTML = (sideData) => {
+                    if (!sideData) return '';
+                    const speakersHTML = (sideData.speakers || []).map(sp => `
+                        <div class="speaker">
+                            <img src="${sp.img || 'assets/archive/avatar-placeholder.webp'}" alt="${sp.name || ''}" class="speaker-img">
+                            <div class="speaker-info">
+                                <p>${sp.name || ''}</p>
+                                <span>${sp.role || ''}</span>
+                            </div>
+                        </div>
+                    `).join('');
+
+                    return `
+                        <div class="side">
+                            <h4>${sideData.title || ''}</h4>
+                            <div class="speakers-list">${speakersHTML}</div>
+                        </div>
+                    `;
+                };
+
+                nextEvent.timeline.forEach(step => {
+                    const isCore = step.type === 'debate_core' || step.type === 'keynote_core';
+
+                    if (isCore) {
+                        const sidesHTML = nextEvent.sides
+                            ? `<div class="sides-grid">${renderSideHTML(nextEvent.sides.sideA)}${renderSideHTML(nextEvent.sides.sideB)}</div>`
+                            : '';
+
+                        programGrid.innerHTML += `
+                            <div class="program-row is-core">
+                                <!-- עמודת השעה נטו -->
+                                <div class="program-time-col">
+                                    <span class="program-time">${step.time || ''}</span>
+                                </div>
+                                <!-- עמודת התוכן: כותרת + תיאור + דיבייט -->
+                                <div class="program-content-col">
+                                    <h4 class="program-title">${step.title || ''}</h4>
+                                    <div class="program-body">
+                                        <div class="debate-core-block">
+                                            <span class="motion-label" data-i18n="launch_motion_label">הנושא המרכזי</span>
+                                            <p class="motion-text">${nextEvent.motion || ''}</p>
+                                            ${sidesHTML}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        programGrid.innerHTML += `
+                            <div class="program-row">
+                                <!-- עמודת השעה נטו -->
+                                <div class="program-time-col">
+                                    <span class="program-time">${step.time || ''}</span>
+                                </div>
+                                <!-- עמודת התוכן: כותרת + תיאור -->
+                                <div class="program-content-col">
+                                    <h4 class="program-title">${step.title || ''}</h4>
+                                    <div class="program-body">
+                                        <p>${step.desc || ''}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                });
+            }
         } else {
             // מצב שאין אירוע קרוב: כאן ורק כאן הוא הופך לכפתור תפוצה שפותח את המודאל
             ['section', 'navLink', 'heroBtn', 'priceNote', 'headerBtn'].forEach(key => {
@@ -266,7 +371,6 @@ async function loadEventsData(lang = 'he') {
                 elements.mainBtn.href = "#";
             }
         }
-
         // ניהול מודאל רשימת תפוצה
         const newsletterModal = document.getElementById('newsletterModal');
         const newsletterCloseBtn = document.getElementById('newsletterModalClose');
@@ -279,12 +383,16 @@ async function loadEventsData(lang = 'he') {
             }
         }
 
+
+
         function closeNewsletterModal() {
             if (newsletterModal) {
                 newsletterModal.classList.remove('active');
                 document.body.style.overflow = '';
             }
         }
+
+
 
         // האזנה לכל כפתור עם המחלקה open-newsletter-btn (עובד גם על כפתורים שמתעדכנים דינמית)
         document.addEventListener('click', (e) => {
@@ -556,6 +664,63 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+    // ==========================================
+    // גלילה אוטומטית של הגלריה והארכיון
+    // ==========================================
+    const archiveContainer = document.getElementById('archiveScroll');
+
+    if (archiveContainer) {
+        let scrollSpeed = 0.8; // מהירות הגלילה (פיקסלים לפריים)
+        let isAutoScrolling = true;
+        let animationFrameId;
+
+        function autoScroll() {
+            if (isAutoScrolling) {
+                const isRTL = document.documentElement.dir === 'rtl';
+
+                // חישוב הקצה המקסימלי האפשרי לגלילה
+                const maxScroll = archiveContainer.scrollWidth - archiveContainer.clientWidth;
+
+                if (isRTL) {
+                    archiveContainer.scrollLeft -= scrollSpeed;
+                    // חזרה להתחלה כשהגלילה מגיעה לקצה השמאלי
+                    if (Math.abs(archiveContainer.scrollLeft) >= maxScroll - 10) {
+                        archiveContainer.scrollLeft = 0;
+                    }
+                } else {
+                    archiveContainer.scrollLeft += scrollSpeed;
+                    // חזרה להתחלה כשהגלילה מגיעה לקצה הימני (LTR)
+                    // שימוש ב-Math.ceil מונע מהגלילה להיתקע על שברי פיקסלים
+                    if (Math.ceil(archiveContainer.scrollLeft) >= maxScroll - 10) {
+                        archiveContainer.scrollLeft = 0;
+                    }
+                }
+            }
+            animationFrameId = requestAnimationFrame(autoScroll);
+        }
+
+        // הפעלת לולאת הגלילה
+        animationFrameId = requestAnimationFrame(autoScroll);
+
+        // השהיית הגלילה כשמרחפים עם העכבר מעל התמונות
+        archiveContainer.addEventListener('mouseenter', () => {
+            isAutoScrolling = false;
+        });
+        archiveContainer.addEventListener('mouseleave', () => {
+            isAutoScrolling = true;
+        });
+
+        // השהייה בעת מגע במסכי מגע (מובייל) וחזרה לתנועה לאחר עזיבה
+        archiveContainer.addEventListener('touchstart', () => {
+            isAutoScrolling = false;
+        }, { passive: true });
+
+        archiveContainer.addEventListener('touchend', () => {
+            setTimeout(() => {
+                isAutoScrolling = true;
+            }, 1200);
+        }, { passive: true });
+    }
 
     // ג. הפעלת תפריט המבורגר במובייל
     const hamburgerBtn = document.querySelector('.hamburger');
