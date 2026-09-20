@@ -1151,6 +1151,15 @@ html[dir="ltr"] .contact-header-relative .card-toggle-icon {
     z-index: 2001;
     text-align: right;
 }
+.event-modal-content iframe {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: none;
+    border-radius: 8px;
+    margin-top: 15px;
+}
 
 .event-modal-close {
     position: absolute;
