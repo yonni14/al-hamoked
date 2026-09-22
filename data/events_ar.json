@@ -1,87 +1,135 @@
 [
-    {
-        "id": "launch-event-past",
-        "status": "past",
-        "eventType": "مناظرة كاملة:",
-        "date": "29/06/2026",
-        "locationName": "متحف الكنيست، القدس",
-        "title": "الاستقلال العسكري مقابل الاتفاقيات الإقليمية",
-        "coverImage": "assets/archive/event-01.webp",
-        "youtubeLink": "https://www.youtube.com/embed/WHk-KHOnkJU?si=aQMtEa1x4AZGlLxp",
-        "motion": "الاستقلال العسكري أم الاتفاقيات الإقليمية - ما الذي يجب أن يكون على رأس الأولويات الأمنية في إسرائيل؟",
-        "results": {
-            "svgImage": "assets/archive/29.06.2026.svg", 
-            "sideA": { "votes": 31, "color": "#90ED7D" }, 
-            "sideB": { "votes": 62, "color": "#7CB5EC" }  
-        },
-        "sides": {
-            "sideA": {
-                "name": "جانب الاستقلال العسكري",
-                "speakers": [
-                    { "name": "اللواء (احتياط) عوزي ديان", "role": "النائب السابق لرئيس الأركان ورئيس مجلس الأمن القومي، رئيس منتدى القادة الوطنيين", "img": "assets/speakers/uzi-dayan.jpg" },
-                    { "name": "البروفيسور داني أورباخ", "role": "مؤرخ عسكري (الجامعة العبرية)، خبير في الاستخبارات والاستراتيجية", "img": "assets/speakers/dani-orbach.png" }
-                ]
-            },
-            "sideB": {
-                "name": "جانب الاتفاقيات الدولية",
-                "speakers": [
-                    { "name": "الفريق (متقاعد) موشيه (بوغي) يعلون", "role": "وزير الدفاع ورئيس الأركان الأسبق", "img": "assets/speakers/bogi-yelon.jpg" },
-                    { "name": "كسينيا سفيتلوفا", "role": "صحفية، عضو كنيست سابقة، وخبيرة في شؤون الشرق الأوسط", "img": "assets/speakers/Ksenia-Svetlova.jpeg" }
-                ]
-            }
-        }
-    },
-   {
-      "id": "future_superate_gorenment",
-      "status": "future",
-      "title": "المستوى المهني مقابل المستوى المنتخب",
-      "motion": "هل ينبغي تقليص صلاحيات المستوى المهني لصالح المستوى المنتخب؟",
-      "registrationStatus": "لم يفتح بعد",
-      "speakersStatus": "سيتم الإعلان عن المتحدثين لاحقًا.",
-      "sides": {
-        "sideA": {
-          "name": "الطرف أ",
-          "speakers": [
-            {
-              "name": "أفياد بن تسيون باكشي",
-              "role": "دكتور في القانون، منتدى كوهيليت",
-              "img": "images/aviad-bakshi.png"
-            },
-            {
-              "name": "تاليا أينهورن",
-              "role": "حقوقية، عضوة في لجنة تعيين كبار المسؤولين",
-              "img": "images/talia-einhorn.jpg"
-            }
-          ]
-        },
-        "sideB": {
-          "name": "الطرف ب",
-          "speakers": [
-            {
-              "name": "إستر حيوت",
-              "role": "رئيسة المحكمة العليا سابقًا",
-              "img": "images/esther-hayut.jpg"
-            },
-            {
-              "name": "إليعاد شراغا",
-              "role": "رئيس الحركة من أجل جودة الحكم",
-              "img": "images/eliad-shraga.jpg"
-            }
-          ]
-        }
+  {
+    "id": "launch-event-past",
+    "status": "past",
+    "eventType": "مناظرة كاملة:",
+    "date": "29/06/2026",
+    "locationName": "متحف الكنيست، القدس",
+    "title": "الاستقلال العسكري مقابل الاتفاقيات الإقليمية",
+    "coverImage": "assets/archive/event-01.webp",
+    "youtubeLink": "https://www.youtube.com/embed/WHk-KHOnkJU?si=aQMtEa1x4AZGlLxp",
+    "motion": "الاستقلال العسكري أم الاتفاقيات الإقليمية - ما الذي يجب أن يكون على رأس الأولويات الأمنية في إسرائيل؟",
+    "results": {
+      "svgImage": "assets/archive/29.06.2026.svg",
+      "sideA": {
+        "votes": 31,
+        "color": "#90ED7D"
+      },
+      "sideB": {
+        "votes": 62,
+        "color": "#7CB5EC"
       }
     },
-    {
-      "id": "future_AI",
-      "status": "future",
-      "title": "تأثير الذكاء الاصطناعي على الإنسانية",
-      "motion": "هل سيجلب الذكاء الاصطناعي للبشرية ضررًا أكثر أم نفعًا في المستقبل؟",
-      "registrationStatus": "سيفتح التسجيل قريبًا",
-      "speakersStatus": "سيتم الإعلان عن المتحدثين لاحقًا.",
-      "keynote": {
-        "name": "مايك هاكابي",
-        "role": "سفير الولايات المتحدة لدى إسرائيل",
-        "img": "images/mike-huckabee.png"
+    "sides": {
+      "sideA": {
+        "name": "جانب الاستقلال العسكري",
+        "speakers": [
+          {
+            "name": "اللواء (احتياط) عوزي ديان",
+            "role": "النائب السابق لرئيس الأركان ورئيس مجلس الأمن القومي، رئيس منتدى القادة الوطنيين",
+            "img": "assets/speakers/uzi-dayan.jpg"
+          },
+          {
+            "name": "البروفيسور داني أورباخ",
+            "role": "مؤرخ عسكري (الجامعة العبرية)، خبير في الاستخبارات والاستراتيجية",
+            "img": "assets/speakers/dani-orbach.png"
+          }
+        ]
+      },
+      "sideB": {
+        "name": "جانب الاتفاقيات الدولية",
+        "speakers": [
+          {
+            "name": "الفريق (متقاعد) موشيه (بوغي) يعلون",
+            "role": "وزير الدفاع ورئيس الأركان الأسبق",
+            "img": "assets/speakers/bogi-yelon.jpg"
+          },
+          {
+            "name": "كسينيا سفيتلوفا",
+            "role": "صحفية، عضو كنيست سابقة، وخبيرة في شؤون الشرق الأوسط",
+            "img": "assets/speakers/Ksenia-Svetlova.jpeg"
+          }
+        ]
       }
     }
+  },
+  {
+    "id": "future_superate_gorenment",
+    "status": "next",
+    "date": "20.10.2026",
+    "locationName": "متحف الكنيست، القدس",
+    "locationLink": "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים",
+    "registerLink": "https://knessetmuseum.org/3V7TfBx",
+    "title": "المستوى المهني مقابل المستوى المنتخب",
+    "motion": "يعتقد هذا المجلس أنه يجب تقليص سلطة المستوى المهني أمام المستوى المنتخب.",
+    "registrationStatus": "سيتم فتح باب التسجيل قريباً",
+    "speakersStatus": "سيتم الإعلان عن المتحدثين لاحقاً.",
+    "timeline": [
+      {
+        "time": "19:30",
+        "title": "الاستقبال والتجمع",
+        "desc": "قهوة، مرطبات خفيفة، والجلوس في قاعة الكنيست التاريخية"
+      },
+      {
+        "time": "20:00",
+        "title": "افتتاح المناظرة: افتتاح القاعة",
+        "type": "debate_core"
+      },
+      {
+        "time": "21:15",
+        "title": "أسئلة من الجمهور وحسم النقاش",
+        "desc": "الميكروفون ينتقل للجمهور: أسئلة مفتوحة للطرفين، خطابات ختامية قصيرة، وتصويت حي يحسم نتيجة المناظرة."
+      },
+      {
+        "time": "22:00",
+        "title": "عشاء، بيرة ونقاش مفتوح على السطح",
+        "desc": "نصعد إلى سطح المتحف: نبيذ، طعام جيد ومحادثة مباشرة مع المتحدثين."
+      }
+    ],
+    "sides": {
+      "sideA": {
+        "name": "جانب تقليص سلطة المستوى المهني",
+        "speakers": [
+          {
+            "name": "مئير روبين",
+            "role": "المدير العام لمنتدى كوهيلت للسياسات",
+            "img": "assets/speakers/meir-rubin.webp"
+          },
+          {
+            "name": "يسكا بينا",
+            "role": "رئيسة الحركة من أجل الحوكمة والديمقراطية",
+            "img": "assets/speakers/isca-bina.webp"
+          }
+        ]
+      },
+      "sideB": {
+        "name": "جانب تعزيز مكانة المستوى المهني",
+        "speakers": [
+          {
+            "name": "باراك مدينا",
+            "role": "أستاذ القانون ورئيس الجامعة العبرية سابقاً",
+            "img": "assets/speakers/barak-medina.webp"
+          },
+          {
+            "name": "إيال حولاتا",
+            "role": "الرئيس السابق لمجلس الأمن القومي ومستشار الأمن القومي",
+            "img": "assets/speakers/eyal-hulta.webp"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "future_AI",
+    "status": "future",
+    "title": "تأثير الذكاء الاصطناعي على الإنسانية",
+    "motion": "هل سيجلب الذكاء الاصطناعي للبشرية ضررًا أكثر أم نفعًا في المستقبل؟",
+    "registrationStatus": "سيفتح التسجيل قريبًا",
+    "speakersStatus": "سيتم الإعلان عن المتحدثين لاحقًا.",
+    "keynote": {
+      "name": "مايك هاكابي",
+      "role": "سفير الولايات المتحدة لدى إسرائيل",
+      "img": "assets/speakers/mike-huckabee.png"
+    }
+  }
 ]

@@ -31,26 +31,53 @@
             }
         }
     }, 
-     {
+     
+{
       "id": "future_superate_gorenment",
-      "status": "future",
+      "status": "next",
+      "date": "20.10.2026",
+      "locationName": "מוזיאון הכנסת, ירושלים",
+      "locationLink": "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים",
+      "registerLink": "https://knessetmuseum.org/3V7TfBx",
       "title": "דרג מקצועי vs דרג נבחר",
-      "motion":"האם צריך לצמצם את כוחו של הדרג המקצועי אל מול הדרג הנבחר?",
+      "motion": "בית זה מאמין כי יש לצמצם את כוחו של הדרג המקצועי למול הדרג הנבחר",
       "registrationStatus": "הרשמה תפתח בקרוב",
       "speakersStatus": "הדוברים יפורסמו בהמשך.",
+      "timeline": [
+          {
+              "time": "19:30",
+              "title": "קבלת פנים והתכנסות",
+              "desc": "קפה, כיבוד קל, והתמקמות במליאת הכנסת ההיסטורית "
+          },
+          {
+              "time": "20:00",
+              "title": "פתיחת הדיבייט: המליאה נפתחת",
+              "type": "debate_core"
+          },
+          {
+              "time": "21:15",
+              "title": "שאלות מהקהל והכרעת הדיון",
+              "desc": "המיקרופון עובר לקהל: שאלות חופשיות לשני הצדדים, נאומי סיכום קצרים, והצבעה חיה שמכריעה את תוצאות הדיבייט."
+          },
+          {
+              "time": "22:00",
+              "title": "ארוחת ערב, בירות ושיח פתוח על הגג",
+              "desc": "עולים לגג המוזיאון: יין, אוכל טוב ושיחה בלתי אמצעית עם הדוברים."
+          }
+      ],
       "sides": {
           "sideA": {
-              "name": "צד א'",
+              "name": "צד צמצום כוחו של הדרג המקצועי",
               "speakers": [
-                  { "name": "אביעד בן ציון בקשי", "role": "דוקטור למשפטים, פורום קהלת", "img": "images/aviad-bakshi.png" },
-                  { "name": "טליה איינהורן", "role": "משפטנית, חברה בוועדה למינוי בכירים", "img": "images/talia-einhorn.jpg" }
+                  { "name": "מאיר רובין", "role": "מנכ״ל פורום קהלת", "img": "assets/speakers/meir-rubin.webp" },
+                  { "name": "יסכה בינה", "role": "ראש התנועה למשילות ודמוקרטיה", "img": "assets/speakers/isca-bina.webp" }
               ]
           },
           "sideB": {
-              "name": "צד ב'",
+              "name": "צד חיזוק מעמד הדרג המקצועי",
               "speakers": [
-                  { "name": "אסתר חיות", "role": "נשיאת בית המשפט העליון לשעבר", "img": "images/esther-hayut.jpg" },
-                  { "name": "אליעד שרגא", "role": "יו\"ר התנועה למען איכות השלטון", "img": "images/eliad-shraga.jpg" }
+                  { "name": "ברק מדינה", "role": "פרופ׳ למשפטים ורקטר האוני׳ העברית לשעבר", "img": "assets/speakers/barak-medina.webp" },
+                  { "name": "אייל חולתא", "role": "לשעבר ראש המל״ל והיועץ לביטחון לאומי", "img": "assets/speakers/eyal-hulta.webp" }
               ]
           }
       }
@@ -65,7 +92,7 @@
       "keynote": {
           "name": "מייק האקבי",
           "role": "שגריר ארה\"ב בישראל",
-          "img": "images/mike-huckabee.png"
+          "img": "assets/speakers/mike-huckabee.png"
       }
   }
 ]

@@ -1,87 +1,135 @@
 [
-    {
-        "id": "launch-event-past",
-        "status": "past",
-        "eventType": "Full Debate:",
-        "date": "29/06/2026",
-        "locationName": "Knesset Museum, Jerusalem",
-        "title": "Military Independence vs. Regional Agreements",
-        "coverImage": "assets/archive/event-01.webp",
-        "youtubeLink": "https://www.youtube.com/embed/WHk-KHOnkJU?si=aQMtEa1x4AZGlLxp",
-        "motion": "Military independence or regional agreements - what should be at the top of Israel's security priorities?",
-        "results": {
-            "svgImage": "assets/archive/29.06.2026.svg", 
-            "sideA": { "votes": 31, "color": "#90ED7D" }, 
-            "sideB": { "votes": 62, "color": "#7CB5EC" }  
-        },
-        "sides": {
-            "sideA": {
-                "name": "Military Independence Side",
-                "speakers": [
-                    { "name": "Maj. Gen. (Res.) Uzi Dayan", "role": "Former Deputy Chief of Staff and Head of the NSC, Chairman of Mivtachi", "img": "assets/speakers/uzi-dayan.jpg" },
-                    { "name": "Prof. Danny Orbach", "role": "Military Historian (Hebrew University), Expert in Intelligence and Strategy", "img": "assets/speakers/dani-orbach.png" }
-                ]
-            },
-            "sideB": {
-                "name": "International Agreements Side",
-                "speakers": [
-                    { "name": "Lt. Gen. (Ret.) Moshe (Bogie) Ya'alon", "role": "Former Minister of Defense and Chief of Staff", "img": "assets/speakers/bogi-yelon.jpg" },
-                    { "name": "Ksenia Svetlova", "role": "Journalist, Former MK, and Expert on Middle Eastern Affairs", "img": "assets/speakers/Ksenia-Svetlova.jpeg" }
-                ]
-            }
-        }
-    },
-   {
-      "id": "future_superate_gorenment",
-      "status": "future",
-      "title": "Professional Civil Service vs. Elected Officials",
-      "motion": "Should the power of the professional civil service be reduced in relation to elected officials?",
-      "registrationStatus": "Registration opening soon",
-      "speakersStatus": "Speakers will be announced soon.",
-      "sides": {
-        "sideA": {
-          "name": "Side A",
-          "speakers": [
-            {
-              "name": "Aviad Ben-Zion Bakshi",
-              "role": "Doctor of Law, Kohelet Policy Forum",
-              "img": "images/aviad-bakshi.png"
-            },
-            {
-              "name": "Talia Einhorn",
-              "role": "Jurist, Member of the Advisory Committee on Senior Civil Service Appointments",
-              "img": "images/talia-einhorn.jpg"
-            }
-          ]
-        },
-        "sideB": {
-          "name": "Side B",
-          "speakers": [
-            {
-              "name": "Esther Hayut",
-              "role": "Former President of the Supreme Court",
-              "img": "images/esther-hayut.jpg"
-            },
-            {
-              "name": "Eliad Shraga",
-              "role": "Chairman of the Movement for Quality Government in Israel",
-              "img": "images/eliad-shraga.jpg"
-            }
-          ]
-        }
+  {
+    "id": "launch-event-past",
+    "status": "past",
+    "eventType": "Full Debate:",
+    "date": "29/06/2026",
+    "locationName": "Knesset Museum, Jerusalem",
+    "title": "Military Independence vs. Regional Agreements",
+    "coverImage": "assets/archive/event-01.webp",
+    "youtubeLink": "https://www.youtube.com/embed/WHk-KHOnkJU?si=aQMtEa1x4AZGlLxp",
+    "motion": "Military independence or regional agreements - what should be at the top of Israel's security priorities?",
+    "results": {
+      "svgImage": "assets/archive/29.06.2026.svg",
+      "sideA": {
+        "votes": 31,
+        "color": "#90ED7D"
+      },
+      "sideB": {
+        "votes": 62,
+        "color": "#7CB5EC"
       }
     },
-    {
-      "id": "future_AI",
-      "status": "future",
-      "title": "The Impact of Artificial Intelligence on Humanity",
-      "motion": "Will AI cause more harm or benefit to humanity in the future?",
-      "registrationStatus": "Not yet open",
-      "speakersStatus": "Speakers will be announced soon.",
-      "keynote": {
-        "name": "Mike Huckabee",
-        "role": "U.S. Ambassador to Israel",
-        "img": "images/mike-huckabee.png"
+    "sides": {
+      "sideA": {
+        "name": "Military Independence Side",
+        "speakers": [
+          {
+            "name": "Maj. Gen. (Res.) Uzi Dayan",
+            "role": "Former Deputy Chief of Staff and Head of the NSC, Chairman of Mivtachi",
+            "img": "assets/speakers/uzi-dayan.jpg"
+          },
+          {
+            "name": "Prof. Danny Orbach",
+            "role": "Military Historian (Hebrew University), Expert in Intelligence and Strategy",
+            "img": "assets/speakers/dani-orbach.png"
+          }
+        ]
+      },
+      "sideB": {
+        "name": "International Agreements Side",
+        "speakers": [
+          {
+            "name": "Lt. Gen. (Ret.) Moshe (Bogie) Ya'alon",
+            "role": "Former Minister of Defense and Chief of Staff",
+            "img": "assets/speakers/bogi-yelon.jpg"
+          },
+          {
+            "name": "Ksenia Svetlova",
+            "role": "Journalist, Former MK, and Expert on Middle Eastern Affairs",
+            "img": "assets/speakers/Ksenia-Svetlova.jpeg"
+          }
+        ]
       }
     }
+  },
+  {
+    "id": "future_superate_gorenment",
+    "status": "next",
+    "date": "20.10.2026",
+    "locationName": "The Knesset Museum, Jerusalem",
+    "locationLink": "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים",
+    "registerLink": "https://knessetmuseum.org/3V7TfBx",
+    "title": "Professional Echelon vs. Elected Officials",
+    "motion": "This House believes that the power of the professional echelon should be reduced vis-à-vis elected officials.",
+    "registrationStatus": "Registration will open soon",
+    "speakersStatus": "Speakers will be announced later.",
+    "timeline": [
+      {
+        "time": "19:30",
+        "title": "Reception and Gathering",
+        "desc": "Coffee, light refreshments, and settling into the historic Knesset"
+      },
+      {
+        "time": "20:00",
+        "title": "The Floor Opens: Main Debate",
+        "type": "debate_core"
+      },
+      {
+        "time": "21:15",
+        "title": "Audience Q&A and Debate Resolution",
+        "desc": "The microphone passes to the audience: open questions to both sides, short closing speeches, and a live vote to decide the outcome of the debate."
+      },
+      {
+        "time": "22:00",
+        "title": "Dinner, beers, and open discussion on the roof",
+        "desc": "Heading up to the museum roof: wine, good food, and informal conversation with the speakers."
+      }
+    ],
+    "sides": {
+      "sideA": {
+        "name": "Pro-reduction of the professional echelon's power",
+        "speakers": [
+          {
+            "name": "Meir Rubin",
+            "role": "CEO of the Kohelet Policy Forum",
+            "img": "assets/speakers/meir-rubin.webp"
+          },
+          {
+            "name": "Isca Bina",
+            "role": "Head of the Movement for Governability and Democracy",
+            "img": "assets/speakers/isca-bina.webp"
+          }
+        ]
+      },
+      "sideB": {
+        "name": "Pro-strengthening of the professional echelon's status",
+        "speakers": [
+          {
+            "name": "Barak Medina",
+            "role": "Professor of Law and former Rector of the Hebrew University",
+            "img": "assets/speakers/barak-medina.webp"
+          },
+          {
+            "name": "Eyal Hulata",
+            "role": "Former Head of the NSC and National Security Advisor",
+            "img": "assets/speakers/eyal-hulta.webp"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "future_AI",
+    "status": "future",
+    "title": "The Impact of Artificial Intelligence on Humanity",
+    "motion": "Will AI cause more harm or benefit to humanity in the future?",
+    "registrationStatus": "Not yet open",
+    "speakersStatus": "Speakers will be announced soon.",
+    "keynote": {
+      "name": "Mike Huckabee",
+      "role": "U.S. Ambassador to Israel",
+      "img": "assets/speakers/mike-huckabee.png"
+    }
+  }
 ]
