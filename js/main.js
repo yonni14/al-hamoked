@@ -80,7 +80,7 @@ const staticTranslations = {
         vision_subtitle_main: "Our Vision",
         vision_subtitle_secondary: "Event Schedule",
         vision_p1: "Democracy relies on the ability of citizens to weigh evidence, challenge assumptions, and engage in sharp yet respectful disagreement. Although throughout history the Jewish and Israeli worlds have produced generations of individuals dedicated to inquiry, debate, and the pursuit of truth, the stages most synonymous with such intellectual clashes, public discourse, and collective inquiry are predominantly overseas: in Oxford, Cambridge, and institutions across the United States.",
-        vision_p2: "Seeking to revitalize public discourse in Israel, we established 'THE SPOTLIGHT'—an independent student debate forum designed to bring the culture of debate back home. We chose to set our stage in the historic Knesset plenum (Beit Frumin – The Knesset Museum), aiming to make Jerusalem and the birthplace of Israeli democracy a meeting place where people with opposing views can engage in direct dialogue.",
+        vision_p2: "Seeking to revitalize public discourse in Israel, we established 'THE SPOTLIGHT' — an independent student debate forum designed to bring the culture of debate back home. We chose to set our stage in the historic Knesset plenum (Beit Frumin – The Knesset Museum), aiming to make Jerusalem and the birthplace of Israeli democracy a meeting place where people with opposing views can engage in direct dialogue.",
         vision_badge_debate: "01 / The Debate:",
         vision_p_debate: "The evening begins in the plenum with a structured debate on core issues, featuring policymakers, researchers, and public figures. The debate involves active audience participation: attendees pose questions, challenge positions presented on stage, and ultimately decide the outcome by vote.",
         vision_badge_rooftop: "02 / Going Up to the Roof:",
@@ -333,7 +333,7 @@ async function loadEventsData(lang = 'he') {
                                     <h4 class="program-title">${step.title || ''}</h4>
                                     <div class="program-body">
                                         <div class="debate-core-block">
-                                            <span class="motion-label" data-i18n="launch_motion_label">הנושא המרכזי</span>
+                                            <span class="motion-label">${staticTranslations[lang]?.launch_motion_label || "MAIN TOPIC"}</span>
                                             <p class="motion-text">${nextEvent.motion || ''}</p>
                                             ${sidesHTML}
                                         </div>
