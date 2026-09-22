@@ -67,14 +67,14 @@
       ],
       "sides": {
           "sideA": {
-              "name": "צד צמצום כוחו של הדרג המקצועי",
+              "name": "בעד",
               "speakers": [
                   { "name": "מאיר רובין", "role": "מנכ״ל פורום קהלת", "img": "assets/speakers/meir-rubin.webp" },
                   { "name": "יסכה בינה", "role": "ראש התנועה למשילות ודמוקרטיה", "img": "assets/speakers/isca-bina.webp" }
               ]
           },
           "sideB": {
-              "name": "צד חיזוק מעמד הדרג המקצועי",
+              "name": "נגד",
               "speakers": [
                   { "name": "ברק מדינה", "role": "פרופ׳ למשפטים ורקטר האוני׳ העברית לשעבר", "img": "assets/speakers/barak-medina.webp" },
                   { "name": "אייל חולתא", "role": "לשעבר ראש המל״ל והיועץ לביטחון לאומי", "img": "assets/speakers/eyal-hulta.webp" }
