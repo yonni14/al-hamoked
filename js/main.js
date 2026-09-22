@@ -308,7 +308,7 @@ async function loadEventsData(lang = 'he') {
 
                     return `
                         <div class="side">
-                            <h4>${sideData.title || ''}</h4>
+                           <h4>${sideData.name || sideData.title || ''}</h4>
                             <div class="speakers-list">${speakersHTML}</div>
                         </div>
                     `;
