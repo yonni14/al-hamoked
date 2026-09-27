@@ -40,7 +40,7 @@
       "locationLink": "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים",
       "registerLink": "https://knessetmuseum.org/3V7TfBx",
       "title": "דרג מקצועי vs דרג נבחר",
-      "motion": "בית זה מאמין כי יש לצמצם את כוחו של הדרג המקצועי מול הדרג הנבחר",
+      "motion": "האם יש לצמצם את כוחו של הדרג המקצועי מול הדרג הנבחר?",
       "registrationStatus": "הרשמה תפתח בקרוב",
       "speakersStatus": "הדוברים יפורסמו בהמשך.",
       "timeline": [
@@ -82,18 +82,21 @@
           }
       }
   },
-     {
-      "id": "future_AI",
-      "status": "future",
-      "title": "השפעת הבינה המלאכותית על האנושות",
-      "motion": "האם ה-AI עתיד לגרום לאנושות יותר נזק או תועלת?",
-      "registrationStatus": "טרם נפתח",
-      "speakersStatus": "הדוברים יפורסמו בהמשך.",
-      "keynote": {
-          "name": "מייק האקבי",
-          "role": "שגריר ארה\"ב בישראל",
-          "img": "assets/speakers/mike-huckabee.png"
-      }
+ {
+    "id": "public_broadcasting",
+    "status": "future",
+    "title": "תאגיד השידור הציבורי",
+    "motion": "האם בישראל של 2026 יש מקום לשידור ציבורי?",
+    "registrationStatus": "ייפתח בקרוב",
+    "speakersStatus": "הדוברים יפורסמו בהמשך."
+  },
+  {
+    "id": "gender_segregation_academia",
+    "status": "future",
+    "title": "הפרדה מגדרית באקדמיה",
+    "motion": "האם יש לאפשר הפרדה מגדרית באקדמיה לצורך שילוב חרדים?",
+    "registrationStatus": "טרם נפתח",
+    "speakersStatus": "הדוברים יפורסמו בהמשך."
   }
 ]
 

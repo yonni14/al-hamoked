@@ -61,7 +61,7 @@
     "locationLink": "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים",
     "registerLink": "https://knessetmuseum.org/3V7TfBx",
     "title": "Professional Echelon vs. Elected Officials",
-    "motion": "This House believes that the power of the professional echelon should be reduced vis-à-vis elected officials.",
+    "motion": "Should the Power of the Professional Civil Service Be Curtailed Against Elected Officials?",
     "registrationStatus": "Registration will open soon",
     "speakersStatus": "Speakers will be announced later.",
     "timeline": [
@@ -119,17 +119,21 @@
       }
     }
   },
+  
   {
-    "id": "future_AI",
+    "id": "public_broadcasting",
     "status": "future",
-    "title": "The Impact of Artificial Intelligence on Humanity",
-    "motion": "Will AI cause more harm or benefit to humanity in the future?",
-    "registrationStatus": "Not yet open",
-    "speakersStatus": "Speakers will be announced soon.",
-    "keynote": {
-      "name": "Mike Huckabee",
-      "role": "U.S. Ambassador to Israel",
-      "img": "assets/speakers/mike-huckabee.png"
-    }
+    "title": "The Israeli Public Broadcasting Corporation",
+    "motion": "Is there a place for public broadcasting in the Israel of 2026?",
+    "registrationStatus": "Opening Soon",
+    "speakersStatus": "Speakers will be announced soon."
+  },
+  {
+    "id": "gender_segregation_academia",
+    "status": "future",
+    "title": "Gender Segregation in Academia",
+    "motion": "Should gender segregation be permitted in academia to integrate the Ultra-Orthodox?",
+    "registrationStatus": "Not Yet Open",
+    "speakersStatus": "Speakers will be announced soon."
   }
 ]
