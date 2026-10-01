@@ -171,7 +171,94 @@ const staticTranslations = {
 // ==========================================
 // 2. ניהול החלפת שפות
 // ==========================================
-function switchLanguage(lang) {
+const LANGUAGE_STORAGE_KEY = 'alhamoked.language';
+const SUPPORTED_LANGUAGES = Object.keys(staticTranslations);
+let hasExplicitLanguageChoice = false;
+let eventsRequestVersion = 0;
+let languageInitialized = false;
+const IP_COUNTRY_ENDPOINT = 'https://ipwho.is/?fields=success,country_code';
+const IP_LOOKUP_TIMEOUT_MS = 2500;
+// Explicit country mapping for the approved Arabic-country fallback.
+const ARABIC_COUNTRIES = new Set([
+    'DZ', 'BH', 'KM', 'DJ', 'EG', 'IQ', 'JO', 'KW', 'LB', 'LY', 'MR',
+    'MA', 'OM', 'PS', 'QA', 'SA', 'SO', 'SD', 'SY', 'TN', 'AE', 'YE'
+]);
+
+function languageForCountry(country) {
+    if (typeof country !== 'string' || !/^[A-Z]{2}$/i.test(country)) return null;
+    const code = country.toUpperCase();
+    if (code === 'IL') return 'he';
+    return ARABIC_COUNTRIES.has(code) ? 'ar' : 'en';
+}
+
+async function detectLanguageByIP() {
+    // Called only for an unsupported/missing browser language, without a saved choice.
+    // The provider receives the visitor's IP. No location permission, cookies,
+    // coordinates, page URL, or precise location are sent by this feature.
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), IP_LOOKUP_TIMEOUT_MS);
+    try {
+        const response = await fetch(IP_COUNTRY_ENDPOINT, {
+            signal: controller.signal,
+            credentials: 'omit',
+            referrerPolicy: 'no-referrer'
+        });
+        if (!response.ok) return null;
+        const result = await response.json();
+        return result?.success === true ? languageForCountry(result.country_code) : null;
+    } catch {
+        // Offline, timeout, blocked API, bad JSON or rate limit: keep the default.
+        return null;
+    } finally {
+        clearTimeout(timeout);
+    }
+}
+
+function normalizeLanguage(value) {
+    if (typeof value !== 'string') return null;
+    const language = value.trim().toLowerCase().split(/[-_]/)[0];
+    // Legacy Hebrew language tag used by some browsers.
+    const normalized = language === 'iw' ? 'he' : language;
+    return SUPPORTED_LANGUAGES.includes(normalized) ? normalized : null;
+}
+
+function readSavedLanguage() {
+    try {
+        // Saved choices must be exact supported values, not partial/invalid tags.
+        const saved = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+        return SUPPORTED_LANGUAGES.includes(saved) ? saved : null;
+    } catch {
+        // Storage may be blocked in private browsing or by browser policy.
+        return null;
+    }
+}
+
+async function initializeLanguage() {
+    if (languageInitialized) return;
+    languageInitialized = true;
+    const saved = readSavedLanguage();
+    hasExplicitLanguageChoice = Boolean(saved);
+    const browser = normalizeLanguage(navigator.language);
+    switchLanguage(saved || browser || 'he', { persist: false });
+    if (saved || browser) return;
+    const locationLanguage = await detectLanguageByIP();
+    // Do not overwrite a user's selection while the network request was pending.
+    if (locationLanguage && !hasExplicitLanguageChoice && !readSavedLanguage()) {
+        switchLanguage(locationLanguage, { persist: false });
+    }
+}
+
+function switchLanguage(lang, { persist = true } = {}) {
+    if (!SUPPORTED_LANGUAGES.includes(lang)) return;
+    if (persist) {
+        hasExplicitLanguageChoice = true;
+        try {
+            localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+        } catch {
+            // Manual choice still applies for this visit when storage is unavailable.
+        }
+    }
+
     // עדכון כיוון המסמך
     document.documentElement.lang = lang;
     document.documentElement.dir = (lang === 'en') ? 'ltr' : 'rtl';
@@ -203,11 +290,14 @@ function switchLanguage(lang) {
 // 3. משיכת נתונים דינמיים (JSON) ורינדור
 // ==========================================
 async function loadEventsData(lang = 'he') {
+    const requestVersion = ++eventsRequestVersion;
     try {
         const response = await fetch(`data/events_${lang}.json`);
         if (!response.ok) throw new Error(`שגיאה בטעינת קובץ events_${lang}.json`);
 
         const debatesData = await response.json();
+        // Ignore responses for an earlier language after a rapid switch.
+        if (requestVersion !== eventsRequestVersion) return;
 
         // פונקציית עזר לבניית צד בדיבייט
         const buildSideHTML = (sideData) => {
@@ -626,7 +716,7 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal
 document.addEventListener('DOMContentLoaded', () => {
 
     // א. טעינת נתונים ותרגום ראשוני (פותר את הבעיה של ארכיון ריק בהתחלה)
-    switchLanguage('he');
+    initializeLanguage();
 
     // ב. מאזינים למחליף שפה
     document.querySelectorAll('.lang-selector').forEach(selector => {
