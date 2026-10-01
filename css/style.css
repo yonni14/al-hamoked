@@ -1,3 +1,5 @@
+/* CSS refactor: same baseline appearance; duplicate declarations removed conservatively.
+ * Remaining !important declarations preserve inline-style and cascade overrides. */
 /* ========================================= */
 /* 1. CSS VARIABLES & BASE SETUP             */
 /* ========================================= */
@@ -153,13 +155,6 @@ textarea {
 
 /* כפתור ההרשמה העליון בהדר - נשאר כמות שהוא במקור */
 .header-cta {
-    padding: 10px 25px;
-    font-size: 1.15rem;
-    font-weight: 700;
-    box-shadow: none;
-    background: transparent !important;
-    border: 2px solid var(--accent-red) !important;
-    color: var(--accent-red) !important;
     backdrop-filter: none !important;
 }
 
@@ -1217,9 +1212,6 @@ html[dir="ltr"] .contact-header-relative .card-toggle-icon {
 
 /* התאמות מובייל */
 @media (max-width: 768px) {
-    .featured-card {
-        padding: 30px 20px;
-    }
 
     .launch-title-row {
         flex-direction: column;
@@ -1266,7 +1258,6 @@ html[dir="ltr"] .contact-header-relative .card-toggle-icon {
     }
 
     .sides-grid {
-        grid-template-columns: 1fr;
         gap: 16px;
     }
 
@@ -1306,7 +1297,14 @@ html[dir="ltr"] .contact-header-relative .card-toggle-icon {
 }
 
 #future {
-    min-height: 100vh;
+    min-height: 0;
+}
+
+@media (min-width: 769px) {
+    #future {
+        align-items: flex-start;
+        padding-bottom: 160px;
+    }
 }
 
 .event-list {
@@ -1411,13 +1409,6 @@ html[dir="ltr"] .contact-header-relative .card-toggle-icon {
 #contact h3 {
     font-size: 1.5rem;
     font-weight: 700;
-}
-
-#contact .featured-card {
-    max-width: 100%;
-    margin: 0;
-    padding: 40px;
-    border-radius: 12px;
 }
 
 /* עיצוב משלים לכפתור התפוצה מתחת לטופס */
@@ -1551,7 +1542,6 @@ footer p {
 }
 
 .footer-split {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 40px;
@@ -2087,7 +2077,7 @@ footer {
         height: 250px !important;
         padding: 0 !important;
         border-radius: 10px !important;
-        overflow: hidden !important;
+        overflow: hidden;
         position: relative !important;
         display: block !important;
     }
@@ -2095,7 +2085,7 @@ footer {
     .archive-section-outer .event-card-img.static-card .card-bg-img {
         width: auto !important;
         height: 100% !important;
-        object-fit: cover !important;
+        object-fit: cover;
         display: block !important;
         position: static !important;
     }
@@ -2127,7 +2117,7 @@ footer {
         justify-content: flex-end !important;
         background-size: cover !important;
         background-position: center !important;
-        overflow: hidden !important;
+        overflow: hidden;
         position: relative !important;
     }
 
@@ -2159,7 +2149,7 @@ footer {
         text-align: right !important;
         margin-bottom: 5px !important;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
-        white-space: normal !important;
+        white-space: normal;
     }
 
     .archive-section-outer .event-card-img span,
@@ -2320,7 +2310,7 @@ html[dir="ltr"] .footer-partners {
 /* הבטחה שהאלמנטים לא יידחסו אחד על השני במסכים בינוניים */
 .footer-split {
     display: flex;
-    flex-wrap: wrap !important;
+    flex-wrap: wrap;
     justify-content: space-between !important;
     gap: 30px !important;
 }
@@ -2546,9 +2536,6 @@ html[dir="ltr"] .location-link {
 #launchDate {
     font-size: 2.5rem !important;
     margin-bottom: 25px !important;
-}
-
-#launchDate {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -2563,10 +2550,132 @@ html[dir="ltr"] .location-link {
 #contact .featured-card h3 {
     font-size: 1.4rem !important;
     line-height: 1.3 !important;
-    white-space: normal !important;
+    white-space: normal;
 }
 
 html[dir="ltr"] .vision-col p,
 html[dir="ltr"] .vision-block p {
     text-align: justify !important;
 }
+/* Responsive fixes: approved visual changes, layered after the existing cascade. */
+/* Keep article text inside its image card, including long English headlines. */
+.archive-section-outer .event-card-img .card-text-overlay {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.archive-section-outer .event-card-img .event-card-title {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    line-height: 1.3;
+}
+/* Use the established mobile navigation on narrow tablets too. */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #main-header .header-container {
+        padding-inline: 24px !important;
+    }
+    .header-nav-wrapper,
+    .main-nav {
+        gap: 14px;
+    }
+    .main-nav .nav-link {
+        font-size: 0.95rem;
+        white-space: nowrap;
+    }
+    .header-logo img {
+        height: 48px;
+    }
+}
+@media (max-width: 768px) {
+    html[dir] .vision-col p,
+    html[dir] .vision-block p {
+        text-align: start !important;
+    }
+    .archive-section-outer .archive-tab-btn,
+    .lang-selector,
+    .social-links a,
+    .hamburger {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /* The future section's 100vh minimum centered its short content vertically. */
+    #future {
+        min-height: 0;
+        padding-block: 64px;
+    }
+}
+/* Constrain the static article card to the visible archive pane. */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .archive-section-outer .event-card-img.static-card {
+        width: calc(100vw - 370px) !important;
+        min-width: 0 !important;
+    }
+    .archive-section-outer .event-card-img.static-card .card-bg-img {
+        width: 100% !important;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+@media (max-width: 768px) {
+    .archive-section-outer .event-card-img.static-card {
+        width: calc(100vw - 70px) !important;
+        min-width: 0 !important;
+    }
+    .archive-section-outer .event-card-img.static-card .card-bg-img {
+        width: 100% !important;
+    }
+    .main-nav .nav-link,
+    .location-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+}
+html[dir] .archive-section-outer .event-card-img .event-card-title,
+html[dir] .archive-section-outer .event-card-img .event-date {
+    text-align: start !important;
+}
+@media (max-width: 768px) {
+    .hamburger {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Preserve the original archive rounding, even if a generic square-corner reset is loaded. */
+#archive .archive-capsule {
+    border-radius: 28px !important;
+}
+#archive .flex-img,
+#archive .event-card-img {
+    border-radius: 16px !important;
+}
+#archive .event-card-img::before,
+#archive .event-card-img::after {
+    border-radius: inherit !important;
+}
+@media (max-width: 768px) {
+    #archive .flex-img,
+    #archive .event-card-img {
+        border-radius: 10px !important;
+    }
+}
+@media (min-width: 769px) {
+    #future:not(:has(#futureEventsContainer > *)) {
+        padding-bottom: 370px;
+    }
+}
+@media (max-width: 768px) {
+    #future:not(:has(#futureEventsContainer > *)) {
+        padding-bottom: 160px !important;
+    }
+}
+
+
