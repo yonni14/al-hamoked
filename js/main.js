@@ -289,6 +289,112 @@ function switchLanguage(lang, { persist = true } = {}) {
 // ==========================================
 // 3. משיכת נתונים דינמיים (JSON) ורינדור
 // ==========================================
+/*
+Hemicycle geometry adapted from parliamentarch
+https://github.com/Gouvernathor/parliamentarch
+BSD 3-Clause License
+
+Copyright (c) 2024, Gouvernathor
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+*/
+// Build a hemicycle from vote data. Coordinates use the same annulus geometry
+// as the current parliamentarch export: 360 x 185, with a 175px outer radius.
+function buildVoteChart(results, sides, isRTL) {
+    const a = results?.sideA?.votes;
+    const b = results?.sideB?.votes;
+    if (![a, b].every(n => Number.isSafeInteger(n) && n >= 0) || a + b > 2000) {
+        return null; // Missing/invalid counts retain the legacy SVG path.
+    }
+    const total = a + b;
+    const ns = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('width', '360');
+    svg.setAttribute('height', '185');
+    svg.setAttribute('viewBox', '0 0 360 185');
+    const colors = ['sideA', 'sideB'].map((key, i) => {
+        const color = results[key].color;
+        return typeof color === 'string' && CSS.supports('color', color)
+            ? color : ['#90ED7D', '#7CB5EC'][i];
+    });
+    const positions = [];
+    let rows = 1, capacities;
+    do {
+        const thickness = 1 / (4 * rows - 2);
+        capacities = Array.from({ length: rows }, (_, i) =>
+            Math.floor(Math.PI * (0.5 + 2 * i * thickness) / (2 * thickness)));
+        if (capacities.reduce((sum, n) => sum + n, 0) >= total) break;
+        rows++;
+    } while (true);
+    const thickness = 1 / (4 * rows - 2);
+    const capacity = capacities.reduce((sum, n) => sum + n, 0);
+    const dotRadius = 175 * thickness * 0.8;
+    for (let row = 0; row < rows; row++) {
+        const count = row === rows - 1 ? total - positions.length
+            : Math.round(total * capacities[row] / capacity);
+        const radius = 0.5 + 2 * row * thickness;
+        const margin = Math.asin(thickness / radius);
+        for (let seat = 0; seat < count; seat++) {
+            const angle = count === 1 ? Math.PI / 2
+                : margin + seat * (Math.PI - 2 * margin) / (count - 1);
+            positions.push({ angle, x: 180 + 175 * radius * Math.cos(angle),
+                y: 180 - 175 * radius * Math.sin(angle) });
+        }
+    }
+    // Assign contiguous groups from left to right; labels reverse in RTL.
+    positions.sort((p, q) => q.angle - p.angle);
+    const groups = ['sideA', 'sideB'].map((key, i) => {
+        const group = document.createElementNS(ns, 'g');
+        group.setAttribute('fill', colors[i]);
+        const title = document.createElementNS(ns, 'title');
+        title.textContent = `${sides?.[key]?.name || key}: ${results[key].votes}`;
+        group.appendChild(title);
+        svg.appendChild(group);
+        return group;
+    });
+    const leftCount = isRTL ? b : a;
+    positions.forEach((position, index) => {
+        const side = index < leftCount ? (isRTL ? 1 : 0) : (isRTL ? 0 : 1);
+        const circle = document.createElementNS(ns, 'circle');
+        circle.setAttribute('cx', position.x.toFixed(2));
+        circle.setAttribute('cy', position.y.toFixed(2));
+        circle.setAttribute('r', dotRadius.toFixed(2));
+        groups[side].appendChild(circle);
+    });
+    const text = document.createElementNS(ns, 'text');
+    text.setAttribute('x', '180');
+    text.setAttribute('y', '175');
+    text.setAttribute('fill', '#FFFFFF');
+    text.setAttribute('style', 'font-size:36px;font-weight:bold;text-anchor:middle;font-family:sans-serif');
+    text.textContent = total;
+    svg.appendChild(text);
+    return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(new XMLSerializer().serializeToString(svg));
+}
+
 async function loadEventsData(lang = 'he') {
     const requestVersion = ++eventsRequestVersion;
     try {
@@ -577,17 +683,28 @@ async function loadEventsData(lang = 'he') {
 
                         // עדכון תוצאות הצבעה
                         const dashboard = document.getElementById('modalResultsDashboard');
-                        if (dashboard && event.results) {
+                        const isRTL = document.documentElement.dir === 'rtl';
+                        const generatedChart = buildVoteChart(event.results, event.sides, isRTL);
+                        const chartSource = generatedChart || (isRTL
+                            ? event.results?.svgImage
+                            : event.results?.svgImageLtr || event.results?.svgImage);
+                        if (dashboard && chartSource) {
+                            dashboard.classList.add('has-results');
                             dashboard.style.display = 'flex';
-                            document.getElementById('resChartImg').src = event.results.svgImage;
-                            document.getElementById('resNameA').textContent = event.sides?.sideA?.name || "";
-                            document.getElementById('resVotesA').textContent = event.results.sideA.votes;
-                            document.getElementById('resVotesA').style.color = event.results.sideA.color;
-                            document.getElementById('resNameB').textContent = event.sides?.sideB?.name || "";
-                            document.getElementById('resVotesB').textContent = event.results.sideB.votes;
-                            document.getElementById('resVotesB').style.color = event.results.sideB.color;
+                            document.getElementById('resChartImg').src = chartSource;
+                            ['A', 'B'].forEach(label => {
+                                const key = `side${label}`;
+                                const result = event.results?.[key];
+                                document.getElementById(`resName${label}`).textContent = event.sides?.[key]?.name || '';
+                                const votes = document.getElementById(`resVotes${label}`);
+                                votes.textContent = result?.votes ?? '';
+                                votes.style.color = typeof result?.color === 'string' && CSS.supports('color', result.color)
+                                    ? result.color : (label === 'A' ? '#90ED7D' : '#7CB5EC');
+                            });
                         } else if (dashboard) {
+                            dashboard.classList.remove('has-results');
                             dashboard.style.display = 'none';
+                            document.getElementById('resChartImg').removeAttribute('src');
                         }
 
                         // עדכון צדדים בדיבייט במודל
