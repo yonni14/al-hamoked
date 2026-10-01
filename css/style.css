@@ -2589,10 +2589,6 @@ html[dir="ltr"] .vision-block p {
     }
 }
 @media (max-width: 768px) {
-    html[dir] .vision-col p,
-    html[dir] .vision-block p {
-        text-align: start !important;
-    }
     .archive-section-outer .archive-tab-btn,
     .lang-selector,
     .social-links a,
@@ -2667,15 +2663,80 @@ html[dir] .archive-section-outer .event-card-img .event-date {
         border-radius: 10px !important;
     }
 }
+
+/* Extra breathing room only when there are no rendered future events. */
 @media (min-width: 769px) {
     #future:not(:has(#futureEventsContainer > *)) {
-        padding-bottom: 370px;
+        padding-bottom: 240px;
+    }
+}
+
+/* Keep the vote chart visible below its two labels on narrow screens. */
+@media (max-width: 768px) {
+    #modalResultsDashboard.has-results {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    #modalResultsDashboard > div {
+        min-width: 0;
+    }
+
+    #modalResultsDashboard > div:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    #modalResultsDashboard > div:nth-child(3) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    #modalResultsDashboard > div:nth-child(2) {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        padding: 0 !important;
+    }
+
+    #resChartImg {
+        width: 180px !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Vote labels follow the outside edges in both text directions. */
+#modalResultsDashboard > div:nth-child(1) {
+    text-align: start !important;
+}
+
+#modalResultsDashboard > div:nth-child(3) {
+    text-align: end !important;
+}
+
+#modalResultsDashboard > div:nth-child(3) > div,
+#resVotesB {
+    text-align: end !important;
+}
+
+@media (max-width: 768px) {
+    #modalResultsDashboard h4 {
+        overflow-wrap: anywhere;
     }
 }
 @media (max-width: 768px) {
-    #future:not(:has(#futureEventsContainer > *)) {
-        padding-bottom: 160px !important;
+    #modalResultsDashboard h4 {
+        width: 100%;
+    }
+}
+@media (max-width: 374px) {
+    #modalResultsDashboard {
+        padding-inline: 15px !important;
     }
 }
 
-
+@media (max-width: 400px) {
+    #modalResultsDashboard h4 {
+        font-size: 1rem !important;
+    }
+}
