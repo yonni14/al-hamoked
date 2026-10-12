@@ -2756,3 +2756,17 @@ html[dir] .archive-section-outer .event-card-img .event-date {
 .ticket-seller-intro { margin: 14px 0 6px; font-weight: 600; }
 .ticket-switch { display: block; margin: 14px auto 0; padding: 8px; background: none; border: 0; color: inherit; opacity: .7; font: inherit; font-size: .85rem; text-decoration: underline; cursor: pointer; }
 .ticket-switch:hover, .ticket-switch:focus-visible { opacity: 1; }
+
+/* Modal scrollbars: thin, rounded, semi-transparent, in the dark palette. */
+.event-modal-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+.event-modal-content::-webkit-scrollbar { width: 6px; }
+.event-modal-content::-webkit-scrollbar-track { background: transparent; margin: 14px 0; }
+.event-modal-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+}
+.event-modal-content::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
+.event-modal-content::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
