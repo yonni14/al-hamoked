@@ -11,7 +11,8 @@
     };
     function draft(to, subject, body) {
         $('adminDraft').hidden = false; $('draftTo').textContent = to; $('draftSubject').textContent = subject; $('draftBody').value = body;
-        $('draftMailto').href = 'mailto:' + encodeURIComponent(to) + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        // The address goes in raw: percent-encoding the "@" breaks mailto handling in some mobile mail apps.
+        $('draftMailto').href = 'mailto:' + to.replace(/[\s,;<>?&"]/g, '') + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
         $('adminDraft').scrollIntoView({behavior:'smooth'});
     }
     function offerDraft(l,w,m) { const c = copy[w.lang]; draft(w.email,c.offer,[w.name,c.intro,l.event_id,`${m.qty} ${api.t('wl_tickets')}`,c.confirm,tokenLink(m.token,w.lang,'buyer'),new Date(m.expires_at).toLocaleString(w.lang),c.note].join('\n\n')); }
