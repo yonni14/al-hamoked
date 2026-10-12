@@ -54,6 +54,16 @@
         }
     },
     {
+        "id": "zz_test_event",
+        "status": "next",
+        "date": "TEST",
+        "locationName": "Test",
+        "title": "Test Event - not real",
+        "motion": "This is a temporary test event. There is no real event here.",
+        "speakersStatus": "Test event",
+        "registrationState": "waitlist"
+    },
+    {
         "id": "future_superate_gorenment",
         "status": "next",
         "date": "20.10.2026",
