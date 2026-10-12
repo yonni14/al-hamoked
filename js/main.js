@@ -1048,3 +1048,48 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Modal scroll indicator: faint dots with one sliding pill that follows the scroll position.
+(function () {
+    var N = 5, GAP = 14, H = 22;
+    function attach(content) {
+        var host = content.parentElement;
+        var box = document.createElement('div');
+        box.className = 'scroll-dots';
+        box.setAttribute('aria-hidden', 'true');
+        box.style.height = ((N - 1) * GAP + H) + 'px';
+        for (var i = 0; i < N; i++) {
+            var d = document.createElement('i');
+            d.style.top = (i * GAP + (H - 6) / 2) + 'px';
+            box.appendChild(d);
+        }
+        var pill = document.createElement('b');
+        box.appendChild(pill);
+        host.appendChild(box);
+        var timer;
+        function place() {
+            var visible = content.getClientRects().length > 0;
+            var max = content.scrollHeight - content.clientHeight;
+            if (!visible || max <= 2) { box.classList.remove('on'); return; }
+            var r = content.getBoundingClientRect();
+            box.style.left = (r.left + 10) + 'px';
+            box.style.top = (r.top + r.height / 2 - parseFloat(box.style.height) / 2) + 'px';
+            pill.style.top = (Math.min(1, Math.max(0, content.scrollTop / max)) * (N - 1) * GAP) + 'px';
+            box.classList.add('on');
+        }
+        function onScroll() {
+            place();
+            pill.classList.add('moving');
+            clearTimeout(timer);
+            timer = setTimeout(function () { pill.classList.remove('moving'); }, 180);
+        }
+        content.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', place);
+        if (window.ResizeObserver) new ResizeObserver(place).observe(content);
+        new MutationObserver(place).observe(host, { attributes: true, attributeFilter: ['class', 'hidden', 'style'] });
+        new MutationObserver(place).observe(content, { childList: true, subtree: true, attributes: true });
+        place();
+    }
+    function init() { document.querySelectorAll('.event-modal-content').forEach(attach); }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
