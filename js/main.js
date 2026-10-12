@@ -518,7 +518,9 @@ async function loadEventsData(lang = 'he') {
         };
 
         // --- א. האירוע הקרוב (Launch) ---
-        const nextEvent = debatesData.find(event => event.status === 'next');
+        const upcomingEvent = debatesData.find(event => event.status === 'next');
+        // אין הרשמה פתוחה (soon / closed) = אותו מצב כמו שאין אירוע קרוב: הסקשן והכפתורים מוסתרים, ובהירו רק כפתור רשימת תפוצה
+        const nextEvent = upcomingEvent && !['soon', 'closed'].includes(upcomingEvent.registrationState) ? upcomingEvent : undefined;
         const elements = {
             section: document.getElementById('launch'),
             navLink: document.getElementById('navLaunchLink'),
