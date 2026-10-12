@@ -54,16 +54,6 @@
         }
     },
     {
-        "id": "zz_test_event",
-        "status": "next",
-        "date": "تجريبي",
-        "locationName": "تجريبي",
-        "title": "حدث تجريبي - غير حقيقي",
-        "motion": "هذا حدث تجريبي مؤقت. لا يوجد حدث حقيقي هنا.",
-        "speakersStatus": "حدث تجريبي",
-        "registrationState": "waitlist"
-    },
-    {
         "id": "future_superate_gorenment",
         "status": "next",
         "date": "20.10.2026",
