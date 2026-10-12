@@ -37,6 +37,44 @@
                 ]
             },
             "sideB": {
+    {
+        "id": "launch-event-past",
+        "status": "past",
+        "eventType": "مناظرة كاملة:",
+        "date": "29/06/2026",
+        "locationName": "متحف الكنيست، القدس",
+        "title": "الاستقلال العسكري مقابل الاتفاقيات الإقليمية",
+        "coverImage": "assets/archive/event-01.webp",
+        "youtubeLink": "https://www.youtube.com/embed/WHk-KHOnkJU?si=aQMtEa1x4AZGlLxp",
+        "motion": "الاستقلال العسكري أم الاتفاقيات الإقليمية - ما الذي يجب أن يكون على رأس الأولويات الأمنية في إسرائيل؟",
+        "results": {
+            "svgImage": "assets/archive/29.06.2026.svg",
+            "sideA": {
+                "votes": 31,
+                "color": "#90ED7D"
+            },
+            "sideB": {
+                "votes": 62,
+                "color": "#7CB5EC"
+            }
+        },
+        "sides": {
+            "sideA": {
+                "name": "جانب الاستقلال العسكري",
+                "speakers": [
+                    {
+                        "name": "اللواء (احتياط) عوزي ديان",
+                        "role": "النائب السابق لرئيس الأركان ورئيس مجلس الأمن القومي، رئيس منتدى القادة الوطنيين",
+                        "img": "assets/speakers/uzi-dayan.jpg"
+                    },
+                    {
+                        "name": "البروفيسور داني أورباخ",
+                        "role": "مؤرخ عسكري (الجامعة العبرية)، خبير في الاستخبارات والاستراتيجية",
+                        "img": "assets/speakers/dani-orbach.png"
+                    }
+                ]
+            },
+            "sideB": {
                 "name": "جانب الاتفاقيات الدولية",
                 "speakers": [
                     {
@@ -117,7 +155,7 @@
                 ]
             }
         },
-        "registrationState": "soon"
+        "registrationState": "open"
     },
     {
         "id": "public_broadcasting",
