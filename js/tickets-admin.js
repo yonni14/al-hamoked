@@ -5,9 +5,9 @@
     const text = (tag, value) => { const el = document.createElement(tag); el.textContent = value; return el; };
     const tokenLink = (token, lang, mode) => { const url = new URL('ticket.html', location.href); url.hash = new URLSearchParams({token,lang,mode}).toString(); return url.href; };
     const copy = {
-        he:{offer:'הצעת כרטיס - על המוקד', intro:'התפנו עבורך כרטיסים במחיר המקורי.', confirm:'לאישור בתוך 24 שעות:', contact:'הקונה אישר. פרטי הקשר:', sold:'לאישור המכירה לאחר תשלום והעברת שם:', note:'הכרטיסים אישיים. תיאום התשלום והעברת השם ישירות בין הצדדים. אין תשלום באתר.'},
-        en:{offer:'Ticket offer - Alhamoked',intro:'Tickets are available for you at the original price.',confirm:'Confirm within 24 hours:',contact:'The buyer confirmed. Contact details:',sold:'Confirm the sale after payment and name transfer:',note:'Tickets are name-bound. Coordinate payment and the name transfer directly. No payment is taken on the site.'},
-        ar:{offer:'عرض تذاكر - على الموقد',intro:'توفرت لك تذاكر بالسعر الأصلي.',confirm:'للتأكيد خلال 24 ساعة:',contact:'أكد المشتري. بيانات الاتصال:',sold:'لتأكيد البيع بعد الدفع ونقل الاسم:',note:'التذاكر شخصية. نسق الدفع ونقل الاسم مباشرة. لا يتم الدفع في الموقع.'}
+        he:{offer:'הצעת כרטיס - על המוקד', intro:'התפנו עבורך כרטיסים במחיר המקורי.', confirm:'לאישור בתוך 24 שעות:', contact:'הקונה אישר. פרטי הקשר:', sold:'לאישור המכירה לאחר השלמת הרכישה ומסירת הכרטיס:', note:'הצדדים יבצעו את הרכישה ביניהם; המוכר ישלח לקונה את הכרטיס (ברקוד), והוא ייסרק בכניסה. אין תשלום באתר.'},
+        en:{offer:'Ticket offer - Alhamoked',intro:'Tickets are available for you at the original price.',confirm:'Confirm within 24 hours:',contact:'The buyer confirmed. Contact details:',sold:'Confirm the sale once the purchase is complete and the ticket was handed over:',note:'The parties complete the purchase between themselves; the seller sends the buyer the ticket (barcode), which is scanned at entry. No payment is taken on the site.'},
+        ar:{offer:'عرض تذاكر - على الموقد',intro:'توفرت لك تذاكر بالسعر الأصلي.',confirm:'للتأكيد خلال 24 ساعة:',contact:'أكد المشتري. بيانات الاتصال:',sold:'لتأكيد البيع بعد إتمام الشراء وتسليم التذكرة:',note:'يُنجز الطرفان عملية الشراء فيما بينهما؛ يرسل البائع التذكرة (الباركود) إلى المشتري ويتم مسحها عند الدخول. لا يتم الدفع في الموقع.'}
     };
     function draft(to, subject, body) {
         $('adminDraft').hidden = false; $('draftTo').textContent = to; $('draftSubject').textContent = subject; $('draftBody').value = body;
