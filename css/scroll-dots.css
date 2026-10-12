@@ -1,0 +1,37 @@
+/* Modal scroll indicator: native bar hidden, a sliding pill over faint dots instead (see js/main.js). */
+.event-modal-content {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.event-modal-content::-webkit-scrollbar { display: none; }
+.scroll-dots {
+    position: fixed;
+    z-index: 2002;
+    width: 6px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+.scroll-dots.on { opacity: 1; }
+.scroll-dots i {
+    position: absolute;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(237, 242, 244, 0.2);
+}
+.scroll-dots b {
+    position: absolute;
+    left: 0;
+    width: 6px;
+    height: 22px;
+    border-radius: 999px;
+    background: rgba(237, 242, 244, 0.55);
+    box-shadow: 0 0 10px rgba(237, 242, 244, 0.45);
+    transition: top .45s cubic-bezier(.34, 1.4, .5, 1), transform .25s ease;
+}
+.scroll-dots b.moving { transform: scaleY(1.35); }
+@media (prefers-reduced-motion: reduce) {
+    .scroll-dots b { transition: none; }
+}
