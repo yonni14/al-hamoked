@@ -9,3 +9,14 @@ body { min-height: 100vh; background: #0c232b; color: #fff; font-family: inherit
 .tickets-card { border: 1px solid rgba(255,255,255,.2); border-radius: 8px; margin: 16px 0; padding: 16px; overflow-wrap: anywhere; }
 .tickets-page textarea { width: 100%; min-height: 150px; padding: 12px; box-sizing: border-box; font: inherit; background: #fff; color: #111; }
 .tickets-page [hidden] { display: none !important; }
+
+/* admin.html layout: the site-wide "section" rule makes the workspace a flex row; keep it a normal column. */
+#adminWorkspace { display: block; padding: 0; }
+#adminWorkspace h2 { font-size: 1.3rem; margin: 32px 0 12px; }
+#adminWorkspace .tickets-card p { margin: 6px 0; }
+#adminWorkspace .btn, #adminWorkspace #draftMailto { padding: 10px 20px; }
+#adminWorkspace .tickets-card .btn { display: block; width: 100%; margin: 12px 0 0; }
+#adminWorkspace #draftMailto { display: inline-block; margin: 8px 0; }
+#adminWorkspace #adminRefresh, #adminWorkspace #adminLogout, #adminWorkspace #draftCopy { margin: 8px 0 8px 8px; }
+#adminLogin .btn { padding: 10px 28px; }
+@media (max-width: 600px) { .tickets-page { margin: 16px auto; padding: 16px; } }
