@@ -3,6 +3,37 @@
 // ==========================================
 const staticTranslations = {
     he: {
+        wl_cant: "לא תוכל להגיע?",
+        wl_seller_intro: "אנו נקשר אותך עם אדם המעוניין להגיע ותוכל למכור לו את הכרטיס",
+        wl_back: "חזרה לרשימת ההמתנה",
+        wl_title: "רשימת המתנה",
+        wl_buyer: "אני רוצה כרטיס",
+        wl_seller: "לא אוכל להגיע",
+        wl_name: "שם מלא *",
+        wl_email: "אימייל *",
+        wl_phone: "וואטסאפ / טלפון (לא חובה)",
+        wl_qty: "מספר כרטיסים",
+        wl_consent: "אני מסכים/ה לשמירת הפרטים לצורך התאמת כרטיסים ולשיתוף פרטי הקשר עם הצד השני לאחר אישור.",
+        wl_submit: "לשליחה",
+        wl_success_buyer: "הפרטים נקלטו. הצעות יישלחו באימייל. אין הבטחה לכרטיס.",
+        wl_success_seller: "הפרטים נקלטו. המארגן יתאם הצעה עם רשימת ההמתנה.",
+        wl_transfer: "מכירה במחיר המקורי בלבד. הכרטיסים אישיים; הצדדים יתאמו העברת שם.",
+        reg_soon: "הרשמה בקרוב",
+        reg_closed: "ההרשמה סגורה",
+        wl_unconfigured: "המערכת עדיין לא פעילה. נסו שוב בהמשך.",
+        wl_error: "השליחה נכשלה. נסו שוב.",
+        wl_close: "סגירה",
+        wl_offer_title: "אישור הצעה",
+        wl_confirm: "לאישור ההצעה",
+        wl_confirmed: "ההצעה אושרה. תיאום התשלום והעברת השם ישירות מול המוכר.",
+        wl_sold_title: "אישור מכירה",
+        wl_sold: "אישור שהכרטיסים נמכרו",
+        wl_sold_success: "המכירה אושרה.",
+        wl_invalid: "הקישור אינו תקף או שפג תוקפו.",
+        wl_tickets: "כרטיסים",
+        wl_email_caption: "אימייל:",
+        wl_phone_caption: "טלפון:",
+        wl_offer_note: "אישור ההצעה בתוך 24 שעות. אין תשלום באתר.",
         nav_vision: "חזון",
         nav_archive: "ארכיון",
         nav_launch: "האירוע הקרוב",
@@ -58,6 +89,37 @@ const staticTranslations = {
         footer_copyright: "על המוקד © 2026"
     },
     en: {
+        wl_cant: "Can't make it?",
+        wl_seller_intro: "We'll connect you with someone who wants to attend, and you can sell them your ticket.",
+        wl_back: "Back to the waiting list",
+        wl_title: "Waiting list",
+        wl_buyer: "I want a ticket",
+        wl_seller: "I can't make it",
+        wl_name: "Full name *",
+        wl_email: "Email *",
+        wl_phone: "WhatsApp / phone (optional)",
+        wl_qty: "Number of tickets",
+        wl_consent: "I consent to storing these details for ticket matching and sharing contact details with the other party after confirmation.",
+        wl_submit: "Submit",
+        wl_success_buyer: "You are on the list. Offers will arrive by email. A ticket is not guaranteed.",
+        wl_success_seller: "Your listing was received. The organizer will coordinate an offer with the waiting list.",
+        wl_transfer: "Original price only. Tickets are name-bound; both parties must coordinate a name transfer.",
+        reg_soon: "Registration opens soon",
+        reg_closed: "Registration closed",
+        wl_unconfigured: "This service is not active yet. Please try again later.",
+        wl_error: "Submission failed. Please try again.",
+        wl_close: "Close",
+        wl_offer_title: "Confirm offer",
+        wl_confirm: "Confirm this offer",
+        wl_confirmed: "Offer confirmed. Coordinate payment and the name transfer directly with the seller.",
+        wl_sold_title: "Confirm sale",
+        wl_sold: "Confirm the tickets were sold",
+        wl_sold_success: "Sale confirmed.",
+        wl_invalid: "This link is invalid or has expired.",
+        wl_tickets: "Tickets",
+        wl_email_caption: "Email:",
+        wl_phone_caption: "Phone:",
+        wl_offer_note: "Confirm within 24 hours. No payment is taken on this site.",
         nav_vision: "Vision",
         nav_archive: "Archive",
         nav_launch: "Next Event",
@@ -112,6 +174,37 @@ const staticTranslations = {
         footer_copyright: "THE SPOTLIGHT © 2026"
     },
     ar: {
+        wl_cant: "لا تستطيع الحضور؟",
+        wl_seller_intro: "سنربطك بشخص يرغب في الحضور وبإمكانك بيع التذكرة له.",
+        wl_back: "العودة إلى قائمة الانتظار",
+        wl_title: "قائمة الانتظار",
+        wl_buyer: "أريد تذكرة",
+        wl_seller: "لا أستطيع الحضور",
+        wl_name: "الاسم الكامل *",
+        wl_email: "البريد الإلكتروني *",
+        wl_phone: "واتساب / هاتف (اختياري)",
+        wl_qty: "عدد التذاكر",
+        wl_consent: "أوافق على حفظ هذه البيانات لمطابقة التذاكر ومشاركة بيانات الاتصال مع الطرف الآخر بعد التأكيد.",
+        wl_submit: "إرسال",
+        wl_success_buyer: "تم تسجيلك. ستصل العروض بالبريد الإلكتروني. لا يوجد ضمان لتذكرة.",
+        wl_success_seller: "تم استلام العرض. سينسق المنظم مع قائمة الانتظار.",
+        wl_transfer: "البيع بالسعر الأصلي فقط. التذاكر شخصية؛ يجب تنسيق نقل الاسم.",
+        reg_soon: "يفتح التسجيل قريباً",
+        reg_closed: "التسجيل مغلق",
+        wl_unconfigured: "الخدمة غير مفعلة بعد. حاول لاحقاً.",
+        wl_error: "تعذر الإرسال. حاول مجدداً.",
+        wl_close: "إغلاق",
+        wl_offer_title: "تأكيد العرض",
+        wl_confirm: "تأكيد هذا العرض",
+        wl_confirmed: "تم التأكيد. نسق الدفع ونقل الاسم مباشرة مع البائع.",
+        wl_sold_title: "تأكيد البيع",
+        wl_sold: "تأكيد بيع التذاكر",
+        wl_sold_success: "تم تأكيد البيع.",
+        wl_invalid: "الرابط غير صالح أو انتهت صلاحيته.",
+        wl_tickets: "تذاكر",
+        wl_email_caption: "البريد الإلكتروني:",
+        wl_phone_caption: "الهاتف:",
+        wl_offer_note: "أكد خلال 24 ساعة. لا يتم الدفع في الموقع.",
         nav_vision: "رؤية",
         nav_archive: "أرشيف",
         nav_launch: "الحدث القادم",
@@ -284,6 +377,7 @@ function switchLanguage(lang, { persist = true } = {}) {
 
     // טעינת הנתונים הדינמיים מה-JSON בהתאם לשפה
     loadEventsData(lang);
+    window.AlhamokedTickets?.setLanguage(lang);
 }
 
 // ==========================================
@@ -436,6 +530,7 @@ async function loadEventsData(lang = 'he') {
         };
 
 
+        window.AlhamokedTickets?.configureEvent(nextEvent, lang);
         if (nextEvent) {
             if (elements.section) elements.section.style.display = 'flex';
             if (elements.navLink) elements.navLink.style.display = 'inline-block';
@@ -457,6 +552,8 @@ async function loadEventsData(lang = 'he') {
             if (elements.cardRegisterBtn) {
                 elements.cardRegisterBtn.href = nextEvent.registerLink || "#";
             }
+
+            window.AlhamokedTickets?.applyCTA(nextEvent, lang, elements);
 
             // עדכון כותרות בסיס
             if (document.getElementById('launchDate')) document.getElementById('launchDate').textContent = `${staticTranslations[lang]?.nav_launch || 'האירוע הקרוב'} • ${nextEvent.date}`;
@@ -557,6 +654,7 @@ async function loadEventsData(lang = 'he') {
                 });
             }
         } else {
+            [elements.mainBtn, elements.headerBtn, elements.cardRegisterBtn].forEach(el => window.AlhamokedTickets?.clearCTA(el));
             // מצב שאין אירוע קרוב: כאן ורק כאן הוא הופך לכפתור תפוצה שפותח את המודאל
             ['section', 'navLink', 'heroBtn', 'priceNote', 'headerBtn'].forEach(key => {
                 if (elements[key]) elements[key].style.display = 'none';
@@ -787,7 +885,7 @@ async function loadEventsData(lang = 'he') {
                             <p>${event.motion}</p>
                             <p style="font-weight: 700; color: var(--accent-red); margin: 15px 0;">${event.speakersStatus}</p>
                             ${speakersHTML}
-                            <span class="status">${event.registrationStatus}</span>
+                            <span class="status">${staticTranslations[lang]?.['reg_' + event.registrationState] || (event.registrationState === 'open' ? staticTranslations[lang]?.nav_register : event.registrationState === 'waitlist' ? staticTranslations[lang]?.wl_title : event.registrationStatus) || ''}</span>
                         </div>
                     </div>
                 `;

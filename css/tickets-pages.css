@@ -1,0 +1,11 @@
+body { min-height: 100vh; background: #0c232b; color: #fff; font-family: inherit; }
+.tickets-page { max-width: 900px; margin: 40px auto; padding: 24px; }
+.tickets-page h1 { font-size: 1.8rem; margin: 24px 0; }
+.tickets-page p { margin: 14px 0; line-height: 1.6; }
+.tickets-page a { color: #fff; text-decoration: underline; overflow-wrap: anywhere; }
+.tickets-page label { display: block; margin: 12px 0; }
+.tickets-page input { width: 100%; box-sizing: border-box; }
+.tickets-page button { min-height: 44px; margin: 8px 8px 8px 0; }
+.tickets-card { border: 1px solid rgba(255,255,255,.2); border-radius: 8px; margin: 16px 0; padding: 16px; overflow-wrap: anywhere; }
+.tickets-page textarea { width: 100%; min-height: 150px; padding: 12px; box-sizing: border-box; font: inherit; background: #fff; color: #111; }
+.tickets-page [hidden] { display: none !important; }

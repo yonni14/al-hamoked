@@ -1,139 +1,138 @@
 [
-  {
-    "id": "launch-event-past",
-    "status": "past",
-    "eventType": "Full Debate:",
-    "date": "29/06/2026",
-    "locationName": "Knesset Museum, Jerusalem",
-    "title": "Military Independence vs. Regional Agreements",
-    "coverImage": "assets/archive/event-01.webp",
-    "youtubeLink": "https://www.youtube.com/embed/WHk-KHOnkJU?si=aQMtEa1x4AZGlLxp",
-    "motion": "Military independence or regional agreements - what should be at the top of Israel's security priorities?",
-    "results": {
-      "svgImage": "assets/archive/29.06.2026.svg",
-      "sideA": {
-        "votes": 31,
-        "color": "#90ED7D"
-      },
-      "sideB": {
-        "votes": 62,
-        "color": "#7CB5EC"
-      }
+    {
+        "id": "launch-event-past",
+        "status": "past",
+        "eventType": "Full Debate:",
+        "date": "29/06/2026",
+        "locationName": "Knesset Museum, Jerusalem",
+        "title": "Military Independence vs. Regional Agreements",
+        "coverImage": "assets/archive/event-01.webp",
+        "youtubeLink": "https://www.youtube.com/embed/WHk-KHOnkJU?si=aQMtEa1x4AZGlLxp",
+        "motion": "Military independence or regional agreements - what should be at the top of Israel's security priorities?",
+        "results": {
+            "svgImage": "assets/archive/29.06.2026.svg",
+            "sideA": {
+                "votes": 31,
+                "color": "#90ED7D"
+            },
+            "sideB": {
+                "votes": 62,
+                "color": "#7CB5EC"
+            }
+        },
+        "sides": {
+            "sideA": {
+                "name": "Military Independence Side",
+                "speakers": [
+                    {
+                        "name": "Maj. Gen. (Res.) Uzi Dayan",
+                        "role": "Former Deputy Chief of Staff and Head of the NSC, Chairman of Mivtachi",
+                        "img": "assets/speakers/uzi-dayan.jpg"
+                    },
+                    {
+                        "name": "Prof. Danny Orbach",
+                        "role": "Military Historian (Hebrew University), Expert in Intelligence and Strategy",
+                        "img": "assets/speakers/dani-orbach.png"
+                    }
+                ]
+            },
+            "sideB": {
+                "name": "International Agreements Side",
+                "speakers": [
+                    {
+                        "name": "Lt. Gen. (Ret.) Moshe (Bogie) Ya'alon",
+                        "role": "Former Minister of Defense and Chief of Staff",
+                        "img": "assets/speakers/bogi-yelon.jpg"
+                    },
+                    {
+                        "name": "Ksenia Svetlova",
+                        "role": "Journalist, Former MK, and Expert on Middle Eastern Affairs",
+                        "img": "assets/speakers/Ksenia-Svetlova.jpeg"
+                    }
+                ]
+            }
+        }
     },
-    "sides": {
-      "sideA": {
-        "name": "Military Independence Side",
-        "speakers": [
-          {
-            "name": "Maj. Gen. (Res.) Uzi Dayan",
-            "role": "Former Deputy Chief of Staff and Head of the NSC, Chairman of Mivtachi",
-            "img": "assets/speakers/uzi-dayan.jpg"
-          },
-          {
-            "name": "Prof. Danny Orbach",
-            "role": "Military Historian (Hebrew University), Expert in Intelligence and Strategy",
-            "img": "assets/speakers/dani-orbach.png"
-          }
-        ]
-      },
-      "sideB": {
-        "name": "International Agreements Side",
-        "speakers": [
-          {
-            "name": "Lt. Gen. (Ret.) Moshe (Bogie) Ya'alon",
-            "role": "Former Minister of Defense and Chief of Staff",
-            "img": "assets/speakers/bogi-yelon.jpg"
-          },
-          {
-            "name": "Ksenia Svetlova",
-            "role": "Journalist, Former MK, and Expert on Middle Eastern Affairs",
-            "img": "assets/speakers/Ksenia-Svetlova.jpeg"
-          }
-        ]
-      }
+    {
+        "id": "future_superate_gorenment",
+        "status": "next",
+        "date": "20.10.2026",
+        "locationName": "The Knesset Museum, Jerusalem",
+        "locationLink": "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים",
+        "registerLink": "https://knessetmuseum.org/3V7TfBx",
+        "title": "Professional Echelon vs. Elected Officials",
+        "motion": "Should the Power of the Professional Civil Service Be Curtailed Against Elected Officials?",
+        "speakersStatus": "Speakers will be announced later.",
+        "timeline": [
+            {
+                "time": "19:30",
+                "title": "Reception and Gathering",
+                "desc": "Coffee, light refreshments, and settling into the historic Knesset"
+            },
+            {
+                "time": "20:00",
+                "title": "The Floor Opens: Main Debate",
+                "type": "debate_core"
+            },
+            {
+                "time": "21:00",
+                "title": "Audience Q&A and Debate Resolution",
+                "desc": "The microphone passes to the audience: open questions to both sides, short closing speeches, and a live vote to decide the outcome of the debate."
+            },
+            {
+                "time": "21:30",
+                "title": "Dinner, beers, and open discussion on the roof",
+                "desc": "Heading up to the museum roof: wine, good food, and informal conversation with the speakers."
+            }
+        ],
+        "sides": {
+            "sideA": {
+                "name": "Proposition",
+                "speakers": [
+                    {
+                        "name": "Meir Rubin",
+                        "role": "CEO of the Kohelet Policy Forum",
+                        "img": "assets/speakers/meir-rubin.webp"
+                    },
+                    {
+                        "name": "Isca Bina",
+                        "role": "Head of the Movement for Governability and Democracy",
+                        "img": "assets/speakers/isca-bina.webp"
+                    }
+                ]
+            },
+            "sideB": {
+                "name": "Opposition",
+                "speakers": [
+                    {
+                        "name": "Barak Medina",
+                        "role": "Professor of Law and former Rector of the Hebrew University",
+                        "img": "assets/speakers/barak-medina.webp"
+                    },
+                    {
+                        "name": "Eyal Hulata",
+                        "role": "Former Head of the NSC and National Security Advisor",
+                        "img": "assets/speakers/eyal-hulta.webp"
+                    }
+                ]
+            }
+        },
+        "registrationState": "soon"
+    },
+    {
+        "id": "public_broadcasting",
+        "status": "future",
+        "title": "The Israeli Public Broadcasting Corporation",
+        "motion": "Is there a place for public broadcasting in the Israel of 2026?",
+        "speakersStatus": "Speakers will be announced soon.",
+        "registrationState": "soon"
+    },
+    {
+        "id": "gender_segregation_academia",
+        "status": "future",
+        "title": "Gender Segregation in Academia",
+        "motion": "Should gender segregation be permitted in academia to integrate the Ultra-Orthodox?",
+        "speakersStatus": "Speakers will be announced soon.",
+        "registrationState": "soon"
     }
-  },
-  {
-    "id": "future_superate_gorenment",
-    "status": "next",
-    "date": "20.10.2026",
-    "locationName": "The Knesset Museum, Jerusalem",
-    "locationLink": "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים",
-    "registerLink": "https://knessetmuseum.org/3V7TfBx",
-    "title": "Professional Echelon vs. Elected Officials",
-    "motion": "Should the Power of the Professional Civil Service Be Curtailed Against Elected Officials?",
-    "registrationStatus": "Registration will open soon",
-    "speakersStatus": "Speakers will be announced later.",
-    "timeline": [
-      {
-        "time": "19:30",
-        "title": "Reception and Gathering",
-        "desc": "Coffee, light refreshments, and settling into the historic Knesset"
-      },
-      {
-        "time": "20:00",
-        "title": "The Floor Opens: Main Debate",
-        "type": "debate_core"
-      },
-      {
-        "time": "21:00",
-        "title": "Audience Q&A and Debate Resolution",
-        "desc": "The microphone passes to the audience: open questions to both sides, short closing speeches, and a live vote to decide the outcome of the debate."
-      },
-      {
-        "time": "21:30",
-        "title": "Dinner, beers, and open discussion on the roof",
-        "desc": "Heading up to the museum roof: wine, good food, and informal conversation with the speakers."
-      }
-    ],
-    "sides": {
-      "sideA": {
-        "name": "Proposition",
-        "speakers": [
-          {
-            "name": "Meir Rubin",
-            "role": "CEO of the Kohelet Policy Forum",
-            "img": "assets/speakers/meir-rubin.webp"
-          },
-          {
-            "name": "Isca Bina",
-            "role": "Head of the Movement for Governability and Democracy",
-            "img": "assets/speakers/isca-bina.webp"
-          }
-        ]
-      },
-      "sideB": {
-        "name": "Opposition",
-        "speakers": [
-          {
-            "name": "Barak Medina",
-            "role": "Professor of Law and former Rector of the Hebrew University",
-            "img": "assets/speakers/barak-medina.webp"
-          },
-          {
-            "name": "Eyal Hulata",
-            "role": "Former Head of the NSC and National Security Advisor",
-            "img": "assets/speakers/eyal-hulta.webp"
-          }
-        ]
-      }
-    }
-  },
-  
-  {
-    "id": "public_broadcasting",
-    "status": "future",
-    "title": "The Israeli Public Broadcasting Corporation",
-    "motion": "Is there a place for public broadcasting in the Israel of 2026?",
-    "registrationStatus": "Opening Soon",
-    "speakersStatus": "Speakers will be announced soon."
-  },
-  {
-    "id": "gender_segregation_academia",
-    "status": "future",
-    "title": "Gender Segregation in Academia",
-    "motion": "Should gender segregation be permitted in academia to integrate the Ultra-Orthodox?",
-    "registrationStatus": "Not Yet Open",
-    "speakersStatus": "Speakers will be announced soon."
-  }
 ]

@@ -2740,3 +2740,19 @@ html[dir] .archive-section-outer .event-card-img .event-date {
         font-size: 1rem !important;
     }
 }
+
+/* Waiting-list modal: deliberately uses the existing newsletter treatment. */
+#ticketModal[hidden], #ticketForm[hidden], .ticket-switch[hidden], .ticket-seller-intro[hidden] { display: none !important; }
+.ticket-modal-box { max-height: 90dvh; overflow-y: auto; }
+.ticket-transfer, .ticket-consent, .ticket-seller-intro { font-size: .85rem; line-height: 1.5; text-align: start; }
+.ticket-consent { display: flex; align-items: flex-start; gap: 10px; margin: 14px 0; }
+.ticket-consent input { margin-top: 4px; flex: 0 0 auto; }
+.ticket-modal-box .form-group { margin-bottom: 10px; }
+.ticket-modal-box .form-group label { text-align: start; }
+.ticket-modal-box .btn { width: 100%; }
+.ticket-modal-box .form-control { min-width: 0; width: 100%; box-sizing: border-box; }
+[aria-disabled="true"] { opacity: .65; cursor: default; }
+@media (max-width: 600px) { .ticket-modal-box { width: calc(100% - 24px) !important; padding: 42px 20px 22px !important; } }
+.ticket-seller-intro { margin: 14px 0 6px; font-weight: 600; }
+.ticket-switch { display: block; margin: 14px auto 0; padding: 8px; background: none; border: 0; color: inherit; opacity: .7; font: inherit; font-size: .85rem; text-decoration: underline; cursor: pointer; }
+.ticket-switch:hover, .ticket-switch:focus-visible { opacity: 1; }

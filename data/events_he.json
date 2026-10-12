@@ -10,93 +10,129 @@
         "youtubeLink": "https://www.youtube.com/embed/WHk-KHOnkJU?si=aQMtEa1x4AZGlLxp",
         "motion": "עצמאות צבאית או הסכמים אזוריים - מה צריך להיות בראש סדר העדיפויות הבטחוני בישראל?",
         "results": {
-            "svgImage": "assets/archive/29.06.2026.svg", 
-            "sideA": { "votes": 31, "color": "#90ED7D" }, 
-            "sideB": { "votes": 62, "color": "#7CB5EC" }  
+            "svgImage": "assets/archive/29.06.2026.svg",
+            "sideA": {
+                "votes": 31,
+                "color": "#90ED7D"
+            },
+            "sideB": {
+                "votes": 62,
+                "color": "#7CB5EC"
+            }
         },
         "sides": {
             "sideA": {
                 "name": "צד עצמאות צבאית",
                 "speakers": [
-                    { "name": "אלוף (מיל׳) עוזי דיין", "role": "לשעבר סגן הרמטכ״ל וראש המל״ל, יו״ר מבטחי - פורום מפקדים לאומי", "img": "assets/speakers/uzi-dayan.jpg" },
-                    { "name": "פרופ׳ דני אורבך", "role": "היסטוריון צבאי (האוני׳ העברית), מומחה למודיעין ואסטרטגיה", "img": "assets/speakers/dani-orbach.png" }
+                    {
+                        "name": "אלוף (מיל׳) עוזי דיין",
+                        "role": "לשעבר סגן הרמטכ״ל וראש המל״ל, יו״ר מבטחי - פורום מפקדים לאומי",
+                        "img": "assets/speakers/uzi-dayan.jpg"
+                    },
+                    {
+                        "name": "פרופ׳ דני אורבך",
+                        "role": "היסטוריון צבאי (האוני׳ העברית), מומחה למודיעין ואסטרטגיה",
+                        "img": "assets/speakers/dani-orbach.png"
+                    }
                 ]
             },
             "sideB": {
                 "name": "צד הסכמים בין לאומיים",
                 "speakers": [
-                    { "name": "רא״ל (דימ.) משה (בוגי) יעלון", "role": "שר הביטחון והרמטכ״ל לשעבר", "img": "assets/speakers/bogi-yelon.jpg" },
-                    { "name": "קסניה סבטלובה", "role": "עיתונאית, ח״כ לשעבר, ומומחית לענייני המזרח התיכון", "img": "assets/speakers/Ksenia-Svetlova.jpeg" }
+                    {
+                        "name": "רא״ל (דימ.) משה (בוגי) יעלון",
+                        "role": "שר הביטחון והרמטכ״ל לשעבר",
+                        "img": "assets/speakers/bogi-yelon.jpg"
+                    },
+                    {
+                        "name": "קסניה סבטלובה",
+                        "role": "עיתונאית, ח״כ לשעבר, ומומחית לענייני המזרח התיכון",
+                        "img": "assets/speakers/Ksenia-Svetlova.jpeg"
+                    }
                 ]
             }
         }
-    }, 
-     
-{
-      "id": "future_superate_gorenment",
-      "status": "next",
-      "date": "20.10.2026",
-      "locationName": "מוזיאון הכנסת, ירושלים",
-      "locationLink": "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים",
-      "registerLink": "https://knessetmuseum.org/3V7TfBx",
-      "title": "דרג מקצועי vs דרג נבחר",
-      "motion": "האם יש לצמצם את כוחו של הדרג המקצועי מול הדרג הנבחר?",
-      "registrationStatus": "הרשמה תפתח בקרוב",
-      "speakersStatus": "הדוברים יפורסמו בהמשך.",
-      "timeline": [
-          {
-              "time": "19:30",
-              "title": "קבלת פנים והתכנסות",
-              "desc": "קפה, כיבוד קל, והתמקמות במליאת הכנסת ההיסטורית "
-          },
-          {
-              "time": "20:00",
-              "title": "פתיחת הדיבייט: המליאה נפתחת",
-              "type": "debate_core"
-          },
-          {
-              "time": "21:00",
-              "title": "שאלות מהקהל והכרעת הדיון",
-              "desc": "המיקרופון עובר לקהל: שאלות חופשיות לשני הצדדים, נאומי סיכום קצרים, והצבעה חיה שמכריעה את תוצאות הדיבייט."
-          },
-          {
-              "time": "21:30",
-              "title": "ארוחת ערב, בירות ושיח פתוח על הגג",
-              "desc": "עולים לגג המוזיאון: יין, אוכל טוב ושיחה בלתי אמצעית עם הדוברים."
-          }
-      ],
-      "sides": {
-          "sideA": {
-              "name": "בעד",
-              "speakers": [
-                  { "name": "מאיר רובין", "role": "מנכ״ל פורום קהלת", "img": "assets/speakers/meir-rubin.webp" },
-                  { "name": "יסכה בינה", "role": "ראש התנועה למשילות ודמוקרטיה", "img": "assets/speakers/isca-bina.webp" }
-              ]
-          },
-          "sideB": {
-              "name": "נגד",
-              "speakers": [
-                  { "name": "ברק מדינה", "role": "פרופ׳ למשפטים ורקטור האונ׳ העברית לשעבר", "img": "assets/speakers/barak-medina.webp" },
-                  { "name": "אייל חולתא", "role": "לשעבר ראש המל״ל והיועץ לביטחון לאומי", "img": "assets/speakers/eyal-hulta.webp" }
-              ]
-          }
-      }
-  },
- {
-    "id": "public_broadcasting",
-    "status": "future",
-    "title": "תאגיד השידור הציבורי",
-    "motion": "האם בישראל של 2026 יש מקום לשידור ציבורי?",
-    "registrationStatus": "ייפתח בקרוב",
-    "speakersStatus": "הדוברים יפורסמו בהמשך."
-  },
-  {
-    "id": "gender_segregation_academia",
-    "status": "future",
-    "title": "הפרדה מגדרית באקדמיה",
-    "motion": "האם יש לאפשר הפרדה מגדרית באקדמיה לצורך שילוב חרדים?",
-    "registrationStatus": "טרם נפתח",
-    "speakersStatus": "הדוברים יפורסמו בהמשך."
-  }
+    },
+    {
+        "id": "future_superate_gorenment",
+        "status": "next",
+        "date": "20.10.2026",
+        "locationName": "מוזיאון הכנסת, ירושלים",
+        "locationLink": "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים",
+        "registerLink": "https://knessetmuseum.org/3V7TfBx",
+        "title": "דרג מקצועי vs דרג נבחר",
+        "motion": "האם יש לצמצם את כוחו של הדרג המקצועי מול הדרג הנבחר?",
+        "speakersStatus": "הדוברים יפורסמו בהמשך.",
+        "timeline": [
+            {
+                "time": "19:30",
+                "title": "קבלת פנים והתכנסות",
+                "desc": "קפה, כיבוד קל, והתמקמות במליאת הכנסת ההיסטורית "
+            },
+            {
+                "time": "20:00",
+                "title": "פתיחת הדיבייט: המליאה נפתחת",
+                "type": "debate_core"
+            },
+            {
+                "time": "21:00",
+                "title": "שאלות מהקהל והכרעת הדיון",
+                "desc": "המיקרופון עובר לקהל: שאלות חופשיות לשני הצדדים, נאומי סיכום קצרים, והצבעה חיה שמכריעה את תוצאות הדיבייט."
+            },
+            {
+                "time": "21:30",
+                "title": "ארוחת ערב, בירות ושיח פתוח על הגג",
+                "desc": "עולים לגג המוזיאון: יין, אוכל טוב ושיחה בלתי אמצעית עם הדוברים."
+            }
+        ],
+        "sides": {
+            "sideA": {
+                "name": "בעד",
+                "speakers": [
+                    {
+                        "name": "מאיר רובין",
+                        "role": "מנכ״ל פורום קהלת",
+                        "img": "assets/speakers/meir-rubin.webp"
+                    },
+                    {
+                        "name": "יסכה בינה",
+                        "role": "ראש התנועה למשילות ודמוקרטיה",
+                        "img": "assets/speakers/isca-bina.webp"
+                    }
+                ]
+            },
+            "sideB": {
+                "name": "נגד",
+                "speakers": [
+                    {
+                        "name": "ברק מדינה",
+                        "role": "פרופ׳ למשפטים ורקטור האונ׳ העברית לשעבר",
+                        "img": "assets/speakers/barak-medina.webp"
+                    },
+                    {
+                        "name": "אייל חולתא",
+                        "role": "לשעבר ראש המל״ל והיועץ לביטחון לאומי",
+                        "img": "assets/speakers/eyal-hulta.webp"
+                    }
+                ]
+            }
+        },
+        "registrationState": "soon"
+    },
+    {
+        "id": "public_broadcasting",
+        "status": "future",
+        "title": "תאגיד השידור הציבורי",
+        "motion": "האם בישראל של 2026 יש מקום לשידור ציבורי?",
+        "speakersStatus": "הדוברים יפורסמו בהמשך.",
+        "registrationState": "soon"
+    },
+    {
+        "id": "gender_segregation_academia",
+        "status": "future",
+        "title": "הפרדה מגדרית באקדמיה",
+        "motion": "האם יש לאפשר הפרדה מגדרית באקדמיה לצורך שילוב חרדים?",
+        "speakersStatus": "הדוברים יפורסמו בהמשך.",
+        "registrationState": "soon"
+    }
 ]
-

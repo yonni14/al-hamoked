@@ -259,6 +259,30 @@
         </div>
     </div>
 
+
+    <div class="event-modal" id="ticketModal" role="dialog" aria-modal="true" aria-labelledby="ticketTitle" hidden>
+        <div class="event-modal-backdrop" data-ticket-close></div>
+        <div class="event-modal-content newsletter-modal-box ticket-modal-box">
+            <button class="event-modal-close" type="button" data-ticket-close data-i18n-aria="wl_close">&times;</button>
+            <h3 class="newsletter-modal-title" id="ticketTitle" data-i18n="wl_title">רשימת המתנה</h3>
+            <p id="ticketEventTitle"></p>
+            <div id="ticketPanel">
+                <p class="ticket-seller-intro" id="ticketSellerIntro" data-i18n="wl_seller_intro" hidden></p>
+                <p class="ticket-transfer" id="ticketTransfer" data-i18n="wl_transfer"></p>
+                <form id="ticketForm" class="newsletter-form">
+                    <div class="form-group"><label for="ticketName" data-i18n="wl_name"></label><input id="ticketName" name="name" class="form-control" autocomplete="name" maxlength="120" required></div>
+                    <div class="form-group"><label for="ticketEmail" data-i18n="wl_email"></label><input id="ticketEmail" name="email" class="form-control" type="email" autocomplete="email" maxlength="254" required dir="ltr"></div>
+                    <div class="form-group"><label for="ticketPhone" data-i18n="wl_phone"></label><input id="ticketPhone" name="phone" class="form-control" type="tel" autocomplete="tel" maxlength="40" dir="ltr"></div>
+                    <div class="form-group"><label for="ticketQty" data-i18n="wl_qty"></label><input id="ticketQty" name="qty" class="form-control" type="number" value="1" min="1" max="10" step="1" required></div>
+                    <label class="ticket-consent"><input type="checkbox" name="consent" required><span data-i18n="wl_consent"></span></label>
+                    <button class="btn" type="submit" data-i18n="wl_submit"></button>
+                </form>
+                <p id="ticketMessage" role="status" aria-live="polite"></p>
+                <button type="button" class="ticket-switch" id="ticketSwitch" data-ticket-switch data-i18n="wl_cant"></button>
+            </div>
+        </div>
+    </div>
+
     <!-- מודאל רשימת תפוצה (Brevo) -->
     <div class="event-modal" id="newsletterModal">
         <div class="event-modal-backdrop" id="newsletterModalBackdrop"></div>
@@ -495,6 +519,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/tickets-config.js"></script>
+    <script src="js/tickets.js"></script>
     <script src="js/main.js"></script>
 </body>
 

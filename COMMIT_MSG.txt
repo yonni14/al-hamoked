@@ -1,0 +1,12 @@
+feat: add trilingual Supabase waiting list and ticket resale flow
+
+Add structured registration states, accessible buyer/seller modal,
+private Supabase matching functions, FIFO 24-hour offers, token-based
+confirmation and sold pages, and authenticated manual-email admin.
+Preserve legacy registration behavior and existing site design.
+Include SQL setup, full change notes, and local test evidence.
+
+Modal opens straight into the join form; seller flow sits behind a
+small "can't make it?" link (HE/EN/AR). Knesset Museum approval
+phrase removed from modal note, buyer confirmation and admin email
+drafts.
