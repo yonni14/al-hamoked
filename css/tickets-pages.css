@@ -14,9 +14,11 @@ body { min-height: 100vh; background: #0c232b; color: #fff; font-family: inherit
 #adminWorkspace { display: block; padding: 0; }
 #adminWorkspace h2 { font-size: 1.3rem; margin: 32px 0 12px; }
 #adminWorkspace .tickets-card p { margin: 6px 0; }
-#adminWorkspace .btn, #adminWorkspace #draftMailto { padding: 10px 20px; }
+#adminWorkspace .btn, #adminWorkspace #draftMailto, #adminWorkspace #draftGmail { padding: 10px 20px; }
 #adminWorkspace .tickets-card .btn { display: block; width: 100%; margin: 12px 0 0; }
-#adminWorkspace #draftMailto { display: inline-block; margin: 8px 0; }
+#adminWorkspace #draftMailto, #adminWorkspace #draftGmail { display: inline-block; margin: 8px 0; }
+#adminWorkspace #draftGmail { margin-right: 8px; }
 #adminWorkspace #adminRefresh, #adminWorkspace #adminLogout, #adminWorkspace #draftCopy { margin: 8px 0 8px 8px; }
 #adminLogin .btn { padding: 10px 28px; }
 @media (max-width: 600px) { .tickets-page { margin: 16px auto; padding: 16px; } }
+
