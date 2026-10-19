@@ -141,7 +141,7 @@ alhamoked.co.il`
             }
             $('adminListings').append(card);
         }
-        for(const w of state.waitlist.filter(w=>w.status!=='removed')) {const card=text('div','');card.className='tickets-card';card.append(text('p',`${w.event_id} · ${w.name} · ${w.email} · ${w.qty} · ${w.status} · ${new Date(w.created_at).toLocaleString('he')}`)); if(w.status==='waiting')button(card,'הסרה מהתור',async()=>{if(confirm('להסיר את הרשומה מהתור?')){await rpc('remove',{p_waitlist:w.id});await refresh();}});$('adminQueue').append(card);}
+        let qn=0;for(const w of state.waitlist.filter(w=>w.status!=='removed')) {qn++;const card=text('div','');card.className='tickets-card';card.append(text('p',`${qn}. ${w.event_id} · ${w.name} · ${w.email} · ${w.qty} · ${w.status} · ${new Date(w.created_at).toLocaleString('he')}`)); if(w.status==='waiting')button(card,'הסרה מהתור',async()=>{if(confirm('להסיר את הרשומה מהתור?')){await rpc('remove',{p_waitlist:w.id});await refresh();}});$('adminQueue').append(card);}
     }
     $('adminLogin').addEventListener('submit',async e=> {
         e.preventDefault();const b=e.currentTarget.querySelector('button');b.disabled=true;
