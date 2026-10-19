@@ -32,6 +32,7 @@
             }
             $('adminListings').append(card);
         }
+        {const sel=$('adminEmailEvent'),cur=sel.value;sel.replaceChildren(new Option('כל האירועים',''));[...new Set(state.waitlist.filter(w=>w.status==='waiting').map(w=>w.event_id))].forEach(id=>sel.append(new Option(id,id)));sel.value=cur;}
         for(const w of state.waitlist.filter(w=>w.status!=='removed')) {const card=text('div','');card.className='tickets-card';card.append(text('p',`${w.event_id} · ${w.name} · ${w.email} · ${w.qty} · ${w.status} · ${new Date(w.created_at).toLocaleString('he')}`)); if(w.status==='waiting')button(card,'הסרה מהתור',async()=>{if(confirm('להסיר את הרשומה מהתור?')){await rpc('remove',{p_waitlist:w.id});await refresh();}});$('adminQueue').append(card);}
     }
     $('adminLogin').addEventListener('submit',async e=> {
@@ -43,6 +44,11 @@
         } catch {session=null;$('adminPassword').value='';$('adminMessage').textContent='הכניסה נכשלה. בדקו הגדרות, סיסמה והרשאת מנהל.';}
         finally{b.disabled=false;}
     });
+    $('copyEmails').onclick=()=>{
+        const ev=$('adminEmailEvent').value; const list=[...new Set((state?.waitlist||[]).filter(w=>w.status==='waiting'&&(!ev||w.event_id===ev)).map(w=>w.email.trim().toLowerCase()))];
+        if(!list.length){$('adminMessage').textContent='אין מיילים להעתקה.';return;}
+        navigator.clipboard.writeText(list.join(', ')).then(()=>{$('adminMessage').textContent=`הועתקו ${list.length} מיילים. הדביקו בשדה עותק מוסתר (BCC).`;}).catch(()=>{$('adminMessage').textContent='ההעתקה נכשלה.';});
+    };
     $('adminRefresh').onclick=()=>refresh().catch(()=>{$('adminMessage').textContent='הרענון נכשל. התחברו מחדש אם פג תוקף החיבור.';});
     $('adminLogout').onclick=()=>{session=null;state=null;$('adminListings').replaceChildren();$('adminQueue').replaceChildren();$('draftBody').value='';$('draftTo').textContent='';$('draftSubject').textContent='';$('draftMailto').removeAttribute('href');$('adminDraft').hidden=true;$('adminWorkspace').hidden=true;$('adminLogin').hidden=false;};
     $('draftCopy').onclick=()=>navigator.clipboard.writeText($('draftBody').value).then(()=>{$('adminMessage').textContent='הועתק.';}).catch(()=>{$('adminMessage').textContent='סמנו והעתיקו את הטקסט ידנית.';});
