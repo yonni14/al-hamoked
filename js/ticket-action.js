@@ -16,7 +16,9 @@
         if (!token || !/^[0-9a-f-]{36}$/i.test(token)) throw new Error('invalid');
         state = await api.request('/rest/v1/rpc/alhamoked_' + (seller ? 'seller_view' : 'offer_view'), {p_token:token});
         if (!state) throw new Error('invalid');
-        details.textContent = state.event_id + ' · ' + (state.matched_qty || state.qty) + ' ' + api.t('wl_tickets');
+        let eventDesc = state.event_id;
+        try { const events = await (await fetch('data/events_' + lang + '.json')).json(); const ev = events.find(e => e.id === state.event_id); if (ev) eventDesc = `"${ev.title}" · ${ev.date} · ${ev.locationName}`; } catch {}
+        details.textContent = eventDesc + ' · ' + (state.matched_qty || state.qty) + ' ' + api.t('wl_tickets');
         if (seller) { contact(state.buyer); button.hidden = !state.match_id; button.textContent = api.t('wl_sold'); }
         else { contact(state.seller); button.hidden = state.status !== 'offered'; button.textContent = api.t('wl_confirm'); message.textContent = api.t(state.status === 'confirmed' ? 'wl_confirmed' : 'wl_offer_note') + (state.status === 'offered' ? ' ' + new Date(state.expires_at).toLocaleString(lang) : ''); }
         button.addEventListener('click', async () => {
@@ -29,3 +31,4 @@
         });
     } catch { message.textContent = api.t(api.configured() ? 'wl_invalid' : 'wl_unconfigured'); }
 })();
+
