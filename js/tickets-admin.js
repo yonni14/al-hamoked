@@ -135,7 +135,7 @@ alhamoked.co.il`
             const m=state.matches.find(m=>m.listing_id===l.id && ['offered','confirmed'].includes(m.status)), w=m && state.waitlist.find(w=>w.id===m.waitlist_id);
             if(l.status==='open') button(card,'יצירת הצעה לראשון בתור',async()=>{if(!confirm('ההצעה נשמרת ל־24 שעות מעכשיו. לשלוח את האימייל מיד לאחר מכן?'))return;const result=await rpc('offer',{p_listing:l.id}); await refresh(); offerDraft(result.listing,result.buyer,result.match);});
             if(m && w) {
-                card.append(text('p',`${w.name} · ${w.email} · ${m.status} · ${new Date(m.expires_at).toLocaleString('he')}`));
+                card.append(text('p',`${w.name} · ${w.email} · ${m.status} · ${new Date(m.expires_at).toLocaleString('he')}${m.confirmed_at?` · אושר ${new Date(m.confirmed_at).toLocaleString('he')}`:''}`));
                 if(m.status==='offered') button(card,'פתיחת טיוטת הצעה קיימת',async()=>offerDraft(l,w,m));
                 if(m.status==='confirmed') button(card,'שליחת פרטי הקונה למוכר',async()=>sellerDraft(l,w,m));
             }
