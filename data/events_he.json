@@ -61,8 +61,9 @@
         "locationLink": "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים",
         "registerLink": "https://knessetmuseum.org/3V7TfBx",
         "title": "דרג מקצועי vs דרג נבחר",
+        "coverImage": "assets/archive/20.10.2026.svg",
         "motion": "האם יש לצמצם את כוחו של הדרג המקצועי מול הדרג הנבחר?",
-          "results": {
+        "results": {
             "svgImage": "assets/archive/20.10.2026.svg",
             "sideA": {
                 "votes": 30,
