@@ -55,7 +55,7 @@
     },
     {
         "id": "future_superate_gorenment",
-        "status": "next",
+        "status": "past",
         "date": "20.10.2026",
         "locationName": "The Knesset Museum, Jerusalem",
         "locationLink": "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים",
@@ -63,6 +63,15 @@
         "title": "Professional Echelon vs. Elected Officials",
         "motion": "Should the Power of the Professional Civil Service Be Curtailed Against Elected Officials?",
         "speakersStatus": "Speakers will be announced later.",
+          "results": 
+            "sideA": {
+                "votes": 30,
+                "color": "#90ED7D"
+            },
+            "sideB": {
+                "votes": 65,
+                "color": "#7CB5EC"
+            }
         "timeline": [
             {
                 "time": "19:30",
