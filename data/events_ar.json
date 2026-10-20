@@ -56,12 +56,12 @@
     {
         "id": "future_superate_gorenment",
         "status": "past",
-        "date": "20.10.2026",
+        "date": "20/10/2026",
         "locationName": "متحف الكنيست، القدس",
         "locationLink": "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים",
         "registerLink": "https://knessetmuseum.org/3V7TfBx",
         "title": "المستوى المهني مقابل المستوى المنتخب",
-        "coverImage": "assets/archive/20.10.2026.svg",
+        "coverImage": "assets/archive/20.10.2026.svg?v=2",
         "motion": "هل يجب تقليص صلاحيات المستوى المهني في مواجهة المستوى المنتخب؟",
         "results": {
             "sideA": {
