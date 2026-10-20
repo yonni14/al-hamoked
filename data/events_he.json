@@ -55,13 +55,23 @@
     },
     {
         "id": "future_superate_gorenment",
-        "status": "next",
+        "status": "past",
         "date": "20.10.2026",
         "locationName": "מוזיאון הכנסת, ירושלים",
         "locationLink": "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים",
         "registerLink": "https://knessetmuseum.org/3V7TfBx",
         "title": "דרג מקצועי vs דרג נבחר",
         "motion": "האם יש לצמצם את כוחו של הדרג המקצועי מול הדרג הנבחר?",
+          "results": {
+            "svgImage": "assets/archive/20.10.2026.svg",
+            "sideA": {
+                "votes": 30,
+                "color": "#90ED7D"
+            },
+            "sideB": {
+                "votes": 65,
+                "color": "#7CB5EC"
+            }
         "speakersStatus": "הדוברים יפורסמו בהמשך.",
         "timeline": [
             {
