@@ -61,9 +61,10 @@
         "locationLink": "https://maps.google.com/?q=מוזיאון+הכנסת+ירושלים",
         "registerLink": "https://knessetmuseum.org/3V7TfBx",
         "title": "Professional Echelon vs. Elected Officials",
+        "coverImage": "assets/archive/20.10.2026.svg",
         "motion": "Should the Power of the Professional Civil Service Be Curtailed Against Elected Officials?",
         "speakersStatus": "Speakers will be announced later.",
-          "results": {
+        "results": {
             "sideA": {
                 "votes": 30,
                 "color": "#90ED7D"
