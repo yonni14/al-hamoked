@@ -148,11 +148,12 @@ alhamoked.co.il`
         try {
             if(!api.configured()) throw new Error('config');
             session=await api.request('/auth/v1/token?grant_type=password',{email:$('adminEmail').value.trim(),password:$('adminPassword').value});
-            $('adminLogin').reset(); await refresh();$('adminLogin').hidden=true;$('adminWorkspace').hidden=false;
+            $('adminLogin').reset(); await refresh();$('adminLogin').hidden=true;$('adminWorkspace').hidden=false;if(window.AlhamokedEvent)window.AlhamokedEvent.onSession(session);
         } catch {session=null;$('adminPassword').value='';$('adminMessage').textContent='הכניסה נכשלה. בדקו הגדרות, סיסמה והרשאת מנהל.';}
         finally{b.disabled=false;}
     });
     $('adminRefresh').onclick=()=>refresh().catch(()=>{$('adminMessage').textContent='הרענון נכשל. התחברו מחדש אם פג תוקף החיבור.';});
-    $('adminLogout').onclick=()=>{session=null;state=null;$('adminListings').replaceChildren();$('adminQueue').replaceChildren();$('draftBody').value='';$('draftTo').textContent='';$('draftSubject').textContent='';$('draftMailto').removeAttribute('href');$('draftGmail').removeAttribute('href');$('adminDraft').hidden=true;$('adminWorkspace').hidden=true;$('adminLogin').hidden=false;};
+    $('adminLogout').onclick=()=>{session=null;state=null;$('adminListings').replaceChildren();$('adminQueue').replaceChildren();$('draftBody').value='';$('draftTo').textContent='';$('draftSubject').textContent='';$('draftMailto').removeAttribute('href');$('draftGmail').removeAttribute('href');$('adminDraft').hidden=true;$('adminWorkspace').hidden=true;$('adminLogin').hidden=false;if(window.AlhamokedEvent)window.AlhamokedEvent.onSession(null);};
     $('draftCopy').onclick=()=>navigator.clipboard.writeText($('draftBody').value).then(()=>{$('adminMessage').textContent='הועתק.';}).catch(()=>{$('adminMessage').textContent='סמנו והעתיקו את הטקסט ידנית.';});
 })();
+
