@@ -62,6 +62,16 @@
         "registerLink": "https://knessetmuseum.org/3V7TfBx",
         "title": "المستوى المهني مقابل المستوى المنتخب",
         "motion": "هل يجب تقليص صلاحيات المستوى المهني في مواجهة المستوى المنتخب؟",
+        "results": {
+            "sideA": {
+                "votes": 30,
+                "color": "#90ED7D"
+            },
+            "sideB": {
+                "votes": 65,
+                "color": "#7CB5EC"
+            }
+        },
         "speakersStatus": "سيتم الإعلان عن المتحدثين لاحقاً.",
         "timeline": [
             {
