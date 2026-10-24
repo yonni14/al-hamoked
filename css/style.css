@@ -1696,6 +1696,7 @@ footer {
 
     #hero {
         padding-top: 170px;
+        background-position: 30% center;
         text-align: center;
         align-items: flex-start;
     }
