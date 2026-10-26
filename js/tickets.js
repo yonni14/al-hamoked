@@ -1,6 +1,6 @@
 /* No SDK, no personal data in localStorage, and no public queue reads. */
 (() => {
-    let event, lang = 'he', tab = 'buyer', previousFocus, previousOverflow, busy = false;
+    let event, lang = 'he', tab = 'buyer', previousFocus, previousOverflow, busy = false, widgetId;
     const $ = id => document.getElementById(id);
     const t = key => (typeof staticTranslations !== 'undefined' ? staticTranslations : window.TICKET_TRANSLATIONS)?.[lang]?.[key] || key;
     const cfg = () => window.ALHAMOKED_TICKETS_CONFIG || {};
@@ -32,6 +32,7 @@
         previousFocus = document.activeElement; previousOverflow = document.body.style.overflow;
         $('ticketModal').hidden = false; $('ticketModal').classList.add('active'); document.body.style.overflow = 'hidden';
         selectTab('buyer'); $('ticketName').focus();
+        if (widgetId === undefined && window.turnstile && cfg().turnstileSiteKey) widgetId = window.turnstile.render('#ticketTurnstile', { sitekey: cfg().turnstileSiteKey, size: 'flexible', 'error-callback': () => { $('ticketMessage').textContent = t('wl_captcha'); }, 'expired-callback': () => window.turnstile.reset(widgetId) });
     }
     function close() {
         $('ticketModal').hidden = true; $('ticketModal').classList.remove('active'); document.body.style.overflow = previousOverflow || ''; previousFocus?.focus();
@@ -76,19 +77,18 @@
             const button = form.querySelector('[type=submit]'); busy = button.disabled = true;
             $('ticketMessage').textContent = '';
             try {
-                const payload = { event_id: event.id, qty: Number(fields.get('qty')), lang, token: crypto.randomUUID() };
                 const name = fields.get('name').trim(), email = fields.get('email').trim().toLowerCase(), phone = fields.get('phone').trim();
-                if (kind === 'buyer') Object.assign(payload, { name, email, phone });
-                else Object.assign(payload, { seller_name: name, seller_contact: { email, phone, lang } });
-                if (!configured()) throw new Error('unconfigured');
-                const res = await fetch(cfg().supabaseUrl.replace(/\/$/, '') + '/rest/v1/alhamoked_' + (kind === 'buyer' ? 'waitlist' : 'listings'), {
-                    method: 'POST', headers: { apikey: cfg().anonKey, Authorization: 'Bearer ' + cfg().anonKey, 'Content-Type': 'application/json', Prefer: 'return=minimal' }, body: JSON.stringify(payload)
+                const cf_token = window.turnstile && widgetId !== undefined ? window.turnstile.getResponse(widgetId) : '';
+                if (!configured() || !cfg().signupUrl) throw new Error('unconfigured');
+                if (!cf_token) { $('ticketMessage').textContent = t('wl_captcha'); return; }
+                const res = await fetch(cfg().signupUrl, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ kind, event_id: event.id, qty: Number(fields.get('qty')), lang, name, email, phone, cf_token })
                 });
-                if (!configured()) throw new Error('unconfigured');
                 if (!res.ok) throw new Error('request_failed');
                 form.reset(); form.hidden = true; $('ticketSwitch').hidden = true; $('ticketMessage').textContent = t('wl_success_' + kind);
             } catch (err) { $('ticketMessage').textContent = t(!configured() ? 'wl_unconfigured' : 'wl_error'); }
-            finally { busy = button.disabled = false; }
+            finally { busy = button.disabled = false; if (window.turnstile && widgetId !== undefined) window.turnstile.reset(widgetId); }
         });
     });
     window.AlhamokedTickets = { configureEvent: (value, language) => { ['heroMainBtn','headerRegisterBtn','launchCardRegisterBtn'].forEach(id => clearCTA($(id))); event = value; setLanguage(language); }, setLanguage, applyCTA, clearCTA, request, configured, t };
