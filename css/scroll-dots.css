@@ -1,4 +1,4 @@
-/* Modal scroll indicator: native bar hidden, a sliding pill over faint dots instead (see js/main.js). */
+/* Modal scroll indicator: native bar hidden, faint side dots instead; the dot nearest the scroll position lights up (see js/main.js). */
 .event-modal-content {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -20,18 +20,13 @@
     height: 6px;
     border-radius: 50%;
     background: rgba(237, 242, 244, 0.2);
+    transition: background .3s ease, box-shadow .3s ease, transform .45s cubic-bezier(.34, 1.4, .5, 1);
 }
-.scroll-dots b {
-    position: absolute;
-    left: 0;
-    width: 6px;
-    height: 22px;
-    border-radius: 999px;
-    background: rgba(237, 242, 244, 0.55);
-    box-shadow: 0 0 10px rgba(237, 242, 244, 0.45);
-    transition: top .45s cubic-bezier(.34, 1.4, .5, 1), transform .25s ease;
+.scroll-dots i.active {
+    background: rgba(237, 242, 244, 0.85);
+    box-shadow: 0 0 6px rgba(237, 242, 244, 0.35);
+    transform: scale(1.35);
 }
-.scroll-dots b.moving { transform: scaleY(1.35); }
 @media (prefers-reduced-motion: reduce) {
-    .scroll-dots b { transition: none; }
+    .scroll-dots i { transition: none; }
 }
