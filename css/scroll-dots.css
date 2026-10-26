@@ -35,3 +35,7 @@
 @media (prefers-reduced-motion: reduce) {
     .scroll-dots b { transition: none; }
 }
+/* Hide only the outer document's native bar while a modal is open.
+   Keep overflow and scrolling untouched; the modal retains its own indicator. */
+html:has(.event-modal.active) { scrollbar-width: none; }
+html:has(.event-modal.active)::-webkit-scrollbar { display: none; }
