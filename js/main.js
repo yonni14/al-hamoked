@@ -712,50 +712,6 @@ async function loadEventsData(lang = 'he') {
             }
         });
 
-        const newsletterForm = document.getElementById('newsletterForm');
-        const newsletterSuccessMsg = document.getElementById('newsletterSuccessMsg');
-        const newsletterErrorMsg = document.getElementById('newsletterErrorMsg');
-        const newsletterSubmitBtn = document.getElementById('newsletterSubmitBtn');
-
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-
-                const formData = new FormData(newsletterForm);
-                newsletterSubmitBtn.disabled = true;
-                newsletterSubmitBtn.style.opacity = '0.6';
-
-                try {
-                    const response = await fetch(newsletterForm.action, {
-                        method: 'POST',
-                        body: formData
-                    });
-
-                    if (response.ok) {
-                        newsletterForm.style.display = 'none';
-                        newsletterSuccessMsg.style.display = 'block';
-                        if (newsletterErrorMsg) newsletterErrorMsg.style.display = 'none';
-
-                        setTimeout(() => {
-                            closeNewsletterModal();
-                            newsletterForm.reset();
-                            newsletterForm.style.display = 'block';
-                            newsletterSuccessMsg.style.display = 'none';
-                            newsletterSubmitBtn.disabled = false;
-                            newsletterSubmitBtn.style.opacity = '1';
-                        }, 2000);
-                    } else {
-                        throw new Error('Submission failed');
-                    }
-                } catch (err) {
-                    console.error(err);
-                    if (newsletterErrorMsg) newsletterErrorMsg.style.display = 'block';
-                    newsletterSubmitBtn.disabled = false;
-                    newsletterSubmitBtn.style.opacity = '1';
-                }
-            });
-        }
-
         // --- ב. ארכיון אירועי עבר ---
         const track = document.getElementById('archiveTrack');
         const template = document.getElementById('archive-card-template');
