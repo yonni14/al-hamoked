@@ -1052,24 +1052,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Modal scroll indicator: faint dots with one sliding pill that follows the scroll position.
+// Modal scroll indicator: faint side dots; the dot nearest the scroll position lights up (no bar, no pill).
 (function () {
-    var N = 5, GAP = 14, H = 22;
+    var N = 5, GAP = 14;
     function attach(content) {
         var host = content.parentElement;
         var box = document.createElement('div');
         box.className = 'scroll-dots';
         box.setAttribute('aria-hidden', 'true');
-        box.style.height = ((N - 1) * GAP + H) + 'px';
+        box.style.height = ((N - 1) * GAP + 6) + 'px';
+        var dots = [];
         for (var i = 0; i < N; i++) {
             var d = document.createElement('i');
-            d.style.top = (i * GAP + (H - 6) / 2) + 'px';
+            d.style.top = (i * GAP) + 'px';
             box.appendChild(d);
+            dots.push(d);
         }
-        var pill = document.createElement('b');
-        box.appendChild(pill);
         host.appendChild(box);
-        var timer;
+        var active = -1;
         function place() {
             var visible = content.getClientRects().length > 0;
             var max = content.scrollHeight - content.clientHeight;
@@ -1077,15 +1077,15 @@ document.addEventListener('DOMContentLoaded', () => {
             var r = content.getBoundingClientRect();
             box.style.left = (r.left + 10) + 'px';
             box.style.top = (r.top + r.height / 2 - parseFloat(box.style.height) / 2) + 'px';
-            pill.style.top = (Math.min(1, Math.max(0, content.scrollTop / max)) * (N - 1) * GAP) + 'px';
+            var idx = Math.round(Math.min(1, Math.max(0, content.scrollTop / max)) * (N - 1));
+            if (idx !== active) {
+                if (active >= 0) dots[active].classList.remove('active');
+                dots[idx].classList.add('active');
+                active = idx;
+            }
             box.classList.add('on');
         }
-        function onScroll() {
-            place();
-            pill.classList.add('moving');
-            clearTimeout(timer);
-            timer = setTimeout(function () { pill.classList.remove('moving'); }, 180);
-        }
+        function onScroll() { place(); }
         content.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('resize', place);
         if (window.ResizeObserver) new ResizeObserver(place).observe(content);
