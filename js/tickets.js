@@ -3,7 +3,9 @@
     let event, lang = 'he', tab = 'buyer', previousFocus, previousOverflow, busy = false, widgetId;
     const $ = id => document.getElementById(id);
     const t = key => (typeof staticTranslations !== 'undefined' ? staticTranslations : window.TICKET_TRANSLATIONS)?.[lang]?.[key] || key;
-    const cfg = () => window.ALHAMOKED_TICKETS_CONFIG || {};
+    // Defaults keep signup working if a browser still has an older cached tickets-config.js
+    const DEFAULTS = { turnstileSiteKey: '0x4AAAAAAFmWxYnPW6os1n8a', signupUrl: 'https://fhwrnscmpojwjnigzjch.supabase.co/functions/v1/signup' };
+    const cfg = () => ({ ...DEFAULTS, ...(window.ALHAMOKED_TICKETS_CONFIG || {}) });
     const configured = () => /^https:\/\//.test(cfg().supabaseUrl) && cfg().anonKey && !cfg().anonKey.startsWith('PASTE_');
     async function request(path, body, accessToken) {
         if (!configured()) throw new Error('unconfigured');
@@ -32,6 +34,7 @@
         previousFocus = document.activeElement; previousOverflow = document.body.style.overflow;
         $('ticketModal').hidden = false; $('ticketModal').classList.add('active'); document.body.style.overflow = 'hidden';
         selectTab('buyer'); $('ticketName').focus();
+        if (!$('ticketTurnstile')) { const box = document.createElement('div'); box.id = 'ticketTurnstile'; $('ticketForm').querySelector('[type=submit]').before(box); }
         if (widgetId === undefined && window.turnstile && cfg().turnstileSiteKey) widgetId = window.turnstile.render('#ticketTurnstile', { sitekey: cfg().turnstileSiteKey, size: 'flexible', 'error-callback': () => { $('ticketMessage').textContent = t('wl_captcha'); }, 'expired-callback': () => window.turnstile.reset(widgetId) });
     }
     function close() {
@@ -54,6 +57,7 @@
     }
     document.addEventListener('DOMContentLoaded', () => {
         if (!$('ticketModal')) return;
+        if (!window.turnstile && !document.querySelector('script[src*="turnstile/v0/api.js"]')) { const sc = document.createElement('script'); sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; sc.async = true; document.head.appendChild(sc); }
         setLanguage(document.documentElement.lang);
         document.addEventListener('click', e => {
             if (e.target.closest('[data-ticket-disabled]')) { e.preventDefault(); return; }
