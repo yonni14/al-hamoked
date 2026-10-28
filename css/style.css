@@ -318,6 +318,17 @@ html[dir="ltr"] .hero-alignment {
     padding-top: 25vh;
 }
 
+
+/* Desktop uses the wider photo; keep the hand-tuned mobile crop untouched. */
+@media (min-width: 769px) {
+    #hero {
+        background-image: linear-gradient(rgba(2, 6, 23, 0.25), rgba(2, 6, 23, 0.7)),
+            url('../assets/backgrounds/home-desktop.webp');
+        background-size: auto, cover;
+        background-position: 0 0, center 60%;
+    }
+}
+
 #hero h1 {
     font-size: clamp(2.5rem, 8vw, 6.5rem);
     font-weight: 900;
@@ -2773,4 +2784,3 @@ html[dir] .archive-section-outer .event-card-img .event-date {
 }
 .event-modal-content::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
 .event-modal-content::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
-
