@@ -132,10 +132,10 @@
         "registrationState": "waitlist"
     },
     {
-        "id": "public_broadcasting",
+        "id": "ai_debate",
         "status": "future",
-        "title": "The Israeli Public Broadcasting Corporation",
-        "motion": "Is there a place for public broadcasting in the Israel of 2026?",
+        "title": "AI, Good for Humanity?",
+        "motion": "On its current trajectory, AI will cause more harm than good",
         "speakersStatus": "Speakers will be announced soon.",
         "registrationState": "soon"
     },
