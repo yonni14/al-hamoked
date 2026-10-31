@@ -133,10 +133,10 @@
         "registrationState": "waitlist"
     },
     {
-        "id": "public_broadcasting",
+        "id": "ai_debate",
         "status": "future",
-        "title": "תאגיד השידור הציבורי",
-        "motion": "האם בישראל של 2026 יש מקום לשידור ציבורי?",
+        "title": "AI, טוב לאנושות?",
+        "motion": "במסלול הנוכחי, AI יגרום יותר נזק מתועלת",
         "speakersStatus": "הדוברים יפורסמו בהמשך.",
         "registrationState": "soon"
     },
