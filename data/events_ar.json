@@ -132,10 +132,10 @@
         "registrationState": "waitlist"
     },
     {
-        "id": "public_broadcasting",
+        "id": "ai_debate",
         "status": "future",
-        "title": "هيئة البث العام",
-        "motion": "هل يوجد مكان للبث العام في إسرائيل عام 2026؟",
+        "title": "AI، جيد للبشرية؟",
+        "motion": "في مساره الحالي، سيسبب الذكاء الاصطناعي ضرراً أكثر من النفع",
         "speakersStatus": "سيتم الإعلان عن المتحدثين لاحقاً.",
         "registrationState": "soon"
     },
