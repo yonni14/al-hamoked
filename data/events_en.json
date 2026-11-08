@@ -1,6 +1,408 @@
 [
     {
         "id": "launch-event-past",
+        "gallery": [
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02479.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02479.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02481.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02481.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02484.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02484.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02485.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02485.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02488.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02488.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02489.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02489.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02490.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02490.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02491.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02491.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02492.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02492.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02493.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02493.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02494.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02494.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02495.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02495.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02496.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02496.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02497.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02497.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02498.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02498.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02500.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02500.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02501.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02501.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02502.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02502.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02503.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02503.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02504.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02504.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02506.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02506.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02507.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02507.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02508.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02508.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02509.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02509.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02510.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02510.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02518.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02518.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02519.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02519.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02520.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02520.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02521.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02521.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02522.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02522.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02525.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02525.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02527.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02527.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02528.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02528.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02530.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02530.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02531.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02531.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02532.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02532.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02533.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02533.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02534.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02534.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02537.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02537.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02544.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02544.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02545.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02545.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02546.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02546.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02547.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02547.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02548.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02548.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02549.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02549.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02550.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02550.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02551.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02551.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02552.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02552.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02553.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02553.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02554.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02554.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02568.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02568.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02569.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02569.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02582.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02582.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02583.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02583.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02584.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02584.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02585.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02585.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02586.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02586.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02587.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02587.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02588.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02588.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02589.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02589.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02590.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02590.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02591.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02591.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02592.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02592.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02593.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02593.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02594.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02594.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02601.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02601.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02602.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02602.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02603.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02603.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02604.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02604.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02605.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02605.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02606.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02606.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02607.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02607.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02612.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02612.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02613.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02613.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02617.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02617.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02619.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02619.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02620.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02620.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02621.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02621.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02628.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02628.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02629.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02629.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02630.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02630.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02631.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02631.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02632.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02632.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02635.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02635.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02637.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02637.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02638.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02638.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02639.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02639.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02640.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02640.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02641.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02641.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02644.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02644.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02645.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02645.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02647.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02647.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02648.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02648.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02649.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02649.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02650.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02650.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02652.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02652.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02655.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02655.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02656.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02656.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02659.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02659.jpg"
+            },
+            {
+                "src": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/DSC02660.webp",
+                "full": "https://pub-23acb83134e04febb7c5e7366c15ee8a.r2.dev/2026-06-29/originals/DSC02660.jpg"
+            }
+        ],
         "status": "past",
         "eventType": "Full Debate:",
         "date": "29/06/2026",
