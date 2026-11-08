@@ -1402,8 +1402,7 @@ html[dir="ltr"] .contact-header-relative .card-toggle-icon {
 /* 9. CONTACT SECTION                        */
 /* ========================================= */
 #contact {
-    padding: 60px 20px 15px 20px;
-    height: auto;
+    padding: 60px 20px 15px 20px;    height: auto;
     align-items: flex-start;
 }
 
