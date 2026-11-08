@@ -1178,7 +1178,7 @@ document.addEventListener('DOMContentLoaded', () => {
             syncTouchAction();
         }
         function startDrag(x, y) {
-            drag = { sx: x, sy: y, dx: 0, shown: 0, vx: 0, lt: 0, live: false, raf: 0 };
+            drag = { sx: x, sy: y, dx: 0, shown: 0, hist: [], live: false, raf: 0 };
         }
         // The follow loop eases the shown offset toward the real drag position; that lag
         // is what makes the movement feel half-smooth instead of glued to the pointer.
@@ -1198,15 +1198,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.style.transition = 'none';
                 follow();
             }
-            var dt = now - drag.lt;
-            if (dt > 0) drag.vx = drag.vx * 0.75 + ((dx - drag.dx) / dt) * 0.25;
-            drag.lt = now;
             drag.dx = dx;
+            // Keep the last ~120ms of movement so release speed comes from a window,
+            // not single-event timing jitter.
+            drag.hist.push({ dx: dx, t: now });
+            while (drag.hist.length > 2 && drag.hist[0].t < now - 120) drag.hist.shift();
             return true;
         }
         function endDrag() {
             if (!drag) return;
-            var dx = drag.dx, live = drag.live, vx = drag.vx;
+            var dx = drag.dx, live = drag.live, vx = 0;
+            var h = drag.hist;
+            // Trust the speed only when enough samples span a real interval; a single
+            // coalesced burst of events must not look like a flick.
+            if (h.length >= 3 && h[h.length - 1].t - h[0].t >= 45) {
+                vx = (h[h.length - 1].dx - h[0].dx) / (h[h.length - 1].t - h[0].t);
+            }
             stopFollow();
             drag = null;
             img.style.transition = '';
