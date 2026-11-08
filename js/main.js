@@ -1155,14 +1155,18 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (e.key === 'ArrowLeft') show(cur + 1, 1);
             else if (e.key === 'ArrowRight') show(cur - 1, -1);
         }, true);
-        // Full-screen photo view scrolls for real: the photo follows the finger continuously,
-        // releasing past a fifth of the width pages to the neighbour, a shorter drag snaps back.
+        // Full-screen photo view: the photo trails the finger or the mouse with light
+        // easing (half-smooth), releasing past 15% of the width pages one photo, and a
+        // fast flick keeps gliding through several photos at once instead of one per swipe.
         // Any second finger (pinch) or an active browser zoom kills the gesture until every
         // finger lifts, so zooming or panning a zoomed photo can never turn into photo paging.
         var drag = null;
         function zoomed() { return window.visualViewport && visualViewport.scale > 1.05; }
+        function stopFollow() { if (drag && drag.raf) { cancelAnimationFrame(drag.raf); drag.raf = 0; } }
         function killDrag() {
-            if (drag && drag.live) { img.style.transition = ''; img.style.transform = ''; }
+            if (!drag) return;
+            stopFollow();
+            if (drag.live) { img.style.transition = ''; img.style.transform = ''; }
             drag = null;
         }
         // While the browser is zoomed, let it pan the photo in every direction natively;
@@ -1173,39 +1177,81 @@ document.addEventListener('DOMContentLoaded', () => {
             visualViewport.addEventListener('scroll', syncTouchAction);
             syncTouchAction();
         }
-        lb.addEventListener('touchstart', function (e) {
-            if (e.touches.length !== 1 || zoomed()) { killDrag(); return; }
-            drag = { sx: e.touches[0].clientX, sy: e.touches[0].clientY, dx: 0, live: false };
-        }, { passive: true });
-        lb.addEventListener('touchmove', function (e) {
-            if (e.touches.length !== 1 || !drag || zoomed()) { killDrag(); return; }
-            var dx = e.touches[0].clientX - drag.sx, dy = e.touches[0].clientY - drag.sy;
-            if (!drag.live) {
-                if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
-                if (Math.abs(dy) > Math.abs(dx)) { killDrag(); return; }
-                drag.live = true;
-                img.style.transition = 'none';
-            }
-            drag.dx = dx;
-            img.style.transform = 'translateX(' + dx + 'px)';
-            e.preventDefault();
-        }, { passive: false });
-        lb.addEventListener('touchend', function (e) {
-            if (e.touches.length > 0) { killDrag(); return; } // one finger still down after a pinch: gesture stays dead
+        function startDrag(x, y) {
+            drag = { sx: x, sy: y, dx: 0, shown: 0, vx: 0, lt: 0, live: false, raf: 0 };
+        }
+        // The follow loop eases the shown offset toward the real drag position; that lag
+        // is what makes the movement feel half-smooth instead of glued to the pointer.
+        function follow() {
             if (!drag) return;
-            var dx = drag.dx, live = drag.live;
+            drag.shown += (drag.dx - drag.shown) * 0.35;
+            img.style.transform = 'translateX(' + drag.shown + 'px)';
+            drag.raf = requestAnimationFrame(follow);
+        }
+        function moveDrag(x, y, now) {
+            var dx = x - drag.sx, dy = y - drag.sy;
+            if (!drag.live) {
+                if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return false;
+                if (Math.abs(dy) > Math.abs(dx)) { killDrag(); return false; }
+                drag.live = true;
+                drag.lt = now;
+                img.style.transition = 'none';
+                follow();
+            }
+            var dt = now - drag.lt;
+            if (dt > 0) drag.vx = drag.vx * 0.75 + ((dx - drag.dx) / dt) * 0.25;
+            drag.lt = now;
+            drag.dx = dx;
+            return true;
+        }
+        function endDrag() {
+            if (!drag) return;
+            var dx = drag.dx, live = drag.live, vx = drag.vx;
+            stopFollow();
             drag = null;
             img.style.transition = '';
             if (!live) { img.style.transform = ''; return; }
             var w = lb.clientWidth || 320;
-            if (Math.abs(dx) > w * 0.2) {
+            var flick = Math.abs(vx) > 0.9;
+            if (Math.abs(dx) > w * 0.15 || flick) {
                 var dir = dx < 0 ? 1 : -1;
+                // A fast release keeps gliding: the quicker the flick, the more photos it
+                // passes, capped so a wild swipe never skips the whole event. A deliberate
+                // drag stays one photo, and a long drag of full screen widths pages too.
+                var steps = Math.max(1, Math.round(Math.abs(dx) / w));
+                if (flick) steps = Math.max(steps, Math.round(Math.abs(vx) * 1.8));
+                steps = Math.min(8, steps);
                 img.style.transform = 'translateX(' + (-dir * w) + 'px)'; // glide out the way it was dragged
-                setTimeout(function () { show(cur + dir, dir); }, 140);
+                setTimeout(function () { show(cur + dir * steps, dir); }, 140);
             } else {
                 img.style.transform = ''; // short drag: settle back in place
             }
+        }
+        lb.addEventListener('touchstart', function (e) {
+            if (e.touches.length !== 1 || zoomed()) { killDrag(); return; }
+            startDrag(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: true });
+        lb.addEventListener('touchmove', function (e) {
+            if (e.touches.length !== 1 || !drag || zoomed()) { killDrag(); return; }
+            if (moveDrag(e.touches[0].clientX, e.touches[0].clientY, e.timeStamp)) e.preventDefault();
+        }, { passive: false });
+        lb.addEventListener('touchend', function (e) {
+            if (e.touches.length > 0) { killDrag(); return; } // one finger still down after a pinch: gesture stays dead
+            endDrag();
         });
         lb.addEventListener('touchcancel', killDrag);
+        // The same gesture with a mouse on desktop: a plain click stays a click because the
+        // drag only goes live past a few pixels of horizontal movement.
+        lb.addEventListener('mousedown', function (e) {
+            if (e.button !== 0 || zoomed()) return;
+            startDrag(e.clientX, e.clientY);
+        });
+        lb.addEventListener('mousemove', function (e) {
+            if (!drag || zoomed()) return;
+            if (moveDrag(e.clientX, e.clientY, e.timeStamp)) e.preventDefault();
+        });
+        lb.addEventListener('mouseup', endDrag);
+        lb.addEventListener('mouseleave', endDrag);
+        lb.addEventListener('dragstart', function (e) { e.preventDefault(); });
     });
 })();
