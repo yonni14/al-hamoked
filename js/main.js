@@ -1108,10 +1108,10 @@ document.addEventListener('DOMContentLoaded', () => {
             var n = list[(cur + o + list.length) % list.length];
             if (n && n.src) { var pf = new Image(); pf.src = n.src; }
         });
-        // Slide the dot window so the current dot stays visible.
-        if (cur < dotStart) dotStart = cur;
-        if (cur > dotStart + MAXDOTS - 1) dotStart = cur - MAXDOTS + 1;
+        // Keep the active dot centered in the window, except near the start and end.
         var maxStart = Math.max(0, list.length - MAXDOTS);
+        dotStart = cur - Math.floor(MAXDOTS / 2);
+        if (dotStart < 0) dotStart = 0;
         if (dotStart > maxStart) dotStart = maxStart;
         Array.prototype.forEach.call(dots.children, function (d, k) { if (d.tagName === 'I') d.classList.toggle('on', k === cur - dotStart); });
         var pill = dots.querySelector('b');
@@ -1171,7 +1171,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         // While the browser is zoomed, let it pan the photo in every direction natively;
         // at normal zoom horizontal drags are ours (vertical stays native page scroll).
-        function syncTouchAction() { img.style.touchAction = zoomed() ? 'pan-x pan-y pinch-zoom' : 'pan-y pinch-zoom'; }
+        function syncTouchAction() {
+            var ta = zoomed() ? 'pan-x pan-y pinch-zoom' : 'pan-y pinch-zoom';
+            img.style.touchAction = ta;
+            lb.style.touchAction = ta; // gestures starting off the photo still reach our handlers
+        }
         if (window.visualViewport) {
             visualViewport.addEventListener('resize', syncTouchAction);
             visualViewport.addEventListener('scroll', syncTouchAction);
@@ -1188,7 +1192,8 @@ document.addEventListener('DOMContentLoaded', () => {
             img.style.transform = 'translateX(' + drag.shown + 'px)';
             drag.raf = requestAnimationFrame(follow);
         }
-        function moveDrag(x, y, now) {
+        function moveDrag(x, y) {
+            var now = performance.now(); // e.timeStamp is unreliable across mobile browsers
             var dx = x - drag.sx, dy = y - drag.sy;
             if (!drag.live) {
                 if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return false;
@@ -1199,20 +1204,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 follow();
             }
             drag.dx = dx;
-            // Keep the last ~120ms of movement so release speed comes from a window,
+            // Keep the last ~150ms of movement so release speed comes from a window,
             // not single-event timing jitter.
             drag.hist.push({ dx: dx, t: now });
-            while (drag.hist.length > 2 && drag.hist[0].t < now - 120) drag.hist.shift();
+            while (drag.hist.length > 2 && drag.hist[0].t < now - 150) drag.hist.shift();
             return true;
         }
         function endDrag() {
             if (!drag) return;
             var dx = drag.dx, live = drag.live, vx = 0;
             var h = drag.hist;
-            // Trust the speed only when enough samples span a real interval; a single
-            // coalesced burst of events must not look like a flick.
-            if (h.length >= 3 && h[h.length - 1].t - h[0].t >= 45) {
+            // Window speed from the recent samples, tolerant of sparse/coalesced streams.
+            if (h.length >= 2 && h[h.length - 1].t - h[0].t >= 30) {
                 vx = (h[h.length - 1].dx - h[0].dx) / (h[h.length - 1].t - h[0].t);
+            }
+            // Whole-gesture speed as a floor: a fast flick stays fast even when the
+            // final events arrive late or batched on a real touchscreen.
+            if (live && drag.lt) {
+                var total = performance.now() - drag.lt;
+                if (total >= 30) {
+                    var avg = dx / total;
+                    if (Math.abs(avg) > Math.abs(vx)) vx = avg;
+                }
             }
             stopFollow();
             drag = null;
@@ -1240,7 +1253,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
         lb.addEventListener('touchmove', function (e) {
             if (e.touches.length !== 1 || !drag || zoomed()) { killDrag(); return; }
-            if (moveDrag(e.touches[0].clientX, e.touches[0].clientY, e.timeStamp)) e.preventDefault();
+            if (moveDrag(e.touches[0].clientX, e.touches[0].clientY)) e.preventDefault();
         }, { passive: false });
         lb.addEventListener('touchend', function (e) {
             if (e.touches.length > 0) { killDrag(); return; } // one finger still down after a pinch: gesture stays dead
@@ -1255,7 +1268,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         lb.addEventListener('mousemove', function (e) {
             if (!drag || zoomed()) return;
-            if (moveDrag(e.clientX, e.clientY, e.timeStamp)) e.preventDefault();
+            if (moveDrag(e.clientX, e.clientY)) e.preventDefault();
         });
         lb.addEventListener('mouseup', endDrag);
         lb.addEventListener('mouseleave', endDrag);
