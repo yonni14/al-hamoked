@@ -737,6 +737,7 @@ async function loadEventsData(lang = 'he') {
             pastEvents.forEach(event => {
                 const clone = template.content.cloneNode(true);
                 const card = clone.querySelector('.event-card-img');
+                if (card) card.id = 'event-' + event.id;
                 const dateEl = clone.querySelector('.event-date');
                 const titleEl = clone.querySelector('.event-card-title');
 
@@ -787,10 +788,17 @@ async function loadEventsData(lang = 'he') {
 
                         if (window.renderEventGallery) window.renderEventGallery(event.gallery);
                         document.getElementById('eventModal').classList.add('active');
+                        if (history.replaceState) history.replaceState(null, '', '#event-' + event.id);
                     });
                 }
                 track.prepend(clone);
             });
+
+            // קישור ישיר: פתיחת העמוד עם ‎#event-<id>‎ פותחת את המודאל של אותו אירוע
+            if (location.hash.indexOf('#event-') === 0) {
+                const linkedCard = document.getElementById(location.hash.slice(1));
+                if (linkedCard) linkedCard.click();
+            }
         }
 
         // --- ג. אירועים עתידיים ---
@@ -892,6 +900,7 @@ function closeModal() {
     if (modal) {
         modal.classList.remove('active');
         if (modalVideo) modalVideo.src = '';
+        if (history.replaceState && location.hash.indexOf('#event-') === 0) history.replaceState(null, '', location.pathname + location.search);
     }
 }
 
@@ -1081,9 +1090,17 @@ document.addEventListener('DOMContentLoaded', () => {
         var p = document.createElement('b'); dots.appendChild(p);
         dots.style.width = ((n - 1) * 14 + 22) + 'px';
     }
-    function show(i) {
+    function show(i, dir) {
         cur = (i + list.length) % list.length;
         img.src = list[cur].src;
+        if (dir) {
+            img.style.transition = 'none';
+            img.style.transform = 'translateX(' + (dir * 28) + 'px)';
+            img.style.opacity = '0.4';
+            requestAnimationFrame(function () { requestAnimationFrame(function () {
+                img.style.transition = ''; img.style.transform = ''; img.style.opacity = '';
+            }); });
+        }
         if (list[cur].full) { dl.href = list[cur].full; dl.setAttribute('data-orig', '1'); }
         else { dl.removeAttribute('data-orig'); dl.href = list[cur].src; }
         // Quietly prefetch the immediate neighbours so paging feels instant; runs only while the lightbox is open.
@@ -1130,19 +1147,27 @@ document.addEventListener('DOMContentLoaded', () => {
         lb = $('egLightbox'); img = $('egImg'); dl = $('egDownload'); dots = $('egDots');
         c.addEventListener('click', close);
         $('egBackdrop').addEventListener('click', close);
-        $('egPrev').addEventListener('click', function () { show(cur - 1); });
-        $('egNext').addEventListener('click', function () { show(cur + 1); });
+        $('egPrev').addEventListener('click', function () { show(cur - 1, -1); });
+        $('egNext').addEventListener('click', function () { show(cur + 1, 1); });
         document.addEventListener('keydown', function (e) {
             if (!lb || lb.hidden) return;
             if (e.key === 'Escape') { e.stopPropagation(); close(); }
-            else if (e.key === 'ArrowLeft') show(cur + 1);
-            else if (e.key === 'ArrowRight') show(cur - 1);
+            else if (e.key === 'ArrowLeft') show(cur + 1, 1);
+            else if (e.key === 'ArrowRight') show(cur - 1, -1);
         }, true);
-        var sx = null;
-        lb.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+        var sx = null, sy = null, multi = false;
+        lb.addEventListener('touchstart', function (e) {
+            if (e.touches.length !== 1) { multi = true; sx = null; return; }
+            multi = false; sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+        }, { passive: true });
+        lb.addEventListener('touchmove', function (e) {
+            if (e.touches.length !== 1) { multi = true; sx = null; }
+        }, { passive: true });
         lb.addEventListener('touchend', function (e) {
-            if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null;
-            if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+            if (multi || sx === null) { sx = null; return; }
+            var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy; sx = null;
+            if (window.visualViewport && visualViewport.scale > 1.05) return; // מצב זום: תנועת גרירה בתוך התמונה, לא מעבר תמונה
+            if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) show(cur + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
         }, { passive: true });
     });
 })();
