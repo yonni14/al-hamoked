@@ -1155,19 +1155,57 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (e.key === 'ArrowLeft') show(cur + 1, 1);
             else if (e.key === 'ArrowRight') show(cur - 1, -1);
         }, true);
-        var sx = null, sy = null, multi = false;
+        // Full-screen photo view scrolls for real: the photo follows the finger continuously,
+        // releasing past a fifth of the width pages to the neighbour, a shorter drag snaps back.
+        // Any second finger (pinch) or an active browser zoom kills the gesture until every
+        // finger lifts, so zooming or panning a zoomed photo can never turn into photo paging.
+        var drag = null;
+        function zoomed() { return window.visualViewport && visualViewport.scale > 1.05; }
+        function killDrag() {
+            if (drag && drag.live) { img.style.transition = ''; img.style.transform = ''; }
+            drag = null;
+        }
+        // While the browser is zoomed, let it pan the photo in every direction natively;
+        // at normal zoom horizontal drags are ours (vertical stays native page scroll).
+        function syncTouchAction() { img.style.touchAction = zoomed() ? 'pan-x pan-y pinch-zoom' : 'pan-y pinch-zoom'; }
+        if (window.visualViewport) {
+            visualViewport.addEventListener('resize', syncTouchAction);
+            visualViewport.addEventListener('scroll', syncTouchAction);
+            syncTouchAction();
+        }
         lb.addEventListener('touchstart', function (e) {
-            if (e.touches.length !== 1) { multi = true; sx = null; return; }
-            multi = false; sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+            if (e.touches.length !== 1 || zoomed()) { killDrag(); return; }
+            drag = { sx: e.touches[0].clientX, sy: e.touches[0].clientY, dx: 0, live: false };
         }, { passive: true });
         lb.addEventListener('touchmove', function (e) {
-            if (e.touches.length !== 1) { multi = true; sx = null; }
-        }, { passive: true });
+            if (e.touches.length !== 1 || !drag || zoomed()) { killDrag(); return; }
+            var dx = e.touches[0].clientX - drag.sx, dy = e.touches[0].clientY - drag.sy;
+            if (!drag.live) {
+                if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+                if (Math.abs(dy) > Math.abs(dx)) { killDrag(); return; }
+                drag.live = true;
+                img.style.transition = 'none';
+            }
+            drag.dx = dx;
+            img.style.transform = 'translateX(' + dx + 'px)';
+            e.preventDefault();
+        }, { passive: false });
         lb.addEventListener('touchend', function (e) {
-            if (multi || sx === null) { sx = null; return; }
-            var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy; sx = null;
-            if (window.visualViewport && visualViewport.scale > 1.05) return; // מצב זום: תנועת גרירה בתוך התמונה, לא מעבר תמונה
-            if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) show(cur + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
-        }, { passive: true });
+            if (e.touches.length > 0) { killDrag(); return; } // one finger still down after a pinch: gesture stays dead
+            if (!drag) return;
+            var dx = drag.dx, live = drag.live;
+            drag = null;
+            img.style.transition = '';
+            if (!live) { img.style.transform = ''; return; }
+            var w = lb.clientWidth || 320;
+            if (Math.abs(dx) > w * 0.2) {
+                var dir = dx < 0 ? 1 : -1;
+                img.style.transform = 'translateX(' + (-dir * w) + 'px)'; // glide out the way it was dragged
+                setTimeout(function () { show(cur + dir, dir); }, 140);
+            } else {
+                img.style.transform = ''; // short drag: settle back in place
+            }
+        });
+        lb.addEventListener('touchcancel', killDrag);
     });
 })();
