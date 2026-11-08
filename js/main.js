@@ -1077,107 +1077,57 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 
-// Event gallery: photo strip inside the past-event modal + lightbox with continuous
-// momentum paging, Instagram-style dots and original download.
+// Event gallery: photo strip inside the past-event modal + lightbox with paging, dots and original download.
 (function () {
     var list = [], cur = 0;
-    var wrap, strip, lb, track, dl, dots, dotsRow, pill;
-    var DOTSTEP = 14, HALFW = 5; // the dots strip is a sliding 11-dot window, Instagram-style
-    var dotEls = [], slotEls = [];
-    var pos = 0, shown = 0; // fractional photo position - one source of truth for photos and dots
-    var raf = 0, momentum = 0;
+    var wrap, strip, lb, img, dl, dots;
+    var MAXDOTS = 15, dotStart = 0; // the dot row shows a sliding window so long galleries do not overflow
     function $(id) { return document.getElementById(id); }
-    function slot() { return lb.clientWidth || window.innerWidth || 320; }
-    function buildTrack() {
-        track.innerHTML = ''; slotEls = [];
-        for (var k = 0; k < list.length; k++) {
-            var s = document.createElement('div'); s.className = 'eg-slot';
-            var im = document.createElement('img'); im.alt = ''; im.draggable = false;
-            s.appendChild(im); track.appendChild(s); slotEls.push(im);
-        }
+    function renderDots() {
+        var n = Math.min(list.length, MAXDOTS);
+        dots.innerHTML = '';
+        for (var k = 0; k < n; k++) { var d = document.createElement('i'); d.style.left = (k * 14 + 8) + 'px'; dots.appendChild(d); }
+        var p = document.createElement('b'); dots.appendChild(p);
+        dots.style.width = ((n - 1) * 14 + 22) + 'px';
     }
-    // Only the photos around the current position get real URLs, so a 100-photo
-    // gallery loads a handful at a time and the neighbours are ready before they slide in.
-    function syncSlots() {
-        var c = Math.round(shown);
-        for (var i = 0; i < list.length; i++) {
-            var near = Math.abs(i - c) <= 3;
-            if (near && !slotEls[i].src) slotEls[i].src = list[i].src;
-            else if (!near && slotEls[i].src) slotEls[i].removeAttribute('src');
+    function show(i, dir) {
+        cur = (i + list.length) % list.length;
+        img.src = list[cur].src;
+        if (dir) {
+            img.style.transition = 'none';
+            img.style.transform = 'translateX(' + (dir * 28) + 'px)';
+            img.style.opacity = '0.4';
+            requestAnimationFrame(function () { requestAnimationFrame(function () {
+                img.style.transition = ''; img.style.transform = ''; img.style.opacity = '';
+            }); });
         }
-    }
-    function buildDots() {
-        dotsRow.innerHTML = ''; dotEls = [];
-        for (var k = 0; k < list.length; k++) {
-            var d = document.createElement('i'); d.style.left = (k * DOTSTEP + DOTSTEP / 2) + 'px';
-            dotsRow.appendChild(d); dotEls.push(d);
-        }
-        pill = document.createElement('b'); dotsRow.appendChild(pill);
-        dotsRow.style.width = (list.length * DOTSTEP) + 'px';
-    }
-    function render() {
-        track.style.transform = 'translateX(' + (-shown * slot()) + 'px)';
-        // Dots strip (Instagram logic, mirrored for RTL so photo 1 sits at the right):
-        // the strip centers on the active photo and clamps at both ends, and each dot
-        // resizes by its distance from it, so any motion ripples through the strip.
-        var n = list.length;
-        if (n > 1) {
-            var anchor = (n <= HALFW * 2 + 1) ? (n - 1) / 2 : Math.max(HALFW, Math.min(n - 1 - HALFW, shown));
-            dotsRow.style.transform = 'translateX(' + ((HALFW - anchor) * DOTSTEP) + 'px)';
-            pill.style.left = (shown * DOTSTEP + DOTSTEP / 2) + 'px';
-            for (var di = 0; di < n; di++) {
-                var dd = Math.abs(di - shown);
-                if (dd > 5.3) { dotEls[di].style.opacity = '0'; continue; }
-                var ds;
-                if (dd <= 1) ds = 1;
-                else if (dd <= 2) ds = 1 - 0.2 * (dd - 1);
-                else if (dd <= 3) ds = 0.8 - 0.2 * (dd - 2);
-                else if (dd <= 4) ds = 0.6 - 0.17 * (dd - 3);
-                else ds = Math.max(0.27, 0.43 - 0.17 * (dd - 4));
-                dotEls[di].style.opacity = dd <= 4.7 ? '1' : String(Math.max(0, 1 - 1.7 * (dd - 4.7)));
-                dotEls[di].style.transform = 'translate(-50%,-50%) scale(' + ds + ')';
-            }
-        }
-        cur = Math.max(0, Math.min(list.length - 1, Math.round(shown)));
-        var it = list[cur];
-        if (it) {
-            if (it.full) { dl.href = it.full; dl.setAttribute('data-orig', '1'); }
-            else { dl.removeAttribute('data-orig'); dl.href = it.src; }
-        }
-        syncSlots();
-    }
-    function stopAnims() { if (raf) { cancelAnimationFrame(raf); raf = 0; } if (momentum) { cancelAnimationFrame(momentum); momentum = 0; } }
-    // Ease onto the nearest photo after a drag or a glide runs out of speed.
-    function settle(target) {
-        stopAnims();
-        var to = Math.max(0, Math.min(list.length - 1, Math.round(target)));
-        var from = shown, t0 = performance.now(), dur = 260;
-        momentum = requestAnimationFrame(function step(now) {
-            var p = Math.min(1, (now - t0) / dur);
-            var e = 1 - Math.pow(1 - p, 3);
-            shown = pos = from + (to - from) * e;
-            render();
-            if (p < 1) momentum = requestAnimationFrame(step);
-            else { momentum = 0; shown = pos = to; render(); }
+        if (list[cur].full) { dl.href = list[cur].full; dl.setAttribute('data-orig', '1'); }
+        else { dl.removeAttribute('data-orig'); dl.href = list[cur].src; }
+        // Quietly prefetch the immediate neighbours so paging feels instant; runs only while the lightbox is open.
+        [1, -1].forEach(function (o) {
+            var n = list[(cur + o + list.length) % list.length];
+            if (n && n.src) { var pf = new Image(); pf.src = n.src; }
         });
+        // Keep the active dot centered in the window, except near the start and end.
+        var maxStart = Math.max(0, list.length - MAXDOTS);
+        dotStart = cur - Math.floor(MAXDOTS / 2);
+        if (dotStart < 0) dotStart = 0;
+        if (dotStart > maxStart) dotStart = maxStart;
+        Array.prototype.forEach.call(dots.children, function (d, k) { if (d.tagName === 'I') d.classList.toggle('on', k === cur - dotStart); });
+        var pill = dots.querySelector('b');
+        if (pill) pill.style.transform = 'translateX(' + ((cur - dotStart) * 14) + 'px)';
     }
-    function show(i) { settle(i); }
     function open(i) {
         lb.hidden = false; document.body.classList.add('eg-open');
-        buildTrack(); buildDots();
+        dotStart = 0;
+        renderDots();
         dots.style.display = list.length > 1 ? '' : 'none';
-        stopAnims();
-        pos = shown = Math.max(0, Math.min(list.length - 1, i));
-        render();
+        show(i);
     }
-    function close() {
-        lb.hidden = true; document.body.classList.remove('eg-open');
-        stopAnims();
-        for (var i = 0; i < slotEls.length; i++) slotEls[i].removeAttribute('src');
-    }
+    function close() { lb.hidden = true; document.body.classList.remove('eg-open'); img.removeAttribute('src'); }
     window.renderEventGallery = function (items) {
         wrap = wrap || $('modalGallery'); if (!wrap) return;
-        strip = $('egStrip'); lb = $('egLightbox'); track = $('egTrack'); dl = $('egDownload'); dots = $('egDots'); dotsRow = $('egDotsRow');
+        strip = $('egStrip'); lb = $('egLightbox'); img = $('egImg'); dl = $('egDownload'); dots = $('egDots');
         list = Array.isArray(items) ? items : [];
         strip.innerHTML = '';
         strip.scrollLeft = 0;
@@ -1194,35 +1144,36 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     document.addEventListener('DOMContentLoaded', function () {
         var c = $('egClose'); if (!c) return;
-        lb = $('egLightbox'); track = $('egTrack'); dl = $('egDownload'); dots = $('egDots'); dotsRow = $('egDotsRow');
+        lb = $('egLightbox'); img = $('egImg'); dl = $('egDownload'); dots = $('egDots');
         c.addEventListener('click', close);
         $('egBackdrop').addEventListener('click', close);
-        $('egPrev').addEventListener('click', function () { show(cur - 1); });
-        $('egNext').addEventListener('click', function () { show(cur + 1); });
+        $('egPrev').addEventListener('click', function () { show(cur - 1, -1); });
+        $('egNext').addEventListener('click', function () { show(cur + 1, 1); });
         document.addEventListener('keydown', function (e) {
             if (!lb || lb.hidden) return;
             if (e.key === 'Escape') { e.stopPropagation(); close(); }
-            else if (e.key === 'ArrowLeft') show(cur + 1);
-            else if (e.key === 'ArrowRight') show(cur - 1);
+            else if (e.key === 'ArrowLeft') show(cur + 1, 1);
+            else if (e.key === 'ArrowRight') show(cur - 1, -1);
         }, true);
-        // Full-screen photo view: the photos sit on one continuous strip and follow the
-        // finger; releasing with speed keeps gliding with momentum proportional to the
-        // gesture and eases onto the nearest photo. A slow deliberate drag pages a single
-        // photo, a short or vertical one stays. Any second finger (pinch) or an active
-        // browser zoom kills the gesture until every finger lifts, so zooming or panning
-        // a zoomed photo can never turn into photo paging.
+        // Full-screen photo view: the photo trails the finger or the mouse with light
+        // easing (half-smooth), releasing past 15% of the width pages one photo, and a
+        // fast flick keeps gliding through several photos at once instead of one per swipe.
+        // Any second finger (pinch) or an active browser zoom kills the gesture until every
+        // finger lifts, so zooming or panning a zoomed photo can never turn into photo paging.
         var drag = null;
         function zoomed() { return window.visualViewport && visualViewport.scale > 1.05; }
+        function stopFollow() { if (drag && drag.raf) { cancelAnimationFrame(drag.raf); drag.raf = 0; } }
         function killDrag() {
+            if (!drag) return;
+            stopFollow();
+            if (drag.live) { img.style.transition = ''; img.style.transform = ''; }
             drag = null;
-            stopAnims();
-            if (list.length) { pos = shown = Math.max(0, Math.min(list.length - 1, Math.round(shown))); render(); }
         }
         // While the browser is zoomed, let it pan the photo in every direction natively;
         // at normal zoom horizontal drags are ours (vertical stays native page scroll).
         function syncTouchAction() {
             var ta = zoomed() ? 'pan-x pan-y pinch-zoom' : 'pan-y pinch-zoom';
-            track.style.touchAction = ta;
+            img.style.touchAction = ta;
             lb.style.touchAction = ta; // gestures starting off the photo still reach our handlers
         }
         if (window.visualViewport) {
@@ -1231,85 +1182,70 @@ document.addEventListener('DOMContentLoaded', () => {
             syncTouchAction();
         }
         function startDrag(x, y) {
-            stopAnims();
-            drag = { sx: x, sy: y, dx: 0, startPos: pos, target: pos, live: false, hist: [] };
+            drag = { sx: x, sy: y, dx: 0, shown: 0, hist: [], live: false, raf: 0 };
         }
-        // While dragging, the strip eases toward the real finger position; that small lag
+        // The follow loop eases the shown offset toward the real drag position; that lag
         // is what makes the movement feel half-smooth instead of glued to the pointer.
-        function followLoop() {
-            shown += (drag.target - shown) * 0.35;
-            if (Math.abs(drag.target - shown) < 0.0005) shown = drag.target;
-            render();
-            if (drag) raf = requestAnimationFrame(followLoop);
+        function follow() {
+            if (!drag) return;
+            drag.shown += (drag.dx - drag.shown) * 0.35;
+            img.style.transform = 'translateX(' + drag.shown + 'px)';
+            drag.raf = requestAnimationFrame(follow);
         }
         function moveDrag(x, y) {
             var now = performance.now(); // e.timeStamp is unreliable across mobile browsers
             var dx = x - drag.sx, dy = y - drag.sy;
             if (!drag.live) {
                 if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return false;
-                if (Math.abs(dy) > Math.abs(dx)) { drag = null; return false; }
+                if (Math.abs(dy) > Math.abs(dx)) { killDrag(); return false; }
                 drag.live = true;
-                raf = requestAnimationFrame(followLoop);
+                drag.lt = now;
+                img.style.transition = 'none';
+                follow();
             }
             drag.dx = dx;
-            var t = drag.startPos - dx / slot();
-            // rubber band at the first and last photo
-            if (t < 0) t = t * 0.35;
-            else if (t > list.length - 1) t = list.length - 1 + (t - (list.length - 1)) * 0.35;
-            drag.target = t;
             // Keep the last ~150ms of movement so release speed comes from a window,
             // not single-event timing jitter.
             drag.hist.push({ dx: dx, t: now });
             while (drag.hist.length > 2 && drag.hist[0].t < now - 150) drag.hist.shift();
             return true;
         }
-        function endDrag(x, y) {
+        function endDrag() {
             if (!drag) return;
-            var d = drag; drag = null;
-            stopAnims();
-            // A tap that was never a drag keeps the old backdrop behaviour: outside the
-            // photo it closes the lightbox, on the photo it does nothing.
-            if (!d.live) {
-                if (x !== undefined && slotEls.length) {
-                    var im = slotEls[Math.max(0, Math.min(slotEls.length - 1, Math.round(shown)))];
-                    var r = im.getBoundingClientRect();
-                    if (x < r.left || x > r.right || y < r.top || y > r.bottom) close();
-                }
-                return;
-            }
-            var now = performance.now();
-            var vx = 0, h = d.hist;
+            var dx = drag.dx, live = drag.live, vx = 0;
+            var h = drag.hist;
             // Window speed from the recent samples, tolerant of sparse/coalesced streams.
-            if (h.length >= 2 && h[h.length - 1].t - h[0].t >= 30)
+            if (h.length >= 2 && h[h.length - 1].t - h[0].t >= 30) {
                 vx = (h[h.length - 1].dx - h[0].dx) / (h[h.length - 1].t - h[0].t);
+            }
             // Whole-gesture speed as a floor: a fast flick stays fast even when the
             // final events arrive late or batched on a real touchscreen.
-            var total = now - (h.length ? h[0].t : now);
-            if (h.length >= 2 && total >= 30) {
-                var avg = (h[h.length - 1].dx - h[0].dx) / total;
-                if (Math.abs(avg) > Math.abs(vx)) vx = avg;
+            if (live && drag.lt) {
+                var total = performance.now() - drag.lt;
+                if (total >= 30) {
+                    var avg = dx / total;
+                    if (Math.abs(avg) > Math.abs(vx)) vx = avg;
+                }
             }
-            var v = -vx / slot(); // photos per ms, positive = forward (drag left)
-            pos = Math.max(0, Math.min(list.length - 1, d.target));
-            if (Math.abs(v) > 0.0004) glide(v); else settle(pos);
-        }
-        // Momentum: exponential decay from the release speed, capped so a wild flick
-        // stays readable, then ease onto the nearest photo.
-        function glide(v0) {
-            var tau = 700, vmax = 0.012; // ~12 photos/s cap
-            var v = Math.max(-vmax, Math.min(vmax, v0));
-            var last = performance.now();
-            momentum = requestAnimationFrame(function step(now) {
-                var dt = Math.min(50, now - last); last = now;
-                pos += v * dt;
-                v *= Math.exp(-dt / tau);
-                if (pos < 0) { pos = 0; v = 0; }
-                if (pos > list.length - 1) { pos = list.length - 1; v = 0; }
-                shown = pos;
-                render();
-                if (Math.abs(v) * slot() > 0.06) momentum = requestAnimationFrame(step); // >60px/s keeps gliding
-                else { momentum = 0; settle(pos); }
-            });
+            stopFollow();
+            drag = null;
+            img.style.transition = '';
+            if (!live) { img.style.transform = ''; return; }
+            var w = lb.clientWidth || 320;
+            var flick = Math.abs(vx) > 0.9;
+            if (Math.abs(dx) > w * 0.15 || flick) {
+                var dir = dx < 0 ? 1 : -1;
+                // A fast release keeps gliding: the quicker the flick, the more photos it
+                // passes, capped so a wild swipe never skips the whole event. A deliberate
+                // drag stays one photo, and a long drag of full screen widths pages too.
+                var steps = Math.max(1, Math.round(Math.abs(dx) / w));
+                if (flick) steps = Math.max(steps, Math.round(Math.abs(vx) * 1.8));
+                steps = Math.min(8, steps);
+                img.style.transform = 'translateX(' + (-dir * w) + 'px)'; // glide out the way it was dragged
+                setTimeout(function () { show(cur + dir * steps, dir); }, 140);
+            } else {
+                img.style.transform = ''; // short drag: settle back in place
+            }
         }
         lb.addEventListener('touchstart', function (e) {
             if (e.touches.length !== 1 || zoomed()) { killDrag(); return; }
@@ -1321,8 +1257,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: false });
         lb.addEventListener('touchend', function (e) {
             if (e.touches.length > 0) { killDrag(); return; } // one finger still down after a pinch: gesture stays dead
-            var t = e.changedTouches && e.changedTouches[0];
-            endDrag(t && t.clientX, t && t.clientY);
+            endDrag();
         });
         lb.addEventListener('touchcancel', killDrag);
         // The same gesture with a mouse on desktop: a plain click stays a click because the
@@ -1335,8 +1270,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!drag || zoomed()) return;
             if (moveDrag(e.clientX, e.clientY)) e.preventDefault();
         });
-        lb.addEventListener('mouseup', function (e) { endDrag(e.clientX, e.clientY); });
-        lb.addEventListener('mouseleave', function () { endDrag(); });
+        lb.addEventListener('mouseup', endDrag);
+        lb.addEventListener('mouseleave', endDrag);
         lb.addEventListener('dragstart', function (e) { e.preventDefault(); });
     });
 })();
