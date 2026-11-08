@@ -69,6 +69,7 @@ const staticTranslations = {
         modal_motion: "נושא הדיון",
         modal_votes: "קולות",
         modal_full_debate: "הדיבייט המלא",
+        modal_gallery: "מהאירוע",
         launch_details_hint: "+ לחצו לפרטים על נושא הדיון",
         future_title: "במוקד: עימותים קרובים",
         contact_label: "צרו קשר",
@@ -155,6 +156,7 @@ const staticTranslations = {
         modal_motion: "Motion",
         modal_votes: "Votes",
         modal_full_debate: "Full Debate",
+        modal_gallery: "From the event",
         launch_details_hint: "+ Click for motion details",
         future_title: "In Focus: Upcoming Debates",
         contact_label: "Contact Us",
@@ -242,6 +244,7 @@ const staticTranslations = {
         modal_motion: "موضوع النقاش",
         modal_votes: "أصوات",
         modal_full_debate: "النقاش الكامل",
+        modal_gallery: "من الحدث",
         launch_details_hint: "+ اضغط لمعرفة تفاصيل النقاش",
         future_title: "في التركيز: مناظرات قادمة",
         contact_label: "اتصل بنا",
@@ -509,7 +512,7 @@ async function loadEventsData(lang = 'he') {
             sideData.speakers.forEach(speaker => {
                 html += `
                     <div class="speaker">
-                        <img src="${speaker.img}" alt="${speaker.name}" class="speaker-img">
+                        <img src="${speaker.img}" alt="${speaker.name}" class="speaker-img" loading="lazy" decoding="async">
                         <div class="speaker-info">
                             <p>${speaker.name}</p>
                             <span>${speaker.role}</span>
@@ -596,7 +599,7 @@ async function loadEventsData(lang = 'he') {
                     if (!sideData) return '';
                     const speakersHTML = (sideData.speakers || []).map(sp => `
                         <div class="speaker">
-                            <img src="${sp.img || 'assets/archive/avatar-placeholder.webp'}" alt="${sp.name || ''}" class="speaker-img">
+                            <img src="${sp.img || 'assets/archive/avatar-placeholder.webp'}" alt="${sp.name || ''}" class="speaker-img" loading="lazy" decoding="async">
                             <div class="speaker-info">
                                 <p>${sp.name || ''}</p>
                                 <span>${sp.role || ''}</span>
@@ -712,6 +715,16 @@ async function loadEventsData(lang = 'he') {
             }
         });
 
+        // Lazy card covers: a cover image is fetched only when its card approaches the viewport.
+        const lazyCover = (el, url) => {
+            if (!el || !url) return;
+            if (!('IntersectionObserver' in window)) { el.style.backgroundImage = `url('${url}')`; return; }
+            const io = new IntersectionObserver((entries, obs) => {
+                entries.forEach(en => { if (en.isIntersecting) { el.style.backgroundImage = `url('${url}')`; obs.disconnect(); } });
+            }, { rootMargin: '400px' });
+            io.observe(el);
+        };
+
         // --- ב. ארכיון אירועי עבר ---
         const track = document.getElementById('archiveTrack');
         const template = document.getElementById('archive-card-template');
@@ -727,7 +740,7 @@ async function loadEventsData(lang = 'he') {
                 const dateEl = clone.querySelector('.event-date');
                 const titleEl = clone.querySelector('.event-card-title');
 
-                if (card) card.style.backgroundImage = `url('${event.coverImage}')`;
+                if (card) lazyCover(card, event.coverImage);
                 if (dateEl) dateEl.textContent = event.date;
                 if (titleEl) titleEl.innerHTML = `${event.eventType || ''}<br>${event.title}`;
 
@@ -772,6 +785,7 @@ async function loadEventsData(lang = 'he') {
                             sidesContainer.innerHTML = buildSideHTML(event.sides.sideA) + buildSideHTML(event.sides.sideB);
                         }
 
+                        if (window.renderEventGallery) window.renderEventGallery(event.gallery);
                         document.getElementById('eventModal').classList.add('active');
                     });
                 }
@@ -1051,4 +1065,84 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     function init() { document.querySelectorAll('.event-modal-content').forEach(attach); }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+
+
+// Event gallery: photo strip inside the past-event modal + lightbox with paging, dots and original download.
+(function () {
+    var list = [], cur = 0;
+    var wrap, strip, lb, img, dl, dots;
+    var MAXDOTS = 15, dotStart = 0; // the dot row shows a sliding window so long galleries do not overflow
+    function $(id) { return document.getElementById(id); }
+    function renderDots() {
+        var n = Math.min(list.length, MAXDOTS);
+        dots.innerHTML = '';
+        for (var k = 0; k < n; k++) { var d = document.createElement('i'); d.style.left = (k * 14 + 8) + 'px'; dots.appendChild(d); }
+        var p = document.createElement('b'); dots.appendChild(p);
+        dots.style.width = ((n - 1) * 14 + 22) + 'px';
+    }
+    function show(i) {
+        cur = (i + list.length) % list.length;
+        img.src = list[cur].src;
+        if (list[cur].full) { dl.href = list[cur].full; dl.setAttribute('data-orig', '1'); }
+        else { dl.removeAttribute('data-orig'); dl.href = list[cur].src; }
+        // Quietly prefetch the immediate neighbours so paging feels instant; runs only while the lightbox is open.
+        [1, -1].forEach(function (o) {
+            var n = list[(cur + o + list.length) % list.length];
+            if (n && n.src) { var pf = new Image(); pf.src = n.src; }
+        });
+        // Slide the dot window so the current dot stays visible.
+        if (cur < dotStart) dotStart = cur;
+        if (cur > dotStart + MAXDOTS - 1) dotStart = cur - MAXDOTS + 1;
+        var maxStart = Math.max(0, list.length - MAXDOTS);
+        if (dotStart > maxStart) dotStart = maxStart;
+        Array.prototype.forEach.call(dots.children, function (d, k) { if (d.tagName === 'I') d.classList.toggle('on', k === cur - dotStart); });
+        var pill = dots.querySelector('b');
+        if (pill) pill.style.transform = 'translateX(' + ((cur - dotStart) * 14) + 'px)';
+    }
+    function open(i) {
+        lb.hidden = false; document.body.classList.add('eg-open');
+        dotStart = 0;
+        renderDots();
+        dots.style.display = list.length > 1 ? '' : 'none';
+        show(i);
+    }
+    function close() { lb.hidden = true; document.body.classList.remove('eg-open'); img.removeAttribute('src'); }
+    window.renderEventGallery = function (items) {
+        wrap = wrap || $('modalGallery'); if (!wrap) return;
+        strip = $('egStrip'); lb = $('egLightbox'); img = $('egImg'); dl = $('egDownload'); dots = $('egDots');
+        list = Array.isArray(items) ? items : [];
+        strip.innerHTML = '';
+        strip.scrollLeft = 0;
+        wrap.hidden = list.length === 0;
+        list.forEach(function (it, i) {
+            var b = document.createElement('button');
+            b.type = 'button'; b.className = 'eg-thumb';
+            var t = document.createElement('img');
+            t.src = it.src; t.loading = 'lazy'; t.decoding = 'async'; t.alt = '';
+            b.appendChild(t);
+            b.addEventListener('click', function () { open(i); });
+            strip.appendChild(b);
+        });
+    };
+    document.addEventListener('DOMContentLoaded', function () {
+        var c = $('egClose'); if (!c) return;
+        lb = $('egLightbox'); img = $('egImg'); dl = $('egDownload'); dots = $('egDots');
+        c.addEventListener('click', close);
+        $('egBackdrop').addEventListener('click', close);
+        $('egPrev').addEventListener('click', function () { show(cur - 1); });
+        $('egNext').addEventListener('click', function () { show(cur + 1); });
+        document.addEventListener('keydown', function (e) {
+            if (!lb || lb.hidden) return;
+            if (e.key === 'Escape') { e.stopPropagation(); close(); }
+            else if (e.key === 'ArrowLeft') show(cur + 1);
+            else if (e.key === 'ArrowRight') show(cur - 1);
+        }, true);
+        var sx = null;
+        lb.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+        lb.addEventListener('touchend', function (e) {
+            if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null;
+            if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+        }, { passive: true });
+    });
 })();
