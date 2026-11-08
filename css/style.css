@@ -2789,9 +2789,9 @@ html[dir] .archive-section-outer .event-card-img .event-date {
 .event-gallery { margin-top: 24px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.07); }
 .eg-head { display: block; margin-bottom: 12px; }
 .event-gallery[hidden] { display: none; }
-.eg-strip { display: flex; gap: 4px; height: 128px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -ms-overflow-style: none; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+.eg-strip { display: flex; gap: 4px; height: 128px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; }
 .eg-strip::-webkit-scrollbar { display: none; }
-.eg-thumb { flex: 0 0 auto; height: 100%; padding: 0; border: 0; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; cursor: pointer; scroll-snap-align: start; }
+.eg-thumb { flex: 0 0 auto; height: 100%; padding: 0; border: 0; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; cursor: pointer; }
 .eg-thumb img { height: 100%; width: auto; min-width: 90px; max-width: 220px; object-fit: cover; display: block; }
 .eg-lightbox { position: fixed; inset: 0; z-index: 3000; display: flex; align-items: center; justify-content: center; }
 .eg-lightbox[hidden] { display: none; }
