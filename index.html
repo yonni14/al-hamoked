@@ -21,7 +21,7 @@
     <link rel="preload" as="image" href="assets/backgrounds/home-bg.webp" media="(max-width: 768px)">
     <link rel="preload" as="image" href="assets/backgrounds/home-desktop.webp" media="(min-width: 769px)">
 
-    <link rel="stylesheet" href="css/style.css?v=hero-desktop-20261028">
+    <link rel="stylesheet" href="css/style.css?v=gallery-20261106">
     <link rel="stylesheet" href="css/scroll-dots.css?v=4">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -169,19 +169,19 @@
                         <a href="https://www.timesofisrael.com/debate-returns-to-old-knesset-building-for-first-time-in-60-years/"
                             target="_blank" class="event-card-img auto-width static-card">
                             <img src="assets/archive/730703763_18092832350096565_79495857836698295_n.webp"
-                                alt="Times of Israel Article" loading="lazy" class="card-bg-img">
+                                alt="Times of Israel Article" loading="lazy" decoding="async" class="card-bg-img">
                             <div class="card-text-overlay">
                                 <span class="event-date">Times of Israel</span>
                                 <span class="event-card-title">Debate returns to Old Knesset building for first time in 60 years</span>
                             </div>
                         </a>
-                        <img src="assets/archive/732610773_18092832368096565_1071673198414799114_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
-                        <img src="assets/archive/photo-01.webp" alt="תמונת אווירה" class="flex-img">
-                        <img src="assets/archive/731335965_18092832377096565_7592075476505963204_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
-                        <img src="assets/archive/730713371_18092832341096565_2025634589810185414_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
-                        <img src="assets/archive/731068116_18092832398096565_5347207243813597346_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
-                        <img src="assets/archive/730786551_18092832380096565_2765289788235460997_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
-                        <img src="assets/archive/730774671_18092832389096565_7998700426880721513_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy">
+                        <img src="assets/archive/732610773_18092832368096565_1071673198414799114_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy" decoding="async">
+                        <img src="assets/archive/photo-01.webp" alt="תמונת אווירה" class="flex-img" loading="lazy" decoding="async">
+                        <img src="assets/archive/731335965_18092832377096565_7592075476505963204_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy" decoding="async">
+                        <img src="assets/archive/730713371_18092832341096565_2025634589810185414_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy" decoding="async">
+                        <img src="assets/archive/731068116_18092832398096565_5347207243813597346_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy" decoding="async">
+                        <img src="assets/archive/730786551_18092832380096565_2765289788235460997_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy" decoding="async">
+                        <img src="assets/archive/730774671_18092832389096565_7998700426880721513_n.webp" alt="תמונת אווירה" class="flex-img" loading="lazy" decoding="async">
                     </div>
 
                     <div class="archive-track-flex tab-content" id="archiveTrack">
@@ -248,7 +248,13 @@
                     </div>
                 </div>
 
-                <!-- 3. סרטון היוטיוב (שלישי בתחתית עם ריווח גדול) -->
+                <!-- 3. גלריית תמונות של האירוע (מוצגת רק אם יש תמונות) -->
+                <div id="modalGallery" class="event-gallery" hidden>
+                    <span class="motion-label eg-head"><span data-i18n="modal_gallery">מהאירוע</span></span>
+                    <div class="eg-strip" id="egStrip"></div>
+                </div>
+
+                <!-- 4. סרטון היוטיוב (בתחתית עם ריווח גדול) -->
                 <div
                     style="margin-top: 80px; padding-top: 50px; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center;">
                     <span class="motion-label" style="margin-bottom: 20px; display: block;"
@@ -261,6 +267,18 @@
         </div>
     </div>
 
+
+    <div class="eg-lightbox" id="egLightbox" hidden role="dialog" aria-modal="true">
+        <div class="eg-backdrop" id="egBackdrop"></div>
+        <button class="eg-close" id="egClose" type="button" aria-label="סגירה">&times;</button>
+        <a class="eg-download" id="egDownload" download target="_blank" rel="noopener" aria-label="הורדה באיכות מלאה" title="הורדת התמונה המקורית באיכות מלאה">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>
+        </a>
+        <button class="eg-nav eg-prev" id="egPrev" type="button" aria-label="הקודם">&#8250;</button>
+        <button class="eg-nav eg-next" id="egNext" type="button" aria-label="הבא">&#8249;</button>
+        <img class="eg-img" id="egImg" alt="">
+        <div class="eg-dots" id="egDots" aria-hidden="true"></div>
+    </div>
 
     <div class="event-modal" id="ticketModal" role="dialog" aria-modal="true" aria-labelledby="ticketTitle" hidden>
         <div class="event-modal-backdrop" data-ticket-close></div>
