@@ -823,33 +823,7 @@ async function loadEventsData(lang = 'he') {
                             </div>
                         </div>`;
                 } else if (event.sides) {
-                    speakersHTML = `
-                        <div class="draft" style="margin: 20px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                            <div style="padding: 15px; background: rgba(0,0,0,0.03); border-radius: 8px;">
-                                <strong style="color: var(--accent-red); display:block; margin-bottom:10px;">${event.sides.sideA.name}</strong>
-                                ${event.sides.sideA.speakers.map(s => `
-                                    <div class="future-speaker">
-                                        <img src="${s.img}" alt="${s.name}" class="future-speaker-img" loading="lazy">
-                                        <div>
-                                            <p style="font-weight: bold; margin-bottom:0;">${s.name}</p>
-                                            <span style="font-size: 0.9rem; color: #475569;">${s.role}</span>
-                                        </div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                            <div style="padding: 15px; background: rgba(0,0,0,0.03); border-radius: 8px;">
-                                <strong style="color: var(--accent-red); display:block; margin-bottom:10px;">${event.sides.sideB.name}</strong>
-                                ${event.sides.sideB.speakers.map(s => `
-                                    <div class="future-speaker">
-                                        <img src="${s.img}" alt="${s.name}" class="future-speaker-img" loading="lazy">
-                                        <div>
-                                            <p style="font-weight: bold; margin-bottom:0;">${s.name}</p>
-                                            <span style="font-size: 0.9rem; color: #475569;">${s.role}</span>
-                                        </div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>`;
+                    speakersHTML = `<div class="sides-grid">${buildSideHTML(event.sides.sideA)}${buildSideHTML(event.sides.sideB)}</div>`;
                 }
 
                 const eventRow = document.createElement('div');
